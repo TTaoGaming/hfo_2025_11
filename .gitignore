@@ -23,3 +23,11 @@ ingestion/reference_tools/
 # OS
 .DS_Store
 Thumbs.db
+
+# Large Memory Dumps & Logs
+memory/episodic/raw_audit_logs/
+memory/episodic/simulation_results/
+*.parquet
+*.jsonl
+*.tsv
+memory/episodic/raw_audit_logs/hfo_gems_raw/concept_map.json
