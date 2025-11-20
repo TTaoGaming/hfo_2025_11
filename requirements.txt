@@ -4,6 +4,7 @@
 langgraph>=0.0.10       # SOTA State Machines (PREY Loop)
 langchain-openai>=0.0.5 # OpenRouter/OpenAI Integration
 pydantic>=2.5.0         # The "Intent" Layer (SSOT)
+pydantic-settings>=2.0.0 # Settings Management
 
 # --- The Factory (Orchestration & Scale) ---
 temporalio>=1.4.0       # Durable Execution (The Manager)
@@ -19,5 +20,8 @@ numpy>=1.26.0           # Math for evolution
 # --- Utilities ---
 python-dotenv>=1.0.0    # Config
 pytest>=8.0.0           # Testing
+pytest-bdd>=7.0.0       # Behavior Driven Development (Gherkin)
 pytest-asyncio>=0.23.0  # Async testing
+dspy-ai>=2.0.0          # DSPy for Prompt Optimization
 tiktoken>=0.5.0         # Token counting
+PyYAML>=6.0.0           # Configuration

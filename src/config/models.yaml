@@ -1,0 +1,33 @@
+# -----------------------------------------------------------------------------
+# 🦅 Hive Fleet Obsidian: Model Registry
+# -----------------------------------------------------------------------------
+# Paste your weekly updated model list here.
+# The system will automatically load these for the Swarm.
+# -----------------------------------------------------------------------------
+
+models:
+  # --- 🧠 Cheap Navigators (Good Enough Leaders) ---
+  # Role: Intent, Coordination, Synthesis.
+  # Criteria: IQ > 60, Price < $0.70
+  navigator:
+    - "x-ai/grok-4.1-fast"
+    - "openai/gpt-5-mini-high"
+
+  # --- 🐝 Cheap QD Swarm (Multi-Family Diversity) ---
+  # Role: Mass Execution, Voting, Diversity.
+  # Criteria: Price ~ $0.30 or less. 5 Distinct Families.
+  swarm:
+    - "x-ai/grok-4.1-fast"                  # xAI (Anchor)
+    - "openai/gpt-oss-120b"                 # OpenAI (Open Weights)
+    - "google/gemini-2.5-flash-lite-sep"    # Google (Efficiency)
+    - "qwen/qwen3-next-80b-a3b-instruct"    # Qwen (Next Gen)
+    - "deepseek/deepseek-v3.2-exp"          # DeepSeek (Experimental)
+
+  # --- 🛡️ Safety Models (Immunizer) ---
+  safety:
+    - "meta-llama/llama-guard-2-8b"
+
+  # --- 🧪 Experimental ---
+  experimental:
+    - "moonshotai/kimi-k2-thinking"         # (Note: >$1.00, use sparingly)
+    - "servicenow/apriel-v1.5-15b-thinker"  # (Free alternative)

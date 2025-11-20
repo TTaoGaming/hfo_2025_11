@@ -74,3 +74,11 @@ We are executing **Generation 50 (The Evolutionary Forge)**. This is a "Phoenix"
 | :--- | :--- | :--- | :--- |
 | 2025-11-20 | Swarmlord | Protocol initialized. Awaiting Gherkin/Mermaid definitions. | 🟢 Active |
 | 2025-11-20 | Swarmlord | **Mission Update**: Setup T.R.A.M.E. stack for 10-agent Byzantine Quorum via OpenRouter. Target: Scalability to 1M+ agents. | 🟡 In Progress |
+| 2025-11-20 | Swarmlord | **Architecture Update**: R.A.P.T.O.R. Stack initialized. Pydantic SSOT models (`src/models/`) deployed. Gherkin/Mermaid Intent definitions (`intent/`) complete. | 🟢 Active |
+| 2025-11-20 | Swarmlord | **Verification**: Implemented `pytest-bdd` step definitions for `intent/swarm_workflow.feature`. SWARM Loop logic is now executable and passing tests. | 🟢 Active |
+| 2025-11-20 | Swarmlord | **Protocol Update**: Modified SWARM Loop to inject Disruptors during 'Act' phase and use DSPy for prompt evolution in 'Mutate' phase. | 🟢 Active |
+| 2025-11-20 | Swarmlord | **SSOT Alignment**: Updated Pydantic models (`MissionIntent`, `SwarmState`) to strictly enforce Gherkin definitions (Disruptor config, DSPy state). | 🟢 Active |
+| 2025-11-20 | Swarmlord | **Security & Config**: Created `.env` (git-ignored) for keys and `src/config/models.yaml` for the weekly model registry. | 🟢 Active |
+| 2025-11-20 | Swarmlord | **FinOps Protocol**: Established `docs/FINOPS_STRATEGY.md`. Strict split between Navigator (Gemini 3/GPT-5.1) and Swarm (Grok 4.1/GPT-OSS). | 🟢 Active |
+| 2025-11-20 | Swarmlord | **Model Strategy Update**: Simplified to "Cheap Navigators" (Grok/GPT-5 Mini) and "Cheap QD Swarm" (5 Families: xAI, OpenAI, Google, Qwen, DeepSeek). | 🟢 Active |
+| 2025-11-20 | Swarmlord | **Formalization**: Updated `intent/swarm_workflow.feature` and `src/models/intent.py` to strictly enforce "Cheap Navigators" and "Cheap QD Swarm" strategy. Excluded Gemini 3 Pro from swarm. | 🟢 Active |
