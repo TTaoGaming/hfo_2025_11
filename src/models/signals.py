@@ -3,8 +3,8 @@ from typing import Dict, Any, Optional
 from pydantic import BaseModel, Field, UUID4
 from datetime import datetime
 import uuid
-from .intent import MissionIntent
-from .state import AgentRole, IntentStatus
+from .intent import MissionIntent, IntentStatus
+from .state import AgentRole
 
 class SignalType(str, Enum):
     HEARTBEAT = "heartbeat"
