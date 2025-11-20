@@ -1,0 +1,12 @@
+graph TD
+    User[Hive Mind] -->|Defines| Intent[Intent Layer]
+    Intent -->|Contains| Gherkin[Gherkin Features]
+    Intent -->|Contains| Mermaid[Mermaid Diagrams]
+    
+    Intent -->|Drives| Implementation[Implementation Layer]
+    Implementation -->|Uses| AI[AI Coding Agent]
+    Implementation -->|Stores| Memory[Unified Memory Bank]
+    
+    Memory -->|Powered By| PG[Postgres + pgvector]
+    Archive[Archive / AI Slop] -->|Ingested By| Ingestion[Ingestion Pipeline]
+    Ingestion -->|Feeds| Memory
