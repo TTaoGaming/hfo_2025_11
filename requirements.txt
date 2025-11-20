@@ -2,9 +2,17 @@
 
 # --- The Brain (Agent Logic) ---
 langgraph>=0.0.10       # SOTA State Machines (PREY Loop)
+langchain>=0.1.0        # Main LangChain Package
 langchain-openai>=0.0.5 # OpenRouter/OpenAI Integration
 pydantic>=2.5.0         # The "Intent" Layer (SSOT)
 pydantic-settings>=2.0.0 # Settings Management
+
+# --- The Nervous System (Messaging & Memory) ---
+nats-py>=2.6.0          # NATS JetStream Client
+asyncpg>=0.29.0         # Async Postgres Driver
+psycopg2-binary>=2.9.9  # Sync Postgres Driver (for tools)
+pgvector>=0.2.4         # PGVector Python Client
+sqlalchemy>=2.0.0       # ORM (Optional but recommended)
 
 # --- The Factory (Orchestration & Scale) ---
 temporalio>=1.4.0       # Durable Execution (The Manager)

@@ -6,6 +6,10 @@ import nats
 from temporalio.client import Client
 from langchain import __version__ as lc_version
 import pydantic
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Configuration (Defaults match docker-compose.yml service names)
 # When running inside the container, these hostnames resolve automatically.

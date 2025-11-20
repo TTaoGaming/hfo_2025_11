@@ -64,6 +64,13 @@ We are executing **Generation 50 (The Evolutionary Forge)**. This is a "Phoenix"
 | **O** | **Observability** | `langsmith` | **Eyes**: Tracing, debugging, and monitoring swarm behavior. |
 | **R** | **Ribs** | `ribs` (pyribs) | **Evolution**: MAP-Elites for quality-diversity and co-evolution. |
 
+### 🛡️ Hybrid Stability Protocol (Anti-Fragile)
+*To prevent memory crashes and networking fragility, we use a split-brain architecture:*
+1.  **Infrastructure (Docker)**: Postgres (5435), Temporal (7235), NATS (4225). Isolated & Clean.
+2.  **Agents (Host)**: Python 3.10+ running locally. Fast & Stable.
+*   **Setup**: Run `./setup_hybrid.sh` to launch infrastructure and create venv.
+*   **Verify**: Run `source venv/bin/activate && python src/smoke_test.py`.
+
 ---
 
 ## 📋 Mini Blackboard (Stigmergy Signal Layer)
@@ -88,3 +95,4 @@ We are executing **Generation 50 (The Evolutionary Forge)**. This is a "Phoenix"
 | 2025-11-20 | Swarmlord | **Intent Definition**: Formalized Stigmergy Layer via `intent/stigmergy_layer.feature` and `intent/stigmergy_architecture.mmd`. | 🟢 Active |
 | 2025-11-20 | Swarmlord | **Documentation Update**: Enforced "Mermaid in Markdown" standard. Replaced `.mmd` with `intent/stigmergy_architecture.md` for better previewability. | 🟢 Active |
 | 2025-11-20 | Swarmlord | **Intent Definition**: Formalized Memory GraphRAG System via `intent/memory_graphrag.feature` and `intent/memory_architecture.md`. | 🟢 Active |
+| 2025-11-20 | Swarmlord | **Infrastructure Update**: Shifted to "Hybrid Stability Protocol". Infrastructure (DB, Temporal, NATS) runs in Docker on safe ports (5435, 7235, 4225). Agents run on Host. Smoke tests GREEN. | 🟢 Active |
