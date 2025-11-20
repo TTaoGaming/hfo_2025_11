@@ -29,6 +29,8 @@ memory/episodic/raw_audit_logs/
 memory/episodic/simulation_results/
 memory/procedural/gen_1_50_codebase/
 memory/semantic/vector_db_snapshots/
+audit_trail/
+ingestion/unified_memory_dump.jsonl
 *.parquet
 *.jsonl
 *.tsv
