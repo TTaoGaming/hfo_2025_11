@@ -1,0 +1,918 @@
+{
+  "summary": {
+    "predator_policy": "spiral_closure",
+    "prey_policy": "random",
+    "episodes": 100,
+    "seed": 42,
+    "catch_rate": 0.82,
+    "timeout_rate": 0.18,
+    "catch_count": 82,
+    "timeout_count": 18,
+    "average_steps": 14.22,
+    "median_steps": 13.0,
+    "avg_predator_return": 24.9,
+    "avg_prey_return": -15.60725258741114
+  },
+  "episodes": [
+    {
+      "episode": 0,
+      "seed": 478163327,
+      "steps": 23,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -34.77724055360174
+    },
+    {
+      "episode": 1,
+      "seed": 1193448329,
+      "steps": 18,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.639360853036866
+    },
+    {
+      "episode": 2,
+      "seed": 298737106,
+      "steps": 18,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 3,
+      "seed": 701808367,
+      "steps": 12,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -31.604877951887694
+    },
+    {
+      "episode": 4,
+      "seed": 906164396,
+      "steps": 7,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 5,
+      "seed": 599707677,
+      "steps": 18,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 6,
+      "seed": 1079815404,
+      "steps": 6,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 7,
+      "seed": 1867302554,
+      "steps": 4,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 8,
+      "seed": 767303988,
+      "steps": 25,
+      "caught": false,
+      "timeout": true,
+      "predator_return": 0.0,
+      "prey_return": -17.82582999154436
+    },
+    {
+      "episode": 9,
+      "seed": 1817363615,
+      "steps": 20,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 10,
+      "seed": 134917627,
+      "steps": 12,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 11,
+      "seed": 405126228,
+      "steps": 12,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.210050767971072
+    },
+    {
+      "episode": 12,
+      "seed": 1067970820,
+      "steps": 7,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -14.92758231649561
+    },
+    {
+      "episode": 13,
+      "seed": 1986972437,
+      "steps": 8,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -15.539167142433506
+    },
+    {
+      "episode": 14,
+      "seed": 714300770,
+      "steps": 5,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 60.0,
+      "prey_return": -20.046901640578046
+    },
+    {
+      "episode": 15,
+      "seed": 251837136,
+      "steps": 19,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -35.34201078408096
+    },
+    {
+      "episode": 16,
+      "seed": 676168421,
+      "steps": 1,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 17,
+      "seed": 344076115,
+      "steps": 20,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -11.213731418460156
+    },
+    {
+      "episode": 18,
+      "seed": 1357970698,
+      "steps": 20,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -48.17198346781772
+    },
+    {
+      "episode": 19,
+      "seed": 1135872495,
+      "steps": 21,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 20,
+      "seed": 1897669065,
+      "steps": 25,
+      "caught": false,
+      "timeout": true,
+      "predator_return": 0.0,
+      "prey_return": -40.91089865395976
+    },
+    {
+      "episode": 21,
+      "seed": 106456634,
+      "steps": 15,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 22,
+      "seed": 977515194,
+      "steps": 25,
+      "caught": false,
+      "timeout": true,
+      "predator_return": 0.0,
+      "prey_return": -21.788635976675057
+    },
+    {
+      "episode": 23,
+      "seed": 1094024844,
+      "steps": 1,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.169020969554355
+    },
+    {
+      "episode": 24,
+      "seed": 1872852789,
+      "steps": 25,
+      "caught": false,
+      "timeout": true,
+      "predator_return": 0.0,
+      "prey_return": 0.0
+    },
+    {
+      "episode": 25,
+      "seed": 1846355528,
+      "steps": 1,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 26,
+      "seed": 1997109065,
+      "steps": 15,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 27,
+      "seed": 198486416,
+      "steps": 1,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 28,
+      "seed": 2040695043,
+      "steps": 25,
+      "caught": false,
+      "timeout": true,
+      "predator_return": 0.0,
+      "prey_return": 0.0
+    },
+    {
+      "episode": 29,
+      "seed": 683577992,
+      "steps": 16,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -19.748352260830586
+    },
+    {
+      "episode": 30,
+      "seed": 594312071,
+      "steps": 19,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -29.579939016239393
+    },
+    {
+      "episode": 31,
+      "seed": 1510792572,
+      "steps": 25,
+      "caught": false,
+      "timeout": true,
+      "predator_return": 0.0,
+      "prey_return": 0.0
+    },
+    {
+      "episode": 32,
+      "seed": 1117362852,
+      "steps": 17,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -32.84399021796971
+    },
+    {
+      "episode": 33,
+      "seed": 172907376,
+      "steps": 5,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 34,
+      "seed": 1024542722,
+      "steps": 23,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 35,
+      "seed": 1491228808,
+      "steps": 6,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 36,
+      "seed": 2105400301,
+      "steps": 25,
+      "caught": false,
+      "timeout": true,
+      "predator_return": 0.0,
+      "prey_return": -54.162521172486734
+    },
+    {
+      "episode": 37,
+      "seed": 2094011037,
+      "steps": 1,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 38,
+      "seed": 1523961606,
+      "steps": 9,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -15.491313344737243
+    },
+    {
+      "episode": 39,
+      "seed": 2098425880,
+      "steps": 10,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 40,
+      "seed": 1315144891,
+      "steps": 3,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -11.486363182208695
+    },
+    {
+      "episode": 41,
+      "seed": 1827524957,
+      "steps": 25,
+      "caught": false,
+      "timeout": true,
+      "predator_return": 0.0,
+      "prey_return": -10.910120253879835
+    },
+    {
+      "episode": 42,
+      "seed": 543669676,
+      "steps": 10,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 43,
+      "seed": 2056061866,
+      "steps": 3,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 44,
+      "seed": 220661337,
+      "steps": 25,
+      "caught": false,
+      "timeout": true,
+      "predator_return": 0.0,
+      "prey_return": -7.908335326696092
+    },
+    {
+      "episode": 45,
+      "seed": 906346324,
+      "steps": 10,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 46,
+      "seed": 2018258729,
+      "steps": 19,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 47,
+      "seed": 1321182659,
+      "steps": 12,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 48,
+      "seed": 1384360647,
+      "steps": 13,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -19.669086649233783
+    },
+    {
+      "episode": 49,
+      "seed": 2111946238,
+      "steps": 25,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -20.23961310475525
+    },
+    {
+      "episode": 50,
+      "seed": 805660882,
+      "steps": 25,
+      "caught": false,
+      "timeout": true,
+      "predator_return": 0.0,
+      "prey_return": 0.0
+    },
+    {
+      "episode": 51,
+      "seed": 1174350979,
+      "steps": 2,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 52,
+      "seed": 2028168523,
+      "steps": 10,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 53,
+      "seed": 1147497835,
+      "steps": 25,
+      "caught": false,
+      "timeout": true,
+      "predator_return": 0.0,
+      "prey_return": -19.794541606848735
+    },
+    {
+      "episode": 54,
+      "seed": 542223599,
+      "steps": 22,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 55,
+      "seed": 1234283419,
+      "steps": 8,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 56,
+      "seed": 124327519,
+      "steps": 8,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 57,
+      "seed": 1048819999,
+      "steps": 25,
+      "caught": false,
+      "timeout": true,
+      "predator_return": 0.0,
+      "prey_return": -0.9920966389381269
+    },
+    {
+      "episode": 58,
+      "seed": 1297602688,
+      "steps": 19,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 59,
+      "seed": 816610683,
+      "steps": 7,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -12.97204885452072
+    },
+    {
+      "episode": 60,
+      "seed": 1567067057,
+      "steps": 22,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 61,
+      "seed": 387847884,
+      "steps": 5,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 62,
+      "seed": 1583063357,
+      "steps": 4,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 63,
+      "seed": 1004257438,
+      "steps": 14,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -15.102053907009225
+    },
+    {
+      "episode": 64,
+      "seed": 498733671,
+      "steps": 25,
+      "caught": false,
+      "timeout": true,
+      "predator_return": 0.0,
+      "prey_return": -7.7377317078337855
+    },
+    {
+      "episode": 65,
+      "seed": 1184901787,
+      "steps": 11,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 66,
+      "seed": 294678352,
+      "steps": 4,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 67,
+      "seed": 633740357,
+      "steps": 15,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 68,
+      "seed": 1139744790,
+      "steps": 25,
+      "caught": false,
+      "timeout": true,
+      "predator_return": 0.0,
+      "prey_return": -35.241782893439236
+    },
+    {
+      "episode": 69,
+      "seed": 637088959,
+      "steps": 25,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -27.810206420474454
+    },
+    {
+      "episode": 70,
+      "seed": 655579180,
+      "steps": 23,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -36.87320276623983
+    },
+    {
+      "episode": 71,
+      "seed": 963124353,
+      "steps": 16,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 72,
+      "seed": 779130936,
+      "steps": 2,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 73,
+      "seed": 298867122,
+      "steps": 13,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.109940957922024
+    },
+    {
+      "episode": 74,
+      "seed": 225953184,
+      "steps": 13,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 75,
+      "seed": 1482506118,
+      "steps": 20,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 76,
+      "seed": 1849649210,
+      "steps": 22,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -91.66365606366112
+    },
+    {
+      "episode": 77,
+      "seed": 1976101133,
+      "steps": 15,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 78,
+      "seed": 489740688,
+      "steps": 9,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.560237963276938
+    },
+    {
+      "episode": 79,
+      "seed": 745172634,
+      "steps": 25,
+      "caught": false,
+      "timeout": true,
+      "predator_return": 0.0,
+      "prey_return": -19.76867588155979
+    },
+    {
+      "episode": 80,
+      "seed": 329557138,
+      "steps": 11,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 81,
+      "seed": 444537179,
+      "steps": 18,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 82,
+      "seed": 405899939,
+      "steps": 5,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -11.109664700889596
+    },
+    {
+      "episode": 83,
+      "seed": 350048353,
+      "steps": 25,
+      "caught": false,
+      "timeout": true,
+      "predator_return": 0.0,
+      "prey_return": 0.0
+    },
+    {
+      "episode": 84,
+      "seed": 1270417388,
+      "steps": 4,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.063970510927865
+    },
+    {
+      "episode": 85,
+      "seed": 1617999521,
+      "steps": 8,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 86,
+      "seed": 1020184428,
+      "steps": 7,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 87,
+      "seed": 833293142,
+      "steps": 7,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 88,
+      "seed": 857695227,
+      "steps": 14,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -12.062885270838297
+    },
+    {
+      "episode": 89,
+      "seed": 393906783,
+      "steps": 10,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 90,
+      "seed": 350492684,
+      "steps": 10,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 91,
+      "seed": 2029178475,
+      "steps": 13,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 92,
+      "seed": 1293434554,
+      "steps": 9,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 93,
+      "seed": 1039116361,
+      "steps": 8,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 94,
+      "seed": 367709135,
+      "steps": 25,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -52.49966913535275
+    },
+    {
+      "episode": 95,
+      "seed": 271014739,
+      "steps": 25,
+      "caught": false,
+      "timeout": true,
+      "predator_return": 0.0,
+      "prey_return": -56.03698136265852
+    },
+    {
+      "episode": 96,
+      "seed": 1456151216,
+      "steps": 11,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -16.357915019698062
+    },
+    {
+      "episode": 97,
+      "seed": 1379592595,
+      "steps": 25,
+      "caught": false,
+      "timeout": true,
+      "predator_return": 0.0,
+      "prey_return": -48.76107006189059
+    },
+    {
+      "episode": 98,
+      "seed": 288765093,
+      "steps": 12,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 99,
+      "seed": 1576038028,
+      "steps": 6,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+	"name": "HFO Phoenix Environment",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "workspace",
+	"workspaceFolder": "/workspaces/hive_fleet_obsidian_2025_11",
+
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"alexkrechik.cucumberautocomplete",
+				"bierner.markdown-mermaid",
+				"ms-toolsai.jupyter",
+				"mechatroner.rainbow-csv",
+				"tamasfe.even-better-toml"
+			],
+			"settings": {
+				"python.defaultInterpreterPath": "/usr/local/bin/python",
+				"cucumberautocomplete.steps": [
+					"tests/step_defs/*.py"
+				],
+				"cucumberautocomplete.syncfeatures": "intent/*.feature",
+				"cucumberautocomplete.strictGherkinCompletion": true
+			}
+		}
+	},
+	"remoteUser": "vscode"
+}

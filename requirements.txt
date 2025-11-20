@@ -1,12 +1,23 @@
-pytest>=8.0.0
-pytest-bdd>=7.0.0
-psycopg2-binary>=2.9.9
-pgvector>=0.2.0
-langchain>=0.1.0
-openai>=1.0.0
-pydantic>=2.0.0
-numpy>=1.26.0
-pandas>=2.1.0
-python-dotenv>=1.0.0
-networkx>=3.0.0
-matplotlib>=3.8.0
+# 🦅 Hive Fleet Obsidian: Gen 50 Stack (Phoenix Protocol)
+
+# --- The Brain (Agent Logic) ---
+langgraph>=0.0.10       # SOTA State Machines (PREY Loop)
+langchain-openai>=0.0.5 # OpenRouter/OpenAI Integration
+pydantic>=2.5.0         # The "Intent" Layer (SSOT)
+
+# --- The Factory (Orchestration & Scale) ---
+temporalio>=1.4.0       # Durable Execution (The Manager)
+ray>=2.9.0              # Distributed Compute (The Swarm)
+
+# --- The Eyes (Observability) ---
+langsmith>=0.1.0        # Tracing & Debugging (Essential)
+
+# --- The Forge (Evolution) ---
+ribs>=0.5.0             # MAP-Elites (Quality-Diversity)
+numpy>=1.26.0           # Math for evolution
+
+# --- Utilities ---
+python-dotenv>=1.0.0    # Config
+pytest>=8.0.0           # Testing
+pytest-asyncio>=0.23.0  # Async testing
+tiktoken>=0.5.0         # Token counting

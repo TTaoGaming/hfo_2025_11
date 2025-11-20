@@ -1,0 +1,198 @@
+{
+  "summary": {
+    "predator_policy": "triad1_kalman_voronoi_potential",
+    "prey_policy": "random",
+    "episodes": 20,
+    "seed": 42,
+    "catch_rate": 0.2,
+    "timeout_rate": 0.8,
+    "catch_count": 4,
+    "timeout_count": 16,
+    "average_steps": 22.3,
+    "median_steps": 25.0,
+    "avg_predator_return": 6.0,
+    "avg_prey_return": -16.865309470733568
+  },
+  "episodes": [
+    {
+      "episode": 0,
+      "seed": 478163327,
+      "steps": 25,
+      "caught": false,
+      "timeout": true,
+      "predator_return": 0.0,
+      "prey_return": -29.661414548284707
+    },
+    {
+      "episode": 1,
+      "seed": 924765563,
+      "steps": 24,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -29.766505692402475
+    },
+    {
+      "episode": 2,
+      "seed": 1193887545,
+      "steps": 25,
+      "caught": false,
+      "timeout": true,
+      "predator_return": 0.0,
+      "prey_return": 0.0
+    },
+    {
+      "episode": 3,
+      "seed": 913224047,
+      "steps": 6,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    },
+    {
+      "episode": 4,
+      "seed": 1059257080,
+      "steps": 25,
+      "caught": false,
+      "timeout": true,
+      "predator_return": 0.0,
+      "prey_return": -0.19488656291587136
+    },
+    {
+      "episode": 5,
+      "seed": 679282378,
+      "steps": 25,
+      "caught": false,
+      "timeout": true,
+      "predator_return": 0.0,
+      "prey_return": -34.640824656946826
+    },
+    {
+      "episode": 6,
+      "seed": 551437149,
+      "steps": 25,
+      "caught": false,
+      "timeout": true,
+      "predator_return": 0.0,
+      "prey_return": 0.0
+    },
+    {
+      "episode": 7,
+      "seed": 1419179580,
+      "steps": 25,
+      "caught": false,
+      "timeout": true,
+      "predator_return": 0.0,
+      "prey_return": -49.13035200252458
+    },
+    {
+      "episode": 8,
+      "seed": 822873088,
+      "steps": 25,
+      "caught": false,
+      "timeout": true,
+      "predator_return": 0.0,
+      "prey_return": -81.56976300599614
+    },
+    {
+      "episode": 9,
+      "seed": 1676848676,
+      "steps": 25,
+      "caught": false,
+      "timeout": true,
+      "predator_return": 0.0,
+      "prey_return": -12.278959258972375
+    },
+    {
+      "episode": 10,
+      "seed": 170689150,
+      "steps": 25,
+      "caught": false,
+      "timeout": true,
+      "predator_return": 0.0,
+      "prey_return": -6.146300535665963
+    },
+    {
+      "episode": 11,
+      "seed": 1224011538,
+      "steps": 7,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -17.71122352193496
+    },
+    {
+      "episode": 12,
+      "seed": 1135872495,
+      "steps": 25,
+      "caught": false,
+      "timeout": true,
+      "predator_return": 0.0,
+      "prey_return": 0.0
+    },
+    {
+      "episode": 13,
+      "seed": 323169889,
+      "steps": 25,
+      "caught": false,
+      "timeout": true,
+      "predator_return": 0.0,
+      "prey_return": -7.909793836459186
+    },
+    {
+      "episode": 14,
+      "seed": 1065870178,
+      "steps": 25,
+      "caught": false,
+      "timeout": true,
+      "predator_return": 0.0,
+      "prey_return": 0.0
+    },
+    {
+      "episode": 15,
+      "seed": 1121910732,
+      "steps": 25,
+      "caught": false,
+      "timeout": true,
+      "predator_return": 0.0,
+      "prey_return": -9.273879131695825
+    },
+    {
+      "episode": 16,
+      "seed": 1400944900,
+      "steps": 25,
+      "caught": false,
+      "timeout": true,
+      "predator_return": 0.0,
+      "prey_return": -8.11361202458645
+    },
+    {
+      "episode": 17,
+      "seed": 1008752943,
+      "steps": 25,
+      "caught": false,
+      "timeout": true,
+      "predator_return": 0.0,
+      "prey_return": -30.908674636285998
+    },
+    {
+      "episode": 18,
+      "seed": 521231222,
+      "steps": 25,
+      "caught": false,
+      "timeout": true,
+      "predator_return": 0.0,
+      "prey_return": 0.0
+    },
+    {
+      "episode": 19,
+      "seed": 647812758,
+      "steps": 9,
+      "caught": true,
+      "timeout": false,
+      "predator_return": 30.0,
+      "prey_return": -10.0
+    }
+  ]
+}
