@@ -4,7 +4,7 @@ from pydantic import BaseModel, Field, UUID4
 from datetime import datetime
 import uuid
 from .intent import MissionIntent
-from .state import AgentRole, IntentStatus
+from .state import AgentRole
 
 class SignalType(str, Enum):
     HEARTBEAT = "heartbeat"
