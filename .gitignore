@@ -27,6 +27,8 @@ Thumbs.db
 # Large Memory Dumps & Logs
 memory/episodic/raw_audit_logs/
 memory/episodic/simulation_results/
+memory/procedural/gen_1_50_codebase/
+memory/semantic/vector_db_snapshots/
 *.parquet
 *.jsonl
 *.tsv
