@@ -44,6 +44,18 @@ class AgentState(BaseModel):
     def update_heartbeat(self):
         self.last_heartbeat = datetime.utcnow()
 
+class SwarmTelemetry(BaseModel):
+    """
+    High-level metrics for the Swarmlord Facade (Scalable View).
+    Used when managing thousands/millions of agents where individual state tracking is too expensive.
+    """
+    total_agents: int = 0
+    active_agents_count: int = 0
+    agents_by_role: Dict[AgentRole, int] = Field(default_factory=dict)
+    average_confidence: float = 0.0
+    global_throughput_tps: float = 0.0
+    system_health: float = 1.0
+
 class SwarmPhase(str, Enum):
     SET = "Set"
     WATCH = "Watch"
@@ -58,8 +70,11 @@ class SwarmState(BaseModel):
     generation_id: int
     phase: SwarmPhase = SwarmPhase.SET
     
-    # The Collective
+    # The Collective (Detailed View - for small swarms)
     active_agents: Dict[str, AgentState] = Field(default_factory=dict)
+    
+    # The Collective (Aggregate View - for massive swarms)
+    telemetry: Optional[SwarmTelemetry] = None
     
     # Evolution State (DSPy & MAP-Elites)
     current_dspy_prompt: Optional[str] = Field(default=None, description="The current optimized prompt signature")

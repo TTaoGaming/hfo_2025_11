@@ -82,3 +82,9 @@ We are executing **Generation 50 (The Evolutionary Forge)**. This is a "Phoenix"
 | 2025-11-20 | Swarmlord | **FinOps Protocol**: Established `docs/FINOPS_STRATEGY.md`. Strict split between Navigator (Gemini 3/GPT-5.1) and Swarm (Grok 4.1/GPT-OSS). | 🟢 Active |
 | 2025-11-20 | Swarmlord | **Model Strategy Update**: Simplified to "Cheap Navigators" (Grok/GPT-5 Mini) and "Cheap QD Swarm" (5 Families: xAI, OpenAI, Google, Qwen, DeepSeek). | 🟢 Active |
 | 2025-11-20 | Swarmlord | **Formalization**: Updated `intent/swarm_workflow.feature` and `src/models/intent.py` to strictly enforce "Cheap Navigators" and "Cheap QD Swarm" strategy. Excluded Gemini 3 Pro from swarm. | 🟢 Active |
+| 2025-11-20 | Swarmlord | **Deep Verification**: Initiating comprehensive "Hello World" tests for every component of the R.A.P.T.O.R. stack to ensure end-to-end functionality. | 🟡 In Progress |
+| 2025-11-20 | Swarmlord | **Verification Complete**: R.A.P.T.O.R. stack verified via `tests/test_raptor_deep.py`. Ray, LangGraph, Pydantic, Ribs, LangSmith all GREEN. Temporal skipped (env). | 🟢 Active |
+| 2025-11-20 | Swarmlord | **Strategic Pivot**: Prioritizing **NATS JetStream (Stigmergy)** over GraphRAG. Rationale: "The Bus builds the Brain." We need coordination to construct the memory graph. | 🟢 Active |
+| 2025-11-20 | Swarmlord | **Intent Definition**: Formalized Stigmergy Layer via `intent/stigmergy_layer.feature` and `intent/stigmergy_architecture.mmd`. | 🟢 Active |
+| 2025-11-20 | Swarmlord | **Documentation Update**: Enforced "Mermaid in Markdown" standard. Replaced `.mmd` with `intent/stigmergy_architecture.md` for better previewability. | 🟢 Active |
+| 2025-11-20 | Swarmlord | **Intent Definition**: Formalized Memory GraphRAG System via `intent/memory_graphrag.feature` and `intent/memory_architecture.md`. | 🟢 Active |
