@@ -72,7 +72,12 @@ def check_environment():
 def run_smoke_tests():
     """Offers to run the smoke tests."""
     console.print("\n[bold blue]🧪 Venom Protocol[/bold blue]")
-    response = console.input("Do you want to run the smoke tests (Venom)? [y/N]: ")
+    
+    if "--venom" in sys.argv:
+        response = 'y'
+        console.print("Running tests automatically due to --venom flag.")
+    else:
+        response = console.input("Do you want to run the smoke tests (Venom)? [y/N]: ")
     
     if response.lower() == 'y':
         console.print("[bold]🚀 Injecting Venom...[/bold]")

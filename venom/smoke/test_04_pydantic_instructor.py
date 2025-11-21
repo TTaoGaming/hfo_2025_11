@@ -13,7 +13,8 @@ def test_instructor_smoke():
     
     api_key = os.getenv("OPENROUTER_API_KEY")
     if not api_key:
-        pytest.skip("OPENROUTER_API_KEY not set")
+        print("   ⚠️ Skipped: OPENROUTER_API_KEY not set (Instructor test skipped)")
+        return
 
     try:
         client = instructor.from_openai(
