@@ -31,3 +31,17 @@ Feature: HFO Fractal Scaling (Holonic Hierarchy)
     And the Platoon Leader should detect the anomaly (Low Confidence)
     And the Platoon Leader should request a "Regeneration" of that Squad
     And the rest of the Company should continue execution unaffected
+
+  Scenario: Stigmergic Coordination (Multi-Round)
+    Given a Squad needs to coordinate over time
+    When Agent A produces an artifact in Round 1
+    Then it should publish a "Signal" to the Stigmergy Bus (NATS)
+    And Agent B in Round 2 should be able to read this Signal
+    And the Squad Leader should synthesize the evolution of the artifact across rounds
+
+  Scenario: Long-Term Memory Retrieval (pgvector)
+    Given a Platoon encounters a novel problem
+    When it queries the "Long-Term Memory" (pgvector)
+    Then it should retrieve relevant "Episodic Memories" from previous missions
+    And use this context to inform the current strategy
+    And the system should prepare for future "GraphRAG" integration

@@ -38,6 +38,18 @@ graph TD
     S1_Syn & S2_Syn & S3_Syn -->|Summaries| P1_Syn[Platoon Leader]
     P1_Syn & P2_Syn & P3_Syn -->|Summaries| C1_Syn[Company Leader]
     C1_Syn & C2_Syn & C3_Syn -->|Final Report| Overmind
+
+    %% Stigmergy & Memory Layer
+    subgraph "The Nervous System"
+        NATS[NATS JetStream (Stigmergy)]
+        DB[(Postgres / pgvector)]
+    end
+
+    S1 & S2 & S3 <-->|Signals (Hot State)| NATS
+    P1 & P2 & P3 <-->|Signals (Hot State)| NATS
+
+    S1 & S2 & S3 <-->|Query/Store (Cold State)| DB
+    P1 & P2 & P3 <-->|Query/Store (Cold State)| DB
 ```
 
 ## 📐 The Math of Scaling
