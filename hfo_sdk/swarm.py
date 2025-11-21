@@ -66,6 +66,8 @@ class SwarmController:
                 round_id=1,
                 intent=intent,
                 context="Initial Mission Start",
+                tags=["exploration", "round-1"],
+                priority=3,
             )
             await self.stigmergy.publish(
                 f"hfo.mission.{self.mission_id}.start", signal_r1.model_dump()
@@ -84,6 +86,8 @@ class SwarmController:
                     agent_role=res.agent_id,
                     content=res.output,
                     artifacts=res.artifacts,
+                    confidence=res.confidence,
+                    references=[],
                 )
                 await self.stigmergy.publish(
                     f"hfo.mission.{self.mission_id}.result", res_signal.model_dump()
@@ -108,6 +112,8 @@ class SwarmController:
                 round_id=2,
                 intent=intent,
                 context=context_summary,
+                tags=["refinement", "round-2", "synthesis"],
+                priority=5,
             )
             await self.stigmergy.publish(
                 f"hfo.mission.{self.mission_id}.refine", signal_r2.model_dump()
@@ -126,6 +132,8 @@ class SwarmController:
                     agent_role=res.agent_id,
                     content=res.output,
                     artifacts=res.artifacts,
+                    confidence=res.confidence,
+                    references=res.artifacts,
                 )
                 await self.stigmergy.publish(
                     f"hfo.mission.{self.mission_id}.final", res_signal.model_dump()

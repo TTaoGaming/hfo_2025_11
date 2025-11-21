@@ -124,6 +124,8 @@ We are executing **Generation 50 (The Evolutionary Forge)**. This is a "Phoenix"
 | 2025-11-21 | Swarmlord | **Incident Report**: Tool calling loop failed due to unstructured string parsing of JSON arguments. **Resolution**: Enforced `Dict[str, Any]` in Pydantic schema and updated `_execute` parser. | 🟡 Resolved |
 | 2025-11-21 | Swarmlord | **Swarm Active**: Verified full SWARM Workflow (Scatter-Gather + Disruptor). 4 Agents (3 Honest, 1 Saboteur) reached consensus. | 🟢 Active |
 | 2025-11-21 | Swarmlord | **Scaling Verified**: Successfully executed a 10-agent cohort (9 Honest + 1 Disruptor) via `carapace/immune_system/immunizer.py`. All agents produced Stigmergy artifacts. | 🟢 Active |
+| 2025-11-21 | Swarmlord | **Incident Report**: Artifact Scattering detected. Agents were dropping reports in `/tmp` and `body/digestion` without structure. **Resolution**: Standardized on `memory/episodic/` and migrated 100+ artifacts via `venom/sort_artifacts.py`. | 🟢 Active |
+| 2025-11-21 | Swarmlord | **Stigmergy Upgrade**: Integrated NATS JetStream into `hfo_sdk`. Implemented 2-Round "Exploration -> Memory -> Refinement" workflow. Verified via `venom/verify_nats_swarm.py`. | 🟢 Active |
 
 ---
 

@@ -27,6 +27,10 @@ class MissionSignal(BaseModel):
     round_id: int
     intent: MissionIntent
     context: str = Field(default="", description="Context from previous rounds")
+    tags: list[str] = Field(
+        default_factory=list, description="Semantic tags for the mission"
+    )
+    priority: int = Field(default=1, description="Priority level (1-5)")
 
 
 class ResultSignal(BaseModel):
@@ -37,3 +41,7 @@ class ResultSignal(BaseModel):
     agent_role: str
     content: str
     artifacts: list[str] = []
+    confidence: float = Field(default=0.0, description="Self-reported confidence score")
+    references: list[str] = Field(
+        default_factory=list, description="Links to other artifacts or signals"
+    )
