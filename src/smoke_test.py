@@ -108,6 +108,21 @@ async def main():
         if not passed:
             all_passed = False
             
+    # 4. Verify Ray
+    print("Testing Ray connection...")
+    try:
+        import ray
+        if not ray.is_initialized():
+            ray.init(ignore_reinit_error=True)
+        print(f"✅ Ray initialized (Version: {ray.__version__})")
+        ray.shutdown()
+    except ImportError:
+        print("❌ Ray not installed")
+        sys.exit(1)
+    except Exception as e:
+        print(f"❌ Ray initialization failed: {e}")
+        sys.exit(1)
+
     if all_passed:
         print("\n✨ ALL SYSTEMS GO. READY FOR GEN 50. ✨")
         sys.exit(0)

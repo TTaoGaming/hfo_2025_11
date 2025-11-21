@@ -3,3 +3,8 @@ ok  Now we need to talk about the HFO level one loop which is based on 10 agents
 finops
 good enough leaders
 cheap qd swarm
+---
+run smoke tests for me and confirm or prove to me that my tools are working or not currently. specifically I want to start using temporal, langgraph, and ray for basic user to orchestrator to scater gather research task then review with byzantine quorum and a final synthesis digest for user to read
+---
+i think we need instructor pydantic, so help me set that up, and we need to hello world smoke test every tool. ray, langgraph, langchain, pydantic, temporal, observability langsmith/open telemetry, RAG, graphrag, pgvector, and any other tools like natsstigmergy. I want to make sure my tools are working before we actually start implementing HFO, I do not want an installation error to destroy my system and add confusion I want you to help me create a make file and SDK for HFO and I want a hello world smoketest to confirm everything works and all the pieces of the system
+---

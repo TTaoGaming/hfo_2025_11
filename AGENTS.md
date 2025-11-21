@@ -96,3 +96,15 @@ We are executing **Generation 50 (The Evolutionary Forge)**. This is a "Phoenix"
 | 2025-11-20 | Swarmlord | **Documentation Update**: Enforced "Mermaid in Markdown" standard. Replaced `.mmd` with `intent/stigmergy_architecture.md` for better previewability. | 🟢 Active |
 | 2025-11-20 | Swarmlord | **Intent Definition**: Formalized Memory GraphRAG System via `intent/memory_graphrag.feature` and `intent/memory_architecture.md`. | 🟢 Active |
 | 2025-11-20 | Swarmlord | **Infrastructure Update**: Shifted to "Hybrid Stability Protocol". Infrastructure (DB, Temporal, NATS) runs in Docker on safe ports (5435, 7235, 4225). Agents run on Host. Smoke tests GREEN. | 🟢 Active |
+| 2025-11-20 | Swarmlord | **System Verified**: Full R.A.P.T.O.R. stack (Ray, Temporal, NATS, Pydantic, Instructor, LangGraph, LangSmith, PGVector) + DSPy + GitOps verified via `make test-all`. Stigmergic GraphRAG architecture formalized. | 🟢 Active |
+
+---
+
+## 🧠 Memory Architecture: Stigmergic GraphRAG
+*The "Hybrid" approach combining speed and depth.*
+
+1.  **Fast Loop (Episodic)**: Agents emit signals to **NATS JetStream**. This is the "Hot State" (last 5 mins).
+2.  **Slow Loop (Semantic)**: An **Assimilator Agent** consumes the stream and builds a **Knowledge Graph** in Postgres.
+    *   **Graph**: `NetworkX` structure stored in Postgres (Nodes/Edges).
+    *   **Vector**: `pgvector` embeddings for semantic search.
+3.  **Retrieval**: Agents query the Graph/Vector DB for "Cold State" (Long-term wisdom).
