@@ -16,31 +16,36 @@ graph TD
         DNA -->|Constraints| Guardrails[Immunizer / Guardrails]
     end
 
-    subgraph "The Swarm (Execution)"
+    subgraph "The Holonic Swarm (Execution)"
         Guardrails -->|Spawns| Hydra[Hydra Swarm]
 
-        subgraph "Byzantine Quorum"
+        subgraph "Squad (N=10, f=3)"
             Agent1[Honest Agent]
             Agent2[Honest Agent]
-            Agent3[Sycophant Agent]
-            Agent4[Saboteur Agent]
+            Agent3[Honest Agent]
+            Agent4[Honest Agent]
+            Agent5[Honest Agent]
+            Agent6[Honest Agent]
+            Agent7[Honest Agent]
+            Disruptor1[Disruptor (ATT&CK)]
+            Disruptor2[Disruptor (ATT&CK)]
+            Disruptor3[Disruptor (ATT&CK)]
         end
 
-        Hydra --> Agent1 & Agent2 & Agent3 & Agent4
+        Hydra --> Squad
 
-        Agent1 -->|Result + Conf 0.9| Bus[NATS JetStream]
-        Agent2 -->|Result + Conf 0.8| Bus
-        Agent3 -->|Result + Conf 0.4| Bus
-        Agent4 -->|Lie + Conf 0.9| Bus
+        Squad -->|Outputs| Reviewers[Reviewer Squad (N=10)]
+        Reviewers -->|Votes| Bus[NATS JetStream]
     end
 
     subgraph "The Cortex (Consensus & Evolution)"
         Bus -->|Stream| Synthesizer[Synthesizer Node]
 
-        Synthesizer -->|Filter < 0.5| Filtered[Valid Results]
-        Filtered -->|Weighted Vote| Consensus[Final Truth]
+        Synthesizer -->|Identify Cluster >= 7| Consensus[Consensus Truth]
+        Synthesizer -->|Identify Outliers| Outliers[Suspected Disruptors]
 
-        Consensus -->|Feedback| Ribs[MAP-Elites / Evolution]
+        Outliers -->|Attack Vector| Immunizer
+        Immunizer -->|Patch| Ribs[MAP-Elites / Evolution]
         Ribs -->|Mutate Prompts| Hydra
     end
 
@@ -51,11 +56,10 @@ graph TD
 
 | Component | Function | SOTA Parallel |
 | :--- | :--- | :--- |
-| **Adversarial** | **Disruptor Agents** attack plans to find flaws. | Constitutional AI / Red Teaming |
-| **Byzantine Quorum** | **Synthesizer** filters and votes on results. | Multi-Agent Debate / Ensemble Methods |
+| **Adversarial** | **Disruptor Agents** use MITRE ATT&CK playbooks. | Constitutional AI / Red Teaming |
+| **Byzantine Quorum** | **Holonic Squads** (N=10, f=3) with Reviewers. | Multi-Agent Debate / Ensemble Methods |
 | **Co-evolutionary** | **Ribs (MAP-Elites)** evolves prompts based on success. | OpenEnded Learning / Prompt Breeding |
 | **Confidence Weighting** | **Pydantic Signals** enforce `confidence: float`. | Uncertainty Quantification |
-
 ## 🧬 The Symbiosis
 
 1.  **Cognitive**: Processes information via OODA/PREY loops.

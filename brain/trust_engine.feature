@@ -7,17 +7,18 @@ Feature: HFO Trust Engine (Cognitive Exoskeleton)
     Given the R.A.P.T.O.R. stack is active
     And the "Hybrid Stability Protocol" is enforcing Pydantic constraints
 
-  Scenario: Byzantine Quorum Consensus
-    Given a mission "Solve Complex Math Problem"
-    When the Swarm spawns 5 agents
-      | Role       | Type      | Count |
-      | Mathematician | Honest    | 3     |
-      | YesMan        | Sycophant | 1     |
-      | ChaosMonkey   | Saboteur  | 1     |
-    And they execute the task in parallel via Ray
-    And the Synthesizer filters results with confidence < 0.5
-    Then the final consensus should exclude the Saboteur's output
-    And the confidence score should reflect the quorum agreement (Weighted Vote)
+  Scenario: Holonic Byzantine Quorum (3f+1)
+    Given a mission "Critical Intelligence Analysis"
+    And the Swarm size is N=10
+    And the system tolerates f=3 traitors (N >= 3f + 1)
+    When the Orchestrator spawns a Squad of 10 agents
+    And the number of Disruptors is randomized between 1 and 3
+    And the Disruptors use "MITRE ATT&CK" playbooks to deceive
+    And the Squad executes the task
+    And a parallel Squad of 10 Reviewers critiques the outputs
+    Then the Synthesizer should identify the "Consensus Cluster" of size >= 7
+    And the Synthesizer should flag the outliers as "Suspected Disruptors"
+    And the Immunizer should generate a patch for the "Attack Vector" used
 
   Scenario: Adversarial Hardening (Red Teaming)
     Given a proposed plan "Deploy to Production"
