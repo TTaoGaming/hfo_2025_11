@@ -121,6 +121,9 @@ We are executing **Generation 50 (The Evolutionary Forge)**. This is a "Phoenix"
 | 2025-11-21 | Swarmlord | **PREY Loop Activated**: Refactored `hydra_swarm.py` to implement the `PreyAgent` class. Agents now explicitly cycle through Perceive-React-Execute-Yield phases. Verified via `venom/test_hydra_integrity.py`. | 🟢 Active |
 | 2025-11-21 | Swarmlord | **PREY Loop Formalized**: Updated `brain/prey_workflow.feature` and `brain/prey_workflow.md` to strictly define the Perceive-React-Execute-Yield cycle as the HFO implementation of OODA + Reflexion. | 🟢 Active |
 | 2025-11-21 | Swarmlord | **Tooling Layer Verified**: Implemented and verified `ToolSet` (File I/O, Web) integration into `PreyAgent`. Fixed structured argument parsing. `venom/test_tooling_layer.py` passed with secret retrieval. | 🟢 Active |
+| 2025-11-21 | Swarmlord | **Incident Report**: Tool calling loop failed due to unstructured string parsing of JSON arguments. **Resolution**: Enforced `Dict[str, Any]` in Pydantic schema and updated `_execute` parser. | 🟡 Resolved |
+| 2025-11-21 | Swarmlord | **Swarm Active**: Verified full SWARM Workflow (Scatter-Gather + Disruptor). 4 Agents (3 Honest, 1 Saboteur) reached consensus. | 🟢 Active |
+| 2025-11-21 | Swarmlord | **Scaling Verified**: Successfully executed a 10-agent cohort (9 Honest + 1 Disruptor) via `carapace/immune_system/immunizer.py`. All agents produced Stigmergy artifacts. | 🟢 Active |
 
 ---
 
