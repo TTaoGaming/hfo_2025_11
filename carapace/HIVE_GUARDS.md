@@ -42,6 +42,34 @@ The **Hive Guards** are the automated immune system of Hive Fleet Obsidian. They
 *   **Slop Detection**: Flags any file in `brain/` that is not registered.
 *   **Command**: `./carapace/hive_guards/guard_brain.py`
 
+### 6. 🧜‍♀️ Mermaid Guard (Visualization)
+*   **Syntax Validation**: Scans `brain/*.md` for `mermaid` code blocks.
+*   **Type Check**: Ensures diagrams start with valid types (e.g., `graph`, `sequenceDiagram`).
+*   **Empty Check**: Flags empty diagram blocks.
+*   **Command**: `./carapace/hive_guards/guard_mermaid.py`
+
+## 🔮 Future Guards & Immunizers (Roadmap)
+*Based on HFO Gem Evolution Pain Points*
+
+### 1. 🌀 Hallucination Death Spiral Immunizer
+*   **Pain Point**: Agents getting stuck in loops, repeating the same error or outputting infinite text.
+*   **Solution**: Runtime monitor (Immunizer) that tracks:
+    *   **Repetition Rate**: N-gram overlap with previous outputs.
+    *   **Cyclic Tool Calls**: Repeating the same tool with same args > 3 times.
+    *   **Action**: Circuit breaker that kills the agent and triggers a "Reflexion" step.
+
+### 2. 🕸️ Link Rot Guard
+*   **Pain Point**: Markdown files referencing non-existent files or anchors.
+*   **Solution**: Static analysis that parses `[Link](path)` and verifies `path` exists.
+
+### 3. 🐍 Code Block Validator
+*   **Pain Point**: Python code snippets in Markdown that are syntactically invalid.
+*   **Solution**: Extract `python` blocks from `.md` and run `ast.parse()` on them.
+
+### 4. 📄 Gherkin-Code Parity Guard
+*   **Pain Point**: Implementation drifting away from Intent.
+*   **Solution**: Check that every `Feature` in `brain/` has a corresponding `Test` in `venom/` or `Implementation` in `body/`.
+
 ## 🛠️ Usage
 
 ### Installation

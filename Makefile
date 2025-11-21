@@ -60,3 +60,9 @@ phoenix-protocol:
 	@echo "⚠️  WARNING: This will reset the entire runtime environment."
 	@# TODO: Call genesis.py --phoenix
 	@echo "🦅 Hive Fleet Obsidian has risen from the ashes."
+
+guards:
+	@echo "🛡️ Running Hive Guards..."
+	@./carapace/hive_guards/guard_brain.py
+	@./carapace/hive_guards/guard_mermaid.py
+	@echo "✨ All Guards Passed!"
