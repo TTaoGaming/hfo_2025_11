@@ -1,0 +1,33 @@
+Feature: HFO Fractal Scaling (Holonic Hierarchy)
+  As the Overmind (User)
+  I want a Recursive/Holonic Command Structure
+  So that I can scale to 10,000+ agents without exceeding context windows
+
+  Background:
+    Given the R.A.P.T.O.R. stack is active
+    And Ray is managing distributed actors
+
+  Scenario: Recursive Synthesis (The Fractal)
+    Given a massive mission requiring N=1000 agents
+    When the Orchestrator decomposes the mission
+    Then it should spawn a hierarchy of Holons:
+      | Level | Unit Name | Composition | Output |
+      | 1     | Squad     | 10 Agents   | 1 Summary |
+      | 2     | Platoon   | 10 Squads   | 1 Summary |
+      | 3     | Company   | 10 Platoons | 1 Summary |
+    And each Synthesizer should only process 10 inputs (Constant Context)
+    And the final "Overmind" should receive 1 synthesized report from the top level
+
+  Scenario: Context Window Preservation
+    Given a Squad of 10 agents producing 500 tokens each (5000 total)
+    When the Squad Leader synthesizes the results
+    Then the output summary should be compressed to ~500 tokens
+    And this summary becomes the input for the next layer
+    And the token load on any single node should never exceed 10x input size
+
+  Scenario: Holonic Isolation (Bulkheads)
+    Given a Squad encounters a "Cognitive Crash" (Hallucination Loop)
+    Then the failure should be contained within that Squad
+    And the Platoon Leader should detect the anomaly (Low Confidence)
+    And the Platoon Leader should request a "Regeneration" of that Squad
+    And the rest of the Company should continue execution unaffected
