@@ -73,7 +73,7 @@ We are executing **Generation 50 (The Evolutionary Forge)**. This is a "Phoenix"
 
 ---
 
-## 📋 Mini Blackboard (Stigmergy Signal Layer)
+## 📋 HFO MOBS (Mini Obsidian Blackboard with Stigmergy Pattern)
 
 *Agents: Append your status, findings, or handoffs here. Use this to coordinate asynchronously.*
 
