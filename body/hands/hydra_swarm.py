@@ -3,6 +3,7 @@ import operator
 import logging
 import uuid
 import datetime
+import ray
 from typing import Annotated, List, TypedDict, Optional, Dict, Any
 from pydantic import BaseModel, Field
 import instructor
@@ -16,6 +17,10 @@ from body.hands.tools import ToolSet
 load_dotenv()
 logging.basicConfig(level=logging.INFO, format="%(message)s")
 logger = logging.getLogger("hydra")
+
+# Initialize Ray
+if not ray.is_initialized():
+    ray.init(ignore_reinit_error=True)
 
 DIGESTION_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "digestion")
 os.makedirs(DIGESTION_DIR, exist_ok=True)
@@ -306,7 +311,25 @@ def planner_node(state: HydraState):
 
 
 # 2. Map (Worker)
-def worker_node(state: SubTask):
+@ray.remote
+def ray_worker_task(task_data: dict) -> dict:
+    """
+    Ray remote function to execute the worker logic in a separate process.
+    """
+    # Reconstruct SubTask from dict
+    task = SubTask(**task_data)
+
+    mission_id = task.mission_id or "unknown_in_map"
+    # Instantiate agent inside the remote worker to ensure thread/process safety
+    agent = PreyAgent(role=task.assigned_role, mission_id=mission_id)
+
+    result = agent.run_loop(task)
+
+    # Return as dict for serialization
+    return {"results": [result]}
+
+
+async def worker_node(state: SubTask):
     # Note: Receives a single SubTask but we need mission_id context.
     # LangGraph map passes the item. To pass context, we'd need a wrapper or rely on the item having it.
     # For simplicity in this demo, we'll assume the SubTask *is* the state passed here,
@@ -314,12 +337,13 @@ def worker_node(state: SubTask):
     # Let's hack it: The planner should inject mission_id into SubTask if we want it here.
     # Or we just use a placeholder if missing.
 
-    mission_id = state.mission_id or "unknown_in_map"
-    agent = PreyAgent(role=state.assigned_role, mission_id=mission_id)
+    # Offload to Ray
+    # We pass model_dump() because Pydantic objects might have issues with Ray serialization depending on version
+    # but usually they are fine. To be safe, we pass dict.
+    future = ray_worker_task.remote(state.model_dump())
 
-    result = agent.run_loop(state)
-
-    return {"results": [result]}
+    # Await the result
+    return await future
 
 
 # 3. Reduce (Synthesizer) with Filter Logic
