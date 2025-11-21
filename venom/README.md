@@ -1,29 +1,33 @@
-# 🧪 HFO Phoenix Smoke Tests
+# 🧪 The Venom (Disruptor)
 
-This repository is configured with a **Dev Container** that spins up the full Gen 50 stack.
+> **Role**: Disruptor / Red Team
+> **JADC2 Mapping**: Red Team
+> **Gherkin Source**: `brain/swarm_workflow.feature` (Step: Mutate/Test)
+
+## 🧬 Biological Function
+The **Venom** is the agent of **Stress** and **Evolution**. It runs tests, injects faults, and challenges the system to ensure it is robust. It is the "immune system trainer" that makes the Hive anti-fragile.
+
+## 📂 Contents
+*   **Smoke Tests**: Quick verification scripts (`smoke/`).
+*   **Unit Tests**: Detailed code verification (`test_*.py`).
+*   **Chaos Monkey**: Scripts that intentionally break things.
+
+## 🤖 Agent Instructions
+*   **Attack**: Try to break the system (in a controlled way).
+*   **Verify**: Ensure fixes actually work.
 
 ## 🚀 How to Run Tests
 
-1.  **Enter the Container:**
-    *   Press `Ctrl+Shift+P` (or `Cmd+Shift+P`).
-    *   Select **"Dev Containers: Reopen in Container"**.
-    *   Wait for the build to complete.
+The preferred method is using the **Genesis Protocol**:
 
-2.  **Run the Smoke Test Script:**
-    ```bash
-    python src/smoke_test.py
-    ```
+```bash
+# Run all smoke tests
+python genesis.py --venom
+```
 
-3.  **Run via Pytest:**
-    ```bash
-    pytest tests/test_infrastructure.py
-    ```
+Alternatively, run specific tests with `pytest`:
 
-## 🔍 What is Tested?
-
-| Component | Check |
-| :--- | :--- |
-| **Postgres** | Connects to `db:5432`, verifies credentials, checks for `pgvector` extension. |
-| **NATS** | Connects to `nats:4222`, creates a JetStream, publishes/consumes a message. |
-| **Temporal** | Connects to `temporal:7233`, verifies namespace access. |
-| **Libraries** | Verifies `langchain`, `pydantic`, and other core deps are installed. |
+```bash
+# Run infrastructure tests
+pytest venom/test_infrastructure.py
+```
