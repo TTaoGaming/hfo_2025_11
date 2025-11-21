@@ -3,7 +3,7 @@ import logging
 import os
 from typing import Any, Dict, List
 import nats
-from nats.js.api import StreamConfig, RetentionPolicy
+from nats.js.api import StreamConfig, RetentionPolicy, ConsumerConfig, DeliverPolicy
 
 logger = logging.getLogger("hfo.stigmergy")
 
@@ -77,20 +77,14 @@ class StigmergyClient:
         if not self.js:
             raise ConnectionError("Not connected to NATS JetStream")
 
-        # Create a temporary consumer to read past messages
-        # Note: This is a simplified 'fetch' pattern.
-        # In production, we might use a durable consumer or KeyValue store.
         results = []
         try:
-            # We use a durable name to potentially resume, but here we just want 'last N'
-            # Actually, for 'fetch history', we might want to create an ephemeral consumer
-            # that starts from the beginning or a specific point.
-            # For simplicity in this demo, we'll assume we are just subscribing to get *new* stuff
-            # OR we use a KeyValue bucket.
-            # BUT, standard streams store history.
-
-            # Let's try to create an ephemeral consumer that reads from start
-            sub = await self.js.pull_subscribe(subject, "history_reader")
+            # Create an ephemeral consumer that reads ALL messages from the start
+            sub = await self.js.pull_subscribe(
+                subject,
+                durable=None,
+                config=ConsumerConfig(deliver_policy=DeliverPolicy.ALL),
+            )
             msgs = await sub.fetch(limit, timeout=2)
             for msg in msgs:
                 results.append(json.loads(msg.data.decode()))
