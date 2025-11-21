@@ -37,3 +37,40 @@ class ToolSet:
         In production, connect to Tavily/SerpAPI.
         """
         return f"Mock Search Result for '{query}': The answer is 42."
+
+    @staticmethod
+    def list_directory(path: str = ".") -> str:
+        """Lists files in a directory."""
+        try:
+            if not os.path.exists(path):
+                return f"Error: Path {path} does not exist."
+            items = os.listdir(path)
+            # Filter out hidden files and __pycache__
+            items = [
+                i for i in items if not i.startswith(".") and "__pycache__" not in i
+            ]
+            return "\n".join(items)
+        except Exception as e:
+            return f"Error listing directory: {str(e)}"
+
+    @staticmethod
+    def grep_files(pattern: str, path: str = ".") -> str:
+        """Simple grep-like search in files."""
+        results = []
+        try:
+            for root, _, files in os.walk(path):
+                if "__pycache__" in root or ".git" in root:
+                    continue
+                for file in files:
+                    if file.endswith((".md", ".py", ".txt", ".json", ".yaml")):
+                        full_path = os.path.join(root, file)
+                        try:
+                            with open(full_path, "r", errors="ignore") as f:
+                                content = f.read()
+                                if pattern.lower() in content.lower():
+                                    results.append(full_path)
+                        except Exception:
+                            continue
+            return "\n".join(results[:20])  # Limit to 20 hits
+        except Exception as e:
+            return f"Error searching files: {str(e)}"

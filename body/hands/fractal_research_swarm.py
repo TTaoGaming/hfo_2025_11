@@ -13,6 +13,7 @@ from pydantic import BaseModel, Field
 from dotenv import load_dotenv
 import instructor
 from openai import OpenAI
+from body.hands.tools import ToolSet
 
 # --- Setup ---
 load_dotenv()
@@ -146,6 +147,20 @@ class EvolutionaryForge:
 
 
 # --- The Virtual Agent (Level 0 - The Cell) ---
+class AgentStep(BaseModel):
+    thought: str = Field(..., description="Reasoning for the current step")
+    tool_name: Optional[str] = Field(
+        None, description="Tool to use: 'read_file', 'search_files', 'list_dir'"
+    )
+    tool_args: Optional[str] = Field(None, description="Arguments for the tool")
+    final_answer: Optional[str] = Field(
+        None, description="The final research finding if task is complete"
+    )
+    confidence: Optional[float] = Field(
+        None, description="Confidence score 0.0-1.0 (only for final answer)"
+    )
+
+
 class VirtualAgent:
     def __init__(
         self,
@@ -173,7 +188,6 @@ class VirtualAgent:
 
     async def execute_round(self, round_id: int) -> ResearchResult:
         # 1. Perceive (Stigmergy)
-        # Read what others have found so far
         context = ""
         if round_id > 1:
             signals = await self.stigmergy.get_signals.remote(
@@ -187,74 +201,120 @@ class VirtualAgent:
                     ]
                 )
 
-        # 2. React (LLM Call)
+        # 2. React (Loop with Tools)
+        # Inject File System Map for context
+        fs_map = ToolSet.list_directory(".")
+
         system_prompt = (
             f"You are a {self.persona.role}. Style: {self.persona.style}.\n"
             f"Task: {self.task}\n"
             f"Round: {round_id}. {context}\n"
-            "If this is Round 2, focus on refuting or verifying the Stigmergy signals."
+            f"Current Directory Structure: {fs_map}\n"
+            "You have access to local files. Use 'list_dir', 'read_file', 'search_files' to investigate.\n"
+            "If you need to explore 'eyes/archive' or 'memory', use 'list_dir' on those paths first.\n"
+            "Iterate up to 3 times using tools before providing a final answer."
         )
 
         messages = [
             {"role": "system", "content": system_prompt},
-            {"role": "user", "content": "Execute research."},
+            {
+                "role": "user",
+                "content": "Begin research. Use tools if necessary to find ground truth in the files.",
+            },
         ]
 
-        try:
-            # Simulating "Thinking"
-            await asyncio.sleep(0.1)
+        final_result = None
 
-            response = self.client.chat.completions.create(
-                model=self.persona.model,
-                response_model=ResearchResult,
-                messages=messages,
-                temperature=self.persona.temperature,
+        for step_i in range(4):  # Max 4 steps (3 tools + 1 final)
+            try:
+                # Simulating "Thinking"
+                await asyncio.sleep(0.1)
+
+                step_response = self.client.chat.completions.create(
+                    model=self.persona.model,
+                    response_model=AgentStep,
+                    messages=messages,
+                    temperature=self.persona.temperature,
+                )
+
+                # Log the step
+                messages.append(
+                    {"role": "assistant", "content": str(step_response.model_dump())}
+                )
+                self._save_audit(round_id, messages, step_response, step_i)
+
+                if step_response.final_answer:
+                    final_result = ResearchResult(
+                        content=step_response.final_answer,
+                        confidence=step_response.confidence or 0.5,
+                        source="Local Files + Analysis",
+                    )
+                    break
+
+                # Execute Tool
+                tool_result = "Error: No tool specified"
+                if step_response.tool_name == "read_file":
+                    tool_result = ToolSet.read_file(step_response.tool_args)
+                elif step_response.tool_name == "list_dir":
+                    tool_result = ToolSet.list_directory(step_response.tool_args or ".")
+                elif step_response.tool_name == "search_files":
+                    tool_result = ToolSet.grep_files(step_response.tool_args)
+
+                messages.append(
+                    {
+                        "role": "user",
+                        "content": f"Tool Output ({step_response.tool_name}): {tool_result}",
+                    }
+                )
+
+            except Exception as e:
+                print(f"Agent {self.agent_id} error: {e}")
+                final_result = ResearchResult(
+                    content=f"Error: {str(e)}", confidence=0.0, source="System"
+                )
+                break
+
+        if not final_result:
+            final_result = ResearchResult(
+                content="Agent failed to reach conclusion.",
+                confidence=0.0,
+                source="System",
             )
 
-            # Save Audit
-            self._save_audit(round_id, messages, response)
+        # 3. Yield (Publish to Stigmergy)
+        await self.stigmergy.publish.remote(
+            {
+                "round": round_id,
+                "topic": self.domain,
+                "content": final_result.content,
+                "confidence": final_result.confidence,
+                "source_agent": self.agent_id,
+                "type": "REFUTATION"
+                if "refut" in final_result.content.lower()
+                else "FINDING",
+            }
+        )
 
-            # 3. Yield (Publish to Stigmergy)
-            await self.stigmergy.publish.remote(
-                {
-                    "round": round_id,
-                    "topic": self.domain,
-                    "content": response.content,
-                    "confidence": response.confidence,
-                    "source_agent": self.agent_id,
-                    "type": "REFUTATION"
-                    if "refut" in response.content.lower()
-                    else "FINDING",
-                }
-            )
+        return final_result
 
-            return response
-        except Exception as e:
-            error_result = ResearchResult(
-                content=f"Error: {str(e)}", confidence=0.0, source="System"
-            )
-            self._save_audit(round_id, messages, error_result, error=str(e))
-            return error_result
-
-    def _save_audit(self, round_id, messages, result, error=None):
-        filename = self.agent_dir / f"round_{round_id}_audit.md"
+    def _save_audit(self, round_id, messages, step_response, step_num):
+        filename = self.agent_dir / f"round_{round_id}_step_{step_num}.md"
         with open(filename, "w") as f:
-            f.write(f"# Audit Log: {self.agent_id} - Round {round_id}\n")
+            f.write(
+                f"# Audit Log: {self.agent_id} - Round {round_id} - Step {step_num}\n"
+            )
             f.write(f"**Timestamp**: {datetime.now().isoformat()}\n")
-            f.write(f"**Model**: {self.persona.model}\n")
-            f.write(f"**Temperature**: {self.persona.temperature}\n")
-            f.write(f"**Persona**: {self.persona.role} ({self.persona.style})\n\n")
-
-            f.write("## Prompts\n")
+            f.write(f"**Thought**: {step_response.thought}\n")
+            if step_response.tool_name:
+                f.write(
+                    f"**Tool**: {step_response.tool_name}('{step_response.tool_args}')\n"
+                )
+            if step_response.final_answer:
+                f.write(f"**Final Answer**: {step_response.final_answer}\n")
+            f.write("\n## Full Context\n")
             for m in messages:
                 f.write(f"### {m['role'].upper()}\n")
                 f.write(f"```text\n{m['content']}\n```\n\n")
-
-            f.write("## Output\n")
-            if error:
-                f.write(f"**ERROR**: {error}\n")
-            f.write(f"**Confidence**: {result.confidence}\n")
-            f.write(f"**Content**:\n{result.content}\n")
 
 
 # --- The Squad Leader (Level 1 - The Holon) ---
