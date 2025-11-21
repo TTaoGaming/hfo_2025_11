@@ -1,7 +1,7 @@
 # Hive Fleet Obsidian (Gen 50) - The Phoenix Project 🦅🔥
 
-**Date:** November 2025  
-**Designation:** Generation 50 (Phoenix)  
+**Date:** November 2025
+**Designation:** Generation 50 (Phoenix)
 **Status:** Accelerated Cold Start
 
 ## 🌟 Vision

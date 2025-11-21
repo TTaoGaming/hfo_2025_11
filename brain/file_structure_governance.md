@@ -130,7 +130,7 @@ classDiagram
         +String status
         +List tags
     }
-    
+
     class FileTypes {
         <<Enumeration>>
         agent_logic
@@ -139,7 +139,7 @@ classDiagram
         config
         test
     }
-    
+
     class Domains {
         <<Enumeration>>
         core

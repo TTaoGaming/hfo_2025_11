@@ -26,9 +26,9 @@ async def test_temporal_robust():
     run_id = str(uuid.uuid4())[:8]
     wf_id = f"robust-test-{run_id}"
     queue = f"queue-{run_id}"
-    
+
     print(f"🧪 TESTING: Temporal Robust (ID: {wf_id})")
-    
+
     try:
         # 1. Connect
         print("   [1/4] Connecting to Temporal...")
@@ -43,7 +43,7 @@ async def test_temporal_robust():
             workflows=[RobustWorkflow],
             activities=[robust_hello],
         )
-        
+
         # Run worker in a separate task so we can submit workflow
         worker_task = asyncio.create_task(worker.run())
         print("   ✅ Worker task scheduled.")
@@ -69,7 +69,7 @@ async def test_temporal_robust():
             print("   Checking workflow history...")
             async for event in handle.fetch_history_events():
                 print(f"   - {event.event_type}")
-        
+
         # Cleanup
         worker_task.cancel()
         try:

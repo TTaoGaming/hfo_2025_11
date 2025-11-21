@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   workspace:
-    build: 
+    build:
       context: ..
       dockerfile: .devcontainer/Dockerfile
     volumes:
@@ -10,7 +10,7 @@ services:
     # AI/Ray Workload Optimization:
     # Ray and PyTorch require a large shared memory segment (default is 64MB).
     # Without this, Ray will crash with "Bus error" or "SIGBUS".
-    shm_size: '4gb' 
+    shm_size: '4gb'
     restart: unless-stopped
     command: sleep infinity
     networks:

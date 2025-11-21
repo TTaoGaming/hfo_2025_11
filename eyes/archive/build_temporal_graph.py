@@ -38,27 +38,27 @@ def normalize_concept_name(filename):
 
 def build_graph():
     print(f"Scanning {STAGING_DIR} for Temporal Graph construction...")
-    
+
     # Data Structures
     timeline = defaultdict(list) # Gen -> [Files]
     concepts = defaultdict(list) # ConceptName -> [{gen, path}]
     G = nx.DiGraph()
 
     file_count = 0
-    
+
     for root, dirs, files in os.walk(STAGING_DIR):
         for filename in files:
             if filename.endswith(('.md', '.py', '.json', '.txt')):
                 file_path = Path(root) / filename
                 rel_path = file_path.relative_to(STAGING_DIR)
-                
+
                 gen = extract_gen_from_path(rel_path.parts)
-                
+
                 if gen is not None:
                     concept_name = normalize_concept_name(filename)
-                    
+
                     node_id = str(rel_path)
-                    
+
                     # Add to indices
                     timeline[gen].append(node_id)
                     concepts[concept_name].append({
@@ -66,10 +66,10 @@ def build_graph():
                         "path": str(rel_path),
                         "filename": filename
                     })
-                    
+
                     # Add Node to Graph
                     G.add_node(node_id, gen=gen, concept=concept_name, filename=filename)
-                    
+
                     file_count += 1
 
     print(f"Indexed {file_count} files across {len(timeline)} generations.")
@@ -80,12 +80,12 @@ def build_graph():
     for concept, versions in concepts.items():
         # Sort versions by generation
         sorted_versions = sorted(versions, key=lambda x: x['gen'])
-        
+
         # Link Gen N -> Gen N+1
         for i in range(len(sorted_versions) - 1):
             v_current = sorted_versions[i]
             v_next = sorted_versions[i+1]
-            
+
             # Only link if they are different files
             if v_current['path'] != v_next['path']:
                 G.add_edge(v_current['path'], v_next['path'], type="evolution")
@@ -107,7 +107,7 @@ def build_graph():
         "timeline": dict(sorted(timeline.items())), # Sorted by Gen
         "concepts": dict(concepts)
     }
-    
+
     with open(OUTPUT_METADATA, 'w') as f:
         json.dump(metadata, f, indent=2)
     print(f"Saved metadata to {OUTPUT_METADATA}")

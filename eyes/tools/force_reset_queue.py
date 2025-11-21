@@ -19,7 +19,7 @@ def force_reset_queue():
 
     print("Dropping 'ingestion_queue' table...")
     cur.execute("DROP TABLE IF EXISTS ingestion_queue;")
-    
+
     print("Recreating 'ingestion_queue' table...")
     cur.execute("""
         CREATE TABLE ingestion_queue (
@@ -35,7 +35,7 @@ def force_reset_queue():
 
     # Index for fast fetching of pending items
     cur.execute("""
-        CREATE INDEX IF NOT EXISTS idx_queue_status 
+        CREATE INDEX IF NOT EXISTS idx_queue_status
         ON ingestion_queue(status);
     """)
 

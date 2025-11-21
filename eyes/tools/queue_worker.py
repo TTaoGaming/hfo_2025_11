@@ -60,20 +60,20 @@ def determine_metadata(file_path: str) -> Dict:
         if part.startswith("gen_") and part[4:].isdigit():
             meta["generation"] = int(part[4:])
             break
-    
+
     lower_path = file_path.lower()
     if "swarm_results" in lower_path or "consensus" in lower_path or "hfo_crew_ai" in lower_path:
         meta["level"] = "hfo_lvl1"
-    
+
     return meta
 
 def process_file_content(file_path, embeddings_model, conn):
     """Reads, chunks, embeds, and inserts a single file."""
-    
+
     # 1. Validation
     if not os.path.exists(file_path):
         return "SKIPPED", "File not found"
-    
+
     if os.path.getsize(file_path) > MAX_FILE_SIZE_BYTES:
         return "SKIPPED", "File too large"
 
@@ -108,19 +108,19 @@ def process_file_content(file_path, embeddings_model, conn):
     with conn.cursor() as cur:
         # Clean up old entries for this file first (idempotency)
         cur.execute("DELETE FROM knowledge_bank WHERE source_path = %s", (file_path,))
-        
+
         execute_values(cur, """
             INSERT INTO knowledge_bank (source_path, content, embedding, metadata)
             VALUES %s
         """, rows)
-    
+
     return "COMPLETED", None
 
 def worker_loop():
     print("Worker started. Waiting for tasks...")
     conn = get_db_connection()
     conn.autocommit = True # We manage transactions manually if needed, but autocommit is safer for the queue updates
-    
+
     embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
 
     while True:
@@ -151,13 +151,13 @@ def worker_loop():
         for task_id, file_path in tasks:
             status = "PROCESSING"
             error_msg = None
-            
+
             try:
                 status, error_msg = process_file_content(file_path, embeddings, conn)
             except Exception as e:
                 status = "FAILED"
                 error_msg = f"Unexpected error: {traceback.format_exc()}"
-            
+
             # Update queue status
             with conn.cursor() as cur:
                 cur.execute("""
@@ -165,12 +165,12 @@ def worker_loop():
                     SET status = %s, last_error = %s, updated_at = NOW()
                     WHERE id = %s
                 """, (status, error_msg, task_id))
-                
+
             print(f"[{status}] {file_path}")
-            
+
             # Throttle to prevent system freeze
             time.sleep(SLEEP_BETWEEN_FILES)
-        
+
         # Throttle between batches
         time.sleep(SLEEP_BETWEEN_BATCHES)
 

@@ -23,7 +23,7 @@ def process_file(file_path):
     """
     with open(file_path, 'r', errors='ignore') as f:
         content = f.read()
-    
+
     # Placeholder for cleaning logic
     # e.g., remove repetitive headers, failed code blocks, etc.
     return content
@@ -32,7 +32,7 @@ def main():
     archive_path = "../../_ARCHIVE_2025_11_19"
     files = scan_archive(archive_path)
     print(f"Found {len(files)} files to process.")
-    
+
     for file in files[:5]: # Test with first 5
         print(f"Processing: {file}")
         content = process_file(file)

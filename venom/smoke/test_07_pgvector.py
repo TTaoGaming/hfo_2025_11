@@ -7,7 +7,7 @@ async def test_pgvector_smoke():
     print("\n🧪 SMOKE TEST: Postgres & PGVector Layer")
     try:
         conn = await asyncpg.connect("postgresql://hfo_admin:phoenix_password@localhost:5435/hfo_unified_memory")
-        
+
         # Check extension
         val = await conn.fetchval("SELECT count(*) FROM pg_extension WHERE extname = 'vector'")
         if val == 0:
@@ -19,7 +19,7 @@ async def test_pgvector_smoke():
                 pytest.fail(f"Could not create pgvector extension: {e}")
         else:
             print("   ✅ pgvector extension: Installed")
-            
+
         await conn.close()
     except Exception as e:
         pytest.fail(f"Postgres failed: {e}")

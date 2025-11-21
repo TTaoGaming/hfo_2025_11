@@ -1,11 +1,11 @@
 from .intent import MissionIntent, IntentStatus, Constraint
 from .state import AgentState, SwarmState, AgentRole, PreyStep, SwarmPhase, SwarmTelemetry
 from .signals import (
-    SignalType, 
-    HeartbeatSignal, 
-    MissionSignal, 
-    VoteSignal, 
-    ConsensusSignal, 
+    SignalType,
+    HeartbeatSignal,
+    MissionSignal,
+    VoteSignal,
+    ConsensusSignal,
     DisruptionSignal
 )
 

@@ -10,13 +10,13 @@ def test_pydantic_import():
     """Verify Pydantic is working."""
     class TestModel(BaseModel):
         foo: str
-    
+
     m = TestModel(foo="bar")
     assert m.foo == "bar"
 
 def test_ray_import():
-    """Verify Ray can be imported. 
-    Note: Full Ray init might be too heavy for a unit test without a cluster, 
+    """Verify Ray can be imported.
+    Note: Full Ray init might be too heavy for a unit test without a cluster,
     but we can check version."""
     assert ray.__version__ is not None
 
@@ -41,7 +41,7 @@ async def test_ray_local_init():
     """Attempt a lightweight local Ray init."""
     if not ray.is_initialized():
         ray.init(ignore_reinit_error=True, num_cpus=1)
-    
+
     @ray.remote
     def square(x):
         return x * x

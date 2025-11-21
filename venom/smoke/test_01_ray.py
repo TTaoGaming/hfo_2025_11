@@ -9,10 +9,10 @@ class SmokeActor:
 
 def test_ray_smoke():
     print("\n🧪 SMOKE TEST: Ray Compute Layer")
-    
+
     if ray.is_initialized():
         ray.shutdown()
-    
+
     try:
         ray.init(ignore_reinit_error=True, logging_level="ERROR")
         actor = SmokeActor.remote()

@@ -36,4 +36,3 @@ The **Hands** are the agents of **Change**. They write code, edit files, run ter
 ### 📜 The Golden Rule
 1.  **Intent (Brain)**: Defined in Gherkin/Mermaid.
 2.  **Implementation (Body)**: Executed via R.A.P.T.O.R. stack.
-

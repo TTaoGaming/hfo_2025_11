@@ -93,14 +93,14 @@ def act_pattern(swarm_context, pattern):
 def spawn_agents_with_disruptors(swarm_context, count, disruptor_range, loop):
     # Parse disruptor range "1-3"
     min_d, max_d = map(int, disruptor_range.split('-'))
-    
+
     # Update SSOT
     if swarm_context["intent"]:
         swarm_context["intent"].disruptor_min = min_d
         swarm_context["intent"].disruptor_max = max_d
-    
+
     num_disruptors = min_d # For test simplicity, pick min
-    
+
     for i in range(count):
         role = AgentRole.DISRUPTOR if i < num_disruptors else AgentRole.SHAPER
         agent = AgentState(agent_id=f"agent-{i}", role=role)
@@ -132,7 +132,7 @@ def cap_confidence(swarm_context, percent, reason):
 def mutate_system(swarm_context, framework, method):
     swarm_context["swarm_state"].phase = SwarmPhase.MUTATE
     swarm_context["mutation_framework"] = framework
-    
+
     # Update State SSOT
     swarm_context["swarm_state"].current_dspy_prompt = "optimized_signature_v2"
     swarm_context["swarm_state"].mutation_history.append(f"Applied {method} via {framework}")

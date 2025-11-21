@@ -11,7 +11,7 @@ Feature: Single Researcher PREY Loop
     Scenario: Agent executes a full PREY cycle
         Given a research intent "Analyze the latest trends in AI agent frameworks"
         And the agent is initialized with the "Observer" role
-        
+
         # P - Perceive
         When the agent enters the "Perceive" phase
         Then it should gather context from "memory"

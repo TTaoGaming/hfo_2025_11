@@ -41,12 +41,12 @@ graph TD
     Signal -->|Consumes| Assimilator
     Vote -->|Validates| Assimilator
     Assimilator -->|Extracts| Embedder
-    
+
     %% Structure Flow
     Embedder -->|Writes Vector| PG
     Assimilator -->|Creates Node| KG
     Indexer -->|Links Concepts| KG
-    
+
     %% Reuse Flow
     Navigator -->|Asks| Query
     Query -->|Hybrid Search| PG

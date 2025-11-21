@@ -15,9 +15,9 @@ def test_langgraph_smoke():
         workflow.add_node("increment", increment)
         workflow.set_entry_point("increment")
         workflow.add_edge("increment", END)
-        
+
         app = workflow.compile()
-        
+
         result = app.invoke({"count": 0})
         assert result["count"] == 1
         print("   ✅ LangGraph Execution: OK")

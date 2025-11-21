@@ -23,7 +23,7 @@ sequenceDiagram
     Note over Swarmlord, Reviewer: Phase 1: Scatter (Mission Injection)
     Swarmlord->>NATS: Publish "MissionSignal" (Topic: hfo.mission.new)
     NATS-->>Worker: Push "MissionSignal" (Queue Group: workers)
-    
+
     Note over Worker: Phase 2: Act (PREY Loop)
     Worker->>Worker: Execute Task (Think/Code)
     loop Heartbeat

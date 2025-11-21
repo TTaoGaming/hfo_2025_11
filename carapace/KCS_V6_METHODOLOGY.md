@@ -1,7 +1,7 @@
 # Knowledge-Centered Service (KCS v6) Methodology 🧠
 ## For Hive Fleet Obsidian (Gen 50)
 
-**Status:** Active Standard  
+**Status:** Active Standard
 **Adopted:** November 2025
 
 ### 1. Core Philosophy

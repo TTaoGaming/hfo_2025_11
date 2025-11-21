@@ -4,7 +4,7 @@ import os
 
 def test_dspy_smoke():
     print("\n🧪 SMOKE TEST: DSPy Evolution Layer")
-    
+
     api_key = os.getenv("OPENROUTER_API_KEY")
     if not api_key:
         pytest.skip("OPENROUTER_API_KEY not set")
@@ -28,10 +28,10 @@ def test_dspy_smoke():
         # Predict
         predict = dspy.Predict(BasicQA)
         response = predict(question="What is the capital of France?")
-        
+
         print(f"   Question: What is the capital of France?")
         print(f"   Answer: {response.answer}")
-        
+
         assert "Paris" in response.answer
         print("   ✅ DSPy Prediction: OK")
 

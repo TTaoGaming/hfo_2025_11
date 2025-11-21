@@ -10,7 +10,7 @@ class UserInfo(BaseModel):
 
 def test_instructor_smoke():
     print("\n🧪 SMOKE TEST: Instructor & Pydantic Layer")
-    
+
     api_key = os.getenv("OPENROUTER_API_KEY")
     if not api_key:
         print("   ⚠️ Skipped: OPENROUTER_API_KEY not set (Instructor test skipped)")

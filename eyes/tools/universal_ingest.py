@@ -19,11 +19,11 @@ except ImportError:
 
 # Configuration
 IGNORE_DIRS = {
-    '.git', '__pycache__', 'node_modules', '.venv', 'venv', 'env', 
+    '.git', '__pycache__', 'node_modules', '.venv', 'venv', 'env',
     '.vscode', '.idea', 'dist', 'build', 'coverage'
 }
 IGNORE_EXTENSIONS = {
-    '.pyc', '.pyo', '.pyd', '.so', '.dll', '.class', '.exe', 
+    '.pyc', '.pyo', '.pyd', '.so', '.dll', '.class', '.exe',
     '.jpg', '.jpeg', '.png', '.gif', '.ico', '.svg', '.zip', '.tar', '.gz', '.7z',
     '.deb', '.rpm', '.apk', '.iso', '.img', '.bin', '.lock', '.log', '.jsonl'
 }
@@ -43,7 +43,7 @@ def chunk_text(text: str, chunk_size: int = MAX_CHUNK_SIZE, overlap: int = OVERL
     """Simple overlapping chunker."""
     if len(text) <= chunk_size:
         return [text]
-    
+
     chunks = []
     start = 0
     while start < len(text):
@@ -81,7 +81,7 @@ def determine_metadata(file_path: str, content: str) -> Dict:
         if part.startswith("gen_") and part[4:].isdigit():
             meta["generation"] = int(part[4:])
             break
-    
+
     # Detect "Consensus" or "Swarm" results for slightly higher level (still capped at lvl1)
     lower_path = file_path.lower()
     if "swarm_results" in lower_path or "consensus" in lower_path or "hfo_crew_ai" in lower_path:
@@ -97,7 +97,7 @@ def process_file(file_path: str, embeddings_model, cursor):
 
         with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
             content = f.read()
-        
+
         # Check if file already exists to avoid re-ingesting on re-runs
         cursor.execute("SELECT id FROM knowledge_bank WHERE source_path = %s LIMIT 1", (file_path,))
         if cursor.fetchone():
@@ -115,7 +115,7 @@ def process_file(file_path: str, embeddings_model, cursor):
             return
 
         metadata = determine_metadata(file_path, content)
-        
+
         # Prepare rows
         rows = []
         for chunk, vector in zip(chunks, vectors):
@@ -136,13 +136,13 @@ def process_file(file_path: str, embeddings_model, cursor):
 
 def main():
     print("Starting Universal Ingestion...")
-    
+
     conn = get_db_connection()
     conn.autocommit = True
     cur = conn.cursor()
-    
+
     embeddings = get_embeddings_model()
-    
+
     root_dir = os.getcwd()
     files_to_process = []
 
@@ -151,28 +151,28 @@ def main():
     for dirpath, dirnames, filenames in os.walk(root_dir):
         # Filter directories
         dirnames[:] = [d for d in dirnames if d not in IGNORE_DIRS and not d.startswith('.')]
-        
+
         for f in filenames:
             ext = os.path.splitext(f)[1].lower()
             if ext in IGNORE_EXTENSIONS:
                 continue
-            
+
             full_path = os.path.join(dirpath, f)
             files_to_process.append(full_path)
 
     print(f"Found {len(files_to_process)} files to ingest.")
-    
+
     # 2. Process files
     # We'll process in batches to be safe, but the loop handles one file at a time for simplicity
     # The embedding call is the bottleneck.
-    
+
     # Re-instantiate embeddings every N files to prevent memory leaks
     BATCH_SIZE = 100
-    
+
     for i, file_path in enumerate(tqdm(files_to_process)):
         if i % BATCH_SIZE == 0:
              embeddings = get_embeddings_model()
-             
+
         process_file(file_path, embeddings, cur)
 
     print("Ingestion complete.")

@@ -6,7 +6,7 @@ from body.models.intent import MissionIntent
 # --- P - Pydantic (SSOT) ---
 def test_mission_intent_ssot_enforcement():
     """
-    Verify that the MissionIntent SSOT correctly enforces defaults 
+    Verify that the MissionIntent SSOT correctly enforces defaults
     and validates the FinOps strategy fields.
     """
     # 1. Test Defaults
@@ -17,7 +17,7 @@ def test_mission_intent_ssot_enforcement():
     assert intent.coordination_model_group == "Cheap Navigators"
     assert intent.execution_model_group == "Cheap QD Swarm"
     assert intent.swarm_size == 10
-    
+
     # 2. Test Custom Values
     intent_custom = MissionIntent(
         description="Custom Mission",
@@ -62,7 +62,7 @@ async def test_ray_actor_state():
     assert ray.get(counter.increment.remote()) == 1
     assert ray.get(counter.increment.remote()) == 2
     assert ray.get(counter.get_value.remote()) == 2
-    
+
     ray.shutdown()
 
 # --- A - Agent Logic (LangGraph) ---
@@ -103,7 +103,7 @@ def test_langgraph_simple_workflow():
 
     # 5. Compile & Run
     app = workflow.compile()
-    
+
     initial_state = {"count": 1, "log": []}
     result = app.invoke(initial_state)
 
@@ -141,7 +141,7 @@ def test_ribs_map_elites_archive():
     # 3. Verify
     assert status is not None
     assert len(archive) == 1
-    
+
     # Retrieve best
     elite = archive.best_elite
     assert elite["objective"] == 1.0
@@ -201,10 +201,10 @@ def test_langsmith_tracing_init():
         run_type="chain",
         inputs={"input": "test"}
     )
-    
+
     # 3. End the trace
     rt.end(outputs={"output": "success"})
-    
+
     # 4. Verify structure
     assert rt.name == "Test Trace"
     assert rt.run_type == "chain"

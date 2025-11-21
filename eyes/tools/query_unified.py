@@ -17,21 +17,21 @@ def query_knowledge(query_text, limit=5):
     config = get_config()
     conn = psycopg2.connect(config.database.url)
     cur = conn.cursor()
-    
+
     embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
     query_vector = embeddings.embed_query(query_text)
-    
+
     print(f"\nSearching for: '{query_text}'\n" + "="*50)
-    
+
     cur.execute("""
         SELECT source_path, content, metadata, 1 - (embedding <=> %s::vector) as similarity
         FROM knowledge_bank
         ORDER BY embedding <=> %s::vector
         LIMIT %s
     """, (query_vector, query_vector, limit))
-    
+
     results = cur.fetchall()
-    
+
     for path, content, meta, sim in results:
         print(f"\n[Similarity: {sim:.4f}] {path}")
         print(f"Metadata: {meta}")

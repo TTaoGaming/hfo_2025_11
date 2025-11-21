@@ -28,19 +28,19 @@ class AgentState(BaseModel):
     """
     agent_id: str
     role: AgentRole
-    
+
     # Current Operational Context
     current_mission: Optional[MissionIntent] = None
     current_step: PreyStep = PreyStep.IDLE
-    
+
     # Memory & Context
     short_term_memory: List[str] = Field(default_factory=list)
     tools_available: List[str] = Field(default_factory=list)
-    
+
     # Telemetry
     last_heartbeat: datetime = Field(default_factory=datetime.utcnow)
     confidence_score: float = Field(default=0.0, ge=0.0, le=1.0)
-    
+
     def update_heartbeat(self):
         self.last_heartbeat = datetime.utcnow()
 
@@ -69,20 +69,20 @@ class SwarmState(BaseModel):
     """
     generation_id: int
     phase: SwarmPhase = SwarmPhase.SET
-    
+
     # The Collective (Detailed View - for small swarms)
     active_agents: Dict[str, AgentState] = Field(default_factory=dict)
-    
+
     # The Collective (Aggregate View - for massive swarms)
     telemetry: Optional[SwarmTelemetry] = None
-    
+
     # Evolution State (DSPy & MAP-Elites)
     current_dspy_prompt: Optional[str] = Field(default=None, description="The current optimized prompt signature")
     mutation_history: List[str] = Field(default_factory=list, description="Log of mutations applied")
 
     # The Blackboard (Stigmergy)
     blackboard: Dict[str, Any] = Field(default_factory=dict)
-    
+
     # Consensus
     quorum_reached: bool = False
     consensus_confidence: float = 0.0

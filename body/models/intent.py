@@ -24,14 +24,14 @@ class MissionIntent(BaseModel):
     """
     id: UUID4 = Field(default_factory=uuid.uuid4)
     created_at: datetime = Field(default_factory=datetime.utcnow)
-    
+
     # The 'What' and 'Why'
     description: str = Field(..., description="High-level description of the mission")
     rationale: str = Field(..., description="Why this mission is important (Commander's Intent)")
-    
+
     # The 'How' (Constraints)
     constraints: List[Constraint] = Field(default_factory=list)
-    
+
     # Swarm Configuration (SSOT for Act/Mutate)
     swarm_size: int = Field(default=10, ge=1, description="Total number of agents")
     disruptor_min: int = Field(default=1, ge=0, description="Minimum number of disruptors")
@@ -45,6 +45,6 @@ class MissionIntent(BaseModel):
 
     # Success Criteria (Gherkin mapping)
     acceptance_criteria: List[str] = Field(default_factory=list, description="List of Gherkin scenarios or success conditions")
-    
+
     status: IntentStatus = IntentStatus.PENDING
     metadata: Dict[str, Any] = Field(default_factory=dict)

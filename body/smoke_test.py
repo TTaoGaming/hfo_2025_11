@@ -25,7 +25,7 @@ async def test_postgres():
         cur = conn.cursor()
         cur.execute("SELECT 1;")
         print("   ✅ Connection Successful")
-        
+
         cur.execute("SELECT * FROM pg_extension WHERE extname = 'vector';")
         if cur.fetchone():
             print("   ✅ pgvector Extension Found")
@@ -44,7 +44,7 @@ async def test_nats():
         nc = await nats.connect(NATS_URL)
         js = nc.jetstream()
         print("   ✅ Connection Successful")
-        
+
         # Create a stream (idempotent)
         try:
             await js.add_stream(name="SMOKE_TEST", subjects=["smoke.*"])
@@ -61,7 +61,7 @@ async def test_nats():
             print(f"   ✅ Message Roundtrip Successful: '{msg.data.decode()}'")
         else:
             print(f"   ❌ Message Mismatch: {msg.data}")
-        
+
         await nc.close()
         return True
     except Exception as e:
@@ -90,14 +90,14 @@ def test_libraries():
 async def main():
     print("🚀 STARTING HFO PHOENIX SMOKE TESTS 🚀")
     print("========================================")
-    
+
     results = {
         "Libraries": test_libraries(),
         "Postgres": await test_postgres(),
         "NATS": await test_nats(),
         "Temporal": await test_temporal()
     }
-    
+
     print("\n========================================")
     print("📊 TEST SUMMARY")
     all_passed = True
@@ -107,7 +107,7 @@ async def main():
         print(f"{icon} {name}: {status}")
         if not passed:
             all_passed = False
-            
+
     # 4. Verify Ray
     print("Testing Ray connection...")
     try:

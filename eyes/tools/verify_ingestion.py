@@ -16,14 +16,14 @@ def verify_ingestion():
     config = get_config()
     conn = psycopg2.connect(config.database.url)
     cur = conn.cursor()
-    
+
     print("\n=== Ingestion Verification Report ===\n")
-    
+
     # 1. Total Count
     cur.execute("SELECT COUNT(*) FROM knowledge_bank;")
     count = cur.fetchone()[0]
     print(f"Total Records Ingested: {count}")
-    
+
     if count == 0:
         print("WARNING: No records found. Ingestion might have failed or is still starting.")
         return
@@ -48,7 +48,7 @@ def verify_ingestion():
     path, meta = cur.fetchone()
     print(f"  File: {path}")
     print(f"  Metadata: {meta}")
-    
+
     print("\n=====================================\n")
     conn.close()
 

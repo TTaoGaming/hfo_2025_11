@@ -37,4 +37,3 @@ The **Body** is the engine of **Execution**. It turns the Brain's intent into re
 ### 📜 The Golden Rule
 1.  **Intent (Brain)**: Defined in Gherkin/Mermaid.
 2.  **Implementation (Body)**: Executed via R.A.P.T.O.R. stack.
-

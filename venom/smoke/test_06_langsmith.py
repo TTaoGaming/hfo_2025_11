@@ -5,7 +5,7 @@ from langchain_openai import ChatOpenAI
 
 def test_langsmith_smoke():
     print("\n🧪 SMOKE TEST: LangSmith Observability Layer")
-    
+
     if not os.getenv("LANGCHAIN_API_KEY"):
         print("   ⚠️ LANGCHAIN_API_KEY not set. Skipping.")
         return
@@ -19,7 +19,7 @@ def test_langsmith_smoke():
                 openai_api_base="https://openrouter.ai/api/v1"
             )
             llm.invoke("Hello")
-            
+
         print("   ✅ LangSmith Trace: OK")
     except Exception as e:
         pytest.fail(f"LangSmith failed: {e}")

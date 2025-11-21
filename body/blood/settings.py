@@ -37,12 +37,12 @@ class Settings(BaseSettings):
     # Infrastructure
     ray_address: str = Field("", alias="RAY_ADDRESS")
     temporal_address: str = Field("localhost:7233", alias="TEMPORAL_ADDRESS")
-    
+
     # DSPy
     dspy_cache_dir: str = Field(".dspy_cache", alias="DSPY_CACHE_DIR")
 
     model_config: SettingsConfigDict = SettingsConfigDict(
-        env_file=".env", 
+        env_file=".env",
         env_file_encoding="utf-8",
         extra="ignore"
     )

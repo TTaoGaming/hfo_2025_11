@@ -34,7 +34,7 @@ def setup_queue():
 
     # Index for fast fetching of pending items
     cur.execute("""
-        CREATE INDEX IF NOT EXISTS idx_queue_status 
+        CREATE INDEX IF NOT EXISTS idx_queue_status
         ON ingestion_queue(status);
     """)
 

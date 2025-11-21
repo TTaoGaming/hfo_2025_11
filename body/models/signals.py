@@ -19,7 +19,7 @@ class BaseSignal(BaseModel):
     timestamp: datetime = Field(default_factory=datetime.utcnow)
     type: SignalType
     producer_id: str = Field(..., description="ID of the agent producing the signal")
-    
+
     class Config:
         use_enum_values = True
 
@@ -45,7 +45,7 @@ class VoteSignal(BaseSignal):
     verdict: bool = Field(..., description="True = Approve, False = Reject")
     confidence: float = Field(..., ge=0.0, le=1.0)
     reasoning: str
-    
+
 class ConsensusSignal(BaseSignal):
     """Final decision reached by the Quorum."""
     type: SignalType = SignalType.CONSENSUS

@@ -35,11 +35,11 @@ def print_progress_bar(iteration, total, prefix='', suffix='', decimals=1, lengt
     else:
         percent = ("{0:." + str(decimals) + "f}").format(100 * (iteration / float(total)))
         filledLength = int(length * iteration // total)
-        
+
     bar = fill * filledLength + '-' * (length - filledLength)
     print(f'\r{prefix} |{bar}| {percent}% {suffix}', end=printEnd)
     # Print New Line on Complete
-    if iteration == total: 
+    if iteration == total:
         print()
 
 def monitor():
@@ -52,12 +52,12 @@ def monitor():
             with conn.cursor() as cur:
                 # Get counts by status
                 cur.execute("""
-                    SELECT status, COUNT(*) 
-                    FROM ingestion_queue 
+                    SELECT status, COUNT(*)
+                    FROM ingestion_queue
                     GROUP BY status
                 """)
                 results = cur.fetchall()
-                
+
                 stats = {
                     'PENDING': 0,
                     'PROCESSING': 0,
@@ -65,15 +65,15 @@ def monitor():
                     'FAILED': 0,
                     'SKIPPED': 0
                 }
-                
+
                 total_files = 0
                 for status, count in results:
                     stats[status] = count
                     total_files += count
-                
+
                 # Calculate processed count (everything not pending or processing)
                 processed = stats['COMPLETED'] + stats['FAILED'] + stats['SKIPPED']
-                
+
                 clear_screen()
                 print("=== HFO Ingestion Dashboard ===")
                 print(f"Total Files: {total_files:,}")
@@ -84,14 +84,14 @@ def monitor():
                 print(f"SKIPPED:    {stats['SKIPPED']:,}")
                 print(f"FAILED:     {stats['FAILED']:,}")
                 print("-" * 30)
-                
+
                 # Progress bar
                 print_progress_bar(processed, total_files, prefix='Progress:', suffix='Complete', length=40)
-                
+
                 print("\n\nPress Ctrl+C to exit monitor (worker will continue running)")
-                
+
             time.sleep(2)
-            
+
     except KeyboardInterrupt:
         print("\nMonitor stopped.")
     finally:

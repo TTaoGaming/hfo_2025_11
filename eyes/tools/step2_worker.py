@@ -60,11 +60,11 @@ def determine_metadata(file_path: str) -> Dict:
         if part.startswith("gen_") and part[4:].isdigit():
             meta["generation"] = int(part[4:])
             break
-            
+
     lower_path = file_path.lower()
     if "swarm_results" in lower_path or "consensus" in lower_path:
         meta["level"] = "hfo_lvl1"
-        
+
     return meta
 
 def process_batch(conn, embeddings_model):
@@ -74,73 +74,73 @@ def process_batch(conn, embeddings_model):
     3. Update status
     """
     cur = conn.cursor()
-    
+
     # 1. Claim a batch
-    # We select PENDING items. 
+    # We select PENDING items.
     cur.execute(f"""
-        SELECT file_path FROM ingestion_queue 
-        WHERE status = 'PENDING' 
-        LIMIT {BATCH_SIZE} 
+        SELECT file_path FROM ingestion_queue
+        WHERE status = 'PENDING'
+        LIMIT {BATCH_SIZE}
         FOR UPDATE SKIP LOCKED
     """)
     rows = cur.fetchall()
-    
+
     if not rows:
         return 0
-        
+
     file_paths = [r[0] for r in rows]
-    
+
     # Mark them as PROCESSING so other workers don't grab them (if we ran parallel)
     cur.execute("""
-        UPDATE ingestion_queue 
-        SET status = 'PROCESSING', updated_at = NOW() 
+        UPDATE ingestion_queue
+        SET status = 'PROCESSING', updated_at = NOW()
         WHERE file_path = ANY(%s)
     """, (file_paths,))
     conn.commit()
-    
+
     # 2. Process
     success_paths = []
     failed_paths = [] # (path, error_msg)
-    
+
     vectors_to_insert = [] # (path, chunk, vector, meta)
-    
+
     for file_path in file_paths:
         try:
             # Double check file exists
             if not os.path.exists(file_path):
                 failed_paths.append((file_path, "File not found"))
                 continue
-                
+
             # print(f"Processing: {file_path}") # Verbose logging
-            
+
             with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
                 content = f.read()
-            
+
             # Sanitize
             content = content.replace('\x00', '')
             if not content.strip():
                 success_paths.append(file_path) # Empty file is "success" (nothing to do)
                 continue
-                
+
             chunks = chunk_text(content)
             if not chunks:
                 success_paths.append(file_path)
                 continue
-                
+
             # Embed
             try:
                 vectors = embeddings_model.embed_documents(chunks)
             except Exception as e:
                 failed_paths.append((file_path, str(e)))
                 continue
-                
+
             meta = determine_metadata(file_path)
-            
+
             for chunk, vector in zip(chunks, vectors):
                 vectors_to_insert.append((file_path, chunk, vector, Json(meta)))
-                
+
             success_paths.append(file_path)
-            
+
         except Exception as e:
             failed_paths.append((file_path, str(e)))
 
@@ -165,44 +165,44 @@ def process_batch(conn, embeddings_model):
     # 4. Update Queue Status
     if success_paths:
         cur.execute("""
-            UPDATE ingestion_queue 
-            SET status = 'COMPLETED', updated_at = NOW() 
+            UPDATE ingestion_queue
+            SET status = 'COMPLETED', updated_at = NOW()
             WHERE file_path = ANY(%s)
         """, (success_paths,))
-        
+
     for fp, err in failed_paths:
         cur.execute("""
-            UPDATE ingestion_queue 
-            SET status = 'FAILED', error_message = %s, attempts = attempts + 1, updated_at = NOW() 
+            UPDATE ingestion_queue
+            SET status = 'FAILED', error_message = %s, attempts = attempts + 1, updated_at = NOW()
             WHERE file_path = %s
         """, (err, fp))
-        
+
     conn.commit()
     cur.close()
-    
+
     return len(file_paths)
 
 def main():
     print("Starting Ingestion Worker...")
     conn = get_db_connection()
     embeddings = get_embeddings_model()
-    
+
     # Get total pending
     cur = conn.cursor()
     cur.execute("SELECT COUNT(*) FROM ingestion_queue WHERE status = 'PENDING'")
     total_pending = cur.fetchone()[0]
     cur.close()
-    
+
     print(f"Total Pending Items: {total_pending}")
-    
+
     pbar = tqdm(total=total_pending)
-    
+
     while True:
         processed_count = process_batch(conn, embeddings)
         if processed_count == 0:
             break
         pbar.update(processed_count)
-        
+
     print("\nQueue Empty. Worker finished.")
     conn.close()
 

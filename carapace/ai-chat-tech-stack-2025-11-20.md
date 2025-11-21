@@ -1,23 +1,23 @@
-HFO tech stack important idea 
+HFO tech stack important idea
 
 Intent/implementation step
 Gherkin mermaid diagrams
 
 
-Instructor pydantic 
+Instructor pydantic
 
-Ray distributed 
-Agent logic. Langgraph 
-Pydantic. Instructor 
+Ray distributed
+Agent logic. Langgraph
+Pydantic. Instructor
 Temporal
 Observability graphrag PG vector lang smith open telemetry
-R 
+R
 
 Hexagonal
 Anti-fragile
 Adverserial Byzantine quorum
 Confidence weighted Byzantine fault tolerance
-Composition on exemplar research, apex biomimetics 
+Composition on exemplar research, apex biomimetics
 Network stigmergy
 Holonic
 Hierarchical
@@ -75,5 +75,3 @@ The "Red Light" (Critical Dependency)
  * Verification Cost: The cost of 3f+1 is high. For every 1 line of code, you are paying for 4+ agents to argue about it. You need aggressive FinOps (budget circuit breakers) or this will bankrupt you before it builds anything.
 Final Assessment:
 This is a valid, high-end enterprise architecture. It applies Distributed Systems Theory to GenAI. It is overkill for a script, but necessary for a self-healing software factory.
-
-

@@ -10,7 +10,7 @@ This document defines the core "powerful concepts" equipped for Hive Fleet Obsid
 
 ### 💠 Hierarchical Holonic Topology
 *   **Definition**: A structure where every component is both a whole "system" in itself and a "part" of a larger system (a "holon").
-*   **HFO Application**: 
+*   **HFO Application**:
     *   **Level 0**: Individual Agents (Worker).
     *   **Level 1**: Squads/Generations (Gen 1, Gen 2...).
     *   **Level 2**: The Hive Fleet (The entire repo).
@@ -27,7 +27,7 @@ This document defines the core "powerful concepts" equipped for Hive Fleet Obsid
 
 ### ⚔️ Adversarial Co-evolution
 *   **Definition**: Two or more systems evolve by competing against each other.
-*   **HFO Application**: 
+*   **HFO Application**:
     *   **Generator Agent**: Creates code/content.
     *   **Critic/Auditor Agent**: Tries to break it or find flaws.
     *   This loop forces rapid improvement (like the "Molt" cycles).

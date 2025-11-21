@@ -15,18 +15,18 @@ def debug_table():
     config = get_config()
     conn = psycopg2.connect(config.database.url)
     cur = conn.cursor()
-    
+
     print("Checking table schema...")
     cur.execute("""
-        SELECT column_name, data_type 
-        FROM information_schema.columns 
+        SELECT column_name, data_type
+        FROM information_schema.columns
         WHERE table_name = 'ingestion_queue';
     """)
-    
+
     columns = cur.fetchall()
     for col in columns:
         print(f" - {col[0]}: {col[1]}")
-        
+
     conn.close()
 
 if __name__ == "__main__":

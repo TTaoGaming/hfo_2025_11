@@ -36,4 +36,3 @@ The **Memory** is the storehouse of **Wisdom**. It persists knowledge beyond the
 ### 📜 The Golden Rule
 1.  **Intent (Brain)**: Defined in Gherkin/Mermaid.
 2.  **Implementation (Body)**: Executed via R.A.P.T.O.R. stack.
-

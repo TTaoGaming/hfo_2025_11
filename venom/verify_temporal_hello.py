@@ -21,7 +21,7 @@ class HelloWorkflow:
 # --- 3. Run the Test ---
 async def main():
     print("🧪 TESTING: Temporal Hello World (Minimal)...")
-    
+
     # Connect to the Temporal Server running in Docker
     client = await Client.connect("localhost:7235")
     print("   ✅ Connected to Temporal Server")
@@ -34,7 +34,7 @@ async def main():
         activities=[say_hello],
     ):
         print("   ✅ Worker started")
-        
+
         # Execute the workflow
         print("   🚀 Executing workflow...")
         result = await client.execute_workflow(
@@ -43,7 +43,7 @@ async def main():
             id="hello-world-id",
             task_queue="hello-world-queue",
         )
-        
+
         print(f"   ✅ RESULT: {result}")
 
 if __name__ == "__main__":

@@ -98,7 +98,7 @@ def generate_readme(path_str, data):
     # Determine the root relative path to ensure links work if we ever add them
     # For now, we assume the script runs from root or we use absolute paths.
     # We will write to the workspace root + path_str
-    
+
     # Construct the content
     content = f"""# {data['icon']} {data['name']} ({data['role'].split(' / ')[0]})
 
@@ -116,22 +116,22 @@ def generate_readme(path_str, data):
 {data['instructions']}
 {HFO_DNA}
 """
-    
+
     # Write the file
     # Assuming script is run from root, or we find root.
     # We'll assume the script is run from the workspace root for simplicity in this context,
     # or we can use relative paths from this script location.
     # This script is in body/blood/generate_readmes.py
     # So root is ../../
-    
+
     root_dir = Path(__file__).parent.parent.parent
     target_dir = root_dir / path_str
     target_file = target_dir / "README.md"
-    
+
     if not target_dir.exists():
         print(f"⚠️ Directory not found: {target_dir}. Creating...")
         target_dir.mkdir(parents=True, exist_ok=True)
-        
+
     with open(target_file, "w") as f:
         f.write(content)
     print(f"✅ Inoculated {path_str}/README.md")
@@ -139,10 +139,10 @@ def generate_readme(path_str, data):
 def main():
     print("🏭 Starting Organ Factory...")
     print("💉 Injecting HFO DNA into all organs...")
-    
+
     for path, data in ORGANS.items():
         generate_readme(path, data)
-        
+
     print("✨ Factory Complete. All organs inoculated.")
 
 if __name__ == "__main__":
