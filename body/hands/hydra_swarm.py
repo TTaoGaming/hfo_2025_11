@@ -44,6 +44,7 @@ confidence: {metadata.get('confidence', 'N/A')}
         f.write(yaml_header + "\n" + content)
 
     logger.info(f"   📄 Artifact dropped: {filename}")
+    return filepath
 
 
 # --- DNA (Pydantic Models) ---
@@ -81,6 +82,10 @@ class TaskResult(BaseModel):
     confidence: float = Field(..., description="Confidence score 0.0-1.0")
     is_valid: bool = Field(
         default=True, description="Whether this result passed the filter"
+    )
+    agent_id: Optional[str] = Field(None, description="The ID/Role of the agent")
+    artifacts: List[str] = Field(
+        default_factory=list, description="List of file paths created"
     )
 
 
@@ -210,15 +215,17 @@ class PreyAgent:
     def _yield(self, task_id: int, result: TaskResult) -> TaskResult:
         logger.info(f"   ✅ {self.role}: Yielding Result...")
         result.task_id = task_id
+        result.agent_id = self.role
 
         # Save Artifact (Stigmergy)
-        save_artifact(
+        artifact_path = save_artifact(
             mission_id=self.mission_id,
             agent_role=self.role,
             step_type="execution",
             content=result.output,
             metadata={"confidence": result.confidence, "model": "x-ai/grok-4.1-fast"},
         )
+        result.artifacts.append(artifact_path)
         return result
 
 

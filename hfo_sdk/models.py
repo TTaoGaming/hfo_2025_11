@@ -15,3 +15,25 @@ class SwarmConfig(BaseModel):
     base_output_dir: str = Field(
         default="/tmp/hfo_swarm", description="Directory for artifacts"
     )
+    nats_url: str = Field(
+        default="nats://localhost:4222", description="NATS JetStream URL"
+    )
+
+
+class MissionSignal(BaseModel):
+    """A signal published to NATS to initiate a mission round."""
+
+    mission_id: str
+    round_id: int
+    intent: MissionIntent
+    context: str = Field(default="", description="Context from previous rounds")
+
+
+class ResultSignal(BaseModel):
+    """A signal published by an agent (or controller) containing the result."""
+
+    mission_id: str
+    round_id: int
+    agent_role: str
+    content: str
+    artifacts: list[str] = []
