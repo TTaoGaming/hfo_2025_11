@@ -3,13 +3,14 @@ import operator
 import logging
 import uuid
 import datetime
-from typing import Annotated, List, TypedDict, Optional
+from typing import Annotated, List, TypedDict, Optional, Dict, Any
 from pydantic import BaseModel, Field
 import instructor
 from openai import OpenAI
 from langgraph.graph import StateGraph, END, START
 from langgraph.types import Send
 from dotenv import load_dotenv
+from body.hands.tools import ToolSet
 
 # 1. Setup & Config
 load_dotenv()
@@ -55,6 +56,19 @@ class SubTask(BaseModel):
     mission_id: Optional[str] = None  # Added for context passing
 
 
+class ReactionObject(BaseModel):
+    thought_process: str = Field(..., description="Reasoning behind the action")
+    tool_name: Optional[str] = Field(
+        None, description="Name of the tool to use (read_file, write_file, search_web)"
+    )
+    tool_args: Optional[Dict[str, Any]] = Field(
+        None, description="Arguments for the tool as a dictionary"
+    )
+    final_answer: Optional[str] = Field(
+        None, description="Direct answer if no tool is needed"
+    )
+
+
 class Plan(BaseModel):
     tasks: List[SubTask] = Field(
         ..., description="List of sub-tasks to execute in parallel"
@@ -88,6 +102,124 @@ class HydraState(TypedDict):
 
 
 # --- The Agents (Nodes) ---
+
+
+class PreyAgent:
+    """
+    Implements the Level 0 PREY Loop:
+    - Perceive: Ingest context/task.
+    - React: Plan/Decide (Select Tool).
+    - Execute: Act (Run Tool).
+    - Yield: Return.
+    """
+
+    def __init__(self, role: str, mission_id: str):
+        self.role = role
+        self.mission_id = mission_id
+        self.client = get_client()
+
+    def run_loop(self, task: SubTask) -> TaskResult:
+        # 1. Perceive
+        context = self._perceive(task)
+
+        # 2. React
+        reaction = self._react(context)
+
+        # 3. Execute
+        result = self._execute(reaction)
+
+        # 4. Yield
+        return self._yield(task.id, result)
+
+    def _perceive(self, task: SubTask) -> str:
+        logger.info(f"   👁️  {self.role}: Perceiving Task {task.id}...")
+        # In future, this would read files or query memory
+        return f"Task Description: {task.description}\nRole: {self.role}"
+
+    def _react(self, context: str) -> ReactionObject:
+        logger.info(f"   🧠 {self.role}: Reacting/Planning...")
+
+        return self.client.chat.completions.create(
+            model="x-ai/grok-4.1-fast",
+            response_model=ReactionObject,
+            messages=[
+                {
+                    "role": "system",
+                    "content": f"""You are a {self.role}. Analyze the task and decide on an action.
+                    Available Tools:
+                    - read_file(file_path): Read content of a file.
+                    - write_file(file_path, content): Write content to a file.
+                    - search_web(query): Search the internet.
+
+                    If you need to use a tool, specify tool_name and tool_args.
+                    If you can answer directly, provide final_answer.
+                    """,
+                },
+                {"role": "user", "content": context},
+            ],
+        )
+
+    def _execute(self, reaction: ReactionObject) -> TaskResult:
+        logger.info(f"   ⚡ {self.role}: Executing...")
+
+        output = ""
+        if reaction.tool_name:
+            logger.info(
+                f"      🛠️ Tool Call: {reaction.tool_name}({reaction.tool_args})"
+            )
+
+            # Ensure args is a dict (handle None case)
+            args = reaction.tool_args or {}
+
+            if reaction.tool_name == "read_file":
+                file_path = args.get("file_path")
+                if file_path:
+                    output = ToolSet.read_file(file_path)
+                else:
+                    output = "Error: read_file requires 'file_path' argument"
+
+            elif reaction.tool_name == "write_file":
+                file_path = args.get("file_path")
+                content = args.get("content")
+                if file_path and content:
+                    output = ToolSet.write_file(file_path, content)
+                else:
+                    output = (
+                        "Error: write_file requires 'file_path' and 'content' arguments"
+                    )
+
+            elif reaction.tool_name == "search_web":
+                query = args.get("query")
+                if query:
+                    output = ToolSet.search_web(query)
+                else:
+                    output = "Error: search_web requires 'query' argument"
+            else:
+                output = f"Error: Unknown tool {reaction.tool_name}"
+        else:
+            output = reaction.final_answer or "No action taken."
+
+        # Wrap in TaskResult
+        return TaskResult(
+            task_id=0,  # Will be set in yield
+            output=output,
+            confidence=0.9,  # Mock confidence
+            is_valid=True,
+        )
+
+    def _yield(self, task_id: int, result: TaskResult) -> TaskResult:
+        logger.info(f"   ✅ {self.role}: Yielding Result...")
+        result.task_id = task_id
+
+        # Save Artifact (Stigmergy)
+        save_artifact(
+            mission_id=self.mission_id,
+            agent_role=self.role,
+            step_type="execution",
+            content=result.output,
+            metadata={"confidence": result.confidence, "model": "x-ai/grok-4.1-fast"},
+        )
+        return result
 
 
 class MockClient:
@@ -167,30 +299,10 @@ def worker_node(state: SubTask):
     # Let's hack it: The planner should inject mission_id into SubTask if we want it here.
     # Or we just use a placeholder if missing.
 
-    logger.info(f"   🖐️  Hand ({state.assigned_role}): Executing Task {state.id}...")
-    client = get_client()
+    mission_id = state.mission_id or "unknown_in_map"
+    agent = PreyAgent(role=state.assigned_role, mission_id=mission_id)
 
-    result = client.chat.completions.create(
-        model="x-ai/grok-4.1-fast",  # Cheap worker
-        response_model=TaskResult,
-        messages=[
-            {
-                "role": "system",
-                "content": f"You are a {state.assigned_role}. Execute the task concisely.",
-            },
-            {"role": "user", "content": state.description},
-        ],
-    )
-    result.task_id = state.id
-
-    # Save Artifact
-    save_artifact(
-        mission_id=state.mission_id or "unknown_in_map",
-        agent_role=state.assigned_role,
-        step_type="execution",
-        content=result.output,
-        metadata={"confidence": result.confidence, "model": "x-ai/grok-4.1-fast"},
-    )
+    result = agent.run_loop(state)
 
     return {"results": [result]}
 

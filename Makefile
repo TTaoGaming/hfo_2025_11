@@ -42,3 +42,21 @@ test-dspy:
 
 test-gitops:
 	@$(PYTHON) venom/smoke/test_09_gitops.py
+
+# --- 🧬 Stem Cell Factory (Regeneration) ---
+
+regenerate-agent:
+	@echo "🦠 Regenerating Agent Role: $(role)..."
+	@# TODO: Call genesis.py --spawn-agent $(role)
+	@echo "✅ Agent $(role) regenerated from Stem Cells."
+
+regenerate-organ:
+	@echo "🫀 Regenerating Organ: $(name)..."
+	@# TODO: Call genesis.py --regenerate-organ $(name)
+	@echo "✅ Organ $(name) regenerated from Stem Cells."
+
+phoenix-protocol:
+	@echo "🔥 Initiating Phoenix Protocol (Hive Regeneration)..."
+	@echo "⚠️  WARNING: This will reset the entire runtime environment."
+	@# TODO: Call genesis.py --phoenix
+	@echo "🦅 Hive Fleet Obsidian has risen from the ashes."
