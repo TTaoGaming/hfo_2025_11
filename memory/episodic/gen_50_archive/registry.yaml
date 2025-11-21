@@ -1,0 +1,77 @@
+# 📜 The Holocron: Hive Fleet Obsidian Registry Spine
+# Status: Active (Metamorphosis Target)
+# Purpose: Defines the biological organ structure and the OBSIDIAN Roles that seat them.
+
+root:
+  - AGENTS.md
+  - Makefile
+  - README.md
+  - requirements.txt
+  - setup_env.sh
+  - setup_hybrid.sh
+
+organs:
+  brain:
+    path: "brain/"
+    primary_seat: "Navigator"
+    jadc2_function: "Command & Control (C2)"
+    biological_function: "Strategy & Will"
+    contents: ["*.feature", "*.md", "*.yaml"]
+    old_path: "intent/"
+
+  eyes:
+    path: "eyes/"
+    primary_seat: "Observer"
+    jadc2_function: "Sensor (ISR)"
+    biological_function: "Sensing & Telemetry"
+    contents: ["scrapers/", "monitors/"]
+    old_path: "ingestion/"
+
+  body:
+    path: "body/"
+    primary_seat: "Collective"
+    jadc2_function: "Platform"
+    biological_function: "Soma & Execution"
+    sub_organs:
+      nerves:
+        path: "body/nerves/"
+        primary_seat: "Bridger"
+        jadc2_function: "Communicator"
+        biological_function: "Coordination & Routing"
+        old_path: "src/swarm/"
+      hands:
+        path: "body/hands/"
+        primary_seat: "Shaper"
+        jadc2_function: "Effector"
+        biological_function: "Tools & Action"
+        old_path: "src/tools/"
+      blood:
+        path: "body/blood/"
+        primary_seat: "Injector"
+        jadc2_function: "Logistics"
+        biological_function: "Resources & Config"
+        old_path: "src/config/"
+
+  memory:
+    path: "memory/"
+    primary_seat: "Assimilator"
+    jadc2_function: "Intelligence"
+    biological_function: "Digestion & Wisdom"
+    contents: ["episodic/", "semantic/", "procedural/"]
+    old_path: "memory/"
+
+  carapace:
+    path: "carapace/"
+    primary_seat: "Immunizer"
+    jadc2_function: "Blue Team (Protection)"
+    biological_function: "Protection & Governance"
+    contents: ["*.md"]
+    old_path: "docs/"
+
+  venom:
+    path: "venom/"
+    primary_seat: "Disruptor"
+    jadc2_function: "Red Team (Adversary)"
+    biological_function: "Stress & Chaos"
+    contents: ["smoke/", "chaos/"]
+    old_path: "tests/"

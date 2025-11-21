@@ -1,0 +1,47 @@
+# Interfaces (from->to with relation)
+interfaces:
+  - from: swarmlord
+    to: prey_lanes
+    relation: orchestrates
+  - from: swarmlord
+    to: quorum
+    relation: invokes
+  - from: prey_lanes
+    to: blackboard
+    relation: writes
+  - from: prey_lanes
+    to: telemetry
+    relation: writes
+  - from: quorum
+    to: blackboard
+    relation: writes
+  - from: swarmlord
+    to: state_store
+    relation: writes
+  - from: swarmlord
+    to: mission_intent
+    relation: reads
+  - from: prey_lanes
+    to: llm_client
+    relation: uses
+  - from: llm_client
+    to: telemetry
+    relation: writes
+  - from: blackboard
+    to: blackboard_duckdb
+    relation: mirrored_to
+  - from: arc_runner
+    to: swarmlord
+    relation: reports_to
+  - from: pz_runner
+    to: swarmlord
+    relation: reports_to
+  - from: swarmlord
+    to: hourglass
+    relation: plans_via
+  - from: hourglass
+    to: swarmlord
+    relation: schedules
+  - from: swarmlord
+    to: molt_shell
+    relation: references

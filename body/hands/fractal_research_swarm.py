@@ -50,8 +50,9 @@ class ResearchResult(BaseModel):
     source: str = Field(..., description="Source of the information (Tool used)")
 
 
-class SquadReport(BaseModel):
-    squad_id: str
+class HolonReport(BaseModel):
+    holon_id: str
+    level: int
     domain: str
     findings: str
     consensus_score: float
@@ -317,27 +318,33 @@ class VirtualAgent:
                 f.write(f"```text\n{m['content']}\n```\n\n")
 
 
-# --- The Squad Leader (Level 1 - The Holon) ---
+# --- The Holon Node (Recursive Fractal Unit) ---
 @ray.remote
-class SquadLeader:
+class HolonNode:
     def __init__(
         self,
-        squad_id: str,
+        level: int,
+        holon_id: str,
         domain: str,
-        sub_questions: List[str],
+        task: str,
         stigmergy_handle,
         mission_path: str,
+        branching_factor: int = 10,
     ):
-        self.squad_id = squad_id
+        self.level = level
+        self.holon_id = holon_id
         self.domain = domain
-        self.sub_questions = sub_questions
+        self.task = task
         self.stigmergy = stigmergy_handle
         self.mission_path = Path(mission_path)
-        self.squad_path = self.mission_path / "squads" / self.squad_id
-        self.squad_path.mkdir(parents=True, exist_ok=True)
-        (self.squad_path / "agents").mkdir(exist_ok=True)
+        self.branching_factor = branching_factor
 
-        self.forge = EvolutionaryForge()  # Each squad has a local forge for now
+        # Create directory for this Holon
+        self.holon_path = self.mission_path / f"level_{level}" / self.holon_id
+        self.holon_path.mkdir(parents=True, exist_ok=True)
+        (self.holon_path / "agents").mkdir(exist_ok=True)
+
+        self.forge = EvolutionaryForge()
         self.client = instructor.from_openai(
             OpenAI(
                 base_url=os.getenv("OPENROUTER_BASE_URL"),
@@ -346,18 +353,31 @@ class SquadLeader:
             mode=instructor.Mode.JSON,
         )
 
-    async def run_squad(self) -> SquadReport:
-        print(f"   🛡️ Squad {self.squad_id} mobilizing for domain: {self.domain}...")
+    async def execute(self) -> HolonReport:
+        print(
+            f"   🛡️ Holon {self.holon_id} (L{self.level}) mobilizing for: {self.domain}..."
+        )
 
-        # 1. Spawn Virtual Agents with Evolved Personas
+        if self.level == 1:
+            return await self._execute_leaf()
+        else:
+            return await self._execute_node()
+
+    async def _execute_leaf(self) -> HolonReport:
+        """Level 1: Manages Virtual Agents (The Squad)"""
+        # 1. Spawn Virtual Agents
         agents = []
-        for i, q in enumerate(self.sub_questions):
+        sub_questions = [
+            f"Investigate aspect {j} of {self.domain} related to '{self.task}'"
+            for j in range(1, self.branching_factor + 1)
+        ]
+
+        for i, q in enumerate(sub_questions):
             persona = self.forge.select_persona()
-            # Mutate slightly for diversity
             persona = self.forge.mutate(persona)
-            agent_dir = self.squad_path / "agents" / f"{self.squad_id}-Ag{i}"
+            agent_dir = self.holon_path / "agents" / f"{self.holon_id}-Ag{i}"
             agent = VirtualAgent(
-                agent_id=f"{self.squad_id}-Ag{i}",
+                agent_id=f"{self.holon_id}-Ag{i}",
                 persona=persona,
                 task=q,
                 domain=self.domain,
@@ -366,28 +386,83 @@ class SquadLeader:
             )
             agents.append(agent)
 
-        # 2. Iterative Cycles (Temporal Dilation)
-        # Round 1: Exploration
-        print(f"   🔄 Squad {self.squad_id} - Round 1: Exploration")
+        # 2. Iterative Cycles
+        print(f"   🔄 Holon {self.holon_id} - Round 1: Exploration")
         _ = await asyncio.gather(*[a.execute_round(1) for a in agents])
 
-        # Round 2: Refinement (Reading Stigmergy)
-        print(f"   🔄 Squad {self.squad_id} - Round 2: Refinement & Debate")
+        print(f"   🔄 Holon {self.holon_id} - Round 2: Refinement")
         results_r2 = await asyncio.gather(*[a.execute_round(2) for a in agents])
 
-        # 3. Synthesize (The Consensus)
-        valid_results = [r for r in results_r2 if r.confidence > 0.5]
+        # 3. Synthesize
+        return await self._synthesize_results(results_r2)
+
+    async def _execute_node(self) -> HolonReport:
+        """Level > 1: Manages Child Holons (The Platoon/Company)"""
+        # 1. Decompose Task
+        sub_domains = await self._decompose_task()
+
+        # 2. Spawn Child Holons
+        children = []
+        for i, sub_domain in enumerate(sub_domains):
+            child = HolonNode.remote(
+                level=self.level - 1,
+                holon_id=f"{self.holon_id}.{i+1}",
+                domain=sub_domain,
+                task=f"Investigate {sub_domain} in context of {self.task}",
+                stigmergy_handle=self.stigmergy,
+                mission_path=str(self.mission_path),
+                branching_factor=self.branching_factor,
+            )
+            children.append(child)
+
+        # 3. Gather Results
+        print(f"   🚀 Holon {self.holon_id} launching {len(children)} child nodes...")
+        child_reports = await asyncio.gather(*[c.execute.remote() for c in children])
+
+        # 4. Synthesize
+        # Convert child reports to pseudo-ResearchResults for synthesis
+        results = [
+            ResearchResult(
+                content=r.findings,
+                confidence=r.consensus_score,
+                source=f"Holon {r.holon_id}",
+            )
+            for r in child_reports
+        ]
+        return await self._synthesize_results(results)
+
+    async def _decompose_task(self) -> List[str]:
+        """Generate sub-domains for children."""
+        try:
+            domains_resp = self.client.chat.completions.create(
+                model="x-ai/grok-4.1-fast",
+                response_model=List[str],
+                messages=[
+                    {
+                        "role": "system",
+                        "content": f"Generate exactly {self.branching_factor} distinct sub-domains to comprehensively analyze: {self.domain}.",
+                    },
+                    {"role": "user", "content": self.task},
+                ],
+            )
+            return domains_resp[: self.branching_factor]
+        except Exception:
+            # Fallback if LLM fails
+            return [f"{self.domain} - Part {i+1}" for i in range(self.branching_factor)]
+
+    async def _synthesize_results(self, results: List[Any]) -> HolonReport:
+        valid_results = [r for r in results if r.confidence > 0.4]
 
         if not valid_results:
-            return SquadReport(
-                squad_id=self.squad_id,
+            return HolonReport(
+                holon_id=self.holon_id,
+                level=self.level,
                 domain=self.domain,
                 findings="No valid findings.",
                 consensus_score=0.0,
                 key_evidence=[],
             )
 
-        # Synthesis LLM Call
         synthesis_prompt = f"Synthesize these {len(valid_results)} findings into a cohesive report on {self.domain}."
         findings_text = "\n".join(
             [f"- {r.content} (Conf: {r.confidence})" for r in valid_results]
@@ -396,7 +471,7 @@ class SquadLeader:
         messages = [
             {
                 "role": "system",
-                "content": "You are a Squad Leader. Synthesize the findings of your agents.",
+                "content": f"You are a Level {self.level} Holon Leader. Synthesize the findings.",
             },
             {
                 "role": "user",
@@ -405,35 +480,21 @@ class SquadLeader:
         ]
 
         synthesis = self.client.chat.completions.create(
-            model="x-ai/grok-4.1-fast", response_model=SquadReport, messages=messages
+            model="x-ai/grok-4.1-fast", response_model=HolonReport, messages=messages
         )
-        synthesis.squad_id = self.squad_id
+        synthesis.holon_id = self.holon_id
+        synthesis.level = self.level
         synthesis.domain = self.domain
 
-        self._save_squad_report(synthesis)
-        self._save_audit(messages, synthesis)
-        print(
-            f"   ✅ Squad {self.squad_id} reporting in. Score: {synthesis.consensus_score}"
-        )
+        self._save_report(synthesis)
         return synthesis
 
-    def _save_audit(self, messages, result):
-        filename = self.squad_path / "synthesis_audit.md"
+    def _save_report(self, report):
+        filename = self.holon_path / "holon_report.md"
         with open(filename, "w") as f:
-            f.write(f"# Audit Log: Squad {self.squad_id} Synthesis\n")
-            f.write(f"**Timestamp**: {datetime.now().isoformat()}\n\n")
-            f.write("## Prompts\n")
-            for m in messages:
-                f.write(f"### {m['role'].upper()}\n")
-                f.write(f"```text\n{m['content']}\n```\n\n")
-            f.write("## Output\n")
-            f.write(f"**Consensus Score**: {result.consensus_score}\n")
-            f.write(f"**Findings**: {result.findings}\n")
-
-    def _save_squad_report(self, report):
-        filename = self.squad_path / "squad_report.md"
-        with open(filename, "w") as f:
-            f.write(f"# Squad {report.squad_id} Report: {report.domain}\n")
+            f.write(
+                f"# Holon {report.holon_id} (L{report.level}) Report: {report.domain}\n"
+            )
             f.write(f"**Consensus Score**: {report.consensus_score}\n\n")
             f.write("## Findings\n")
             f.write(report.findings)
@@ -458,7 +519,7 @@ class FractalResearchSwarm:
         self.stigmergy = StigmergyBoard.remote()
 
     async def execute_mission(
-        self, query: str, num_domains: int = 3, agents_per_domain: int = 5
+        self, query: str, depth: int = 3, branching_factor: int = 10
     ) -> FinalDigest:
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         short_id = str(uuid.uuid4())[:8]
@@ -466,84 +527,43 @@ class FractalResearchSwarm:
         mission_dir = Path(f"memory/missions/{mission_id}")
         mission_dir.mkdir(parents=True, exist_ok=True)
 
+        total_agents = branching_factor**depth
         print(f"🦅 Fractal Swarm Activated. Mission ID: {mission_id}")
         print(f"📂 Mission Output: {mission_dir}")
         print(f"📜 Query: {query}")
         print(
-            f"🔢 Scale: {num_domains} Squads x {agents_per_domain} Agents = {num_domains * agents_per_domain} Total Agents"
+            f"🔢 Scale: Depth {depth} x Branching {branching_factor} = {total_agents} Total Agents"
         )
 
-        # 1. Strategic Decomposition (Commander)
-        print("\n🧠 Commander: Decomposing Mission...")
+        # Spawn Root Holon (The Apex Node)
+        print("\n🧠 Commander: Spawning Apex Holon...")
 
-        # Dynamic Domain Generation
-        if num_domains == 3:
-            domains = ["Historical Context", "Current State", "Future Implications"]
-        else:
-            # If scaling up, we need the LLM to generate N domains
-            print(f"   Generating {num_domains} research domains...")
-            domains_resp = self.client.chat.completions.create(
-                model="x-ai/grok-4.1-fast",
-                response_model=List[str],
-                messages=[
-                    {
-                        "role": "system",
-                        "content": f"Generate exactly {num_domains} distinct research domains/perspectives to comprehensively analyze the user's query.",
-                    },
-                    {"role": "user", "content": query},
-                ],
-            )
-            domains = domains_resp[:num_domains]
-
-        # 2. Tactical Decomposition (Platoon Leaders -> Squads)
-        squad_actors = []
-        for i, domain in enumerate(domains):
-            sub_questions = [
-                f"Investigate aspect {j} of {domain} related to '{query}'"
-                for j in range(1, agents_per_domain + 1)
-            ]
-
-            # Spawn Remote Ray Actor with Stigmergy Handle
-            actor = SquadLeader.remote(  # type: ignore
-                squad_id=f"Sq-{i+1}",
-                domain=domain,
-                sub_questions=sub_questions,
-                stigmergy_handle=self.stigmergy,
-                mission_path=str(mission_dir),
-            )
-            squad_actors.append(actor)
-
-        # 3. Parallel Execution (The Swarm)
-        print(
-            f"\n🚀 Launching {len(squad_actors)} Squads (Total {len(squad_actors)*agents_per_domain} Virtual Agents)..."
-        )
-        squad_reports = await asyncio.gather(
-            *[actor.run_squad.remote() for actor in squad_actors]
+        root_holon = HolonNode.remote(
+            level=depth,
+            holon_id="Apex",
+            domain="Mission Objective",
+            task=query,
+            stigmergy_handle=self.stigmergy,
+            mission_path=str(mission_dir),
+            branching_factor=branching_factor,
         )
 
-        # 4. Final Synthesis (The Digest)
+        # Execute Recursive Swarm
+        print(f"\n🚀 Launching Recursive Swarm (Depth {depth})...")
+        root_report = await root_holon.execute.remote()
+
+        # Final Synthesis (The Digest)
         print("\n📝 Commander: Synthesizing Final Digest...")
 
-        avg_confidence = sum([r.consensus_score for r in squad_reports]) / len(
-            squad_reports
+        digest = FinalDigest(
+            mission_id=mission_id,
+            executive_summary=root_report.findings,
+            detailed_analysis={"Root Analysis": root_report.findings},
+            overall_confidence=root_report.consensus_score,
+            recommendation="See detailed Holon reports for granular data.",
         )
-
-        messages = [
-            {
-                "role": "system",
-                "content": "You are the Overmind. Produce a Final Intelligence Digest from these Squad Reports.",
-            },
-            {"role": "user", "content": str([r.model_dump() for r in squad_reports])},
-        ]
-
-        digest = self.client.chat.completions.create(
-            model="x-ai/grok-4.1-fast", response_model=FinalDigest, messages=messages
-        )
-        digest.mission_id = mission_id
-        digest.overall_confidence = avg_confidence
 
         self._save_final_digest(digest, mission_dir)
-        self._save_audit(messages, digest, mission_dir)
 
         # Save Stigmergy Log
         signals = await self.stigmergy.get_all_signals.remote()
@@ -551,19 +571,6 @@ class FractalResearchSwarm:
             json.dump(signals, f, indent=2)
 
         return digest
-
-    def _save_audit(self, messages, result, mission_dir):
-        filename = mission_dir / "commander_audit.md"
-        with open(filename, "w") as f:
-            f.write("# Audit Log: Commander Synthesis\n")
-            f.write(f"**Timestamp**: {datetime.now().isoformat()}\n\n")
-            f.write("## Prompts\n")
-            for m in messages:
-                f.write(f"### {m['role'].upper()}\n")
-                f.write(f"```text\n{m['content']}\n```\n\n")
-            f.write("## Output\n")
-            f.write(f"**Overall Confidence**: {result.overall_confidence}\n")
-            f.write(f"**Summary**: {result.executive_summary}\n")
 
     def _save_final_digest(self, digest, mission_dir):
         with open(mission_dir / "final_digest.md", "w") as f:
@@ -582,33 +589,17 @@ class FractalResearchSwarm:
 # --- Entrypoint ---
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Fractal Research Swarm")
+    parser.add_argument("query", type=str, help="The research question")
+    parser.add_argument("--depth", type=int, default=3, help="Fractal Depth (Levels)")
     parser.add_argument(
-        "query",
-        nargs="?",
-        default="What is the current state of Autonomous AI Agents in late 2025?",
-        help="Research query",
-    )
-    parser.add_argument(
-        "--domains", type=int, default=3, help="Number of research domains (Squads)"
-    )
-    parser.add_argument(
-        "--agents", type=int, default=5, help="Number of agents per domain"
+        "--branching", type=int, default=10, help="Branching Factor (Children per Node)"
     )
 
     args = parser.parse_args()
 
-    async def main():
-        swarm = FractalResearchSwarm()
-        result = await swarm.execute_mission(
-            args.query, num_domains=args.domains, agents_per_domain=args.agents
+    swarm = FractalResearchSwarm()
+    asyncio.run(
+        swarm.execute_mission(
+            args.query, depth=args.depth, branching_factor=args.branching
         )
-
-        print("\n🏁 FINAL INTELLIGENCE DIGEST 🏁")
-        print("===============================")
-        print(f"Confidence: {result.overall_confidence}")
-        print(f"Summary: {result.executive_summary}")
-        print("\nDetailed Analysis:")
-        for domain, analysis in result.detailed_analysis.items():
-            print(f"\n[{domain}]:\n{analysis}")
-
-    asyncio.run(main())
+    )

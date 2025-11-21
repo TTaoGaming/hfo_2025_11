@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HFO Gen 35 Architecture Viewer</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+            overflow: hidden; /* Prevent body scroll */
+        }
+        h1 {
+            margin-top: 0;
+            font-size: 1.5rem;
+            color: #569cd6;
+            flex-shrink: 0;
+        }
+        .tabs {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 0; /* Connect to viewport */
+            border-bottom: 1px solid #333;
+            flex-shrink: 0;
+        }
+        .tab-button {
+            background: #2d2d2d;
+            color: #888;
+            border: 1px solid #333;
+            border-bottom: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px 5px 0 0;
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+        .tab-button:hover {
+            background: #3e3e3e;
+            color: #ccc;
+        }
+        .tab-button.active {
+            background: #252526; /* Match viewport bg */
+            color: #569cd6;
+            border-top: 2px solid #569cd6;
+            font-weight: bold;
+            border-bottom: 1px solid #252526; /* Hide bottom border */
+            margin-bottom: -1px; /* Overlap border */
+            z-index: 1;
+        }
+        .viewport {
+            flex-grow: 1;
+            border: 1px solid #333;
+            background-color: #252526;
+            border-radius: 0 0 8px 8px; /* Rounded bottom only */
+            border-top-right-radius: 8px; /* Rounded top right */
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        .diagram-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            visibility: hidden;
+            z-index: 0;
+            background-color: #252526; /* Ensure background covers others */
+        }
+        .diagram-content.active {
+            visibility: visible;
+            z-index: 1;
+        }
+        .mermaid {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        /* Ensure SVG fills container */
+        .mermaid svg {
+            height: 100% !important;
+            width: 100% !important;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>HFO Gen 35 Architecture Viewer</h1>
+
+    <div class="tabs">
+        <button class="tab-button active" onclick="openTab('axioms')">1. The 6 Axioms</button>
+        <button class="tab-button" onclick="openTab('fractal')">2. Fractal Holarchy</button>
+        <button class="tab-button" onclick="openTab('hexagonal')">3. Hexagonal Truth</button>
+    </div>
+
+    <div class="viewport">
+        <div id="axioms" class="diagram-content active">
+            <div class="mermaid">
+graph TD
+    Center((HFO Soul))
+
+    subgraph "1. North Star"
+        NS[Total Tool Virtualization]
+        NS -->|Goal| UE[Universal Emulator]
+        NS -->|Metric| KC[Karmic Connection]
+    end
+
+    subgraph "2. Topology"
+        TP[Fractal Holarchy]
+        TP -->|Structure| JADC2[JADC2 / OODA]
+        TP -->|Flow| AS[Async Stigmergy]
+    end
+
+    subgraph "3. Truth"
+        TR[V²C-SPIRAL-QUORUM]
+        TR -->|Consensus| MR[Minority Report]
+        TR -->|Evolution| ACE[Adversarial Co-Evolution]
+    end
+
+    subgraph "4. Coordination"
+        CO[Orchestrated Stigmergy]
+        CO -->|Pattern| MW[Mosaic Warfare]
+        CO -->|Lifecycle| KR[Kill & Respawn]
+    end
+
+    subgraph "5. Algorithm"
+        AL[Obsidian Hourglass]
+        AL -->|Type| AA[Anytime Algorithm]
+        AL -->|Logic| CS[Cognitive Symbiote]
+    end
+
+    subgraph "6. Roles"
+        RO[Layered Taxonomy]
+        RO -->|Seat| Roles[8 Archetypes]
+        RO -->|Actor| Champions[Evolving Personas]
+    end
+
+    Center --- NS
+    Center --- TP
+    Center --- TR
+    Center --- CO
+    Center --- AL
+    Center --- RO
+            </div>
+        </div>
+
+        <div id="fractal" class="diagram-content">
+            <div class="mermaid">
+graph BT
+    subgraph "HIVE Layer (Strategic)"
+        H[HIVE Loop]
+    end
+
+    subgraph "GROWTH Layer (Operational)"
+        G[GROWTH Loop]
+    end
+
+    subgraph "SWARM Layer (Tactical)"
+        S1[Swarm A]
+        S2[Swarm B]
+        S3[Swarm C]
+    end
+
+    subgraph "PREY Layer (Execution)"
+        P1[Agent 1]
+        P2[Agent 2]
+        P3[Agent 3]
+    end
+
+    P1 & P2 & P3 -->|Synthesized Intel| S1
+    S1 & S2 & S3 -->|Synthesized Intel| G
+    G -->|Synthesized Intel| H
+
+    H -.->|Constraints| G
+    G -.->|Constraints| S1
+    S1 -.->|Constraints| P1
+
+    %% Stigmergy Bypass
+    P1 -.->|Stigmergic Signal| H
+            </div>
+        </div>
+
+        <div id="hexagonal" class="diagram-content">
+            <div class="mermaid">
+graph LR
+    subgraph "Core Domain"
+        Logic[V²C Logic]
+    end
+
+    subgraph "Ports"
+        CP[Consensus Port]
+        VP[Validation Port]
+        MP[Memory Port]
+    end
+
+    subgraph "Adapters (SOTA)"
+        BFT[Confidence Prior BFT]
+        RAG[pgvector RAG]
+        HG[Hive Guards]
+    end
+
+    Logic --- CP
+    Logic --- VP
+    Logic --- MP
+
+    CP --- BFT
+    VP --- HG
+    MP --- RAG
+            </div>
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+
+        let panZoomInstances = {};
+
+        function enablePanZoom(elementId) {
+            const container = document.querySelector(`#${elementId} .mermaid`);
+            const svg = container.querySelector('svg');
+
+            if (svg && !panZoomInstances[elementId]) {
+                // Ensure SVG fills container
+                svg.style.width = '100%';
+                svg.style.height = '100%';
+
+                panZoomInstances[elementId] = svgPanZoom(svg, {
+                    zoomEnabled: true,
+                    controlIconsEnabled: true,
+                    fit: true,
+                    center: true,
+                    minZoom: 0.1,
+                    maxZoom: 10
+                });
+            } else if (panZoomInstances[elementId]) {
+                panZoomInstances[elementId].resize();
+                panZoomInstances[elementId].fit();
+                panZoomInstances[elementId].center();
+            }
+        }
+
+        function openTab(tabId) {
+            // Hide all contents
+            document.querySelectorAll('.diagram-content').forEach(el => el.classList.remove('active'));
+            // Deactivate all buttons
+            document.querySelectorAll('.tab-button').forEach(el => el.classList.remove('active'));
+
+            // Show selected content
+            document.getElementById(tabId).classList.add('active');
+            // Activate button
+            document.querySelector(`button[onclick="openTab('${tabId}')"]`).classList.add('active');
+
+            // Enable Pan/Zoom for the active tab (give Mermaid a moment if needed, though it should be rendered)
+            setTimeout(() => enablePanZoom(tabId), 100);
+        }
+
+        // Initial load
+        const checkRender = setInterval(() => {
+            const svg = document.querySelector('#axioms svg');
+            if (svg) {
+                clearInterval(checkRender);
+                enablePanZoom('axioms');
+            }
+        }, 500);
+    </script>
+</body>
+</html>

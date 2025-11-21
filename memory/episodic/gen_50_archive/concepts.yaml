@@ -1,0 +1,36 @@
+# 🧠 Hive Fleet Obsidian: Brain Concept Registry
+# Purpose: Define the "Intent" concepts and their maturity status.
+# Rule: Every concept must have:
+#   1. A Gherkin file (`.feature`) for Behavior/Requirements.
+#   2. A Markdown file (`.md`) for Executive Summary & Visualization (Mermaid).
+
+concepts:
+  - name: "prey_workflow"
+    status: "Active"
+    feature: "prey_workflow.feature"
+    summary: "prey_workflow.md"
+
+  - name: "swarm_workflow"
+    status: "Active"
+    feature: "swarm_workflow.feature"
+    summary: "swarm_workflow.md"
+
+  - name: "antifragile_strategy"
+    status: "Draft"
+    feature: "antifragile_strategy.feature"
+    summary: "antifragile_architecture_options.md" # Mismatch to be fixed
+
+  - name: "fractal_scaling"
+    status: "Draft"
+    feature: "fractal_scaling.feature"
+    summary: "fractal_architecture.md" # Mismatch to be fixed
+
+  - name: "obsidian_hourglass"
+    status: "Draft"
+    feature: "obsidian_hourglass.feature"
+    summary: "obsidian_hourglass.md"
+
+  - name: "scatter_gather"
+    status: "Active"
+    feature: "scatter_gather.feature"
+    summary: "scatter_gather.md"

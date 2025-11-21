@@ -1,0 +1,54 @@
+# Blocks (critical subsystems)
+blocks:
+  - id: swarmlord
+    name: Swarmlord Orchestrator
+    type: service
+    description: Orchestrates PREY lanes, quorum, digests
+  - id: prey_lanes
+    name: PREY Lanes
+    type: worker_pool
+    description: Parallel Perceive→React→Engage→Yield lanes
+  - id: quorum
+    name: Verify Quorum
+    type: validator
+    description: Immunizer, Disruptor, Aux checks
+  - id: blackboard
+    name: Blackboard JSONL
+    type: datastore
+    description: Append-only receipts with evidence_refs
+  - id: blackboard_duckdb
+    name: Blackboard DuckDB
+    type: datastore
+    description: Queryable mirror for stigmergy signals
+  - id: telemetry
+    name: Telemetry Spans
+    type: datastore
+    description: OTEL-like JSONL spans under temp/otel
+  - id: llm_client
+    name: LLM Client (OpenRouter)
+    type: library
+    description: Allowlisted models, bounded tokens, reasoning controls
+  - id: mission_intent
+    name: Mission Intent
+    type: config
+    description: Daily intent with lanes, safety, quorum, telemetry
+  - id: hourglass
+    name: Hourglass/Scheduler
+    type: service
+    description: Near/Next/Later planning; schedule runs
+  - id: state_store
+    name: State Store
+    type: datastore
+    description: Run pointers and digests
+  - id: arc_runner
+    name: ARC Runner
+    type: worker
+    description: ARC-Challenge evaluation swarms
+  - id: pz_runner
+    name: PettingZoo Runner
+    type: worker
+    description: Simple Tag eval + GIF matrix
+  - id: molt_shell
+    name: MOLT Shell
+    type: docs
+    description: Operational anchors and red-team reports

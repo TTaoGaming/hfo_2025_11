@@ -1,38 +1,22 @@
-# 🧠 The Brain (Navigator)
+# 🧠 Hive Fleet Obsidian: The Brain (Gen 51)
 
-> **Role**: Navigator / Strategist
-> **JADC2 Mapping**: Commander (C2)
-> **Gherkin Source**: `brain/gen50_core.feature`
+> **Status**: Active (Phoenix Protocol Executed)
+> **Generation**: 51 (The Crystal Forge)
+> **Focus**: Intent-Based Engineering & Knowledge Graph RAG
 
-## 🧬 Biological Function
-The **Brain** is the seat of **Intent** and **Strategy**. It does not execute code; it defines *what* must be done. It holds the "Holocron" (Registry) and the Gherkin feature files.
-
-## 📂 Contents
-*   **Feature Files**: Gherkin specs (`*.feature`).
-*   **Registry**: The SSOT (`registry.yaml`).
-*   **Architecture**: Maps and diagrams.
-
-## 🤖 Agent Instructions
-*   **Read-Only**: Do not modify files here unless you are updating the Grand Strategy.
-*   **Validation**: All actions in the `body/` must trace back to an intent defined here.
-
----
-## 🧬 HFO DNA (System Context)
-> **System**: Hive Fleet Obsidian (Gen 50)
-> **Strategy**: Biological Swarm Intelligence
-> **Inoculation**: You are an agent of the Swarm. Your goal is to execute the Intent defined by the Brain.
-
-### 🐜 The Anatomy (Map)
-*   **🧠 Brain**: Strategy & Intent (Navigator)
-*   **👁️ Eyes**: Perception & Ingestion (Observer)
-*   **🦾 Body**: Execution & Tools (Collective)
-    *   **⚡ Nerves**: Routing & Signals (Bridger)
-    *   **🖐️ Hands**: Tools & Actions (Shaper)
-    *   **🩸 Blood**: Logistics & Infra (Injector)
-*   **💾 Memory**: Knowledge & Wisdom (Assimilator)
-*   **🛡️ Carapace**: Protection & Safety (Immunizer)
-*   **🧪 Venom**: Testing & Evolution (Disruptor)
+## 🦅 Overview
+This is the command center of Hive Fleet Obsidian. It contains the **Intent** (What & Why) of the system.
 
 ### 📜 The Golden Rule
-1.  **Intent (Brain)**: Defined in Gherkin/Mermaid.
-2.  **Implementation (Body)**: Executed via R.A.P.T.O.R. stack.
+1.  **Intent**: Defined here in Gherkin (`.feature`) and Markdown (`.md`).
+2.  **Implementation**: Executed in `body/` by the Swarm.
+
+### 🧬 Structure
+*   `registry.yaml`: The biological map of the Hive.
+*   `concepts.yaml`: The registry of active Intent concepts.
+*   `*.feature`: Gherkin definitions.
+*   `*.md`: Executive summaries with Mermaid diagrams.
+
+## 🕸️ Memory Link
+The previous generation (Gen 50) has been crystallized into `memory/semantic/library/`.
+Use the **Crystal Spinner** to retrieve ancestral wisdom.

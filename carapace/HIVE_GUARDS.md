@@ -28,6 +28,20 @@ The **Hive Guards** are the automated immune system of Hive Fleet Obsidian. They
     *   *Action*: Verifies that the core anatomy (Brain, Body, Nerves) is functional.
     *   *Policy*: If the anatomy is broken, the commit is rejected.
 
+### 4. 🔒 Security Guard (Secrets)
+*   **Detect Secrets**: Scans for hardcoded API keys, passwords, and model names.
+    *   *Action*: Prevents committing secrets to the repo.
+    *   *Policy*: Use environment variables (`.env`) for all sensitive data.
+
+### 5. 🧠 Brain Integrity Guard (Registry)
+*   **Concept Validation**: Enforces the "Intent-Based Engineering" structure in `brain/`.
+*   **Rule**: Every concept must have:
+    1.  **Gherkin Feature** (`.feature`): Defines behavior and requirements.
+    2.  **Executive Summary** (`.md`): Contains high-level overview and **Mermaid** visualization.
+*   **Registry**: Validates against `brain/concepts.yaml`.
+*   **Slop Detection**: Flags any file in `brain/` that is not registered.
+*   **Command**: `./carapace/hive_guards/guard_brain.py`
+
 ## 🛠️ Usage
 
 ### Installation

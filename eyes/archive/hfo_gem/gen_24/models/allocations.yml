@@ -1,0 +1,49 @@
+# Allocations (block -> repo paths)
+allocations:
+  - block: swarmlord
+    paths:
+      - scripts/crew_ai/runner.py
+      - hfo_crew_ai_swarm_results/
+  - block: prey_lanes
+    paths:
+      - scripts/crew_ai/agents.py
+      - scripts/crew_ai/llm_client.py
+  - block: quorum
+    paths:
+      - scripts/crew_ai/validate_run.py
+      - scripts/crew_ai/quorum_plus.py
+  - block: blackboard
+    paths:
+      - hfo_blackboard/obsidian_synapse_blackboard.jsonl
+  - block: blackboard_duckdb
+    paths:
+      - hfo_blackboard/obsidian_synapse_blackboard.duckdb
+  - block: telemetry
+    paths:
+      - temp/otel/
+      - scripts/crew_ai/analyze_traces.py
+  - block: llm_client
+    paths:
+      - scripts/crew_ai/llm_client.py
+  - block: mission_intent
+    paths:
+      - hfo_mission_intent/
+  - block: hourglass
+    paths:
+      - hfo_gem/gen_23/diagrams_swarmlord_of_webs_2025-11-05.md
+  - block: state_store
+    paths:
+      - hfo_crew_ai_swarm_results/
+  - block: arc_runner
+    paths:
+      - scripts/crew_ai/arc_swarm_runner.py
+      - scripts/crew_ai/arc_challenge_eval.py
+  - block: pz_runner
+    paths:
+      - scripts/run_pz_simple_tag_random.sh
+      - scripts/run_pz_simple_tag_matrix.sh
+      - scripts/run_pz_make_matrix_gif.sh
+  - block: molt_shell
+    paths:
+      - HFO_molt_shell_2025-10-25T16:24:00Z/README.md
+      - HFO_molt_shell_2025-10-25T17:00:00Z/README.md

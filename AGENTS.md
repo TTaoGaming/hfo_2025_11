@@ -137,6 +137,38 @@ We are executing **Generation 50 (The Evolutionary Forge)**. This is a "Phoenix"
 | 2025-11-21 | Swarmlord | **Evolution & Stigmergy**: Upgraded Fractal Swarm with `EvolutionaryForge` (MAP-Elites Lite) and `StigmergyBoard` (Virtual NATS). Agents now mutate and debate. | 🟢 Active |
 | 2025-11-21 | Swarmlord | **Total Observability**: Implemented granular Audit Logs (`memory/missions/`). Every LLM call (System/User/Output) is now traced and persisted for audit. | 🟢 Active |
 | 2025-11-21 | Swarmlord | **Mission Success**: Executed Mission `20251121_041348_95eef55a` (15 Agents, 2 Rounds). Confidence: 89.8%. Validated "Hype Gap" and "Hybrid Dominance" in AI Agents. | 🟢 Active |
+| 2025-11-21 | Swarmlord | **Incident Report**: System Crash (OOM) during 10,000-agent initialization. Cause: High memory usage (SIGKILL). **Resolution**: Scaling down to 100-agent test (Depth 2, Branching 10) to verify architecture before re-scaling. | 🔴 Critical Failure |
+| 2025-11-21 | Swarmlord | **Audit Findings**: Architectural Drift detected. `fractal_research_swarm.py` was using a brute-force Ray loop instead of the R.A.P.T.O.R. stack (Temporal/LangGraph). **Action**: Refactoring to Fractal Holarchy. | 🟡 Correcting |
+| 2025-11-21 | Swarmlord | **Intent Definition**: Formalized "Fractal Holarchy" (PREY/SWARM Loops) in Gherkin/Mermaid. Defined L0 (Atomic) and L1+ (Coordination) patterns with QD Optimization. | 🟢 Active |
+| 2025-11-21 | Swarmlord | **L0 Implementation**: Implemented `body/hands/prey_agent.py` using LangGraph + Pydantic + NATS. Verified via `venom/test_prey_real.py`. Agent successfully Perceives, Reacts, Executes, and Yields to Stigmergy. | 🟢 Active |
+| 2025-11-21 | Swarmlord | **Cognitive Architecture**: Defined `brain/cognitive_architecture.feature` to enforce "High Reasoning" and "RL Feedback" loops. | 🟢 Active |
+| 2025-11-21 | Swarmlord | **Governance Update**: Activated `brain/file_structure_governance.md`. Defined "Stigmergic Headers" (YAML) for all files to enable GraphRAG and Immunizer enforcement. | 🟢 Active |
+| 2025-11-21 | Swarmlord | **Incident Report**: Memory System Insufficiency. Critical context regarding "Swarmlord of Webs" and "Obsidian Hourglass" was lost between generations. Current "Karmic Web" (GraphRAG) is not capturing deep nuance. | 🔴 Critical / Handoff |
+| 2025-11-21 | Swarmlord | **Research Complete**: Defined "Tri-Brain" Memory Architecture (Scribe/Hippocampus/Neocortex) in `brain/memory_tri_brain_draft.md`. | 🟢 Active |
+| 2025-11-21 | Swarmlord | **Strategic Decision**: Selected "Chimera Stack" for QD Optimization (Pyribs + DSPy + OpenELM-style Mutation). Defined in `brain/qd_optimization_options.md`. | 🟢 Active |
+| 2025-11-21 | Swarmlord | **Role Definition**: Formalized "The Taxonomist" (Assimilator Sub-Role) in `brain/role_taxonomist.md`. Mandate: "Hygiene & Structure" via LLM Tagging. | 🟢 Active |
+| 2025-11-21 | Swarmlord | **Role Evolution**: Renamed "Taxonomist" to "Crystal-Spinner" to align with Obsidian/Biological lore. Defined in `brain/role_crystal_spinner.md`. | 🟢 Active |
+| 2025-11-21 | Swarmlord | **Incident Report**: Hardcoded model detected in `crystal_spinner.py`. **Resolution**: Enforced `os.getenv("DEFAULT_MODEL")` to align with FinOps strategy. | 🟡 Resolved |
+
+---
+
+## 🗺️ Strategic Roadmap & Todo (The Obsidian Hourglass)
+
+*Focus: Shift from "Theater" to "Real Scale" (Small -> Large).*
+
+### 🌟 North Stars (Strategic Vision)
+*   **Swarmlord of Webs**: The **Ship in State-Action Space**. See `brain/swarmlord_profile.md`.
+*   **Obsidian Hourglass Algorithm**: The spatial traversal strategy (Scatter-Focus-Expand).
+*   **HIVE Workflow**: Double Diamond (Discover/Define/Develop/Deliver) + HFO Twist (Recursive/Fractal).
+*   **GROWTH Workflow**: F3EAD (Find/Fix/Finish/Exploit/Analyze/Disseminate) + HFO Twist (Stigmergic/Evolutionary).
+
+### ✅ Immediate Todo Checklist (DevOps & Architecture)
+- [x] **Define HIVE Workflow**: Create `brain/hive_workflow.feature` (Double Diamond).
+- [x] **Define GROWTH Workflow**: Create `brain/growth_workflow.feature` (F3EAD).
+- [x] **Refactor L0 (PREY)**: Implement `body/hands/prey_agent.py` using LangGraph (Real LLM, Real Tools).
+- [ ] **Refactor L1 (SWARM)**: Implement `body/hands/swarm_controller.py` using Temporal (Orchestration).
+- [ ] **DevOps Pipeline**: Setup CI/CD for "Real Scale" testing (start with 10 agents, scale to 100).
+- [ ] **Tooling**: Verify "Real Tool Calls" (Web Search, File I/O) are robust and error-handled.
 
 ---
 

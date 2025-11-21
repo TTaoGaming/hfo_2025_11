@@ -1,0 +1,7 @@
+# 🧠 Hive Fleet Obsidian: Brain Concept Registry (Gen 51)
+# Purpose: Define the "Intent" concepts and their maturity status.
+# Rule: Every concept must have:
+#   1. A Gherkin file (`.feature`) for Behavior/Requirements.
+#   2. A Markdown file (`.md`) for Executive Summary & Visualization (Mermaid).
+
+concepts: []

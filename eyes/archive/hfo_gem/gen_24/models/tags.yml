@@ -1,0 +1,15 @@
+# Tags (labels for grouping/queries)
+tags:
+  swarmlord: [orchestrator, control]
+  prey_lanes: [worker, parallel, prey]
+  quorum: [verify, safety]
+  blackboard: [evidence, receipts]
+  blackboard_duckdb: [stigmergy, query]
+  telemetry: [spans, otel]
+  llm_client: [llm, openrouter, allowlist]
+  mission_intent: [policy, schema]
+  hourglass: [scheduler, planning]
+  state_store: [runs, digest]
+  arc_runner: [evals, research]
+  pz_runner: [simulation, visualization]
+  molt_shell: [ops, redteam]
