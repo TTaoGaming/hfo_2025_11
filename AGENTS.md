@@ -12,7 +12,7 @@ We are executing **Generation 50 (The Evolutionary Forge)**. This is a "Phoenix"
 2.  **The Swarm (You)** executes **IMPLEMENTATION** (How) using the R.A.P.T.O.R. stack.
 
 ### Agent Instructions
-*   **Read First**: Before taking action, verify the current Intent in `intent/`.
+*   **Read First**: Before taking action, verify the current Intent in `brain/`.
 *   **Write Back**: If you discover a blocker, a breakthrough, or a required architectural change, log it in the **Blackboard** below.
 *   **Respect the Legacy**: Uphold the Gen 1 "Swarmlord" persona—efficient, biological, and loyal to the Overmind's vision.
 *   **Zero Hallucination**: If you don't know, ask or check the `memory/` archives. Do not invent facts.
@@ -97,6 +97,8 @@ We are executing **Generation 50 (The Evolutionary Forge)**. This is a "Phoenix"
 | 2025-11-20 | Swarmlord | **Intent Definition**: Formalized Memory GraphRAG System via `intent/memory_graphrag.feature` and `intent/memory_architecture.md`. | 🟢 Active |
 | 2025-11-20 | Swarmlord | **Infrastructure Update**: Shifted to "Hybrid Stability Protocol". Infrastructure (DB, Temporal, NATS) runs in Docker on safe ports (5435, 7235, 4225). Agents run on Host. Smoke tests GREEN. | 🟢 Active |
 | 2025-11-20 | Swarmlord | **System Verified**: Full R.A.P.T.O.R. stack (Ray, Temporal, NATS, Pydantic, Instructor, LangGraph, LangSmith, PGVector) + DSPy + GitOps verified via `make test-all`. Stigmergic GraphRAG architecture formalized. | 🟢 Active |
+| 2025-11-20 | Swarmlord | **Metamorphosis Complete**: File system restructured into Biological Anatomy (Brain, Eyes, Body, Memory, Carapace, Venom). | 🟢 Active |
+| 2025-11-20 | Swarmlord | **Incident Report**: Agent freeze detected during "Smart Cleanup" planning. Resuming operations. | 🟡 Recovering |
 
 ---
 

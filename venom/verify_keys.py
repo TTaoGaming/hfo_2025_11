@@ -1,6 +1,6 @@
 import asyncio
 import os
-from src.config import settings, model_registry
+from body.blood import settings, model_registry
 from langchain_openai import ChatOpenAI
 from langsmith import Client as LangSmithClient
 from langchain_core.messages import HumanMessage

@@ -24,18 +24,18 @@ We are not starting from scratch. We are starting from **Experience**.
 
 ```text
 hive_fleet_obsidian_2025_11/
-├── intent/                     # 🧠 THE BRAIN: Gherkin specs (.feature) & Mermaid diagrams (.mmd)
-├── src/                        # 🦾 THE BODY: Python implementation (Gen 50 code)
-├── tests/                      # 🛡️ THE SHIELD: Pytest-bdd tests ensuring Body matches Brain
+├── brain/                      # 🧠 THE BRAIN: Gherkin specs (.feature) & Mermaid diagrams (.mmd)
+├── body/                       # 🦾 THE BODY: Python implementation (Gen 50 code)
+├── venom/                      # 🧪 THE VENOM: Pytest-bdd tests ensuring Body matches Brain
 ├── notebooks/                  # 🔬 THE LAB: Jupyter notebooks for data analysis & visualization
 ├── memory/                     # 💾 THE MEMORY BANK
 │   ├── episodic/               #    - "I remember doing this..." (Logs, Simulation Results)
 │   ├── semantic/               #    - "I know this..." (Vector DB, Knowledge Graph)
 │   └── procedural/             #    - "I know how to..." (Gen 1-50 Codebase)
-├── ingestion/                  # 🔧 THE TOOLS: Scripts to process memory
+├── eyes/                       # 👁️ THE EYES: Scripts to process memory
 │   ├── tools/                  #    - Active ingestion scripts
 │   └── archive/                #    - Old scripts
-└── docs/                       # 📚 THE LIBRARY: Human-readable documentation
+└── carapace/                   # 🛡️ THE CARAPACE: Human-readable documentation
 ```
 
 ## 🚀 Getting Started

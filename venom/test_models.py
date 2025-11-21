@@ -1,5 +1,5 @@
 import pytest
-from src.models import MissionIntent, AgentState, SwarmState, AgentRole, PreyStep
+from body.models import MissionIntent, AgentState, SwarmState, AgentRole, PreyStep
 
 def test_mission_intent_creation():
     intent = MissionIntent(

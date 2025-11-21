@@ -1,7 +1,7 @@
 import asyncio
 import ray
 from temporalio.client import Client
-from src.temporal.math_workflow import MathSwarmWorkflow, run_worker
+from body.temporal.math_workflow import MathSwarmWorkflow, run_worker
 from dotenv import load_dotenv
 
 # Load env vars (API keys)

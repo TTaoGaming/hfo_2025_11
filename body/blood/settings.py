@@ -12,7 +12,7 @@ class ModelConfig(BaseSettings):
     models: Dict[str, List[str]] = Field(default_factory=dict)
 
     @classmethod
-    def load_from_yaml(cls, path: str = "src/config/models.yaml") -> "ModelConfig":
+    def load_from_yaml(cls, path: str = "body/blood/models.yaml") -> "ModelConfig":
         if not os.path.exists(path):
             return cls()
         with open(path, "r") as f:

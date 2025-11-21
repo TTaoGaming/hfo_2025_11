@@ -1,7 +1,7 @@
 import pytest
 import ray
 from pydantic import ValidationError
-from src.models.intent import MissionIntent
+from body.models.intent import MissionIntent
 
 # --- P - Pydantic (SSOT) ---
 def test_mission_intent_ssot_enforcement():

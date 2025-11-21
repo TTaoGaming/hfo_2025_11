@@ -1,6 +1,6 @@
 import pytest
 from pytest_bdd import scenarios, given, when, then, parsers
-from src.models import MissionIntent, SwarmState, AgentState, AgentRole, SwarmPhase
+from body.models import MissionIntent, SwarmState, AgentState, AgentRole, SwarmPhase
 
 # Load scenarios from the feature file
 scenarios('../../intent/swarm_workflow.feature')

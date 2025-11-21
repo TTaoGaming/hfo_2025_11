@@ -1,6 +1,6 @@
 import pytest
 import asyncio
-from src.smoke_test import test_postgres, test_nats, test_temporal, test_libraries
+from body.smoke_test import test_postgres, test_nats, test_temporal, test_libraries
 
 @pytest.mark.asyncio
 async def test_infrastructure_postgres():
