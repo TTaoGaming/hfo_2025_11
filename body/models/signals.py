@@ -3,14 +3,15 @@ from typing import Dict, Any, Optional
 from pydantic import BaseModel, Field, UUID4
 from datetime import datetime
 import uuid
-from .intent import MissionIntent
-from .state import AgentRole, IntentStatus
+from .intent import MissionIntent, IntentStatus
+from .state import AgentRole
 
 class SignalType(str, Enum):
     HEARTBEAT = "heartbeat"
     MISSION = "mission"
     VOTE = "vote"
     CONSENSUS = "consensus"
+    RESULT = "result"
     DISRUPTION = "disruption"
 
 class BaseSignal(BaseModel):
@@ -54,6 +55,14 @@ class ConsensusSignal(BaseSignal):
     final_confidence: float
     participating_agents: int
     quorum_met: bool
+
+class ResultSignal(BaseSignal):
+    """The output from an agent's work."""
+    type: SignalType = SignalType.RESULT
+    mission_id: UUID4
+    content: str
+    confidence: float = Field(default=0.0, ge=0.0, le=1.0)
+    metadata: Dict[str, Any] = Field(default_factory=dict)
 
 class DisruptionSignal(BaseSignal):
     """Noise injected by a Disruptor or detected anomaly."""

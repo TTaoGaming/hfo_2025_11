@@ -1,0 +1,227 @@
+import os
+import operator
+import logging
+import uuid
+import datetime
+from typing import Annotated, List, TypedDict, Optional
+from pydantic import BaseModel, Field
+import instructor
+from openai import OpenAI
+from langgraph.graph import StateGraph, END, START
+from langgraph.types import Send
+from dotenv import load_dotenv
+
+# 1. Setup & Config
+load_dotenv()
+logging.basicConfig(level=logging.INFO, format='%(message)s')
+logger = logging.getLogger("hydra")
+
+DIGESTION_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "digestion")
+os.makedirs(DIGESTION_DIR, exist_ok=True)
+
+def save_artifact(mission_id: str, agent_role: str, step_type: str, content: str, metadata: dict):
+    """Saves a Stigmergy Artifact with YAML frontmatter."""
+    timestamp = datetime.datetime.utcnow().isoformat()
+    filename = f"{timestamp.replace(':', '-')}_{step_type}_{agent_role.replace(' ', '_')}.md"
+    filepath = os.path.join(DIGESTION_DIR, filename)
+    
+    yaml_header = f"""---
+mission_id: {mission_id}
+timestamp: {timestamp}
+agent_role: {agent_role}
+step_type: {step_type}
+model: {metadata.get('model', 'unknown')}
+confidence: {metadata.get('confidence', 'N/A')}
+---
+"""
+    with open(filepath, "w") as f:
+        f.write(yaml_header + "\n" + content)
+    
+    logger.info(f"   📄 Artifact dropped: {filename}")
+
+# --- DNA (Pydantic Models) ---
+
+class SubTask(BaseModel):
+    id: int
+    description: str = Field(..., description="The specific sub-task to execute")
+    assigned_role: str = Field(..., description="The role best suited for this task")
+    mission_id: Optional[str] = None # Added for context passing
+
+class Plan(BaseModel):
+    tasks: List[SubTask] = Field(..., description="List of sub-tasks to execute in parallel")
+
+class TaskResult(BaseModel):
+    task_id: int
+    output: str = Field(..., description="The result of the task")
+    confidence: float = Field(..., description="Confidence score 0.0-1.0")
+    is_valid: bool = Field(default=True, description="Whether this result passed the filter")
+
+class FinalSynthesis(BaseModel):
+    summary: str
+    consensus_score: float
+
+# --- State Definition ---
+
+class HydraState(TypedDict):
+    mission_id: str
+    mission: str
+    plan: List[SubTask]
+    # We use a reducer to collect results from parallel execution
+    results: Annotated[List[TaskResult], operator.add]
+    final_output: Optional[FinalSynthesis]
+
+# --- The Agents (Nodes) ---
+
+class MockClient:
+    def create(self, response_model, messages, **kwargs):
+        if response_model == Plan:
+            return Plan(tasks=[
+                SubTask(id=1, description="Analyze sector A", assigned_role="Analyst"),
+                SubTask(id=2, description="Analyze sector B", assigned_role="Analyst")
+            ])
+        elif response_model == TaskResult:
+            return TaskResult(task_id=0, output="Mock Data", confidence=0.9, is_valid=True)
+        elif response_model == FinalSynthesis:
+            return FinalSynthesis(summary="Mock Consensus", consensus_score=0.99)
+    
+    @property
+    def chat(self):
+        return self
+
+    @property
+    def completions(self):
+        return self
+
+def get_client():
+    api_key = os.getenv("OPENROUTER_API_KEY")
+    base_url = os.getenv("OPENROUTER_BASE_URL", "https://openrouter.ai/api/v1")
+    
+    if not api_key:
+        logger.warning("⚠️  OPENROUTER_API_KEY not set. Using Mock Client.")
+        return MockClient()
+        
+    return instructor.from_openai(
+        OpenAI(base_url=base_url, api_key=api_key),
+        mode=instructor.Mode.JSON
+    )
+
+# 1. Orchestrator (Planner)
+def planner_node(state: HydraState):
+    logger.info(f"🧠 Brain: Planning mission '{state['mission']}'...")
+    client = get_client()
+    
+    # Using a cheap/fast model for planning
+    plan = client.chat.completions.create(
+        model="x-ai/grok-4.1-fast", 
+        response_model=Plan,
+        messages=[
+            {"role": "system", "content": "You are the Swarmlord. Break the mission into 2-4 distinct, parallelizable subtasks."},
+            {"role": "user", "content": state['mission']}
+        ]
+    )
+    
+    # Inject mission_id into tasks
+    for task in plan.tasks:
+        task.mission_id = state.get('mission_id', 'unknown')
+        
+    logger.info(f"   📋 Plan: Generated {len(plan.tasks)} tasks.")
+    return {"plan": plan.tasks}
+
+# 2. Map (Worker)
+def worker_node(state: SubTask):
+    # Note: Receives a single SubTask but we need mission_id context. 
+    # LangGraph map passes the item. To pass context, we'd need a wrapper or rely on the item having it.
+    # For simplicity in this demo, we'll assume the SubTask *is* the state passed here, 
+    # but we can't easily access the global state mission_id without passing it in the map.
+    # Let's hack it: The planner should inject mission_id into SubTask if we want it here.
+    # Or we just use a placeholder if missing.
+    
+    logger.info(f"   🖐️  Hand ({state.assigned_role}): Executing Task {state.id}...")
+    client = get_client()
+    
+    result = client.chat.completions.create(
+        model="x-ai/grok-4.1-fast", # Cheap worker
+        response_model=TaskResult,
+        messages=[
+            {"role": "system", "content": f"You are a {state.assigned_role}. Execute the task concisely."},
+            {"role": "user", "content": state.description}
+        ]
+    )
+    result.task_id = state.id
+    
+    # Save Artifact
+    save_artifact(
+        mission_id=state.mission_id or "unknown_in_map", 
+        agent_role=state.assigned_role,
+        step_type="execution",
+        content=result.output,
+        metadata={"confidence": result.confidence, "model": "x-ai/grok-4.1-fast"}
+    )
+    
+    return {"results": [result]}
+
+# 3. Reduce (Synthesizer) with Filter Logic
+def synthesizer_node(state: HydraState):
+    # Filter logic included here for simplicity of the graph
+    valid_results = [r for r in state['results'] if r.confidence >= 0.5]
+    logger.info(f"   ⚡ Nerves: Synthesizing {len(valid_results)} valid results (Filtered from {len(state['results'])})")
+    
+    if not valid_results:
+        return {"final_output": FinalSynthesis(summary="Mission Failed: No valid results.", consensus_score=0.0)}
+
+    client = get_client()
+    synthesis = client.chat.completions.create(
+        model="x-ai/grok-4.1-fast", # High context window
+        response_model=FinalSynthesis,
+        messages=[
+            {"role": "system", "content": "Synthesize these task results into a cohesive final report."},
+            {"role": "user", "content": str([r.model_dump() for r in valid_results])}
+        ]
+    )
+    
+    save_artifact(
+        mission_id=state.get('mission_id', 'unknown'),
+        agent_role="Synthesizer",
+        step_type="synthesis",
+        content=synthesis.summary,
+        metadata={"confidence": synthesis.consensus_score, "model": "x-ai/grok-4.1-fast"}
+    )
+    
+    return {"final_output": synthesis}
+
+# --- Graph Construction ---
+
+def map_tasks(state: HydraState):
+    return [Send("worker", task) for task in state["plan"]]
+
+def build_hydra_graph():
+    workflow = StateGraph(HydraState)
+    
+    workflow.add_node("planner", planner_node)
+    workflow.add_node("worker", worker_node)
+    workflow.add_node("synthesizer", synthesizer_node)
+    
+    workflow.add_edge(START, "planner")
+    workflow.add_conditional_edges("planner", map_tasks, ["worker"])
+    workflow.add_edge("worker", "synthesizer") # Gather
+    workflow.add_edge("synthesizer", END)
+    
+    return workflow.compile()
+
+if __name__ == "__main__":
+    app = build_hydra_graph()
+    print("🦅 Hydra Swarm Activated.")
+    
+    mission_id = str(uuid.uuid4())
+    print(f"🆔 Mission ID: {mission_id}")
+    
+    result = app.invoke({
+        "mission_id": mission_id,
+        "mission": "Identify 3 key trends in AI Agent orchestration for late 2025", 
+        "results": []
+    })
+    
+    if result["final_output"]:
+        print(f"\n🏁 Consensus ({result['final_output'].consensus_score}):")
+        print(result["final_output"].summary)
+        print(f"\n📄 Artifacts saved to: {DIGESTION_DIR}")
