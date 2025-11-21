@@ -17,7 +17,7 @@ def test_nats_swarm():
     config = SwarmConfig(
         cohort_size=3,
         disruptor_count=0,
-        base_output_dir="/tmp/hfo_nats_test",
+        base_output_dir="memory/episodic/test_run",
         nats_url="nats://localhost:4222",
     )
 

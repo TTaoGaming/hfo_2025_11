@@ -191,12 +191,22 @@ class SwarmController:
         ]
         for i in range(honest_count):
             role = roles[i % len(roles)]
-            agents.append(PreyAgent(role=f"{role}_{i+1}", mission_id=self.mission_id))
+            agents.append(
+                PreyAgent(
+                    role=f"{role}_{i+1}",
+                    mission_id=self.mission_id,
+                    output_dir=self.config.base_output_dir,
+                )
+            )
 
         # Spawn Disruptors
         for i in range(self.config.disruptor_count):
             agents.append(
-                DisruptorAgent(role=f"Saboteur_{i+1}", mission_id=self.mission_id)
+                DisruptorAgent(
+                    role=f"Saboteur_{i+1}",
+                    mission_id=self.mission_id,
+                    output_dir=self.config.base_output_dir,
+                )
             )
 
         return agents

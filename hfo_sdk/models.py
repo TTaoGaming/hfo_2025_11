@@ -13,7 +13,7 @@ class SwarmConfig(BaseModel):
     disruptor_count: int = Field(default=1, description="Number of adversarial agents")
     model: str = Field(default="x-ai/grok-4.1-fast", description="LLM to use")
     base_output_dir: str = Field(
-        default="/tmp/hfo_swarm", description="Directory for artifacts"
+        default="memory/episodic", description="Directory for artifacts"
     )
     nats_url: str = Field(
         default="nats://localhost:4222", description="NATS JetStream URL"

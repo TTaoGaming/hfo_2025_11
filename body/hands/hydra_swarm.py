@@ -22,14 +22,20 @@ os.makedirs(DIGESTION_DIR, exist_ok=True)
 
 
 def save_artifact(
-    mission_id: str, agent_role: str, step_type: str, content: str, metadata: dict
+    mission_id: str,
+    agent_role: str,
+    step_type: str,
+    content: str,
+    metadata: dict,
+    output_dir: str = DIGESTION_DIR,
 ):
     """Saves a Stigmergy Artifact with YAML frontmatter."""
+    os.makedirs(output_dir, exist_ok=True)
     timestamp = datetime.datetime.utcnow().isoformat()
     filename = (
         f"{timestamp.replace(':', '-')}_{step_type}_{agent_role.replace(' ', '_')}.md"
     )
-    filepath = os.path.join(DIGESTION_DIR, filename)
+    filepath = os.path.join(output_dir, filename)
 
     yaml_header = f"""---
 mission_id: {mission_id}
@@ -118,10 +124,11 @@ class PreyAgent:
     - Yield: Return.
     """
 
-    def __init__(self, role: str, mission_id: str):
+    def __init__(self, role: str, mission_id: str, output_dir: Optional[str] = None):
         self.role = role
         self.mission_id = mission_id
         self.client = get_client()
+        self.output_dir = output_dir or DIGESTION_DIR
 
     def run_loop(self, task: SubTask) -> TaskResult:
         # 1. Perceive
@@ -224,6 +231,7 @@ class PreyAgent:
             step_type="execution",
             content=result.output,
             metadata={"confidence": result.confidence, "model": "x-ai/grok-4.1-fast"},
+            output_dir=self.output_dir,
         )
         result.artifacts.append(artifact_path)
         return result
