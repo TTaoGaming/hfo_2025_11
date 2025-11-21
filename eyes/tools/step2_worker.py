@@ -2,13 +2,13 @@ import os
 import sys
 import time
 from datetime import datetime
-from typing import List, Dict
+from typing import Dict
 import psycopg2
 from psycopg2.extras import execute_values, Json
 from tqdm import tqdm
 
 # Add HiveFleetObsidian to path
-sys.path.append(os.path.join(os.getcwd(), 'HiveFleetObsidian'))
+sys.path.append(os.path.join(os.getcwd(), "HiveFleetObsidian"))
 
 try:
     from hfo_sdk.config import get_config
@@ -21,13 +21,16 @@ except ImportError:
 BATCH_SIZE = 10
 MAX_RETRIES = 3
 
+
 def get_db_connection():
     config = get_config()
     return psycopg2.connect(config.database.url)
 
+
 def get_embeddings_model():
     # Set a timeout for the HTTP client
     return OpenAIEmbeddings(model="text-embedding-3-small", timeout=30)
+
 
 def chunk_text(text: str, chunk_size=2000, overlap=200):
     if len(text) <= chunk_size:
@@ -41,18 +44,19 @@ def chunk_text(text: str, chunk_size=2000, overlap=200):
         start += chunk_size - overlap
     return chunks
 
+
 def determine_metadata(file_path: str) -> Dict:
     meta = {
         "confidence": 0.9,
         "level": "hfo_lvl0",
         "file_type": os.path.splitext(file_path)[1],
-        "ingest_timestamp": time.time()
+        "ingest_timestamp": time.time(),
     }
     try:
         mtime = os.path.getmtime(file_path)
         meta["original_timestamp"] = mtime
         meta["original_date"] = datetime.fromtimestamp(mtime).isoformat()
-    except:
+    except Exception:
         pass
 
     path_parts = file_path.split(os.sep)
@@ -67,6 +71,7 @@ def determine_metadata(file_path: str) -> Dict:
 
     return meta
 
+
 def process_batch(conn, embeddings_model):
     """
     1. Fetch N pending items
@@ -77,12 +82,14 @@ def process_batch(conn, embeddings_model):
 
     # 1. Claim a batch
     # We select PENDING items.
-    cur.execute(f"""
+    cur.execute(
+        f"""
         SELECT file_path FROM ingestion_queue
         WHERE status = 'PENDING'
         LIMIT {BATCH_SIZE}
         FOR UPDATE SKIP LOCKED
-    """)
+    """
+    )
     rows = cur.fetchall()
 
     if not rows:
@@ -91,18 +98,21 @@ def process_batch(conn, embeddings_model):
     file_paths = [r[0] for r in rows]
 
     # Mark them as PROCESSING so other workers don't grab them (if we ran parallel)
-    cur.execute("""
+    cur.execute(
+        """
         UPDATE ingestion_queue
         SET status = 'PROCESSING', updated_at = NOW()
         WHERE file_path = ANY(%s)
-    """, (file_paths,))
+    """,
+        (file_paths,),
+    )
     conn.commit()
 
     # 2. Process
     success_paths = []
-    failed_paths = [] # (path, error_msg)
+    failed_paths = []  # (path, error_msg)
 
-    vectors_to_insert = [] # (path, chunk, vector, meta)
+    vectors_to_insert = []  # (path, chunk, vector, meta)
 
     for file_path in file_paths:
         try:
@@ -113,13 +123,15 @@ def process_batch(conn, embeddings_model):
 
             # print(f"Processing: {file_path}") # Verbose logging
 
-            with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
+            with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
                 content = f.read()
 
             # Sanitize
-            content = content.replace('\x00', '')
+            content = content.replace("\x00", "")
             if not content.strip():
-                success_paths.append(file_path) # Empty file is "success" (nothing to do)
+                success_paths.append(
+                    file_path
+                )  # Empty file is "success" (nothing to do)
                 continue
 
             chunks = chunk_text(content)
@@ -147,10 +159,14 @@ def process_batch(conn, embeddings_model):
     # 3. Bulk Insert Vectors
     if vectors_to_insert:
         try:
-            execute_values(cur, """
+            execute_values(
+                cur,
+                """
                 INSERT INTO knowledge_bank (source_path, content, embedding, metadata)
                 VALUES %s
-            """, vectors_to_insert)
+            """,
+                vectors_to_insert,
+            )
         except Exception as e:
             # If bulk insert fails, fail the whole batch of *vectors*, but we need to be careful.
             # For simplicity, we'll mark the whole batch as failed if DB insert fails.
@@ -158,29 +174,39 @@ def process_batch(conn, embeddings_model):
             conn.rollback()
             # Mark all as failed
             for fp in file_paths:
-                cur.execute("UPDATE ingestion_queue SET status = 'FAILED', error_message = %s WHERE file_path = %s", (str(e), fp))
+                cur.execute(
+                    "UPDATE ingestion_queue SET status = 'FAILED', error_message = %s WHERE file_path = %s",
+                    (str(e), fp),
+                )
             conn.commit()
             return len(file_paths)
 
     # 4. Update Queue Status
     if success_paths:
-        cur.execute("""
+        cur.execute(
+            """
             UPDATE ingestion_queue
             SET status = 'COMPLETED', updated_at = NOW()
             WHERE file_path = ANY(%s)
-        """, (success_paths,))
+        """,
+            (success_paths,),
+        )
 
     for fp, err in failed_paths:
-        cur.execute("""
+        cur.execute(
+            """
             UPDATE ingestion_queue
             SET status = 'FAILED', error_message = %s, attempts = attempts + 1, updated_at = NOW()
             WHERE file_path = %s
-        """, (err, fp))
+        """,
+            (err, fp),
+        )
 
     conn.commit()
     cur.close()
 
     return len(file_paths)
+
 
 def main():
     print("Starting Ingestion Worker...")
@@ -205,6 +231,7 @@ def main():
 
     print("\nQueue Empty. Worker finished.")
     conn.close()
+
 
 if __name__ == "__main__":
     main()

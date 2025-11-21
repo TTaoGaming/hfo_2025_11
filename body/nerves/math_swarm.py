@@ -1,7 +1,7 @@
 import os
 import ray
 import json
-from typing import List, Dict, TypedDict, Annotated
+from typing import List, TypedDict, Annotated
 from langchain_openai import ChatOpenAI
 from langchain_core.messages import HumanMessage, SystemMessage
 from langgraph.graph import StateGraph, END
@@ -12,10 +12,12 @@ MODEL_NAME = "x-ai/grok-4-fast"  # As per docs
 OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 
+
 # --- Data Models ---
 class MathProblem(TypedDict):
     id: int
     question: str
+
 
 class ResearchResult(TypedDict):
     problem_id: int
@@ -24,12 +26,14 @@ class ResearchResult(TypedDict):
     reasoning: str
     confidence: float
 
+
 class SwarmState(TypedDict):
     user_request: str
     problems: List[MathProblem]
     results: Annotated[List[ResearchResult], operator.add]
     quorum_report: str
     final_digest: str
+
 
 # --- Ray Actors (The Researchers) ---
 @ray.remote
@@ -40,15 +44,17 @@ class MathResearcher:
             model=MODEL_NAME,
             openai_api_key=OPENROUTER_API_KEY,
             openai_api_base=OPENROUTER_BASE_URL,
-            temperature=0.7
+            temperature=0.7,
         )
 
     def solve(self, problem: MathProblem) -> ResearchResult:
         print(f"[{self.agent_id}] Solving: {problem['question']}")
         try:
             messages = [
-                SystemMessage(content="You are a precise mathematician. Solve the problem and provide a confidence score (0.0-1.0). Format output as JSON with keys: 'answer', 'reasoning', 'confidence'."),
-                HumanMessage(content=problem['question'])
+                SystemMessage(
+                    content="You are a precise mathematician. Solve the problem and provide a confidence score (0.0-1.0). Format output as JSON with keys: 'answer', 'reasoning', 'confidence'."
+                ),
+                HumanMessage(content=problem["question"]),
             ]
             response = self.llm.invoke(messages)
 
@@ -67,7 +73,7 @@ class MathResearcher:
                 "agent_id": self.agent_id,
                 "answer": str(data.get("answer", "Error")),
                 "reasoning": data.get("reasoning", "No reasoning provided"),
-                "confidence": float(data.get("confidence", 0.0))
+                "confidence": float(data.get("confidence", 0.0)),
             }
         except Exception as e:
             return {
@@ -75,10 +81,12 @@ class MathResearcher:
                 "agent_id": self.agent_id,
                 "answer": "Error",
                 "reasoning": str(e),
-                "confidence": 0.0
+                "confidence": 0.0,
             }
 
+
 # --- LangGraph Nodes ---
+
 
 def orchestrator_node(state: SwarmState):
     """Parses the user request into specific math problems."""
@@ -91,9 +99,10 @@ def orchestrator_node(state: SwarmState):
     problems = [
         {"id": 1, "question": "What is the integral of x^2 dx?"},
         {"id": 2, "question": "Solve for x: 2x + 5 = 15"},
-        {"id": 3, "question": "What is the 10th Fibonacci number?"}
+        {"id": 3, "question": "What is the 10th Fibonacci number?"},
     ]
     return {"problems": problems}
+
 
 def scatter_gather_node(state: SwarmState):
     """Dispatches problems to Ray actors."""
@@ -101,7 +110,7 @@ def scatter_gather_node(state: SwarmState):
     futures = []
 
     # Create a pool of researchers (Ray Actors)
-    researchers = [MathResearcher.remote(f"Researcher-{i}") for i in range(3)]
+    researchers = [MathResearcher.remote(f"Researcher-{i}") for i in range(3)]  # type: ignore
 
     for i, problem in enumerate(problems):
         # Assign each problem to a researcher (round-robin)
@@ -110,6 +119,7 @@ def scatter_gather_node(state: SwarmState):
 
     results = ray.get(futures)
     return {"results": results}
+
 
 def byzantine_quorum_node(state: SwarmState):
     """Reviews results for consensus and quality."""
@@ -130,6 +140,7 @@ def byzantine_quorum_node(state: SwarmState):
     report = f"Quorum Status: {status}. {valid_count}/{total} results passed confidence threshold."
     return {"quorum_report": report}
 
+
 def synthesizer_node(state: SwarmState):
     """Synthesizes the final digest."""
     results = state["results"]
@@ -142,6 +153,7 @@ def synthesizer_node(state: SwarmState):
         digest += f"  - *Agent*: {r['agent_id']}\n"
 
     return {"final_digest": digest}
+
 
 # --- Graph Construction ---
 def build_swarm_graph():

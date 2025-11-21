@@ -1,5 +1,7 @@
 import subprocess
 import pytest
+import os
+
 
 def test_gitops_smoke():
     print("\n🧪 SMOKE TEST: GitOps (Pre-commit) Layer")
@@ -8,9 +10,11 @@ def test_gitops_smoke():
         # Check if pre-commit is installed (use venv path)
         pre_commit_path = "./venv/bin/pre-commit"
         if not os.path.exists(pre_commit_path):
-             pytest.fail(f"pre-commit binary not found at {pre_commit_path}")
+            pytest.fail(f"pre-commit binary not found at {pre_commit_path}")
 
-        result = subprocess.run([pre_commit_path, "--version"], capture_output=True, text=True)
+        result = subprocess.run(
+            [pre_commit_path, "--version"], capture_output=True, text=True
+        )
         if result.returncode != 0:
             pytest.fail("pre-commit is not installed")
 
@@ -25,6 +29,6 @@ def test_gitops_smoke():
     except Exception as e:
         pytest.fail(f"GitOps check failed: {e}")
 
-import os
+
 if __name__ == "__main__":
     test_gitops_smoke()

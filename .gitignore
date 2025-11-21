@@ -35,3 +35,7 @@ ingestion/unified_memory_dump.jsonl
 *.jsonl
 *.tsv
 memory/episodic/raw_audit_logs/hfo_gems_raw/concept_map.json
+
+# Stigmergy Artifacts
+body/digestion/*.md
+!body/digestion/README.md

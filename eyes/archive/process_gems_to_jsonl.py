@@ -8,16 +8,18 @@ from pathlib import Path
 STAGING_DIR = Path("hive_fleet_obsidian_2025_11/ingestion/staging_memory")
 OUTPUT_FILE = Path("hive_fleet_obsidian_2025_11/ingestion/hfo_memory_dump.jsonl")
 
+
 def extract_generation(path_str):
     """
     Attempts to extract the Generation number from the file path.
     Looks for patterns like 'gen_12', 'Gen 50', 'gen-3'.
     """
     # Pattern: gen followed by separator and digits
-    match = re.search(r'(?:gen|Gen)[_\-\s]?(\d+)', path_str)
+    match = re.search(r"(?:gen|Gen)[_\-\s]?(\d+)", path_str)
     if match:
         return int(match.group(1))
     return None
+
 
 def clean_content(content):
     """
@@ -28,8 +30,9 @@ def clean_content(content):
     if not content:
         return ""
     # Remove null bytes
-    content = content.replace('\x00', '')
+    content = content.replace("\x00", "")
     return content
+
 
 def process_files():
     print(f"Scanning {STAGING_DIR}...")
@@ -39,11 +42,11 @@ def process_files():
 
     for root, dirs, files in os.walk(STAGING_DIR):
         for filename in files:
-            if filename.endswith(('.md', '.py', '.txt', '.json', '.yaml', '.yml')):
+            if filename.endswith((".md", ".py", ".txt", ".json", ".yaml", ".yml")):
                 file_path = Path(root) / filename
 
                 try:
-                    with open(file_path, 'r', encoding='utf-8', errors='replace') as f:
+                    with open(file_path, "r", encoding="utf-8", errors="replace") as f:
                         raw_content = f.read()
 
                     content = clean_content(raw_content)
@@ -64,8 +67,8 @@ def process_files():
                             "filename": filename,
                             "extension": file_path.suffix,
                             "generation": gen,
-                            "length": len(content)
-                        }
+                            "length": len(content),
+                        },
                     }
                     records.append(record)
                     file_count += 1
@@ -77,14 +80,22 @@ def process_files():
 
     # Sort by Generation (if available) then by filename
     # This helps with chronological ordering in the JSONL
-    records.sort(key=lambda x: (x['metadata']['generation'] if x['metadata']['generation'] is not None else -1, x['metadata']['filename']))
+    records.sort(
+        key=lambda x: (
+            x["metadata"]["generation"]
+            if x["metadata"]["generation"] is not None
+            else -1,
+            x["metadata"]["filename"],
+        )
+    )
 
     print(f"Writing to {OUTPUT_FILE}...")
-    with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
+    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         for record in records:
-            f.write(json.dumps(record) + '\n')
+            f.write(json.dumps(record) + "\n")
 
     print("Done.")
+
 
 if __name__ == "__main__":
     process_files()

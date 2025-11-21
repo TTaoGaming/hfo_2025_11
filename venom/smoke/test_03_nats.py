@@ -3,6 +3,7 @@ import nats
 import pytest
 import uuid
 
+
 @pytest.mark.asyncio
 async def test_nats_smoke():
     print("\n🧪 SMOKE TEST: NATS Stigmergy Layer")
@@ -14,7 +15,7 @@ async def test_nats_smoke():
         try:
             await js.add_stream(name="SMOKE_STREAM", subjects=["smoke.*"])
         except Exception:
-            pass # Stream might exist
+            pass  # Stream might exist
 
         # Pub/Sub with unique subject
         unique_id = str(uuid.uuid4())
@@ -32,6 +33,7 @@ async def test_nats_smoke():
         await nc.close()
     except Exception as e:
         pytest.fail(f"NATS failed: {e}")
+
 
 if __name__ == "__main__":
     asyncio.run(test_nats_smoke())

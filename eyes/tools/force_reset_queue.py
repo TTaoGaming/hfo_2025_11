@@ -3,13 +3,14 @@ import sys
 import psycopg2
 
 # Add HiveFleetObsidian to path to use existing config
-sys.path.append(os.path.join(os.getcwd(), 'HiveFleetObsidian'))
+sys.path.append(os.path.join(os.getcwd(), "HiveFleetObsidian"))
 
 try:
     from hfo_sdk.config import get_config
 except ImportError:
     print("Could not import hfo_sdk.")
     sys.exit(1)
+
 
 def force_reset_queue():
     config = get_config()
@@ -21,7 +22,8 @@ def force_reset_queue():
     cur.execute("DROP TABLE IF EXISTS ingestion_queue;")
 
     print("Recreating 'ingestion_queue' table...")
-    cur.execute("""
+    cur.execute(
+        """
         CREATE TABLE ingestion_queue (
             id SERIAL PRIMARY KEY,
             file_path TEXT UNIQUE NOT NULL,
@@ -31,17 +33,21 @@ def force_reset_queue():
             created_at TIMESTAMP DEFAULT NOW(),
             updated_at TIMESTAMP DEFAULT NOW()
         );
-    """)
+    """
+    )
 
     # Index for fast fetching of pending items
-    cur.execute("""
+    cur.execute(
+        """
         CREATE INDEX IF NOT EXISTS idx_queue_status
         ON ingestion_queue(status);
-    """)
+    """
+    )
 
     print("Queue table reset complete.")
     cur.close()
     conn.close()
+
 
 if __name__ == "__main__":
     force_reset_queue()

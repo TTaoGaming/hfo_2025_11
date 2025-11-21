@@ -1,7 +1,17 @@
 import pytest
 import ray
+import numpy as np
+from typing import TypedDict
 from pydantic import ValidationError
+from langgraph.graph import StateGraph, END
+from ribs.archives import GridArchive
+from langsmith import Client
+from langsmith.run_trees import RunTree
+from temporalio import workflow
+from temporalio.testing import WorkflowEnvironment
+from temporalio.worker import Worker
 from body.models.intent import MissionIntent
+
 
 # --- P - Pydantic (SSOT) ---
 def test_mission_intent_ssot_enforcement():
@@ -10,10 +20,7 @@ def test_mission_intent_ssot_enforcement():
     and validates the FinOps strategy fields.
     """
     # 1. Test Defaults
-    intent = MissionIntent(
-        description="Test Mission",
-        rationale="Testing Defaults"
-    )
+    intent = MissionIntent(description="Test Mission", rationale="Testing Defaults")
     assert intent.coordination_model_group == "Cheap Navigators"
     assert intent.execution_model_group == "Cheap QD Swarm"
     assert intent.swarm_size == 10
@@ -23,7 +30,7 @@ def test_mission_intent_ssot_enforcement():
         description="Custom Mission",
         rationale="Testing Custom",
         coordination_model_group="Custom Navigators",
-        excluded_models=["Gemini 3 Pro"]
+        excluded_models=["Gemini 3 Pro"],
     )
     assert intent_custom.coordination_model_group == "Custom Navigators"
     assert "Gemini 3 Pro" in intent_custom.excluded_models
@@ -32,6 +39,7 @@ def test_mission_intent_ssot_enforcement():
     # For now, we just ensure the model instantiates correctly with required fields
     with pytest.raises(ValidationError):
         MissionIntent(description="Missing Rationale")
+
 
 # --- R - Ray (Distributed Compute) ---
 @pytest.mark.asyncio
@@ -65,14 +73,15 @@ async def test_ray_actor_state():
 
     ray.shutdown()
 
+
 # --- A - Agent Logic (LangGraph) ---
-from typing import TypedDict, Annotated
-from langgraph.graph import StateGraph, END
+
 
 def test_langgraph_simple_workflow():
     """
     Verify LangGraph can construct and execute a simple state machine.
     """
+
     # 1. Define State
     class AgentState(TypedDict):
         count: int
@@ -80,16 +89,10 @@ def test_langgraph_simple_workflow():
 
     # 2. Define Nodes
     def increment_node(state: AgentState):
-        return {
-            "count": state["count"] + 1,
-            "log": state["log"] + ["incremented"]
-        }
+        return {"count": state["count"] + 1, "log": state["log"] + ["incremented"]}
 
     def double_node(state: AgentState):
-        return {
-            "count": state["count"] * 2,
-            "log": state["log"] + ["doubled"]
-        }
+        return {"count": state["count"] * 2, "log": state["log"] + ["doubled"]}
 
     # 3. Build Graph
     workflow = StateGraph(AgentState)
@@ -111,9 +114,9 @@ def test_langgraph_simple_workflow():
     assert result["count"] == 4  # (1 + 1) * 2 = 4
     assert result["log"] == ["incremented", "doubled"]
 
+
 # --- R - Ribs (Evolution) ---
-import numpy as np
-from ribs.archives import GridArchive
+
 
 def test_ribs_map_elites_archive():
     """
@@ -146,17 +149,16 @@ def test_ribs_map_elites_archive():
     elite = archive.best_elite
     assert elite["objective"] == 1.0
 
+
 # --- T - Temporal (Orchestration) ---
-from temporalio import workflow
-from temporalio.testing import WorkflowEnvironment
-from temporalio.worker import Worker
-from datetime import timedelta
+
 
 @workflow.defn
 class SayHelloWorkflow:
     @workflow.run
     async def run(self, name: str) -> str:
         return f"Hello, {name}!"
+
 
 @pytest.mark.asyncio
 async def test_temporal_workflow_execution():
@@ -181,9 +183,9 @@ async def test_temporal_workflow_execution():
     except Exception as e:
         pytest.skip(f"Skipping Temporal test due to environment issues: {e}")
 
+
 # --- O - Observability (LangSmith) ---
-from langsmith import Client
-from langsmith.run_trees import RunTree
+
 
 def test_langsmith_tracing_init():
     """
@@ -196,11 +198,7 @@ def test_langsmith_tracing_init():
     assert client is not None
 
     # 2. Create a RunTree (Trace)
-    rt = RunTree(
-        name="Test Trace",
-        run_type="chain",
-        inputs={"input": "test"}
-    )
+    rt = RunTree(name="Test Trace", run_type="chain", inputs={"input": "test"})
 
     # 3. End the trace
     rt.end(outputs={"output": "success"})

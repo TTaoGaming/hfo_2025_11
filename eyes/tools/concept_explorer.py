@@ -1,13 +1,11 @@
 import psycopg2
 import os
 import sys
-import json
 from collections import Counter
 from langchain_openai import OpenAIEmbeddings
-import numpy as np
 
 # Add HiveFleetObsidian to path
-sys.path.append(os.path.join(os.getcwd(), 'HiveFleetObsidian'))
+sys.path.append(os.path.join(os.getcwd(), "HiveFleetObsidian"))
 
 try:
     from hfo_sdk.config import get_config
@@ -15,13 +13,20 @@ except ImportError:
     # Fallback if SDK not found
     class Config:
         def __init__(self):
-            self.database = type('obj', (object,), {'url': "postgresql://postgres:mysecretpassword@localhost/vectordb"})
+            self.database = type(
+                "obj",
+                (object,),
+                {"url": "postgresql://postgres:mysecretpassword@localhost/vectordb"},
+            )
+
     def get_config():
         return Config()
+
 
 def get_db_connection():
     config = get_config()
     return psycopg2.connect(config.database.url)
+
 
 def explore_concepts(seed_concepts, limit=20):
     print(f"🧠 Exploring Hive Mind for concepts: {seed_concepts}")
@@ -37,17 +42,21 @@ def explore_concepts(seed_concepts, limit=20):
 
         with conn.cursor() as cur:
             # Find top matches
-            cur.execute("""
+            cur.execute(
+                """
                 SELECT source_path, content, 1 - (embedding <=> %s::vector) as similarity
                 FROM knowledge_bank
                 ORDER BY embedding <=> %s::vector
                 LIMIT %s
-            """, (vector, vector, limit))
+            """,
+                (vector, vector, limit),
+            )
 
             rows = cur.fetchall()
             results_map[concept] = rows
 
     return results_map
+
 
 def generate_report(results_map):
     report = "# 🧬 HFO Concept Map\n\n"
@@ -64,7 +73,7 @@ def generate_report(results_map):
             filename = os.path.basename(path)
             report += f"- **{filename}** (Confidence: {similarity:.2f})\n"
             # Extract a snippet
-            snippet = content[:200].replace('\n', ' ') + "..."
+            snippet = content[:200].replace("\n", " ") + "..."
             report += f"  > *{snippet}*\n"
             all_content.append(content)
         report += "\n"
@@ -73,14 +82,62 @@ def generate_report(results_map):
     report += "## 🔗 Emergent Keywords (Co-occurrence)\n"
     words = " ".join(all_content).lower().split()
     # Filter common stop words (very basic list)
-    stop_words = set(['the', 'and', 'of', 'to', 'a', 'in', 'is', 'that', 'for', 'it', 'with', 'as', 'on', 'are', 'this', 'be', 'can', 'or', 'by', 'an', 'not', 'from', 'at', 'which', 'but', 'we', 'have', 'has', 'if', 'they', 'their', 'one', 'all', 'will', 'so', 'my', 'me', 'hfo', 'file', 'files'])
-    filtered_words = [w.strip('.,()[]"\'') for w in words if w.strip('.,()[]"\'') not in stop_words and len(w) > 3]
+    stop_words = set(
+        [
+            "the",
+            "and",
+            "of",
+            "to",
+            "a",
+            "in",
+            "is",
+            "that",
+            "for",
+            "it",
+            "with",
+            "as",
+            "on",
+            "are",
+            "this",
+            "be",
+            "can",
+            "or",
+            "by",
+            "an",
+            "not",
+            "from",
+            "at",
+            "which",
+            "but",
+            "we",
+            "have",
+            "has",
+            "if",
+            "they",
+            "their",
+            "one",
+            "all",
+            "will",
+            "so",
+            "my",
+            "me",
+            "hfo",
+            "file",
+            "files",
+        ]
+    )
+    filtered_words = [
+        w.strip(".,()[]\"'")
+        for w in words
+        if w.strip(".,()[]\"'") not in stop_words and len(w) > 3
+    ]
 
     common = Counter(filtered_words).most_common(20)
     for word, count in common:
         report += f"- **{word}**: {count}\n"
 
     return report
+
 
 if __name__ == "__main__":
     # Default concepts from user request
@@ -91,7 +148,7 @@ if __name__ == "__main__":
         "hierarchical",
         "holonic",
         "topology",
-        "stigmergic"
+        "stigmergic",
     ]
 
     if len(sys.argv) > 1:

@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 # Load env vars (API keys)
 load_dotenv()
 
+
 async def main():
     # 1. Start Ray
     if not ray.is_initialized():
@@ -24,6 +25,7 @@ async def main():
 
     # Start the workflow
     import uuid
+
     workflow_id = f"math-swarm-test-{uuid.uuid4()}"
     print(f"--- Submitting Workflow to Temporal (ID: {workflow_id}) ---")
 
@@ -52,6 +54,7 @@ async def main():
     except asyncio.CancelledError:
         pass
     ray.shutdown()
+
 
 if __name__ == "__main__":
     asyncio.run(main())

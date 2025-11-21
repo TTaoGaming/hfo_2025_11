@@ -5,9 +5,11 @@ from temporalio.client import Client
 from temporalio.worker import Worker
 import pytest
 
+
 @activity.defn
 async def smoke_activity(name: str) -> str:
     return f"Smoke, {name}!"
+
 
 @workflow.defn
 class SmokeWorkflow:
@@ -16,6 +18,7 @@ class SmokeWorkflow:
         return await workflow.execute_activity(
             smoke_activity, name, start_to_close_timeout=timedelta(seconds=5)
         )
+
 
 @pytest.mark.asyncio
 async def test_temporal_smoke():
@@ -38,6 +41,7 @@ async def test_temporal_smoke():
             print("   ✅ Temporal Workflow: OK")
     except Exception as e:
         pytest.fail(f"Temporal failed: {e}")
+
 
 if __name__ == "__main__":
     asyncio.run(test_temporal_smoke())

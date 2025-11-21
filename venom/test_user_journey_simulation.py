@@ -4,11 +4,13 @@ from typing import TypedDict, List, Dict
 from langgraph.graph import StateGraph, END
 import time
 
+
 # --- Mock Data Structures ---
 class ResearchResult(TypedDict):
     agent_id: str
     finding: str
     confidence: float
+
 
 class SwarmState(TypedDict):
     user_request: str
@@ -16,6 +18,7 @@ class SwarmState(TypedDict):
     raw_findings: List[ResearchResult]
     quorum_decision: str
     final_digest: str
+
 
 # --- Ray Actors for Scatter-Gather ---
 @ray.remote
@@ -28,10 +31,12 @@ def perform_research_task(task: str, agent_id: str) -> ResearchResult:
     return {
         "agent_id": agent_id,
         "finding": f"Found evidence for {task}",
-        "confidence": 0.95
+        "confidence": 0.95,
     }
 
+
 # --- LangGraph Nodes ---
+
 
 def orchestrator_node(state: SwarmState) -> Dict:
     """
@@ -42,6 +47,7 @@ def orchestrator_node(state: SwarmState) -> Dict:
     tasks = [f"Aspect {i} of {state['user_request']}" for i in range(1, 4)]
     return {"research_tasks": tasks}
 
+
 def scatter_gather_node(state: SwarmState) -> Dict:
     """
     Phase 2: Scatter tasks to Ray, Gather results.
@@ -50,12 +56,15 @@ def scatter_gather_node(state: SwarmState) -> Dict:
     print(f"[Scatter] Dispatching {len(tasks)} tasks to Ray swarm...")
 
     # SCATTER: Launch parallel tasks
-    futures = [perform_research_task.remote(task, f"Agent-{i}") for i, task in enumerate(tasks)]
+    futures = [
+        perform_research_task.remote(task, f"Agent-{i}") for i, task in enumerate(tasks)
+    ]
 
     # GATHER: Wait for all results
     results = ray.get(futures)
     print(f"[Gather] Collected {len(results)} research findings.")
     return {"raw_findings": results}
+
 
 def byzantine_quorum_node(state: SwarmState) -> Dict:
     """
@@ -74,6 +83,7 @@ def byzantine_quorum_node(state: SwarmState) -> Dict:
 
     return {"quorum_decision": decision}
 
+
 def synthesis_digest_node(state: SwarmState) -> Dict:
     """
     Phase 4: Synthesize final answer for the user.
@@ -89,7 +99,9 @@ def synthesis_digest_node(state: SwarmState) -> Dict:
     print(f"[Synthesis] Final Digest: {digest}")
     return {"final_digest": digest}
 
+
 # --- The Test ---
+
 
 @pytest.mark.asyncio
 async def test_user_journey_simulation():
@@ -123,7 +135,7 @@ async def test_user_journey_simulation():
         research_tasks=[],
         raw_findings=[],
         quorum_decision="",
-        final_digest=""
+        final_digest="",
     )
 
     print("\n--- Starting Simulation ---")
@@ -138,7 +150,9 @@ async def test_user_journey_simulation():
     print("\n--- Simulation Complete ---")
     ray.shutdown()
 
+
 if __name__ == "__main__":
     # Allow running directly with python
     import asyncio
+
     asyncio.run(test_user_journey_simulation())

@@ -1,10 +1,12 @@
 import ray
 from temporalio.client import Client as TemporalClient
 
+
 class HFOClient:
     """
     Main client for interacting with the Hive Fleet Obsidian swarm.
     """
+
     def __init__(self):
         self.temporal_client = None
         self.ray_initialized = False

@@ -1,11 +1,12 @@
 import ray
-import time
 import pytest
+
 
 @ray.remote
 class SmokeActor:
     def ping(self):
         return "pong"
+
 
 def test_ray_smoke():
     print("\n🧪 SMOKE TEST: Ray Compute Layer")
@@ -23,6 +24,7 @@ def test_ray_smoke():
         pytest.fail(f"Ray failed: {e}")
     finally:
         ray.shutdown()
+
 
 if __name__ == "__main__":
     test_ray_smoke()

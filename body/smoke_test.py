@@ -13,12 +13,15 @@ load_dotenv()
 
 # Configuration (Defaults match docker-compose.yml service names)
 # When running inside the container, these hostnames resolve automatically.
-PG_DSN = os.getenv("PG_DSN", "postgresql://hfo_admin:phoenix_password@db:5432/hfo_unified_memory")
+PG_DSN = os.getenv(
+    "PG_DSN", "postgresql://hfo_admin:phoenix_password@db:5432/hfo_unified_memory"
+)
 NATS_URL = os.getenv("NATS_URL", "nats://nats:4222")
 TEMPORAL_URL = os.getenv("TEMPORAL_URL", "temporal:7233")
 
+
 async def test_postgres():
-    print(f"\n🐘 Testing Postgres Connection...")
+    print("\n🐘 Testing Postgres Connection...")
     print(f"   Target: {PG_DSN}")
     try:
         conn = psycopg2.connect(PG_DSN)
@@ -37,8 +40,9 @@ async def test_postgres():
         print(f"   ❌ Postgres Failed: {e}")
         return False
 
+
 async def test_nats():
-    print(f"\n⚡ Testing NATS JetStream...")
+    print("\n⚡ Testing NATS JetStream...")
     print(f"   Target: {NATS_URL}")
     try:
         nc = await nats.connect(NATS_URL)
@@ -55,9 +59,9 @@ async def test_nats():
 
         # Publish/Subscribe Roundtrip
         sub = await js.subscribe("smoke.test")
-        await js.publish("smoke.test", b'Hello Phoenix')
+        await js.publish("smoke.test", b"Hello Phoenix")
         msg = await sub.next_msg(timeout=2)
-        if msg.data == b'Hello Phoenix':
+        if msg.data == b"Hello Phoenix":
             print(f"   ✅ Message Roundtrip Successful: '{msg.data.decode()}'")
         else:
             print(f"   ❌ Message Mismatch: {msg.data}")
@@ -68,8 +72,9 @@ async def test_nats():
         print(f"   ❌ NATS Failed: {e}")
         return False
 
+
 async def test_temporal():
-    print(f"\n⏳ Testing Temporal...")
+    print("\n⏳ Testing Temporal...")
     print(f"   Target: {TEMPORAL_URL}")
     try:
         # Connect to Temporal Server
@@ -81,11 +86,13 @@ async def test_temporal():
         print(f"   ❌ Temporal Failed: {e}")
         return False
 
+
 def test_libraries():
     print("\n📚 Testing Core Libraries...")
     print(f"   ✅ LangChain Version: {lc_version}")
     print(f"   ✅ Pydantic Version: {pydantic.VERSION}")
     return True
+
 
 async def main():
     print("🚀 STARTING HFO PHOENIX SMOKE TESTS 🚀")
@@ -95,7 +102,7 @@ async def main():
         "Libraries": test_libraries(),
         "Postgres": await test_postgres(),
         "NATS": await test_nats(),
-        "Temporal": await test_temporal()
+        "Temporal": await test_temporal(),
     }
 
     print("\n========================================")
@@ -112,6 +119,7 @@ async def main():
     print("Testing Ray connection...")
     try:
         import ray
+
         if not ray.is_initialized():
             ray.init(ignore_reinit_error=True)
         print(f"✅ Ray initialized (Version: {ray.__version__})")
@@ -129,6 +137,7 @@ async def main():
     else:
         print("\n⚠️  SOME SYSTEMS FAILED. CHECK LOGS. ⚠️")
         sys.exit(1)
+
 
 if __name__ == "__main__":
     asyncio.run(main())

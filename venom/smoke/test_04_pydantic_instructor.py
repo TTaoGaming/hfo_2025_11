@@ -4,9 +4,11 @@ import instructor
 from pydantic import BaseModel
 from openai import OpenAI
 
+
 class UserInfo(BaseModel):
     name: str
     age: int
+
 
 def test_instructor_smoke():
     print("\n🧪 SMOKE TEST: Instructor & Pydantic Layer")
@@ -26,7 +28,7 @@ def test_instructor_smoke():
         )
 
         resp = client.chat.completions.create(
-            model="x-ai/grok-4-fast", # Cheap & Fast
+            model="x-ai/grok-4-fast",  # Cheap & Fast
             messages=[
                 {"role": "user", "content": "Extract: John Doe is 30 years old."}
             ],
@@ -39,6 +41,7 @@ def test_instructor_smoke():
 
     except Exception as e:
         pytest.fail(f"Instructor failed: {e}")
+
 
 if __name__ == "__main__":
     test_instructor_smoke()

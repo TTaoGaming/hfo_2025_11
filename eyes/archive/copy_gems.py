@@ -2,6 +2,7 @@ import os
 import shutil
 from pathlib import Path
 
+
 def copy_hfo_gems():
     archive_root = Path("_ARCHIVE_2025_11_19")
     audit_dest = Path("hive_fleet_obsidian_2025_11/audit_trail/hfo_gems_raw")
@@ -43,6 +44,7 @@ def copy_hfo_gems():
             print(f"  Skipping {dest_ingest} (already exists)")
         else:
             shutil.copytree(src_dir, dest_ingest)
+
 
 if __name__ == "__main__":
     copy_hfo_gems()

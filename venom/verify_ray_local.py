@@ -1,10 +1,12 @@
 import ray
 import time
 
+
 @ray.remote
 class TestActor:
     def ping(self):
         return "pong"
+
 
 def test_ray_local():
     print("🧪 TESTING: Ray Local Cluster...")
@@ -29,6 +31,7 @@ def test_ray_local():
 
     except Exception as e:
         print(f"❌ FAILED: {str(e)}")
+
 
 if __name__ == "__main__":
     test_ray_local()

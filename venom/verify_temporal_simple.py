@@ -3,9 +3,11 @@ from temporalio import activity, workflow
 from temporalio.client import Client
 from temporalio.worker import Worker
 
+
 @activity.defn
 async def say_hello(name: str) -> str:
     return f"Hello, {name}!"
+
 
 @workflow.defn
 class HelloWorkflow:
@@ -14,6 +16,7 @@ class HelloWorkflow:
         return await workflow.execute_activity(
             say_hello, name, start_to_close_timeout_seconds=5
         )
+
 
 async def test_temporal():
     print("🧪 TESTING: Temporal Workflow...")
@@ -38,6 +41,7 @@ async def test_temporal():
 
     except Exception as e:
         print(f"❌ FAILED: {str(e)}")
+
 
 if __name__ == "__main__":
     asyncio.run(test_temporal())

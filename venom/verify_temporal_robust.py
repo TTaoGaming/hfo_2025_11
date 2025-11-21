@@ -1,16 +1,17 @@
 import asyncio
 import uuid
-import time
 from datetime import timedelta
 from temporalio import activity, workflow
 from temporalio.client import Client
 from temporalio.worker import Worker
+
 
 # --- Definitions ---
 @activity.defn
 async def robust_hello(name: str) -> str:
     print(f"   [Activity] Executing robust_hello for {name}")
     return f"Hello, {name}!"
+
 
 @workflow.defn
 class RobustWorkflow:
@@ -20,6 +21,7 @@ class RobustWorkflow:
         return await workflow.execute_activity(
             robust_hello, name, start_to_close_timeout=timedelta(seconds=10)
         )
+
 
 # --- Test Script ---
 async def test_temporal_robust():
@@ -55,7 +57,7 @@ async def test_temporal_robust():
             "Phoenix",
             id=wf_id,
             task_queue=queue,
-            execution_timeout=timedelta(seconds=30)
+            execution_timeout=timedelta(seconds=30),
         )
         print(f"   ✅ Workflow submitted. Run ID: {handle.result_run_id}")
 
@@ -79,6 +81,7 @@ async def test_temporal_robust():
 
     except Exception as e:
         print(f"❌ FAILED: {str(e)}")
+
 
 if __name__ == "__main__":
     asyncio.run(test_temporal_robust())

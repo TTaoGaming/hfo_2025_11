@@ -3,6 +3,7 @@ import pytest
 from langchain_core.tracers.context import tracing_v2_enabled
 from langchain_openai import ChatOpenAI
 
+
 def test_langsmith_smoke():
     print("\n🧪 SMOKE TEST: LangSmith Observability Layer")
 
@@ -16,13 +17,14 @@ def test_langsmith_smoke():
             llm = ChatOpenAI(
                 model="x-ai/grok-4-fast",
                 openai_api_key=os.getenv("OPENROUTER_API_KEY"),
-                openai_api_base="https://openrouter.ai/api/v1"
+                openai_api_base="https://openrouter.ai/api/v1",
             )
             llm.invoke("Hello")
 
         print("   ✅ LangSmith Trace: OK")
     except Exception as e:
         pytest.fail(f"LangSmith failed: {e}")
+
 
 if __name__ == "__main__":
     test_langsmith_smoke()

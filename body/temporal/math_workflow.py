@@ -1,7 +1,7 @@
 from temporalio import activity, workflow
 from temporalio.client import Client
 from temporalio.worker import Worker
-import asyncio
+
 
 # --- Activities ---
 @activity.defn
@@ -26,13 +26,14 @@ async def run_math_swarm_activity(user_request: str) -> str:
         problems=[],
         results=[],
         quorum_report="",
-        final_digest=""
+        final_digest="",
     )
 
     # Run the graph
     final_state = await app.ainvoke(initial_state)
 
     return final_state["final_digest"]
+
 
 # --- Workflow ---
 @workflow.defn
@@ -42,8 +43,9 @@ class MathSwarmWorkflow:
         return await workflow.execute_activity(
             run_math_swarm_activity,
             user_request,
-            start_to_close_timeout_seconds=300  # 5 minutes timeout
+            start_to_close_timeout_seconds=300,  # 5 minutes timeout
         )
+
 
 # --- Worker Helper ---
 async def run_worker():

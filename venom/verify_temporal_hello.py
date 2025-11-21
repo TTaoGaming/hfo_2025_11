@@ -4,10 +4,12 @@ from temporalio import activity, workflow
 from temporalio.client import Client
 from temporalio.worker import Worker
 
+
 # --- 1. Define a Basic Activity ---
 @activity.defn
 async def say_hello(name: str) -> str:
     return f"Hello, {name}!"
+
 
 # --- 2. Define a Basic Workflow ---
 @workflow.defn
@@ -17,6 +19,7 @@ class HelloWorkflow:
         return await workflow.execute_activity(
             say_hello, name, start_to_close_timeout=timedelta(seconds=5)
         )
+
 
 # --- 3. Run the Test ---
 async def main():
@@ -45,6 +48,7 @@ async def main():
         )
 
         print(f"   ✅ RESULT: {result}")
+
 
 if __name__ == "__main__":
     asyncio.run(main())

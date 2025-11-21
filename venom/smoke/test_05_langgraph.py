@@ -2,11 +2,14 @@ from typing import TypedDict
 from langgraph.graph import StateGraph, END
 import pytest
 
+
 class State(TypedDict):
     count: int
 
+
 def increment(state: State):
     return {"count": state["count"] + 1}
+
 
 def test_langgraph_smoke():
     print("\n🧪 SMOKE TEST: LangGraph Logic Layer")
@@ -23,6 +26,7 @@ def test_langgraph_smoke():
         print("   ✅ LangGraph Execution: OK")
     except Exception as e:
         pytest.fail(f"LangGraph failed: {e}")
+
 
 if __name__ == "__main__":
     test_langgraph_smoke()

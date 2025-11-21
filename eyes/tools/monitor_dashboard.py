@@ -1,6 +1,5 @@
 import psycopg2
 import time
-import sys
 import os
 
 # Database connection parameters - matching the other scripts
@@ -9,23 +8,32 @@ DB_USER = "postgres"
 DB_PASSWORD = "mysecretpassword"
 DB_HOST = "localhost"
 
+
 def get_db_connection():
     try:
         conn = psycopg2.connect(
-            dbname=DB_NAME,
-            user=DB_USER,
-            password=DB_PASSWORD,
-            host=DB_HOST
+            dbname=DB_NAME, user=DB_USER, password=DB_PASSWORD, host=DB_HOST
         )
         return conn
     except Exception as e:
         print(f"Error connecting to database: {e}")
         return None
 
-def clear_screen():
-    os.system('cls' if os.name == 'nt' else 'clear')
 
-def print_progress_bar(iteration, total, prefix='', suffix='', decimals=1, length=50, fill='█', printEnd="\r"):
+def clear_screen():
+    os.system("cls" if os.name == "nt" else "clear")
+
+
+def print_progress_bar(
+    iteration,
+    total,
+    prefix="",
+    suffix="",
+    decimals=1,
+    length=50,
+    fill="█",
+    printEnd="\r",
+):
     """
     Call in a loop to create terminal progress bar
     """
@@ -33,14 +41,17 @@ def print_progress_bar(iteration, total, prefix='', suffix='', decimals=1, lengt
         percent = 0
         filledLength = 0
     else:
-        percent = ("{0:." + str(decimals) + "f}").format(100 * (iteration / float(total)))
+        percent = ("{0:." + str(decimals) + "f}").format(
+            100 * (iteration / float(total))
+        )
         filledLength = int(length * iteration // total)
 
-    bar = fill * filledLength + '-' * (length - filledLength)
-    print(f'\r{prefix} |{bar}| {percent}% {suffix}', end=printEnd)
+    bar = fill * filledLength + "-" * (length - filledLength)
+    print(f"\r{prefix} |{bar}| {percent}% {suffix}", end=printEnd)
     # Print New Line on Complete
     if iteration == total:
         print()
+
 
 def monitor():
     conn = get_db_connection()
@@ -51,19 +62,21 @@ def monitor():
         while True:
             with conn.cursor() as cur:
                 # Get counts by status
-                cur.execute("""
+                cur.execute(
+                    """
                     SELECT status, COUNT(*)
                     FROM ingestion_queue
                     GROUP BY status
-                """)
+                """
+                )
                 results = cur.fetchall()
 
                 stats = {
-                    'PENDING': 0,
-                    'PROCESSING': 0,
-                    'COMPLETED': 0,
-                    'FAILED': 0,
-                    'SKIPPED': 0
+                    "PENDING": 0,
+                    "PROCESSING": 0,
+                    "COMPLETED": 0,
+                    "FAILED": 0,
+                    "SKIPPED": 0,
                 }
 
                 total_files = 0
@@ -72,7 +85,7 @@ def monitor():
                     total_files += count
 
                 # Calculate processed count (everything not pending or processing)
-                processed = stats['COMPLETED'] + stats['FAILED'] + stats['SKIPPED']
+                processed = stats["COMPLETED"] + stats["FAILED"] + stats["SKIPPED"]
 
                 clear_screen()
                 print("=== HFO Ingestion Dashboard ===")
@@ -86,7 +99,13 @@ def monitor():
                 print("-" * 30)
 
                 # Progress bar
-                print_progress_bar(processed, total_files, prefix='Progress:', suffix='Complete', length=40)
+                print_progress_bar(
+                    processed,
+                    total_files,
+                    prefix="Progress:",
+                    suffix="Complete",
+                    length=40,
+                )
 
                 print("\n\nPress Ctrl+C to exit monitor (worker will continue running)")
 
@@ -96,6 +115,7 @@ def monitor():
         print("\nMonitor stopped.")
     finally:
         conn.close()
+
 
 if __name__ == "__main__":
     monitor()

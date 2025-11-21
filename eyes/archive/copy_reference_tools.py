@@ -1,6 +1,6 @@
-import os
 import shutil
 from pathlib import Path
+
 
 def copy_reference_tools():
     archive_root = Path("_ARCHIVE_2025_11_19")
@@ -29,7 +29,7 @@ def copy_reference_tools():
         "universal_ingest.py",
         "verify_ingestion.py",
         "visualize_concepts.py",
-        "🕸⛰💎🧬🥇_Gem1_Generation18_20251024T000000Z.md"
+        "🕸⛰💎🧬🥇_Gem1_Generation18_20251024T000000Z.md",
     ]
 
     print(f"Rescuing {len(files_to_rescue)} reference tools/docs to {dest_dir}...")
@@ -46,6 +46,7 @@ def copy_reference_tools():
             print(f"Warning: Could not find {src}")
 
     print(f"Successfully copied {count} files.")
+
 
 if __name__ == "__main__":
     copy_reference_tools()
