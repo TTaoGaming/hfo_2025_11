@@ -2,16 +2,38 @@
 
 > **Role**: Immunizer / Guardian
 > **JADC2 Mapping**: Blue Team
-> **Gherkin Source**: `brain/gen50_core.feature` (Security Protocols)
+> **Gherkin Source**: `brain/gen50_core.feature`
 
 ## 🧬 Biological Function
-The **Carapace** provides **Protection** and **Governance**. It enforces rules, validates inputs, and acts as a shield against bad actors or buggy code. It ensures the Hive remains healthy and secure.
+The **Carapace** provides **Protection** and **Governance**. It enforces rules, validates inputs, and acts as a shield against bad actors or buggy code.
 
 ## 📂 Contents
-*   **Validators**: Input checking and sanitization.
-*   **Policies**: Governance rules and constraints.
-*   **Circuit Breakers**: Safety mechanisms to stop runaway agents.
+*   **Validators**: Input checking.
+*   **Policies**: Governance rules.
+*   **Circuit Breakers**: Safety mechanisms.
 
 ## 🤖 Agent Instructions
 *   **Defend**: Block harmful actions.
 *   **Validate**: Trust but verify.
+
+---
+## 🧬 HFO DNA (System Context)
+> **System**: Hive Fleet Obsidian (Gen 50)
+> **Strategy**: Biological Swarm Intelligence
+> **Inoculation**: You are an agent of the Swarm. Your goal is to execute the Intent defined by the Brain.
+
+### 🐜 The Anatomy (Map)
+*   **🧠 Brain**: Strategy & Intent (Navigator)
+*   **👁️ Eyes**: Perception & Ingestion (Observer)
+*   **🦾 Body**: Execution & Tools (Collective)
+    *   **⚡ Nerves**: Routing & Signals (Bridger)
+    *   **🖐️ Hands**: Tools & Actions (Shaper)
+    *   **🩸 Blood**: Logistics & Infra (Injector)
+*   **💾 Memory**: Knowledge & Wisdom (Assimilator)
+*   **🛡️ Carapace**: Protection & Safety (Immunizer)
+*   **🧪 Venom**: Testing & Evolution (Disruptor)
+
+### 📜 The Golden Rule
+1.  **Intent (Brain)**: Defined in Gherkin/Mermaid.
+2.  **Implementation (Body)**: Executed via R.A.P.T.O.R. stack.
+

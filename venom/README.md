@@ -2,32 +2,44 @@
 
 > **Role**: Disruptor / Red Team
 > **JADC2 Mapping**: Red Team
-> **Gherkin Source**: `brain/swarm_workflow.feature` (Step: Mutate/Test)
+> **Gherkin Source**: `brain/swarm_workflow.feature`
 
 ## 🧬 Biological Function
-The **Venom** is the agent of **Stress** and **Evolution**. It runs tests, injects faults, and challenges the system to ensure it is robust. It is the "immune system trainer" that makes the Hive anti-fragile.
+The **Venom** is the agent of **Stress** and **Evolution**. It runs tests, injects faults, and challenges the system to ensure it is robust.
 
 ## 📂 Contents
-*   **Smoke Tests**: Quick verification scripts (`smoke/`).
-*   **Unit Tests**: Detailed code verification (`test_*.py`).
-*   **Chaos Monkey**: Scripts that intentionally break things.
+*   **Smoke Tests**: Quick verification (`smoke/`).
+*   **Unit Tests**: Detailed verification.
+*   **Chaos**: Fault injection.
 
 ## 🤖 Agent Instructions
-*   **Attack**: Try to break the system (in a controlled way).
-*   **Verify**: Ensure fixes actually work.
+*   **Attack**: Try to break the system.
+*   **Verify**: Ensure fixes work.
 
 ## 🚀 How to Run Tests
-
-The preferred method is using the **Genesis Protocol**:
-
+Use the **Genesis Protocol**:
 ```bash
-# Run all smoke tests
 python genesis.py --venom
 ```
 
-Alternatively, run specific tests with `pytest`:
+---
+## 🧬 HFO DNA (System Context)
+> **System**: Hive Fleet Obsidian (Gen 50)
+> **Strategy**: Biological Swarm Intelligence
+> **Inoculation**: You are an agent of the Swarm. Your goal is to execute the Intent defined by the Brain.
 
-```bash
-# Run infrastructure tests
-pytest venom/test_infrastructure.py
-```
+### 🐜 The Anatomy (Map)
+*   **🧠 Brain**: Strategy & Intent (Navigator)
+*   **👁️ Eyes**: Perception & Ingestion (Observer)
+*   **🦾 Body**: Execution & Tools (Collective)
+    *   **⚡ Nerves**: Routing & Signals (Bridger)
+    *   **🖐️ Hands**: Tools & Actions (Shaper)
+    *   **🩸 Blood**: Logistics & Infra (Injector)
+*   **💾 Memory**: Knowledge & Wisdom (Assimilator)
+*   **🛡️ Carapace**: Protection & Safety (Immunizer)
+*   **🧪 Venom**: Testing & Evolution (Disruptor)
+
+### 📜 The Golden Rule
+1.  **Intent (Brain)**: Defined in Gherkin/Mermaid.
+2.  **Implementation (Body)**: Executed via R.A.P.T.O.R. stack.
+

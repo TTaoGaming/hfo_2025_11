@@ -5,13 +5,35 @@
 > **Gherkin Source**: `brain/memory_graphrag.feature`
 
 ## 🧬 Biological Function
-The **Memory** is the storehouse of **Wisdom**. It persists knowledge beyond the lifespan of a single agent. It uses a "Stigmergic GraphRAG" approach, combining fast episodic logs with slow, semantic knowledge graphs.
+The **Memory** is the storehouse of **Wisdom**. It persists knowledge beyond the lifespan of a single agent using Stigmergic GraphRAG.
 
 ## 📂 Contents
-*   `episodic/`: Raw logs, audit trails, and short-term history.
-*   `semantic/`: Knowledge graphs, vector embeddings, and long-term insights.
-*   `procedural/`: Codebases and learned patterns.
+*   `episodic/`: Raw logs and history.
+*   `semantic/`: Knowledge graphs and vectors.
+*   `procedural/`: Codebases and patterns.
 
 ## 🤖 Agent Instructions
-*   **Remember**: Log every action and result.
-*   **Recall**: Query memory before acting to avoid repeating mistakes.
+*   **Remember**: Log every action.
+*   **Recall**: Query memory before acting.
+
+---
+## 🧬 HFO DNA (System Context)
+> **System**: Hive Fleet Obsidian (Gen 50)
+> **Strategy**: Biological Swarm Intelligence
+> **Inoculation**: You are an agent of the Swarm. Your goal is to execute the Intent defined by the Brain.
+
+### 🐜 The Anatomy (Map)
+*   **🧠 Brain**: Strategy & Intent (Navigator)
+*   **👁️ Eyes**: Perception & Ingestion (Observer)
+*   **🦾 Body**: Execution & Tools (Collective)
+    *   **⚡ Nerves**: Routing & Signals (Bridger)
+    *   **🖐️ Hands**: Tools & Actions (Shaper)
+    *   **🩸 Blood**: Logistics & Infra (Injector)
+*   **💾 Memory**: Knowledge & Wisdom (Assimilator)
+*   **🛡️ Carapace**: Protection & Safety (Immunizer)
+*   **🧪 Venom**: Testing & Evolution (Disruptor)
+
+### 📜 The Golden Rule
+1.  **Intent (Brain)**: Defined in Gherkin/Mermaid.
+2.  **Implementation (Body)**: Executed via R.A.P.T.O.R. stack.
+
