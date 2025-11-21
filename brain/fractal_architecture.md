@@ -63,3 +63,15 @@ graph TD
 | **4** | **Battalion** | 10 Companies | 10,000 | ~5,000 (10 x 500) |
 
 *Note: At every level, the "Leader" (Synthesizer) only reads 10 reports. The system scales linearly in cost but constant in complexity per node.*
+
+## ⏳ Temporal Holons (Time Dilation)
+
+In a Holonic Fractal, time scales with the hierarchy. Lower levels operate fast (OODA Loops), while higher levels operate slow (Strategic Planning).
+
+| Level | Unit | Time Horizon | Focus |
+| :--- | :--- | :--- | :--- |
+| **0** | **Agent** | Seconds | Action / Tool Use |
+| **1** | **Squad** | Minutes | Tactical Objective |
+| **2** | **Platoon** | Hours | Operational Goal |
+| **3** | **Company** | Days | Strategic Campaign |
+| **4** | **Battalion** | Weeks | Grand Strategy |

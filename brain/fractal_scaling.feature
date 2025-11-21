@@ -45,3 +45,11 @@ Feature: HFO Fractal Scaling (Holonic Hierarchy)
     Then it should retrieve relevant "Episodic Memories" from previous missions
     And use this context to inform the current strategy
     And the system should prepare for future "GraphRAG" integration
+
+  Scenario: Temporal Dilation (Holonic Time)
+    Given the hierarchy operates on different time scales
+    When a Squad executes a "Tactical Cycle" (Minutes)
+    And a Platoon executes a "Operational Cycle" (Hours)
+    And the Company executes a "Strategic Cycle" (Days)
+    Then the Stigmergy signals should persist across these varying horizons
+    And higher-level Holons should synthesize "Trends" from lower-level "Events"
