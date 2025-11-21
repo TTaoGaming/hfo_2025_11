@@ -12,7 +12,7 @@ Feature: HFO Trust Engine (Cognitive Exoskeleton)
     And the Swarm size is N=10
     And the system tolerates f=3 traitors (N >= 3f + 1)
     When the Orchestrator spawns a Squad of 10 agents
-    And the number of Disruptors is randomized between 1 and 3
+    And the number of Disruptors is randomized between 1 and 3 (Hidden from Squad)
     And the Disruptors use "MITRE ATT&CK" playbooks to deceive
     And the Squad executes the task
     And a parallel Squad of 10 Reviewers critiques the outputs
