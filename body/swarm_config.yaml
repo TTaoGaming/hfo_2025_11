@@ -4,12 +4,12 @@
 swarm:
   # Fractal Holarchy Settings
   fractal_depth: 2          # How deep the recursion goes (10x10x10)
-  branching_factor: 10      # N: Number of sub-tasks/agents per level
+  branching_factor: 50      # N: Number of sub-tasks/agents per level
 
   # Byzantine Quorum Settings
-  disruptor_ratio: 0.3      # f/N: Percentage of agents that are adversarial (f=3 for N=10)
+  disruptor_ratio: 0.2      # f/N: Percentage of agents that are adversarial (f=10 for N=50)
   consensus_threshold: 0.7  # (2f+1)/N: Required agreement to pass
-  council_size: 10          # Number of Immunizers in the Review Council
+  council_size: 50          # Number of Immunizers in the Review Council
 
   # Execution Settings
   max_rounds: 3             # Maximum debate rounds before forced synthesis

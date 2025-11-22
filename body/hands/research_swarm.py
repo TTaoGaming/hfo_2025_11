@@ -7,7 +7,7 @@ from datetime import datetime
 from typing import List, TypedDict, Literal
 from pydantic import BaseModel, Field
 import instructor
-from openai import OpenAI
+from openai import AsyncOpenAI
 from langgraph.graph import StateGraph, END, START
 from dotenv import load_dotenv
 from body.hands.tools import ToolSet
@@ -89,7 +89,7 @@ class SwarmState(TypedDict):
 class SwarmNode:
     def __init__(self):
         self.client = instructor.from_openai(
-            OpenAI(
+            AsyncOpenAI(
                 base_url=os.getenv("OPENROUTER_BASE_URL"),
                 api_key=os.getenv("OPENROUTER_API_KEY"),
             ),
@@ -100,7 +100,7 @@ class SwarmNode:
         self.artifact_dir = SWARM_CFG["artifact_dir"]
         os.makedirs(self.artifact_dir, exist_ok=True)
 
-    def set_intent(self, mission: str) -> List[ResearchTask]:
+    async def set_intent(self, mission: str) -> List[ResearchTask]:
         """Navigator: Sets the plan."""
         num_tasks = SWARM_CFG["branching_factor"]
         logger.info(f"🧭 Navigator Setting Intent: {mission} -> {num_tasks} tasks")
@@ -110,7 +110,7 @@ class SwarmNode:
             strategy: str
 
         try:
-            plan = self.client.chat.completions.create(
+            plan = await self.client.chat.completions.create(
                 model=self.model_name,
                 response_model=Plan,
                 messages=[
@@ -123,7 +123,7 @@ class SwarmNode:
             )
 
             # Audit Artifact
-            self._save_artifact(
+            await self._save_artifact(
                 "PLAN",
                 "Navigator",
                 f"Strategy: {plan.strategy}\n\nTasks:\n"
@@ -136,17 +136,17 @@ class SwarmNode:
             logger.error(f"Planning failed: {e}")
             return [ResearchTask(id="fallback", query=mission)]
 
-    def watch_plan(self, tasks: List[ResearchTask]) -> bool:
+    async def watch_plan(self, tasks: List[ResearchTask]) -> bool:
         """Observer: Watches and validates the plan."""
         logger.info("👀 Observer Watching Plan...")
 
         # Audit Artifact
         validation_msg = f"Validated {len(tasks)} tasks. Plan looks actionable."
-        self._save_artifact("WATCH", "Observer", validation_msg, 0)
+        await self._save_artifact("WATCH", "Observer", validation_msg, 0)
 
         return len(tasks) > 0
 
-    def act_map_reduce(
+    async def act_map_reduce(
         self, task: ResearchTask, persona: AgentPersona, round_num: int
     ) -> ResearchFinding:
         """Shaper/Disruptor: Executes the task."""
@@ -185,7 +185,7 @@ class SwarmNode:
             content: str
 
         try:
-            response = self.client.chat.completions.create(
+            response = await self.client.chat.completions.create(
                 model=self.model_name,
                 response_model=AgentResponse,
                 messages=[{"role": "user", "content": prompt}],
@@ -194,7 +194,7 @@ class SwarmNode:
         except Exception as e:
             content = f"Error: {e}"
 
-        self._save_artifact(task.id, effective_role, content, round_num)
+        await self._save_artifact(task.id, effective_role, content, round_num)
 
         return ResearchFinding(
             task_id=task.id,
@@ -205,7 +205,7 @@ class SwarmNode:
             is_disruptor_attack=is_attack,
         )
 
-    def review_quorum(
+    async def review_quorum(
         self, findings: List[ResearchFinding], round_num: int, mission: str
     ) -> str:
         """Immunizer Council: Reviews findings and produces digest."""
@@ -237,7 +237,7 @@ class SwarmNode:
             digest: str
 
         try:
-            response = self.client.chat.completions.create(
+            response = await self.client.chat.completions.create(
                 model=self.model_name,
                 response_model=CouncilDigest,
                 messages=[{"role": "user", "content": prompt}],
@@ -246,14 +246,20 @@ class SwarmNode:
         except Exception as e:
             digest = f"Quorum Failed: {e}"
 
-        self._save_artifact("QUORUM", "ImmunizerCouncil", digest, round_num)
+        await self._save_artifact("QUORUM", "ImmunizerCouncil", digest, round_num)
         return digest
 
-    def _save_artifact(self, task_id, role, content, round_num):
+    async def _save_artifact(self, task_id, role, content, round_num):
         timestamp = datetime.utcnow().isoformat()
         filename = f"{timestamp}_{role}_{task_id}.md"
         path = os.path.join(self.artifact_dir, filename)
 
+        # Use asyncio.to_thread for file I/O to avoid blocking the event loop
+        await asyncio.to_thread(
+            self._write_file, path, task_id, role, round_num, timestamp, content
+        )
+
+    def _write_file(self, path, task_id, role, round_num, timestamp, content):
         with open(path, "w") as f:
             f.write(
                 f"---\nid: {task_id}\nrole: {role}\nround: {round_num}\ntimestamp: {timestamp}\n---\n\n{content}"
@@ -270,18 +276,18 @@ def build_swarm_graph():
     N = SWARM_CFG["branching_factor"]
     disruptor_count = int(N * SWARM_CFG["disruptor_ratio"])
 
-    def set_step(state: SwarmState):
-        tasks = node.set_intent(state["mission"])
+    async def set_step(state: SwarmState):
+        tasks = await node.set_intent(state["mission"])
         return {"tasks": tasks, "current_round": 1}
 
-    def watch_step(state: SwarmState):
-        valid = node.watch_plan(state["tasks"])
+    async def watch_step(state: SwarmState):
+        valid = await node.watch_plan(state["tasks"])
         if not valid:
             # In a real loop, we might loop back to Set. For now, proceed.
             logger.warning("Plan validation failed, but proceeding.")
         return {}
 
-    def act_step(state: SwarmState):
+    async def act_step(state: SwarmState):
         findings = []
         round_num = state["current_round"]
 
@@ -289,19 +295,21 @@ def build_swarm_graph():
         # Or re-run everyone? The user said "round 2 disruptor reveal themselves".
         # Let's re-run the logic for everyone, but honest agents just reaffirm, disruptors reveal.
 
+        coroutines = []
         for i, task in enumerate(state["tasks"]):
             is_disruptor = i >= (N - disruptor_count)
             persona = AgentPersona(
                 role="Disruptor" if is_disruptor else "Shaper",
                 is_hidden_disruptor=is_disruptor,
             )
-            finding = node.act_map_reduce(task, persona, round_num)
-            findings.append(finding)
+            coroutines.append(node.act_map_reduce(task, persona, round_num))
+
+        findings = await asyncio.gather(*coroutines)
 
         return {"findings": findings}
 
-    def review_step(state: SwarmState):
-        digest = node.review_quorum(
+    async def review_step(state: SwarmState):
+        digest = await node.review_quorum(
             state["findings"], state["current_round"], state["mission"]
         )
 

@@ -41,6 +41,15 @@ body/digestion/*.md
 !body/digestion/README.md
 memory/missions/
 
+# Memory Episodic - Keep Digests, Ignore Noise
+memory/episodic/*_Shaper_*.md
+memory/episodic/*_Disruptor_*.md
+memory/episodic/*_Navigator_*.md
+memory/episodic/*_Observer_*.md
+!memory/episodic/*_QUORUM.md
+!memory/episodic/*_Digest.md
+!memory/episodic/README.md
+
 # Eyes (Sensors) - Temporary Data
 eyes/downloads/
 eyes/screenshots/
@@ -61,3 +70,4 @@ eyes/archive/
 
 # Temporary Feature Files (Drafts)
 brain/*.feature.draft
+*.log
