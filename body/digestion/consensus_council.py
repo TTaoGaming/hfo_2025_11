@@ -3,6 +3,7 @@ import json
 import asyncio
 from pathlib import Path
 from openai import AsyncOpenAI
+from body.constants import DEFAULT_MODEL
 
 # Load .env manually
 env_path = Path(".env")
@@ -66,7 +67,7 @@ async def convene_council():
     print("🗳️  Casting votes...")
     try:
         response = await client.chat.completions.create(
-            model="x-ai/grok-4.1-fast",  # Fast, cheap auditor
+            model=DEFAULT_MODEL,  # Fast, cheap auditor
             messages=[
                 {
                     "role": "system",

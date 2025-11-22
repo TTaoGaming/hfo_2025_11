@@ -1,11 +1,11 @@
 import asyncio
-import os
 import json
 import logging
 import uuid
 from typing import List
 from dotenv import load_dotenv
 from pydantic import BaseModel
+from body.config import Config
 
 # HFO SDK & Models
 from body.models.state import AgentRole
@@ -28,7 +28,7 @@ logging.basicConfig(
 logger = logging.getLogger("SwarmController")
 
 # Configuration
-NATS_URL = os.getenv("NATS_URL", "nats://localhost:4222")
+NATS_URL = Config.NATS_URL
 SWARM_SIZE = 10  # Reduced from 50 to avoid local saturation
 BATCH_SIZE = 5  # Run 5 agents at a time
 

@@ -14,14 +14,14 @@
   {
     "strategy_name": "VALIDATED PATTERNS",
     "instruction": "Apply the VALIDATED PATTERNS pattern. Focus on structure and repeatability.",
-    "success_rate": 0.55,
-    "usage_count": 0
+    "success_rate": 0.49500000000000005,
+    "usage_count": 1
   },
   {
     "strategy_name": "PATTERNS QUICK REF",
     "instruction": "Apply the PATTERNS QUICK REF pattern. Focus on structure and repeatability.",
-    "success_rate": 0.55,
-    "usage_count": 0
+    "success_rate": 0.4909500000000001,
+    "usage_count": 3
   },
   {
     "strategy_name": "Spiral Quorum",

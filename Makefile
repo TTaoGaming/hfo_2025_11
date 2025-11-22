@@ -5,11 +5,14 @@ PYTEST := ./venv/bin/pytest
 
 guards:
 	@echo "🛡️ Running Hive Guards..."
-	@$(PYTHON) carapace/hive_guards/guard_brain.py
-	@$(PYTHON) carapace/hive_guards/guard_mermaid.py
-	@$(PYTHON) carapace/hive_guards/guard_gherkin_parity.py
-	@$(PYTHON) carapace/hive_guards/guard_stigmergy_headers.py
-	@$(PYTHON) venom/guard_reality.py
+	@PYTHONPATH=. $(PYTHON) carapace/hive_guards/guard_brain.py
+	@PYTHONPATH=. $(PYTHON) carapace/hive_guards/guard_mermaid.py
+	@PYTHONPATH=. $(PYTHON) carapace/hive_guards/guard_gherkin_parity.py
+	@PYTHONPATH=. $(PYTHON) carapace/hive_guards/guard_stigmergy_headers.py
+	@PYTHONPATH=. $(PYTHON) carapace/hive_guards/guard_fractal_config.py
+	@PYTHONPATH=. $(PYTHON) carapace/hive_guards/guard_hardcoded_values.py
+	@PYTHONPATH=. $(PYTHON) venom/guard_reality.py
+	@PYTHONPATH=. $(PYTHON) venom/guard_tool_integrity.py
 	@echo "✨ All Guards Passed!"
 
 test-all: guards
@@ -23,6 +26,7 @@ test-all: guards
 	@$(PYTHON) venom/smoke/test_07_pgvector.py
 	@$(PYTHON) venom/smoke/test_08_dspy.py
 	@$(PYTHON) venom/smoke/test_09_gitops.py
+	@$(PYTHON) venom/test_fractal_quorum.py
 	@echo "✨ All Smoke Tests Passed!"
 
 test-ray:
@@ -78,12 +82,14 @@ heal: weave garden audit
 # --- 🛡️ GitOps ---
 
 gitops:
-	@echo "🛡️ Executing GitOps Protocol..."
-	@git add .
-	@git commit -m "🛡️ Hive Guard: Auto-Commit via Makefile" || echo "Nothing to commit"
-	@git push origin main
-	@echo "✅ Pushed to Main."
+	@echo "🛡️ Executing GitOps Protocol (Swarm Powered)..."
+	@PYTHONPATH=. $(PYTHON) body/hands/infrastructure_gitops.py
 	@echo "✅ Agent $(role) regenerated from Stem Cells."
+
+clean-artifacts:
+	@echo "🧹 Cleaning up ignored artifacts..."
+	@git clean -fdX
+	@echo "✅ Workspace Cleaned."
 
 regenerate-organ:
 	@echo "🫀 Regenerating Organ: $(name)..."
@@ -95,14 +101,6 @@ phoenix-protocol:
 	@echo "⚠️  WARNING: This will reset the entire runtime environment."
 	@# TODO: Call genesis.py --phoenix
 	@echo "🦅 Hive Fleet Obsidian has risen from the ashes."
-
-guards:
-	@echo "🛡️ Running Hive Guards..."
-	@./carapace/hive_guards/guard_brain.py
-	@./carapace/hive_guards/guard_mermaid.py
-	@./carapace/hive_guards/guard_gherkin_parity.py
-	@./carapace/hive_guards/guard_stigmergy_headers.py
-	@echo "✨ All Guards Passed!"
 
 # --- 🦅 Swarm Operations ---
 

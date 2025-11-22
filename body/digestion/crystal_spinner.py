@@ -7,17 +7,15 @@ from typing import List
 from pydantic import BaseModel, Field
 import instructor
 from openai import AsyncOpenAI
-from hfo_sdk.stigmergy import StigmergyClient
+from body.hfo_sdk.stigmergy import StigmergyClient
+from body.constants import DEFAULT_MODEL
+from body.config import Config
 
-# Setup Logging
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-    datefmt="%H:%M:%S",
-)
-logger = logging.getLogger("crystal_spinner")
+# --- 1. Setup ---
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger("CrystalSpinner")
 
-# --- 1. The DNA (Pydantic Models) ---
+# --- 2. The DNA (Pydantic Models) ---
 
 
 class CrystalMetadata(BaseModel):
@@ -49,11 +47,11 @@ class CrystalMetadata(BaseModel):
     )
 
 
-# --- 2. The Organ (Crystal Spinner Class) ---
+# --- 3. The Organ (Crystal Spinner Class) ---
 
 
 class CrystalSpinner:
-    def __init__(self, nats_url: str = "nats://localhost:4222"):
+    def __init__(self, nats_url: str = Config.NATS_URL):
         self.client = instructor.from_openai(
             AsyncOpenAI(
                 base_url="https://openrouter.ai/api/v1",
@@ -62,9 +60,7 @@ class CrystalSpinner:
             mode=instructor.Mode.JSON,
         )
         self.stigmergy = StigmergyClient(nats_url)
-        self.model = os.getenv(
-            "DEFAULT_MODEL", "x-ai/grok-4.1-fast"
-        )  # Use env var, default to Grok
+        self.model = DEFAULT_MODEL
 
     async def connect(self):
         await self.stigmergy.connect()
@@ -210,7 +206,7 @@ class CrystalSpinner:
         logger.info(f"📡 Signal Emitted: hfo.memory.crystallized -> {metadata.title}")
 
 
-# --- 3. The Main Loop ---
+# --- 4. The Main Loop ---
 
 
 async def main():

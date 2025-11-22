@@ -1,16 +1,18 @@
-import asyncio
-import logging
 import os
+import asyncio
 import json
-import yaml
+import logging
 from datetime import datetime
+from typing import List, Dict, Any
 from pathlib import Path
-from typing import List, Dict
+import yaml
 from pydantic import BaseModel, Field
 import instructor
 from openai import AsyncOpenAI
 from body.digestion.crystal_spinner import CrystalSpinner
 from hfo_sdk.stigmergy import StigmergyClient
+from body.constants import DEFAULT_MODEL
+from body.config import Config
 
 # Setup Logging
 logging.basicConfig(
@@ -55,8 +57,8 @@ class Synthesizer:
         self.processed_count = 0
         self.success_count = 0
         self.failure_count = 0
-        self.domains = {}
-        self.concepts = {}
+        self.domains: Dict[str, Any] = {}
+        self.concepts: Dict[str, Any] = {}
         self.running = True
         self.client = instructor.from_openai(
             AsyncOpenAI(
@@ -65,7 +67,7 @@ class Synthesizer:
             ),
             mode=instructor.Mode.JSON,
         )
-        self.model = os.getenv("DEFAULT_MODEL", "x-ai/grok-4.1-fast")
+        self.model = DEFAULT_MODEL
 
     async def start(self):
         await self.stigmergy.connect()
@@ -203,7 +205,7 @@ class SwarmSpinner:
     Uses NATS Queue Groups to distribute work among multiple workers.
     """
 
-    def __init__(self, worker_id: str, nats_url: str = "nats://localhost:4222"):
+    def __init__(self, worker_id: str, nats_url: str = Config.NATS_URL):
         self.worker_id = worker_id
         self.spinner = CrystalSpinner(nats_url)
         self.running = True
@@ -267,7 +269,7 @@ class SwarmSpinner:
         await self.spinner.close()
 
 
-async def run_dispatcher(nats_url: str = "nats://localhost:4222") -> int:
+async def run_dispatcher(nats_url: str = Config.NATS_URL) -> int:
     """Scans files and dispatches tasks to the swarm. Returns count."""
     logger.info("👑 Dispatcher Online. Scanning for Gems...")
 
@@ -315,7 +317,7 @@ async def run_dispatcher(nats_url: str = "nats://localhost:4222") -> int:
 
 
 async def main():
-    nats_url = os.getenv("NATS_URL", "nats://localhost:4222")
+    nats_url = Config.NATS_URL
 
     # 1. Start Dispatcher
     total_tasks = await run_dispatcher(nats_url)

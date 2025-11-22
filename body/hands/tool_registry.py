@@ -32,7 +32,7 @@ class ToolRegistry:
         )
         self.register(
             "search_brain",
-            self.basic_tools.search_web,
+            self.basic_tools.search_brain,
             "search_brain(query: str): Search the internal knowledge base (Brain).",
         )
         self.register(

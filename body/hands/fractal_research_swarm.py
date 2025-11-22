@@ -1,3 +1,9 @@
+"""
+🦅 Hive Fleet Obsidian: Fractal Research Swarm
+Intent: Implements the Recursive Fractal Holarchy for deep research.
+Linked to: brain/strategy_fractal_holarchy.feature
+"""
+
 import os
 import asyncio
 import ray
@@ -6,6 +12,7 @@ import uuid
 import random
 import json
 import argparse
+import yaml
 from pathlib import Path
 from datetime import datetime
 from typing import List, Dict, Any, Optional
@@ -14,17 +21,27 @@ from dotenv import load_dotenv
 import instructor
 from openai import OpenAI
 from body.hands.tools import ToolSet
-
-"""
-🦅 Hive Fleet Obsidian: Fractal Research Swarm
-Intent: Implements the Recursive Fractal Holarchy for deep research.
-Linked to: brain/strategy_fractal_holarchy.feature
-"""
+from body.constants import DEFAULT_MODEL
 
 # --- Setup ---
 load_dotenv()
 logging.basicConfig(level=logging.INFO, format="%(message)s")
 logger = logging.getLogger("fractal_swarm")
+
+# Load Config
+CONFIG_PATH = os.path.join(
+    os.path.dirname(os.path.dirname(__file__)), "swarm_config.yaml"
+)
+try:
+    with open(CONFIG_PATH, "r") as f:
+        CONFIG = yaml.safe_load(f)
+except FileNotFoundError:
+    logger.warning("Config file not found, using defaults.")
+    CONFIG = {
+        "swarm": {
+            "model": os.getenv("DEFAULT_MODEL", DEFAULT_MODEL),
+        }
+    }
 
 # --- DNA (Pydantic Models) ---
 
@@ -112,30 +129,31 @@ class EvolutionaryForge:
     """
 
     def __init__(self):
+        default_model = CONFIG.get("swarm", {}).get("model", DEFAULT_MODEL)
         self.gene_pool = [
             Persona(
                 role="Academic Researcher",
                 style="Formal, rigorous, citation-heavy",
                 temperature=0.2,
-                model="x-ai/grok-4.1-fast",
+                model=default_model,
             ),
             Persona(
                 role="Investigative Journalist",
                 style="Narrative, connecting dots, skeptical",
                 temperature=0.7,
-                model="x-ai/grok-4.1-fast",
+                model=default_model,
             ),
             Persona(
                 role="Data Scientist",
                 style="Analytical, numbers-focused, structured",
                 temperature=0.1,
-                model="x-ai/grok-4.1-fast",
+                model=default_model,
             ),
             Persona(
                 role="Futurist",
                 style="Speculative, trend-focused, visionary",
                 temperature=0.8,
-                model="x-ai/grok-4.1-fast",
+                model=default_model,
             ),
         ]
 
@@ -441,7 +459,7 @@ class HolonNode:
         """Generate sub-domains for children."""
         try:
             domains_resp = self.client.chat.completions.create(
-                model="x-ai/grok-4.1-fast",
+                model=CONFIG.get("swarm", {}).get("model", DEFAULT_MODEL),
                 response_model=List[str],
                 messages=[
                     {
@@ -486,7 +504,9 @@ class HolonNode:
         ]
 
         synthesis = self.client.chat.completions.create(
-            model="x-ai/grok-4.1-fast", response_model=HolonReport, messages=messages
+            model=CONFIG.get("swarm", {}).get("model", DEFAULT_MODEL),
+            response_model=HolonReport,
+            messages=messages,
         )
         synthesis.holon_id = self.holon_id
         synthesis.level = self.level

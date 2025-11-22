@@ -36,7 +36,7 @@ class ToolSet:
         Performs a REAL web search using DuckDuckGo (ddgs).
         """
         try:
-            from ddgs import DDGS
+            from duckduckgo_search import DDGS
 
             # Use the context manager as recommended by ddgs docs
             with DDGS() as ddgs:
@@ -61,12 +61,15 @@ class ToolSet:
     def search_brain(query: str) -> str:
         """
         Searches the local 'brain/' directory for concepts.
-        (Internal Knowledge Base Search).
+        Returns context AROUND the match, not just the file header.
         """
         results = []
         search_root = "brain"
         if not os.path.exists(search_root):
             return "Error: Brain directory not found."
+
+        query_lower = query.lower()
+        keywords = query_lower.split()
 
         try:
             for root, _, files in os.walk(search_root):
@@ -75,9 +78,32 @@ class ToolSet:
                         path = os.path.join(root, file)
                         with open(path, "r") as f:
                             content = f.read()
-                            if query.lower() in content.lower():
-                                snippet = content[:200].replace("\n", " ") + "..."
-                                results.append(f"Found in {path}: {snippet}")
+                            content_lower = content.lower()
+
+                            # 1. Exact Match (High Priority)
+                            idx = content_lower.find(query_lower)
+                            if idx != -1:
+                                # Extract context window
+                                start = max(0, idx - 100)
+                                end = min(len(content), idx + 300)
+                                snippet = content[start:end].replace("\n", " ")
+                                results.append(
+                                    f"Found in {path} (Exact): ...{snippet}..."
+                                )
+                                continue
+
+                            # 2. Keyword Match (All keywords must be present)
+                            if len(keywords) > 1 and all(
+                                k in content_lower for k in keywords
+                            ):
+                                # Find first keyword for context
+                                idx = content_lower.find(keywords[0])
+                                start = max(0, idx - 100)
+                                end = min(len(content), idx + 300)
+                                snippet = content[start:end].replace("\n", " ")
+                                results.append(
+                                    f"Found in {path} (Keywords): ...{snippet}..."
+                                )
 
             if not results:
                 return f"No results found for '{query}' in local brain archives."

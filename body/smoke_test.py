@@ -1,5 +1,4 @@
 import asyncio
-import os
 import sys
 import psycopg2
 import nats
@@ -7,17 +6,16 @@ from temporalio.client import Client
 from langchain import __version__ as lc_version
 import pydantic
 from dotenv import load_dotenv
+from body.config import Config
 
 # Load environment variables from .env file
 load_dotenv()
 
 # Configuration (Defaults match docker-compose.yml service names)
 # When running inside the container, these hostnames resolve automatically.
-PG_DSN = os.getenv(
-    "PG_DSN", "postgresql://hfo_admin:phoenix_password@db:5432/hfo_unified_memory"
-)
-NATS_URL = os.getenv("NATS_URL", "nats://nats:4222")
-TEMPORAL_URL = os.getenv("TEMPORAL_URL", "temporal:7233")
+PG_DSN = Config.PG_DSN
+NATS_URL = Config.NATS_URL
+TEMPORAL_URL = Config.TEMPORAL_ADDRESS
 
 
 async def test_postgres():

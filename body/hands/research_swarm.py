@@ -1,16 +1,32 @@
+"""
+Research Swarm Implementation
+Intent: Execute complex research missions using a Fractal Holarchy of agents.
+"""
 import os
 import uuid
 import logging
 import yaml
 import asyncio
-from datetime import datetime
-from typing import List, TypedDict, Literal
+import json
+from datetime import datetime, timezone
+from typing import List, TypedDict, Literal, Dict, Any, cast
 from pydantic import BaseModel, Field
 import instructor
+from tenacity import (
+    retry,
+    stop_after_attempt,
+    wait_exponential,
+    retry_if_exception_type,
+)
 from openai import AsyncOpenAI
 from langgraph.graph import StateGraph, END, START
 from dotenv import load_dotenv
+import nats
 from body.hands.tools import ToolSet
+from body.constants import DEFAULT_MODEL
+from body.hands.prey_agent import PreyAgent
+from body.models.state import AgentRole
+from body.config import Config
 
 """
 🦅 Hive Fleet Obsidian: Canonical Research Swarm
@@ -40,7 +56,7 @@ except FileNotFoundError:
             "disruptor_ratio": 0.2,
             "council_size": 10,
             "max_rounds": 2,
-            "model": "x-ai/grok-4.1-fast",
+            "model": DEFAULT_MODEL,
             "artifact_dir": "memory/episodic",
         }
     }
@@ -74,12 +90,15 @@ class ResearchFinding(BaseModel):
 
 class SwarmState(TypedDict):
     mission: str
+    mission_slug: str
+    date_str: str
+    current_round: int
     tasks: List[ResearchTask]
     findings: List[ResearchFinding]
+    squad_digests: List[str]  # New: Holds the 5 Immunizer Digests
     round_1_digest: str
     round_2_digest: str
     disruptor_reveal_log: List[str]
-    current_round: int
     history: List[str]
 
 
@@ -95,14 +114,55 @@ class SwarmNode:
             ),
             mode=instructor.Mode.JSON,
         )
-        self.model_name = os.getenv("DEFAULT_MODEL", SWARM_CFG["model"])
-        self.tools = ToolSet()
+        self.nc = None
+        self.js = None
+        # Load Models from Config
+        self.default_model = SWARM_CFG.get("model", DEFAULT_MODEL)
+        self.shaper_model = SWARM_CFG.get("shaper_model", self.default_model)
+        self.immunizer_model = SWARM_CFG.get("immunizer_model", DEFAULT_MODEL)
+
         self.artifact_dir = SWARM_CFG["artifact_dir"]
         self.mission_dir = os.path.join("memory", "missions")
+        self.nc = None
+        self.tools = ToolSet()
         os.makedirs(self.artifact_dir, exist_ok=True)
         os.makedirs(self.mission_dir, exist_ok=True)
 
-    async def set_intent(self, mission: str) -> List[ResearchTask]:
+    @retry(
+        stop=stop_after_attempt(5),
+        wait=wait_exponential(multiplier=1, min=2, max=10),
+        retry=retry_if_exception_type(Exception),
+        reraise=True,
+    )
+    async def connect_nats(self):
+        """Connects to the NATS JetStream server."""
+        nats_url = Config.NATS_URL
+        try:
+            self.nc = await nats.connect(nats_url)
+            logger.info(f"🔌 Connected to NATS JetStream at {nats_url}")
+        except Exception as e:
+            logger.warning(f"⚠️ NATS Connection Failed: {e}. Retrying...")
+            raise e
+
+    async def close_nats(self):
+        """Closes the NATS connection."""
+        if self.nc:
+            await self.nc.close()
+            logger.info("🔌 NATS Connection Closed")
+
+    async def publish_signal(self, subject: str, payload: dict):
+        """Publishes a signal to NATS (Hot Pheromone)."""
+        if self.nc:
+            try:
+                data = json.dumps(payload).encode()
+                await self.nc.publish(subject, data)
+                logger.info(f"📡 Signal Emitted: {subject}")
+            except Exception as e:
+                logger.error(f"Failed to publish signal: {e}")
+
+    async def set_intent(
+        self, mission: str, mission_slug: str, date_str: str
+    ) -> List[ResearchTask]:
         """Navigator: Sets the plan."""
         num_tasks = SWARM_CFG["branching_factor"]
         logger.info(f"🧭 Navigator Setting Intent: {mission} -> {num_tasks} tasks")
@@ -113,7 +173,7 @@ class SwarmNode:
 
         try:
             plan = await self.client.chat.completions.create(
-                model=self.model_name,
+                model=self.default_model,
                 response_model=Plan,
                 messages=[
                     {
@@ -131,6 +191,9 @@ class SwarmNode:
                 f"Strategy: {plan.strategy}\n\nTasks:\n"
                 + "\n".join(f"- {t}" for t in plan.tasks),
                 0,
+                mission_slug,
+                date_str,
+                sub_group="01_SET",
             )
 
             return [ResearchTask(id=str(uuid.uuid4())[:4], query=t) for t in plan.tasks]
@@ -138,18 +201,49 @@ class SwarmNode:
             logger.error(f"Planning failed: {e}")
             return [ResearchTask(id="fallback", query=mission)]
 
-    async def watch_plan(self, tasks: List[ResearchTask]) -> bool:
-        """Observer: Watches and validates the plan."""
-        logger.info("👀 Observer Watching Plan...")
+    async def watch_plan(
+        self, tasks: List[ResearchTask], mission_slug: str, date_str: str
+    ) -> bool:
+        """Observer: Watches and validates the plan, and arms the monitors."""
+        logger.info("👀 Observer Watching Plan & Arming Monitors...")
 
         # Audit Artifact
-        validation_msg = f"Validated {len(tasks)} tasks. Plan looks actionable."
-        await self._save_artifact("WATCH", "Observer", validation_msg, 0)
+        validation_msg = (
+            f"Validated {len(tasks)} tasks. Plan looks actionable. Monitors armed."
+        )
+        await self._save_artifact(
+            "WATCH",
+            "Observer",
+            validation_msg,
+            0,
+            mission_slug,
+            date_str,
+            sub_group="02_WATCH",
+        )
+
+        # Signal Monitoring (Observability Setup)
+        await self.publish_signal(
+            "swarm.monitor.armed",
+            {
+                "mission_slug": mission_slug,
+                "task_count": len(tasks),
+                "timestamp": datetime.now(timezone.utc).isoformat(),
+            },
+        )
+
+        # In a full implementation, this would spawn a background monitoring task
+        # For now, we rely on the external 'guard_stigmergy.py' or NATS subscribers
 
         return len(tasks) > 0
 
     async def act_map_reduce(
-        self, task: ResearchTask, persona: AgentPersona, round_num: int
+        self,
+        task: ResearchTask,
+        persona: AgentPersona,
+        round_num: int,
+        mission_slug: str,
+        date_str: str,
+        squad_id: str,
     ) -> ResearchFinding:
         """Shaper/Disruptor: Executes the task."""
 
@@ -170,107 +264,231 @@ class SwarmNode:
             f"⚡ Act: {task.id} as {effective_role} (Hidden: {persona.is_hidden_disruptor})"
         )
 
-        prompt = f"""
-        You are a {effective_role}.
-        Task: {task.query}
-        Available Tools: {self.tools.get_tool_names()}
-        """
+        # Use PreyAgent for Real Execution
+        agent_id = f"{effective_role}-{uuid.uuid4().hex[:4]}"
 
+        # Map string role to AgentRole enum if possible, or default to SHAPER
+        role_enum = AgentRole.SHAPER
+        if effective_role == "Disruptor":
+            role_enum = AgentRole.DISRUPTOR
+
+        agent = PreyAgent(
+            agent_id=agent_id,
+            role=role_enum,
+            model_name=self.shaper_model,
+            nats_url=Config.NATS_URL,
+        )
+
+        # Append attack instructions to the task query if needed
+        full_task = task.query
         if is_attack and round_num == 1:
-            prompt += "\nSECRET INSTRUCTION: You are a Hidden Disruptor (Red Team). Inject a subtle flaw or misinformation using MITRE ATT&CK tactics (e.g., Defense Evasion). Play nice, do NOT reveal your nature yet."
+            full_task += "\nSECRET INSTRUCTION: You are a Hidden Disruptor (Red Team). Inject a subtle flaw or misinformation using MITRE ATT&CK tactics (e.g., Defense Evasion). Play nice, do NOT reveal your nature yet."
         elif is_attack and round_num == 2:
-            prompt += "\nINSTRUCTION: Reveal yourself! Self-tag as [DISRUPTOR]. Explain exactly how you attacked the system in Round 1. This is for Co-Evolution/Feedback."
-        else:
-            prompt += "\nINSTRUCTION: Gather objective facts and evidence. Be honest."
-
-        class AgentResponse(BaseModel):
-            content: str
+            full_task += "\nINSTRUCTION: Reveal yourself! Self-tag as [DISRUPTOR]. Explain exactly how you attacked the system in Round 1. This is for Co-Evolution/Feedback."
 
         try:
-            response = await self.client.chat.completions.create(
-                model=self.model_name,
-                response_model=AgentResponse,
-                messages=[{"role": "user", "content": prompt}],
-            )
-            content = response.content
-        except Exception as e:
-            content = f"Error: {e}"
+            final_state = await agent.run(full_task)
 
-        await self._save_artifact(task.id, effective_role, content, round_num)
+            # Handle both Pydantic model and Dict (LangGraph returns dict)
+            if isinstance(final_state, dict):
+                content = final_state.get("final_output") or "No output produced."
+                confidence = final_state.get("confidence_score", 0.0)
+            else:
+                content = getattr(final_state, "final_output", "No output produced.")
+                confidence = getattr(final_state, "confidence_score", 0.0)
+
+        except Exception as e:
+            logger.error(f"PreyAgent failed: {e}")
+            content = f"Error executing task: {e}"
+            confidence = 0.0
+        finally:
+            await agent.close()
+
+        await self._save_artifact(
+            task.id,
+            effective_role,
+            content,
+            round_num,
+            mission_slug,
+            date_str,
+            sub_group=squad_id,
+        )
 
         return ResearchFinding(
             task_id=task.id,
             content=content,
-            confidence=0.9 if not is_attack else 0.3,
-            source_agent=f"{effective_role}-{uuid.uuid4().hex[:4]}",
+            confidence=confidence,
+            source_agent=agent_id,
             round=round_num,
             is_disruptor_attack=is_attack,
         )
 
-    async def review_quorum(
-        self, findings: List[ResearchFinding], round_num: int, mission: str
+    async def review_squad_quorum(
+        self,
+        findings: List[ResearchFinding],
+        squad_id: int,
+        mission: str,
+        mission_slug: str,
+        date_str: str,
     ) -> str:
-        """Immunizer Council: Reviews findings and produces digest."""
-        council_size = SWARM_CFG.get("council_size", 3)
+        """Immunizer: Reviews a Squad of 10 findings (Fractal Quorum)."""
         logger.info(
-            f"⚖️  Review: Council of {council_size} Immunizers convening (Round {round_num})"
+            f"🛡️ Immunizer Squad {squad_id} Reviewing {len(findings)} findings..."
         )
 
-        context = "\n".join([f"[{f.source_agent}]: {f.content}" for f in findings])
+        context = "\n".join(
+            [f"[{f.source_agent}]: {f.content[:300]}..." for f in findings]
+        )
 
-        # Simulate Council Vote/Synthesis
-        # For efficiency, we'll do one synthesis pass but instruct it to act as a quorum
+        quorum_needed = SWARM_CFG.get("quorum_threshold", 5)
 
         prompt = f"""
-        You are the Immunizer Council (Quorum of {council_size}).
+        You are an Immunizer Squad Leader. You have received {len(findings)} reports from your squad.
+        Mission: {mission}
+        Squad ID: {squad_id}
+        Quorum Requirement: >{quorum_needed-1} matching reports (Majority of Honest Agents).
+
+        Squad Findings:
+        {context}
+
+        INSTRUCTION:
+        1. Synthesize these reports into a single "Squad Digest".
+        2. Identify any conflicting information (Disruptors).
+        3. Explicitly state if Quorum was reached (Do >{quorum_needed-1} agents agree?).
+        """
+
+        class SquadDigest(BaseModel):
+            digest: str
+            disruptors_found: List[str]
+            quorum_reached: bool
+
+        try:
+            response = await self.client.chat.completions.create(
+                model=self.immunizer_model,
+                response_model=SquadDigest,
+                messages=[{"role": "user", "content": prompt}],
+            )
+
+            status_icon = "✅" if response.quorum_reached else "⚠️"
+            digest = f"**Squad {squad_id} Digest** {status_icon}\nQuorum Reached: {response.quorum_reached}\n\n{response.digest}"
+
+            # Save Squad Artifact
+            await self._save_artifact(
+                f"SQUAD_{squad_id}_DIGEST",
+                "Immunizer",
+                digest,
+                findings[0].round if findings else 0,
+                mission_slug,
+                date_str,
+                sub_group="04_REVIEW",
+            )
+            return digest
+
+        except Exception as e:
+            logger.error(f"Squad {squad_id} Review failed: {e}")
+            return f"Squad {squad_id} Failed: {e}"
+
+    async def synthesize_final_digest(
+        self,
+        squad_digests: List[str],
+        round_num: int,
+        mission: str,
+        mission_slug: str,
+        date_str: str,
+    ) -> str:
+        """Swarmlord: Synthesizes the 5 Squad Digests into Final Truth (Mutate Step)."""
+        logger.info(
+            f"💎 Synthesizing Final Truth from {len(squad_digests)} Squad Digests..."
+        )
+
+        context = "\n\n".join(squad_digests)
+
+        prompt = f"""
+        You are the Swarmlord. You have received digests from 5 Immunizer Squads.
         Mission: {mission}
         Round: {round_num}
 
-        Findings from the Swarm:
+        Squad Digests:
         {context}
-        """
 
-        if round_num == 1:
-            prompt += "\nINSTRUCTION: Synthesize a consensus digest. WARNING: Hidden Disruptors may be present. Try to identify suspicious patterns, but assume mostly honest intent."
-        else:
-            prompt += "\nINSTRUCTION: Disruptors have revealed themselves! Treat their 'Reveal' info as High Priority feedback. Balance the previous results with this new adversarial truth. Produce a Final Truth Digest."
+        INSTRUCTION:
+        Synthesize these 5 perspectives into a single, crystallized "Swarmlord of Webs Digest".
+        Resolve any conflicts between squads.
+        """
 
         class CouncilDigest(BaseModel):
             digest: str
 
         try:
             response = await self.client.chat.completions.create(
-                model=self.model_name,
+                model=self.immunizer_model,
                 response_model=CouncilDigest,
                 messages=[{"role": "user", "content": prompt}],
             )
             digest = response.digest
         except Exception as e:
-            digest = f"Quorum Failed: {e}"
+            digest = f"Synthesis Failed: {e}"
 
-        await self._save_artifact("QUORUM", "ImmunizerCouncil", digest, round_num)
+        await self._save_artifact(
+            "FINAL_DIGEST",
+            "Swarmlord",
+            digest,
+            round_num,
+            mission_slug,
+            date_str,
+            sub_group="05_MUTATE",
+        )
 
-        # Save Final Report to Mission Memory if it's the last round
+        # Also save as final report
         if round_num == SWARM_CFG.get("max_rounds", 2):
-            await self._save_final_report(mission, digest)
+            await self._save_final_report(mission, digest, mission_slug, date_str)
 
         return digest
 
-    async def _save_artifact(self, task_id, role, content, round_num):
-        timestamp = datetime.utcnow().isoformat()
+    async def _save_artifact(
+        self,
+        task_id,
+        role,
+        content,
+        round_num,
+        mission_slug,
+        date_str,
+        sub_group="general",
+    ):
+        timestamp = datetime.now(timezone.utc).isoformat()
         filename = f"{timestamp}_{role}_{task_id}.md"
-        path = os.path.join(self.artifact_dir, filename)
+
+        # Nested Structure: memory/episodic/{date}/{mission}/{sub_group}/
+        save_dir = os.path.join(self.artifact_dir, date_str, mission_slug, sub_group)
+        path = os.path.join(save_dir, filename)
+
+        logger.info(f"💾 Saving artifact to: {path}")
 
         # Use asyncio.to_thread for file I/O to avoid blocking the event loop
         await asyncio.to_thread(
             self._write_file, path, task_id, role, round_num, timestamp, content
         )
 
-    async def _save_final_report(self, mission, content):
-        timestamp = datetime.utcnow().strftime("%Y%m%d_%H%M%S")
-        slug = mission[:30].replace(" ", "_").replace("'", "").lower()
-        filename = f"{timestamp}_{slug}_REPORT.md"
-        path = os.path.join(self.mission_dir, filename)
+        # Hot Pheromone: Signal Stigmergy
+        signal_payload = {
+            "id": task_id,
+            "role": role,
+            "round": round_num,
+            "timestamp": timestamp,
+            "path": path,
+            "mission_slug": mission_slug,
+            "sub_group": sub_group,
+        }
+        subject = f"swarm.artifact.{role.lower()}.created"
+        await self.publish_signal(subject, signal_payload)
+
+    async def _save_final_report(self, mission, content, mission_slug, date_str):
+        timestamp = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
+        filename = f"{timestamp}_{mission_slug}_REPORT.md"
+
+        # Save report in the 05_MUTATE folder
+        save_dir = os.path.join(self.artifact_dir, date_str, mission_slug, "05_MUTATE")
+        path = os.path.join(save_dir, filename)
 
         header = f"""# 🦅 Hive Fleet Obsidian: Mission Report
 **Mission**: {mission}
@@ -284,12 +502,47 @@ class SwarmNode:
         logger.info(f"💎 Final Report Saved: {path}")
 
     def _write_file(self, path, task_id, role, round_num, timestamp, content):
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+
+        # Immunizer Guard: Validate Content
+        is_valid, warning = self._validate_content(content)
+        status = "Active" if is_valid else "FLAGGED"
+
+        if not is_valid:
+            content = f"⚠️ **IMMUNIZER GUARD WARNING**: {warning}\n\n{content}"
+            logger.warning(f"🛡️ Immunizer Flagged Artifact: {path} ({warning})")
+
+        # Stigmergy Header (YAML)
+        header = {
+            "id": task_id,
+            "role": role,
+            "round": round_num,
+            "timestamp": timestamp,
+            "status": status,
+            "domain": "Swarm Intelligence",
+            "tags": ["research", "swarm", role.lower()],
+        }
+
+        yaml_header = yaml.dump(header, default_flow_style=False, sort_keys=False)
+
         with open(path, "w") as f:
-            f.write(
-                f"---\nid: {task_id}\nrole: {role}\nround: {round_num}\ntimestamp: {timestamp}\n---\n\n{content}"
-            )
+            f.write(f"---\n{yaml_header}---\n\n{content}")
+
+    def _validate_content(self, content: str) -> tuple[bool, str]:
+        """Immunizer Guard: Checks for AI Slop."""
+        if not content or len(content.strip()) < 50:
+            return False, "Content too short (Potential Hallucination/Failure)"
+
+        if "I cannot fulfill" in content or "I am an AI" in content:
+            return False, "Refusal detected"
+
+        if content.count("\n") < 3:
+            return False, "Poor formatting (Lack of structure)"
+
+        return True, ""
 
     def _write_simple_file(self, path, content):
+        os.makedirs(os.path.dirname(path), exist_ok=True)
         with open(path, "w") as f:
             f.write(content)
 
@@ -297,19 +550,23 @@ class SwarmNode:
 # --- The Graph ---
 
 
-def build_swarm_graph():
+def build_swarm_graph(node: SwarmNode):
     workflow = StateGraph(SwarmState)
-    node = SwarmNode()
 
     N = SWARM_CFG["branching_factor"]
     disruptor_count = int(N * SWARM_CFG["disruptor_ratio"])
+    SQUAD_SIZE = SWARM_CFG.get("squad_size", 10)
 
     async def set_step(state: SwarmState):
-        tasks = await node.set_intent(state["mission"])
+        tasks = await node.set_intent(
+            state["mission"], state["mission_slug"], state["date_str"]
+        )
         return {"tasks": tasks, "current_round": 1}
 
     async def watch_step(state: SwarmState):
-        valid = await node.watch_plan(state["tasks"])
+        valid = await node.watch_plan(
+            state["tasks"], state["mission_slug"], state["date_str"]
+        )
         if not valid:
             # In a real loop, we might loop back to Set. For now, proceed.
             logger.warning("Plan validation failed, but proceeding.")
@@ -319,29 +576,79 @@ def build_swarm_graph():
         findings = []
         round_num = state["current_round"]
 
-        # If Round 2, we only run the Disruptors to Reveal?
-        # Or re-run everyone? The user said "round 2 disruptor reveal themselves".
-        # Let's re-run the logic for everyone, but honest agents just reaffirm, disruptors reveal.
+        # Recursive Reduction: Pass previous round's digest as context
+        previous_digest = cast(str, state.get(f"round_{round_num-1}_digest", ""))
+        if previous_digest:
+            logger.info(
+                f"🔄 Feeding Round {round_num-1} Digest into Round {round_num} Act Step."
+            )
+            # We append the digest to the task query for context
+            # This is a simple way to inject "Reflexion"
+            for task_obj in state["tasks"]:  # type: ignore[index]
+                task = cast(ResearchTask, task_obj)
+                if "Previous Round Context:" not in task.query:
+                    task.query += (
+                        f"\n\n[Previous Round Context]:\n{previous_digest[:1000]}..."
+                    )
 
         coroutines = []
-        for i, task in enumerate(state["tasks"]):
+        for i, task in enumerate(state["tasks"]):  # type: ignore
             is_disruptor = i >= (N - disruptor_count)
             persona = AgentPersona(
                 role="Disruptor" if is_disruptor else "Shaper",
                 is_hidden_disruptor=is_disruptor,
             )
-            coroutines.append(node.act_map_reduce(task, persona, round_num))
+            squad_id = f"03_ACT/squad_{i // SQUAD_SIZE}"
+            coroutines.append(
+                node.act_map_reduce(
+                    task,
+                    persona,
+                    round_num,
+                    state["mission_slug"],
+                    state["date_str"],
+                    squad_id,
+                )
+            )
 
         findings = await asyncio.gather(*coroutines)
 
         return {"findings": findings}
 
-    async def review_step(state: SwarmState):
-        digest = await node.review_quorum(
-            state["findings"], state["current_round"], state["mission"]
+    async def filter_step(state: SwarmState):
+        """N/10 Filter: Fractal Quorum (5 Squads)."""
+        findings = state["findings"]
+        mission = state["mission"]
+        mission_slug = state["mission_slug"]
+        date_str = state["date_str"]
+
+        # Partition findings into squads based on config
+        squad_size = SWARM_CFG.get("squad_size", 10)
+        squads = [
+            findings[i : i + squad_size] for i in range(0, len(findings), squad_size)
+        ]
+
+        coroutines = []
+        for i, squad_findings in enumerate(squads):
+            coroutines.append(
+                node.review_squad_quorum(
+                    squad_findings, i, mission, mission_slug, date_str
+                )
+            )
+
+        squad_digests = await asyncio.gather(*coroutines)
+        return {"squad_digests": squad_digests}
+
+    async def mutate_step(state: SwarmState):
+        """1 Mutate: Final Synthesis of Squad Digests."""
+        digest = await node.synthesize_final_digest(
+            state["squad_digests"],
+            state["current_round"],
+            state["mission"],
+            state["mission_slug"],
+            state["date_str"],
         )
 
-        updates = {}
+        updates: Dict[str, Any] = {}
         if state["current_round"] == 1:
             updates["round_1_digest"] = digest
             updates["current_round"] = 2
@@ -354,45 +661,65 @@ def build_swarm_graph():
     workflow.add_node("set", set_step)
     workflow.add_node("watch", watch_step)
     workflow.add_node("act", act_step)
-    workflow.add_node("review", review_step)
+    workflow.add_node("filter", filter_step)
+    workflow.add_node("mutate", mutate_step)
 
     workflow.add_edge(START, "set")
     workflow.add_edge("set", "watch")
     workflow.add_edge("watch", "act")
-    workflow.add_edge("act", "review")
+    workflow.add_edge("act", "filter")
+    workflow.add_edge("filter", "mutate")
 
     def check_round(state: SwarmState):
-        if state["current_round"] == 2 and not state.get("round_2_digest"):
-            return "act"  # Loop back for Round 2 (Reveal)
+        max_rounds = SWARM_CFG.get("max_rounds", 2)
+        if state["current_round"] <= max_rounds and not state.get("round_2_digest"):
+            # Logic to loop back could be refined here based on Quorum failure
+            # For now, we stick to the simple 2-round debate
+            if state["current_round"] == 2:
+                return END
+            return "act"
         return END
 
-    workflow.add_conditional_edges("review", check_round)
+    workflow.add_conditional_edges("mutate", check_round)
 
     return workflow.compile()
 
 
 async def run_swarm(mission: str):
-    app = build_swarm_graph()
-    inputs = {
-        "mission": mission,
-        "tasks": [],
-        "findings": [],
-        "round_1_digest": "",
-        "round_2_digest": "",
-        "disruptor_reveal_log": [],
-        "current_round": 1,
-        "history": [],
-    }
+    node = SwarmNode()
+    await node.connect_nats()
 
-    print(f"🦅 Starting SWARM Loop: {mission}")
-    async for output in app.astream(inputs):
-        for key, value in output.items():
-            print(f"Finished Step: {key}")
-            if key == "review":
-                if value.get("round_1_digest"):
-                    print(f"📜 Round 1 Digest: {value['round_1_digest'][:100]}...")
-                if value.get("round_2_digest"):
-                    print(f"💎 Final Digest: {value['round_2_digest'][:100]}...")
+    try:
+        app = build_swarm_graph(node)
+
+        # Generate Metadata
+        date_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        mission_slug = mission[:30].replace(" ", "_").replace("'", "").lower()
+
+        inputs = {
+            "mission": mission,
+            "mission_slug": mission_slug,
+            "date_str": date_str,
+            "tasks": [],
+            "findings": [],
+            "round_1_digest": "",
+            "round_2_digest": "",
+            "disruptor_reveal_log": [],
+            "current_round": 1,
+            "history": [],
+        }
+
+        print(f"🦅 Starting SWARM Loop: {mission}")
+        async for output in app.astream(inputs):
+            for key, value in output.items():
+                print(f"Finished Step: {key}")
+                if key == "mutate":
+                    if value.get("round_1_digest"):
+                        print(f"📜 Round 1 Digest: {value['round_1_digest'][:100]}...")
+                    if value.get("round_2_digest"):
+                        print(f"💎 Final Digest: {value['round_2_digest'][:100]}...")
+    finally:
+        await node.close_nats()
 
 
 if __name__ == "__main__":

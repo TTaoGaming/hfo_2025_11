@@ -3,6 +3,7 @@ import yaml
 from typing import List, Dict, Optional
 from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
+from body.config import Config
 
 
 class ModelConfig(BaseSettings):
@@ -46,7 +47,7 @@ class Settings(BaseSettings):
 
     # Infrastructure
     ray_address: str = Field("", alias="RAY_ADDRESS")
-    temporal_address: str = Field("localhost:7233", alias="TEMPORAL_ADDRESS")
+    temporal_address: str = Field(Config.TEMPORAL_ADDRESS, alias="TEMPORAL_ADDRESS")
 
     # DSPy
     dspy_cache_dir: str = Field(".dspy_cache", alias="DSPY_CACHE_DIR")

@@ -40,6 +40,7 @@ class AgentState(BaseModel):
     # Memory & Context
     short_term_memory: List[str] = Field(default_factory=list)
     tools_available: List[str] = Field(default_factory=list)
+    final_output: Optional[str] = None
 
     # Telemetry
     last_heartbeat: datetime = Field(default_factory=datetime.utcnow)

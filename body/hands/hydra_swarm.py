@@ -12,6 +12,8 @@ from langgraph.graph import StateGraph, END, START
 from langgraph.types import Send
 from dotenv import load_dotenv
 from body.hands.tools import ToolSet
+import yaml
+from body.constants import DEFAULT_MODEL
 
 """
 🦅 Hive Fleet Obsidian: Hydra Swarm
@@ -23,6 +25,21 @@ Linked to: brain/infrastructure_hydra.feature
 load_dotenv()
 logging.basicConfig(level=logging.INFO, format="%(message)s")
 logger = logging.getLogger("hydra")
+
+# Load Config
+CONFIG_PATH = os.path.join(
+    os.path.dirname(os.path.dirname(__file__)), "swarm_config.yaml"
+)
+try:
+    with open(CONFIG_PATH, "r") as f:
+        CONFIG = yaml.safe_load(f)
+except FileNotFoundError:
+    logger.warning("Config file not found, using defaults.")
+    CONFIG = {
+        "swarm": {
+            "model": DEFAULT_MODEL,
+        }
+    }
 
 # Ray Suspended per User Request (2025-11-21)
 # Reverting to AsyncIO for stability.
@@ -163,7 +180,7 @@ class PreyAgent:
         logger.info(f"   🧠 {self.role}: Reacting/Planning...")
 
         return self.client.chat.completions.create(
-            model="x-ai/grok-4.1-fast",
+            model=CONFIG.get("swarm", {}).get("model", DEFAULT_MODEL),
             response_model=ReactionObject,
             messages=[
                 {
@@ -241,7 +258,10 @@ class PreyAgent:
             agent_role=self.role,
             step_type="execution",
             content=result.output,
-            metadata={"confidence": result.confidence, "model": "x-ai/grok-4.1-fast"},
+            metadata={
+                "confidence": result.confidence,
+                "model": CONFIG.get("swarm", {}).get("model", DEFAULT_MODEL),
+            },
             output_dir=self.output_dir,
         )
         result.artifacts.append(artifact_path)
@@ -297,7 +317,7 @@ def planner_node(state: HydraState):
 
     # Using a cheap/fast model for planning
     plan = client.chat.completions.create(
-        model="x-ai/grok-4.1-fast",
+        model=CONFIG.get("swarm", {}).get("model", DEFAULT_MODEL),
         response_model=Plan,
         messages=[
             {
@@ -370,7 +390,9 @@ def synthesizer_node(state: HydraState):
 
     client = get_client()
     synthesis = client.chat.completions.create(
-        model="x-ai/grok-4.1-fast",  # High context window
+        model=CONFIG.get("swarm", {}).get(
+            "model", DEFAULT_MODEL
+        ),  # High context window
         response_model=FinalSynthesis,
         messages=[
             {
@@ -388,7 +410,7 @@ def synthesizer_node(state: HydraState):
         content=synthesis.summary,
         metadata={
             "confidence": synthesis.consensus_score,
-            "model": "x-ai/grok-4.1-fast",
+            "model": CONFIG.get("swarm", {}).get("model", DEFAULT_MODEL),
         },
     )
 

@@ -1,5 +1,10 @@
+"""
+🦅 Hive Fleet Obsidian: NATS Scatter-Gather Demo
+Intent: Demonstrate NATS Scatter-Gather pattern.
+Intent: Demonstrates the Async Swarm Pattern using NATS.
+Linked to: brain/pattern_async_swarm.feature
+"""
 import asyncio
-import os
 import json
 import logging
 import random
@@ -9,17 +14,13 @@ import nats
 from nats.js.api import StreamConfig, RetentionPolicy
 from dotenv import load_dotenv
 from pydantic import UUID4
+from body.config import Config
 
 # Import our SSOT models
 from body.models.intent import MissionIntent
 from body.models.signals import MissionSignal, ResultSignal
 from body.models.state import AgentRole
 
-"""
-🦅 Hive Fleet Obsidian: NATS Scatter-Gather Demo
-Intent: Demonstrates the Async Swarm Pattern using NATS.
-Linked to: brain/pattern_async_swarm.feature
-"""
 
 # Setup
 load_dotenv()
@@ -31,10 +32,16 @@ logging.basicConfig(
 logger = logging.getLogger("NATS-Hydra")
 
 # Configuration
-NATS_URL = os.getenv("NATS_URL", "nats://localhost:4222")
+NATS_URL = Config.NATS_URL
 STREAM_NAME = "HIVE_MIND"
 SUBJECT_MISSION = "hfo.mission.new"
 SUBJECT_RESULT = "hfo.mission.result"
+
+# Constants
+NATS_CONNECT_TIMEOUT = 5
+WORKER_FETCH_TIMEOUT = 5
+ASSIMILATOR_TIMEOUT = 2
+ASSIMILATOR_MAX_WAIT = 10
 
 
 async def setup_jetstream(nc):
@@ -96,7 +103,7 @@ async def agent_worker(nc, agent_id: str, role: AgentRole):
         while True:
             try:
                 # Fetch 1 message
-                msgs = await psub.fetch(1, timeout=5)
+                msgs = await psub.fetch(1, timeout=WORKER_FETCH_TIMEOUT)
                 for msg in msgs:
                     data = json.loads(msg.data.decode())
                     signal = MissionSignal(**data)
@@ -149,7 +156,7 @@ async def assimilator_collector(js, target_mission_id: UUID4, expected_count: in
 
     while len(results) < expected_count:
         try:
-            msg = await sub.next_msg(timeout=2)
+            msg = await sub.next_msg(timeout=ASSIMILATOR_TIMEOUT)
             data = json.loads(msg.data.decode())
             signal = ResultSignal(**data)
 
@@ -162,7 +169,7 @@ async def assimilator_collector(js, target_mission_id: UUID4, expected_count: in
             pass
 
         # Timeout safety
-        if (datetime.now() - start_time).seconds > 10:
+        if (datetime.now() - start_time).seconds > ASSIMILATOR_MAX_WAIT:
             logger.warning("⚠️  Assimilator: Timeout waiting for results.")
             break
 
@@ -183,10 +190,10 @@ async def main():
     workers = []
     try:
         try:
-            nc = await nats.connect(NATS_URL, connect_timeout=5)
+            nc = await nats.connect(NATS_URL, connect_timeout=NATS_CONNECT_TIMEOUT)
         except Exception:
             logger.error(
-                f"Could not connect to NATS at {NATS_URL}. Is it running? (docker run -p 4222:4222 nats -js)"
+                f"Could not connect to NATS at {NATS_URL}. Is it running? (Check docker-compose)"
             )
             return
 

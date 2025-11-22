@@ -1,14 +1,13 @@
-import os
 import logging
 import uuid
 import asyncio
-from typing import List, TypedDict, Literal
+from typing import List, TypedDict, Optional, Literal
 from pydantic import BaseModel, Field
 import instructor
 from openai import OpenAI
 from langgraph.graph import StateGraph, END, START
-from dotenv import load_dotenv
 from body.hands.tools import ToolSet
+from body.constants import DEFAULT_MODEL
 
 """
 🦅 Hive Fleet Obsidian: Fractal Research Swarm (LangGraph)
@@ -17,9 +16,8 @@ Linked to: brain/strategy_fractal_holarchy.feature
 """
 
 # 1. Setup & Config
-load_dotenv()
-logging.basicConfig(level=logging.INFO, format="%(message)s")
-logger = logging.getLogger("fractal_hydra")
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger("FractalSwarm")
 
 # --- DNA (Pydantic Models) ---
 
@@ -57,9 +55,9 @@ class QuorumState(TypedDict):
 
 
 class FractalNode:
-    def __init__(self, model_name: str = "gpt-4o-mini"):
+    def __init__(self, model_name: Optional[str] = None):
         self.client = instructor.from_openai(OpenAI())
-        self.model_name = os.getenv("DEFAULT_MODEL", model_name)
+        self.model_name = model_name or DEFAULT_MODEL
         self.tools = ToolSet()
 
     def plan_tasks(self, mission: str, num_tasks: int = 10) -> List[ResearchTask]:

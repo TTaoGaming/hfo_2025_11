@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 import instructor
 from openai import OpenAI
 from pydantic import BaseModel
+from body.constants import DEFAULT_MODEL
 
 """
 🦅 Hive Fleet Obsidian: Assimilator Agent
@@ -56,7 +57,7 @@ class Assimilator:
             ),
             mode=instructor.Mode.JSON,
         )
-        self.model_name = os.getenv("DEFAULT_MODEL", "gpt-4o-mini")
+        self.model_name = DEFAULT_MODEL
 
     def scan_artifacts(self):
         """Finds unprocessed artifacts."""

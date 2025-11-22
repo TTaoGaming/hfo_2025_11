@@ -34,6 +34,8 @@ ingestion/unified_memory_dump.jsonl
 *.parquet
 *.jsonl
 *.tsv
+*.log
+swarm_run.log
 memory/episodic/raw_audit_logs/hfo_gems_raw/concept_map.json
 
 # Stigmergy Artifacts
@@ -41,14 +43,14 @@ body/digestion/*.md
 !body/digestion/README.md
 # memory/missions/ # Keep missions in repo for now, or at least the reports
 
-# Memory Episodic - Keep Digests, Ignore Noise
-memory/episodic/*_Shaper_*.md
-memory/episodic/*_Disruptor_*.md
-memory/episodic/*_Navigator_*.md
-memory/episodic/*_Observer_*.md
-!memory/episodic/*_QUORUM.md
-!memory/episodic/*_Digest.md
+# Memory Episodic - Ignore everything
+memory/episodic/
 !memory/episodic/README.md
+!memory/episodic/.gitkeep
+
+# Memory Missions
+memory/missions/
+!memory/missions/README.md
 
 # Eyes (Sensors) - Temporary Data
 eyes/downloads/
@@ -71,3 +73,4 @@ eyes/archive/
 # Temporary Feature Files (Drafts)
 brain/*.feature.draft
 *.log
+memory/episodic/**

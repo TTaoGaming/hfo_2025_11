@@ -47,10 +47,20 @@ concepts:
     feature: "infrastructure_governance.feature"
     summary: "infrastructure_governance.md"
 
+  - name: "infrastructure_temporal"
+    status: "Active"
+    feature: "infrastructure_temporal.feature"
+    summary: "infrastructure_temporal.md"
+
   - name: "infrastructure_trust"
     status: "Active"
     feature: "infrastructure_trust.feature"
     summary: "infrastructure_trust.md"
+
+  - name: "infrastructure_gitops"
+    status: "Active"
+    feature: "infrastructure_gitops.feature"
+    summary: "infrastructure_gitops.md"
 
   # --- Architecture ---
   - name: "architecture_hybrid_memory"
@@ -107,6 +117,11 @@ concepts:
     feature: "mission_audit_weave.feature"
     summary: "mission_audit_weave.md"
 
+  - name: "mission_gesture_game_forge"
+    status: "Draft"
+    feature: "mission_gesture_game_forge.feature"
+    summary: "mission_gesture_game_forge.md"
+
   # --- Research ---
   - name: "antifragile_architecture_options"
     status: "Proposal"
@@ -123,3 +138,9 @@ concepts:
     status: "Active"
     feature: "architecture_three_webs.feature"
     summary: "architecture_three_webs.md"
+
+  # --- Biology ---
+  - name: "biology_pheromones_composability"
+    status: "Draft"
+    feature: "biology_pheromones_composability.feature"
+    summary: "biology_pheromones_composability.md"

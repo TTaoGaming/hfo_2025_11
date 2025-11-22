@@ -64,15 +64,16 @@ organs:
   carapace:
     path: "carapace/"
     primary_seat: "Immunizer"
-    jadc2_function: "Blue Team (Protection)"
-    biological_function: "Protection & Governance"
-    contents: ["*.md"]
-    old_path: "docs/"
+    jadc2_function: "Protection"
+    biological_function: "Exoskeleton & Guards"
+    sub_organs:
+      hive_guards:
+        path: "carapace/hive_guards/"
+        contents: ["guard_*.py"]
 
   venom:
     path: "venom/"
     primary_seat: "Disruptor"
-    jadc2_function: "Red Team (Adversary)"
-    biological_function: "Stress & Chaos"
-    contents: ["smoke/", "chaos/"]
-    old_path: "tests/"
+    jadc2_function: "Red Team"
+    biological_function: "Immune System & Testing"
+    contents: ["smoke/", "test_*.py", "smart_cleanup.py"]

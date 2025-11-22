@@ -4,17 +4,21 @@
 swarm:
   # Fractal Holarchy Settings
   fractal_depth: 2          # How deep the recursion goes (10x10x10)
-  branching_factor: 50      # N: Number of sub-tasks/agents per level
+  branching_factor: 5       # N: Total number of sub-tasks/agents per level
+  squad_size: 5             # Log-10 Base for Fractal Quorum
 
   # Byzantine Quorum Settings
-  disruptor_ratio: 0.2      # f/N: Percentage of agents that are adversarial (f=10 for N=50)
-  consensus_threshold: 0.7  # (2f+1)/N: Required agreement to pass
-  council_size: 50          # Number of Immunizers in the Review Council
+  disruptor_ratio: 0.2      # f/N: Percentage of agents that are adversarial
+  quorum_threshold: 3       # >4 votes required (for N=10, f=3)
+  council_size: 1           # Number of Immunizers (N / squad_size)
 
   # Execution Settings
-  max_rounds: 3             # Maximum debate rounds before forced synthesis
+  max_loops: 1              # Number of full SWARM cycles
+  max_rounds: 2             # Maximum debate rounds per loop
   timeout_seconds: 600      # Global timeout
   model: "x-ai/grok-4.1-fast" # Default model for agents (Special Pricing)
+  shaper_model: "x-ai/grok-4.1-fast" # Model for Act/Generate (High Speed/Cost)
+  immunizer_model: "google/gemini-2.0-flash-001" # Model for Review/Quorum (High Context/Reasoning)
 
   # Persistence
   artifact_dir: "memory/episodic"

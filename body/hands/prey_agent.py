@@ -12,6 +12,8 @@ from body.models.state import AgentState, PreyStep, AgentRole
 from body.hands.tool_registry import ToolRegistry
 from body.hands.evolutionary_memory import EvolutionaryMemory
 from body.hfo_sdk.stigmergy import StigmergyClient
+from body.constants import DEFAULT_MODEL
+from body.config import Config
 
 # Setup Logging
 logging.basicConfig(level=logging.INFO)
@@ -80,12 +82,12 @@ class PreyAgent:
         self,
         agent_id: str,
         role: AgentRole,
-        model_name: str = "x-ai/grok-4.1-fast",
-        nats_url: str = "nats://localhost:4222",
+        model_name: Optional[str] = None,
+        nats_url: str = Config.NATS_URL,
     ):
         self.agent_id = agent_id
         self.role = role
-        self.model_name = os.getenv("DEFAULT_MODEL", model_name)
+        self.model_name = model_name or DEFAULT_MODEL
 
         # Initialize LLM Client (Instructor)
         self.client = instructor.from_openai(
@@ -295,6 +297,7 @@ class PreyAgent:
 
         state.current_step = PreyStep.YIELD
         state.confidence_score = yield_obj.confidence_score
+        state.final_output = yield_obj.final_result
         return state
 
     async def run(self, task: str):
@@ -311,6 +314,11 @@ class PreyAgent:
         # Since our nodes are async, we should use ainvoke
         final_state = await self.graph.ainvoke(initial_state)
         return final_state
+
+    async def close(self):
+        """Cleanup resources."""
+        if self.stigmergy:
+            await self.stigmergy.close()
 
 
 # Example Usage

@@ -1,38 +1,62 @@
-# 🧠 Gap Analysis: Brain (Gen 51) vs. Memory (Gen 1-50)
+# 🦅 Hive Fleet Obsidian: Generation 51 Gap Analysis
+> **Date**: November 22, 2025
+> **Status**: CRITICAL REGRESSION
+> **Focus**: Infrastructure, Stability, and Observability
 
-**Date**: 2025-11-21
-**Source**: Comparison of `brain/` definitions vs. `Swarmlord_of_Webs_Digest_2025-11-21_18-56-23.md`.
+## 🚨 Executive Summary
+We are currently in a state of **Regression**. While the "MOBS" (AGENTS.md) indicates that Stigmergy and Swarm logic were verified in Gen 50, the transition to Gen 51 has introduced configuration drift and instability.
 
-## 🦅 Executive Summary
-The "Great Crystallization" successfully ingested 753 artifacts from Generations 1-50. However, a divergence has emerged between the **Current Intent** (Gen 51 Brain) and the **Historical Weight** (Gen 1-50 Memory). The Digest, being a statistical synthesis, has elevated "Ghost Concepts" (like SIEGCSE) that were prevalent in history but are now explicitly forbidden.
+**Key Finding**: The "Hybrid Stability Protocol" (Docker Infra + Host Agents) is fragile due to port mapping inconsistencies (4222 vs 4225) and lack of robust service discovery.
 
-**Evolutionary Insight**:
-*   **SIEGCSE** has evolved into **OBSIDIAN Roles**.
-*   **V²C-SPIRAL-QUORUM** has evolved into **Network Stigmergy Hierarchical Holonic Fractal Adversarial Byzantine Quorum Co-Evolutionary Meta-Evolution and QD Optimization MAP ELITE**.
+---
 
-## 🔴 Critical Gaps (Missing in Brain)
-*Concepts found in Memory/Code that are NOT defined in `brain/`.*
+## 📉 The Gap: Intent vs. Reality
 
-| Concept | Location in Memory | Status | Recommendation |
+| Feature | Intent (Brain) | Reality (Body) | Status |
 | :--- | :--- | :--- | :--- |
-| **Holonic Byzantine Quorum** | `V2C_SPIRAL_QUORUM_SPEC.md` | **Active Strategy** | **UPDATED** `brain/infrastructure_trust.md` to reflect the full "Network Stigmergy... MAP ELITE" evolution. |
-| **Nested PREY Loops** | Digest "Emergent Patterns" | **Implicit** | **FORMALIZE** in `brain/biology_organ_loops.md`. The Brain defines "Organ Loops", but the "Nested" fractal nature needs explicit definition. |
+| **Stigmergy** | Agents communicate via NATS JetStream on port `4225`. | Agents are defaulting to `4222` and crashing. | 🔴 **BROKEN** |
+| **Execution** | Asynchronous, non-blocking background swarms. | Terminal freezes; `nohup` is a fragile workaround. | 🟡 **FRAGILE** |
+| **Observability** | "Watch" step provides real-time metrics & dashboards. | We are `tail -f`ing a log file. | 🟠 **PRIMITIVE** |
+| **Configuration** | Single Source of Truth (SSOT) via `.env` & `yaml`. | Hardcoded defaults in Python files are overriding config. | 🔴 **DRIFT** |
+| **Resilience** | Durable execution via Temporal. | Script crashes on first network error. | 🔴 **MISSING** |
 
-## 👻 Ghost Concepts (To Exorcise)
-*Concepts appearing in the Digest that are explicitly FORBIDDEN in the Brain.*
+---
 
-| Concept | Digest Claim | Brain Reality | Root Cause |
-| :--- | :--- | :--- | :--- |
-| **SIEGCSE Roles** | "Top Concept", "Emergent Pattern" | **FORBIDDEN** (`architecture_organs_roles_champions.md`: "NOT SIEGCSE") | **Frequency Bias**. SIEGCSE was used in Gen 1-18. The Digest LLM saw it frequently in the corpus and assumed importance, missing the "Deprecation" signals. |
+## 🔍 Root Cause Analysis (The "Why")
 
-## 🟢 Alignment (Healthy)
-*Concepts that are consistent across Brain and Memory.*
+### 1. Configuration Drift (The Port 4222/4225 Schism)
+*   **Docker**: Maps NATS to `4225` (Host) -> `4222` (Container).
+*   **Code**: Multiple files (`research_swarm.py`, `prey_agent.py`, `stigmergy.py`) had hardcoded defaults of `4222`.
+*   **Fix Attempted**: We patched the defaults to `4225`, but the runtime is still picking up `4222` in some paths, likely due to `CONFIG` loading precedence or `load_dotenv` issues in the `nohup` context.
 
-*   **Stigmergy**: Correctly identified as the dominant coordination mechanism.
-*   **OBSIDIAN Roles**: Correctly identified as the current role standard (Navigator, Observer, etc.).
-*   **Swarmlord**: Correctly identified as the central orchestration persona.
+### 2. The "Script" Trap
+*   We are running `research_swarm.py` as a standalone script.
+*   **Consequence**: It has no supervisor. If it crashes (e.g., NATS unavailable), it dies.
+*   **Solution**: We need the **Temporal Workflow** (`body/temporal/swarm_workflow.py`) to manage the lifecycle and retries.
 
-## 🛠️ Action Plan
-1.  **Update Brain**: `brain/infrastructure_trust.md` has been updated to define the **Holonic Byzantine Quorum**.
-2.  **Update Brain**: Refine `brain/biology_organ_loops.md` to explicitly define **Nested PREY Loops**.
-3.  **Update Synthesizer**: Modify `swarm_spinner.py` prompt to instruct the LLM to "Prioritize 'Active' status in `concepts.yaml` over historical frequency" to prevent Ghost Concepts like SIEGCSE.
+### 3. Blind Observability
+*   We are flying blind. We rely on `print` statements and log files.
+*   **Need**: A simple "Mission Control" dashboard (even a static HTML file that polls an endpoint) or integration with LangSmith for real-time tracing.
+
+---
+
+## 🛠️ Remediation Plan (The "How")
+
+### Phase 1: Stabilize (Immediate)
+1.  **Enforce Config**: Remove ALL default values from Python code. Force failure if `NATS_URL` is missing.
+2.  **Verify Env**: Ensure `nohup` inherits the correct environment variables.
+3.  **Retry Logic**: Add `tenacity` retry decorators to NATS connection logic.
+
+### Phase 2: Orchestrate (Next Session)
+1.  **Temporal Integration**: Wrap `research_swarm.py` in a Temporal Activity.
+2.  **Dockerize Agents**: Move the agents into a Docker container that shares the network with NATS (eliminating the port mapping confusion).
+
+### Phase 3: Observe
+1.  **Stigmergy Dashboard**: Create a simple TUI or Web UI that subscribes to `swarm.>` subjects and displays status.
+
+---
+
+## 📋 Action Items for User
+1.  **Stop** trying to run the swarm blindly.
+2.  **Review** this Gap Analysis.
+3.  **Authorize** the "Stabilize" phase: Refactor code to strictly use `os.getenv` without hardcoded fallbacks, ensuring we fail fast if config is wrong.

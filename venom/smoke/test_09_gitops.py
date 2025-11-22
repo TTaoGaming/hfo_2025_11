@@ -1,34 +1,30 @@
-import subprocess
 import pytest
+import sys
 import os
 
+# Ensure body is in path
+sys.path.append(os.getcwd())
 
-def test_gitops_smoke():
-    print("\n🧪 SMOKE TEST: GitOps (Pre-commit) Layer")
+
+def test_gitops_agent_structure():
+    print("\n🧪 SMOKE TEST: GitOps Agent Structure")
 
     try:
-        # Check if pre-commit is installed (use venv path)
-        pre_commit_path = "./venv/bin/pre-commit"
-        if not os.path.exists(pre_commit_path):
-            pytest.fail(f"pre-commit binary not found at {pre_commit_path}")
+        from body.hands.infrastructure_gitops import GitOpsAgent
 
-        result = subprocess.run(
-            [pre_commit_path, "--version"], capture_output=True, text=True
-        )
-        if result.returncode != 0:
-            pytest.fail("pre-commit is not installed")
+        agent = GitOpsAgent()
+        assert hasattr(agent, "check_guards")
+        assert hasattr(agent, "generate_commit_message")
+        assert hasattr(agent, "execute_cycle")
+        assert hasattr(agent, "is_slop")
 
-        print(f"   ✅ pre-commit version: {result.stdout.strip()}")
+        print("   ✅ GitOpsAgent class loaded and verified.")
 
-        # Check if config exists
-        if not os.path.exists(".pre-commit-config.yaml"):
-            pytest.fail(".pre-commit-config.yaml missing")
-
-        print("   ✅ GitOps Config: OK")
-
+    except ImportError as e:
+        pytest.fail(f"Failed to import GitOpsAgent: {e}")
     except Exception as e:
-        pytest.fail(f"GitOps check failed: {e}")
+        pytest.fail(f"GitOpsAgent structure check failed: {e}")
 
 
 if __name__ == "__main__":
-    test_gitops_smoke()
+    test_gitops_agent_structure()

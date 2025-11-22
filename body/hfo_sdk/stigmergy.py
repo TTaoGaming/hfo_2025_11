@@ -3,6 +3,13 @@ import logging
 import nats
 from nats.js.api import StreamConfig, RetentionPolicy
 from typing import List, Dict, Any
+from tenacity import (
+    retry,
+    stop_after_attempt,
+    wait_exponential,
+    retry_if_exception_type,
+)
+from body.config import Config
 
 logger = logging.getLogger("StigmergyClient")
 
@@ -13,12 +20,18 @@ class StigmergyClient:
     Allows agents to Publish (Write) and Subscribe (Read) to the Hive Mind.
     """
 
-    def __init__(self, nats_url: str = "nats://localhost:4222"):
+    def __init__(self, nats_url: str = Config.NATS_URL):
         self.nats_url = nats_url
         self.nc = None
         self.js = None
         self.stream_name = "HIVE_MIND"
 
+    @retry(
+        stop=stop_after_attempt(5),
+        wait=wait_exponential(multiplier=1, min=2, max=10),
+        retry=retry_if_exception_type(Exception),
+        reraise=True,
+    )
     async def connect(self):
         """Connects to NATS and ensures the JetStream exists."""
         if self.nc and self.nc.is_connected:
@@ -52,6 +65,9 @@ class StigmergyClient:
         if not self.js:
             await self.connect()
 
+        if not self.js:
+            raise ConnectionError("Failed to connect to NATS JetStream")
+
         payload = json.dumps(data).encode()
         ack = await self.js.publish(subject, payload)
         return ack
@@ -62,6 +78,9 @@ class StigmergyClient:
         """Fetches recent signals from a subject."""
         if not self.js:
             await self.connect()
+
+        if not self.js:
+            return []
 
         # Create a temporary ephemeral consumer to read the stream
         sub = await self.js.pull_subscribe(subject, "temp_history_reader")

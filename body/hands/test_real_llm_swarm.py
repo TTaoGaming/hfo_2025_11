@@ -9,6 +9,7 @@ from dotenv import load_dotenv
 from pydantic import UUID4, BaseModel, Field
 import instructor
 from openai import OpenAI
+from body.config import Config
 
 # Import our SSOT models
 from body.models.intent import MissionIntent
@@ -25,7 +26,7 @@ logging.basicConfig(
 logger = logging.getLogger("Real-Hydra")
 
 # Configuration
-NATS_URL = os.getenv("NATS_URL", "nats://localhost:4222")
+NATS_URL = Config.NATS_URL
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
 STREAM_NAME = "HIVE_MIND"

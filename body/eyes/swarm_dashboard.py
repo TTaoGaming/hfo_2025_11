@@ -1,6 +1,5 @@
 import asyncio
 import json
-import os
 from datetime import datetime
 from typing import Dict, List
 
@@ -13,13 +12,14 @@ from rich.table import Table
 from rich.text import Text
 
 import nats
+from body.config import Config
 
 # Setup
 load_dotenv()
 console = Console()
 
 # Configuration
-NATS_URL = os.getenv("NATS_URL", "nats://localhost:4222")
+NATS_URL = Config.NATS_URL
 SUBJECT_WILDCARD = "hfo.mission.>"
 
 
@@ -124,7 +124,7 @@ class SwarmDashboard:
         layout = self.generate_layout()
         layout["header"].update(self.generate_header())
 
-        with Live(layout, refresh_per_second=4, screen=True) as live:
+        with Live(layout, refresh_per_second=4, screen=True):
             while True:
                 layout["agents"].update(self.generate_agent_table())
                 layout["logs"].update(self.generate_log_panel())

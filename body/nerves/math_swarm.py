@@ -6,9 +6,10 @@ from langchain_openai import ChatOpenAI
 from langchain_core.messages import HumanMessage, SystemMessage
 from langgraph.graph import StateGraph, END
 import operator
+from body.constants import DEFAULT_MODEL
 
 # --- Configuration ---
-MODEL_NAME = "x-ai/grok-4-fast"  # As per docs
+MODEL_NAME = DEFAULT_MODEL
 OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 

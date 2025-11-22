@@ -1,6 +1,6 @@
 import logging
 import numexpr
-from ddgs import DDGS
+from duckduckgo_search import DDGS
 
 """
 🦅 Hive Fleet Obsidian: External Tools
