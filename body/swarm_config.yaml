@@ -1,0 +1,25 @@
+# 🦅 Hive Fleet Obsidian: Swarm Configuration
+# Tunable parameters for the Canonical Research Swarm
+
+swarm:
+  # Fractal Holarchy Settings
+  fractal_depth: 2          # How deep the recursion goes (10x10x10)
+  branching_factor: 10      # N: Number of sub-tasks/agents per level
+
+  # Byzantine Quorum Settings
+  disruptor_ratio: 0.3      # f/N: Percentage of agents that are adversarial (f=3 for N=10)
+  consensus_threshold: 0.7  # (2f+1)/N: Required agreement to pass
+  council_size: 10          # Number of Immunizers in the Review Council
+
+  # Execution Settings
+  max_rounds: 3             # Maximum debate rounds before forced synthesis
+  timeout_seconds: 600      # Global timeout
+  model: "x-ai/grok-4.1-fast" # Default model for agents (Special Pricing)
+
+  # Persistence
+  artifact_dir: "memory/episodic"
+  knowledge_dir: "memory/semantic"
+
+assimilator:
+  schedule_interval: 300    # Run every 5 minutes
+  min_artifacts: 5          # Minimum artifacts to trigger a rollup

@@ -1,3 +1,10 @@
+---
+owner: Swarmlord
+status: Placeholder
+title: Biology Organ Registry
+type: Intent
+---
+
 Feature: Biomimetic Organ Registry
   As the Taxonomist
   I want to map the Hive's anatomy to biological organs

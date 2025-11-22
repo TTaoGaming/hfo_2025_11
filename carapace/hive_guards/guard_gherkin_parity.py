@@ -13,7 +13,8 @@ def check_parity():
 
     root_dir = Path(__file__).parent.parent.parent
     brain_dir = root_dir / "brain"
-    venom_dir = root_dir / "venom"
+    # We now check body/hands for the generated implementation/tests
+    hands_dir = root_dir / "body" / "hands"
 
     # 1. Get all Feature files
     feature_files = list(brain_dir.glob("*.feature"))
@@ -23,35 +24,29 @@ def check_parity():
 
     print(f"   Found {len(feature_files)} feature files.")
 
-    # 2. Get all Test files
-    test_files = list(venom_dir.glob("test_*.py")) + list(
-        (venom_dir / "steps").glob("test_*.py")
-    )
-    test_filenames = [f.name for f in test_files]
+    # 2. Get all Implementation files in body/hands
+    # Genesis generates them as <feature_slug>.py
+    hand_files = list(hands_dir.glob("*.py"))
+    hand_filenames = [f.name for f in hand_files]
 
     # 3. Check Mapping
-    missing_tests = []
+    missing_impls = []
 
     for feature in feature_files:
-        feature_name = feature.stem  # e.g., "swarm_workflow"
+        feature_slug = feature.stem.lower().replace(" ", "_")
+        expected_file = f"{feature_slug}.py"
 
-        # Expected test names: test_<name>.py or test_<name>_steps.py
-        expected_1 = f"test_{feature_name}.py"
-        expected_2 = f"test_{feature_name}_steps.py"
-
-        if expected_1 in test_filenames or expected_2 in test_filenames:
-            print(f"   ✅ {feature.name} -> Verified")
+        if expected_file in hand_filenames:
+            print(f"   ✅ {feature.name} -> {expected_file}")
         else:
-            print(f"   ❌ {feature.name} -> MISSING TEST")
-            missing_tests.append(feature.name)
+            print(f"   ❌ {feature.name} -> MISSING IMPLEMENTATION ({expected_file})")
+            missing_impls.append(feature.name)
 
-    if missing_tests:
+    if missing_impls:
         print(
-            f"\n🚫 Parity Check Failed! {len(missing_tests)} features are missing tests."
+            f"\n🚫 Parity Check Failed! {len(missing_impls)} features are missing implementations."
         )
-        print(
-            "   Please create a test file in venom/ or venom/steps/ for each feature."
-        )
+        print("   Run 'python genesis.py evolve' to generate missing bodies.")
         sys.exit(1)
 
     print("\n✅ All Intents are Verified.")

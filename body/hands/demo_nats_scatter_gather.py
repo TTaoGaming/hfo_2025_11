@@ -15,6 +15,12 @@ from body.models.intent import MissionIntent
 from body.models.signals import MissionSignal, ResultSignal
 from body.models.state import AgentRole
 
+"""
+🦅 Hive Fleet Obsidian: NATS Scatter-Gather Demo
+Intent: Demonstrates the Async Swarm Pattern using NATS.
+Linked to: brain/pattern_async_swarm.feature
+"""
+
 # Setup
 load_dotenv()
 logging.basicConfig(

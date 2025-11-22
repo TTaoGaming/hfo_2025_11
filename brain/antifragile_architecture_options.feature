@@ -1,3 +1,10 @@
+---
+owner: Swarmlord
+status: Placeholder
+title: Antifragile Architecture Options
+type: Intent
+---
+
 Feature: Antifragile Architecture Options
   As the Swarmlord
   I want to explore and select antifragile architecture options

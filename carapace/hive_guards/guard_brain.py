@@ -76,6 +76,7 @@ def find_slop(registry: Dict) -> List[str]:
         "README.md",
         "registry.yaml",
         "file_structure_governance.md",
+        "BRAIN_AUDIT_LOG.md",
     }
     for concept in registry.get("concepts", []):
         if concept.get("feature"):

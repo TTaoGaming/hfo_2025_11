@@ -1,3 +1,10 @@
+---
+owner: Swarmlord
+status: Placeholder
+title: Mission Ingest Gems
+type: Intent
+---
+
 Feature: Ingest Ancestral Gems
   As the Swarmlord
   I want to ingest the historical HFO gems (Gen 1-50)

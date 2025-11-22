@@ -1,6 +1,12 @@
 from typing import List, Optional
 from pydantic import BaseModel, Field
 
+"""
+🦅 Hive Fleet Obsidian: Cognitive Tools
+Intent: Provides internal reasoning tools (Sequential Thinking).
+Linked to: brain/capability_external_tools.feature
+"""
+
 
 class SequentialThinkingStep(BaseModel):
     thought: str = Field(..., description="The thought content")
@@ -22,7 +28,7 @@ class SequentialThinkingTool:
         self.history: List[SequentialThinkingStep] = []
 
     def think(
-        self, thought: str, needs_more_time: bool, next_step_hint: str = None
+        self, thought: str, needs_more_time: bool, next_step_hint: Optional[str] = None
     ) -> str:
         """
         Records a thinking step.

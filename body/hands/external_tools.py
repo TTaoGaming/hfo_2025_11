@@ -1,6 +1,12 @@
 import logging
 import numexpr
-from duckduckgo_search import DDGS
+from ddgs import DDGS
+
+"""
+🦅 Hive Fleet Obsidian: External Tools
+Intent: Provides external capabilities (Web Search, Math).
+Linked to: brain/capability_external_tools.feature
+"""
 
 logger = logging.getLogger("external_tools")
 

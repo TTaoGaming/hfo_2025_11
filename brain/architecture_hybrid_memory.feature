@@ -1,3 +1,10 @@
+---
+owner: Swarmlord
+status: Placeholder
+title: Architecture Hybrid Memory
+type: Intent
+---
+
 Feature: Hybrid Stigmergic GraphRAG Memory
   As the Assimilator (Memory)
   I want to combine NATS and Postgres

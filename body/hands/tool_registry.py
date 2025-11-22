@@ -4,6 +4,12 @@ from body.hands.tools import ToolSet
 from body.hands.external_tools import ExternalTools
 from body.hands.cognitive_tools import SequentialThinkingTool
 
+"""
+🦅 Hive Fleet Obsidian: Tool Registry
+Intent: Central registry for all agent capabilities.
+Linked to: brain/capability_external_tools.feature
+"""
+
 logger = logging.getLogger("tool_registry")
 
 

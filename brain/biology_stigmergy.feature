@@ -1,3 +1,10 @@
+---
+owner: Swarmlord
+status: Placeholder
+title: Biology Stigmergy
+type: Intent
+---
+
 Feature: Evolutionary Pheromones
   As the Bridger
   I want to use a Pheromone Language

@@ -17,6 +17,7 @@ organs:
     jadc2_function: "Command & Control (C2)"
     biological_function: "Strategy & Will"
     contents: ["*.feature", "*.md", "*.yaml"]
+    allowlist: ["BRAIN_AUDIT_LOG.md"]
     old_path: "intent/"
 
   eyes:

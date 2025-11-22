@@ -13,6 +13,12 @@ from langgraph.types import Send
 from dotenv import load_dotenv
 from body.hands.tools import ToolSet
 
+"""
+🦅 Hive Fleet Obsidian: Hydra Swarm
+Intent: Implements the LangGraph-based Scatter-Gather workflow.
+Linked to: brain/infrastructure_hydra.feature
+"""
+
 # 1. Setup & Config
 load_dotenv()
 logging.basicConfig(level=logging.INFO, format="%(message)s")

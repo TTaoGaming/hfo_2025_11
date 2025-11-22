@@ -47,6 +47,17 @@ graph TD
     Yield -.->|Feeds| Review
 ```
 
+### View 3: The Canonical SWARM Workflow (Implementation)
+*The specific "1-1-1-N-N-1" flow for the Research Swarm.*
+
+1.  **User (1)**: Provides the Mission Intent.
+2.  **Set (1)**: **Navigator** breaks Mission into $N$ Tasks.
+3.  **Watch (1)**: **Observer** validates the Plan.
+4.  **Act (N)**: **Shapers/Disruptors** execute Tasks in parallel (Map).
+5.  **Review (N)**: **Immunizer Council** (Size $N$) reviews Findings and synthesizes Digest (Reduce).
+6.  **Mutate (1)**: **Evolutionary Forge** optimizes Prompts/State based on Digest.
+7.  **Output**: 1 Intent + 1 Digest Artifact saved in Memory.
+
 ### View 2: The PREY State Machine (Logical)
 *The internal logic of a single agent.*
 

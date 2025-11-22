@@ -1,3 +1,10 @@
+---
+owner: Swarmlord
+status: Placeholder
+title: Strategy Antifragile Hydra
+type: Intent
+---
+
 Feature: Antifragile Hydra Strategy
   As the Swarmlord
   I want to implement the Hydra Protocol

@@ -1,3 +1,10 @@
+---
+owner: Swarmlord
+status: Implemented
+title: Infrastructure Hydra
+type: Intent
+---
+
 Feature: Hydra Protocol Implementation
   As the Injector (Logistics)
   I want to implement the Hydra Protocol using Ray Actors

@@ -1,3 +1,10 @@
+---
+owner: Swarmlord
+status: Placeholder
+title: Biology Organ Loops
+type: Intent
+---
+
 Feature: Physiology Loops
   As the Swarmlord
   I want to define the physiological rhythms of the Hive

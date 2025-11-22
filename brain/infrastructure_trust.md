@@ -20,7 +20,8 @@ To achieve consensus in this complex system, we use the **V²C-SPIRAL-QUORUM** m
 1.  **Seed (1 Agent)**: A single agent proposes a solution.
 2.  **Spiral (3 Agents)**: Two reviewers (one potentially adversarial) critique the seed.
 3.  **Quorum (10 Agents)**: If the Spiral holds, it expands to a full Byzantine Council ($N=10, f=3$).
-4.  **Crystallization**: If $2f+1$ agree, the memory is written to the Stigmergy Layer.
+4.  **Hidden Injection**: In Round 1, Disruptors are hidden. In Round 2, they reveal and attack.
+5.  **Crystallization**: If $2f+1$ agree after the attack, the memory is written to the Stigmergy Layer.
 
 ## 📊 Trust Matrix
 

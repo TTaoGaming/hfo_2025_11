@@ -1,3 +1,10 @@
+---
+owner: Swarmlord
+status: Placeholder
+title: Architecture Core Declarative
+type: Intent
+---
+
 Feature: Declarative Intent Loading
   As the Swarmlord
   I want to load agents from Gherkin files

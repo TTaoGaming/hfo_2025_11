@@ -1,3 +1,10 @@
+---
+owner: Swarmlord
+status: Missing
+title: Workflow Karmic Web
+type: Intent
+---
+
 Feature: The Karmic Web (Precedent Hunting)
   As the Swarmlord
   I want to hunt for "Exemplars" from the past (History, GitHub, Nature)

@@ -15,6 +15,12 @@ import instructor
 from openai import OpenAI
 from body.hands.tools import ToolSet
 
+"""
+🦅 Hive Fleet Obsidian: Fractal Research Swarm
+Intent: Implements the Recursive Fractal Holarchy for deep research.
+Linked to: brain/strategy_fractal_holarchy.feature
+"""
+
 # --- Setup ---
 load_dotenv()
 logging.basicConfig(level=logging.INFO, format="%(message)s")
@@ -404,7 +410,7 @@ class HolonNode:
         # 2. Spawn Child Holons
         children = []
         for i, sub_domain in enumerate(sub_domains):
-            child = HolonNode.remote(
+            child = HolonNode.remote(  # type: ignore
                 level=self.level - 1,
                 holon_id=f"{self.holon_id}.{i+1}",
                 domain=sub_domain,
@@ -538,7 +544,7 @@ class FractalResearchSwarm:
         # Spawn Root Holon (The Apex Node)
         print("\n🧠 Commander: Spawning Apex Holon...")
 
-        root_holon = HolonNode.remote(
+        root_holon = HolonNode.remote(  # type: ignore
             level=depth,
             holon_id="Apex",
             domain="Mission Objective",

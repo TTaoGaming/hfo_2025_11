@@ -3,7 +3,16 @@
 PYTHON := ./venv/bin/python
 PYTEST := ./venv/bin/pytest
 
-test-all:
+guards:
+	@echo "🛡️ Running Hive Guards..."
+	@$(PYTHON) carapace/hive_guards/guard_brain.py
+	@$(PYTHON) carapace/hive_guards/guard_mermaid.py
+	@$(PYTHON) carapace/hive_guards/guard_gherkin_parity.py
+	@$(PYTHON) carapace/hive_guards/guard_stigmergy_headers.py
+	@$(PYTHON) venom/guard_reality.py
+	@echo "✨ All Guards Passed!"
+
+test-all: guards
 	@echo "🚀 Running ALL Smoke Tests..."
 	@$(PYTHON) venom/smoke/test_01_ray.py
 	@$(PYTHON) venom/smoke/test_02_temporal.py
@@ -91,6 +100,8 @@ guards:
 	@echo "🛡️ Running Hive Guards..."
 	@./carapace/hive_guards/guard_brain.py
 	@./carapace/hive_guards/guard_mermaid.py
+	@./carapace/hive_guards/guard_gherkin_parity.py
+	@./carapace/hive_guards/guard_stigmergy_headers.py
 	@echo "✨ All Guards Passed!"
 
 # --- 🦅 Swarm Operations ---

@@ -12,6 +12,12 @@ from body.models.state import AgentRole
 from body.hands.prey_agent import PreyAgent
 from body.hfo_sdk.stigmergy import StigmergyClient
 
+"""
+🦅 Hive Fleet Obsidian: Obsidian Research Swarm
+Intent: Implements the concurrent NATS-based research swarm (Karmic Hunt).
+Linked to: brain/pattern_async_swarm.feature
+"""
+
 # Setup
 load_dotenv()
 logging.basicConfig(
@@ -50,9 +56,7 @@ class SwarmController:
 
         # 2. Subscribe to Yield Signals (Gather Phase)
         # We listen for any agent yielding a result
-        sub = await self.stigmergy.nc.subscribe(
-            "hfo.mission.*.yield", cb=self._on_result
-        )
+        await self.stigmergy.nc.subscribe("hfo.mission.*.yield", cb=self._on_result)
 
         # 3. Scatter Phase (Launch Agents in Batches)
         agents = []

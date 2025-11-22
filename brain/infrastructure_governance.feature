@@ -1,3 +1,10 @@
+---
+owner: Swarmlord
+status: Placeholder
+title: Infrastructure Governance
+type: Intent
+---
+
 Feature: Holonic File Governance
   As the Immunizer (Blue Team)
   I want to enforce strict file governance

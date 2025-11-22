@@ -121,3 +121,8 @@ class ToolSet:
             return "\n".join(results[:20])  # Limit to 20 hits
         except Exception as e:
             return f"Error searching files: {str(e)}"
+
+    @staticmethod
+    def get_tool_names() -> list[str]:
+        """Returns a list of available tool names."""
+        return ["read_file", "write_file", "search_web"]

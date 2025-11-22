@@ -1,3 +1,10 @@
+---
+owner: Swarmlord
+status: Placeholder
+title: Workflow Obsidian Hourglass
+type: Intent
+---
+
 Feature: Obsidian Horizon Hourglass Workflow (The Flip)
   # Domain: Grand Strategy
   # Owner: Swarmlord of Webs

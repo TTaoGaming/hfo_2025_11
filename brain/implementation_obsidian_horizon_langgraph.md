@@ -9,28 +9,72 @@ type: Implementation Spec
 # 🛠️ Implementation: Obsidian Horizon Hourglass (LangGraph)
 
 ## ⚡ BLUF
-This document maps the **Geometric Spatial State-Action Model** to a concrete **LangGraph** implementation. The 3D cones become Nodes, and the "Flip" becomes a conditional edge transition.
+This document maps the **Geometric Spatial State-Action Model** to a concrete **LangGraph** implementation. The 3D cones become Nodes, and the "Flip" becomes a conditional edge transition. It uses a recursive graph structure where the "Future" node can spawn sub-graphs for simulation.
 
-## 🏗️ The Graph Architecture
+---
 
-### Nodes (The Cones)
-1.  **`KarmicNode` (Past / Z<0)**:
-    *   **Input**: `Query`
-    *   **Action**: GraphRAG Retrieval (Postgres/pgvector).
-    *   **Output**: `Context` (Historical Precedents).
-2.  **`SwarmNode` (Present / Z=0)**:
-    *   **Input**: `Context` OR `GoldenPath`
-    *   **Action**: NATS Dispatch / Tool Execution.
-    *   **Output**: `Result` OR `UncertaintySignal`.
-3.  **`SimulationNode` (Future / Z>0)**:
-    *   **Input**: `State` + `Uncertainty`
-    *   **Action**: DSPy / Monte Carlo Simulation (N=100).
-    *   **Output**: `GoldenPath` (Optimized Action Sequence).
+## 1. The Graph Architecture
 
-### Edges (The Physics)
-1.  **`Gravity` (Standard Flow)**: `KarmicNode` -> `SwarmNode`.
-2.  **`The Flip` (Inversion)**: `SwarmNode` -> `SimulationNode` (Conditional on Uncertainty).
-3.  **`Collapse` (Realization)**: `SimulationNode` -> `SwarmNode`.
+The high-level flow of the Hourglass within LangGraph.
+
+```mermaid
+graph TD
+    Start([Start]) --> KarmicNode
+    KarmicNode[Karmic Node (Past)] -->|Context| SwarmNode
+    SwarmNode[Swarm Node (Present)] -->|Uncertainty > Threshold| SimulationNode
+    SwarmNode -->|Uncertainty < Threshold| End([End])
+    SimulationNode[Simulation Node (Future)] -->|Golden Path| SwarmNode
+
+    style KarmicNode fill:#f9f,stroke:#333
+    style SwarmNode fill:#bfb,stroke:#333
+    style SimulationNode fill:#bbf,stroke:#333
+```
+
+## 2. Node Logic & Data Flow
+
+How data transforms as it moves through the Hourglass.
+
+```mermaid
+sequenceDiagram
+    participant K as KarmicNode
+    participant S as SwarmNode
+    participant Sim as SimulationNode
+
+    Note over K: Input: Query
+    K->>K: GraphRAG Search
+    K->>S: Output: Context (History)
+
+    Note over S: Input: Context
+    S->>S: Attempt Execution
+    alt High Uncertainty
+        S->>Sim: Trigger Simulation
+        Note over Sim: Input: State + Uncertainty
+        Sim->>Sim: Monte Carlo / DSPy
+        Sim->>S: Output: Golden Path
+    else Low Uncertainty
+        S->>S: Execute & Commit
+    end
+```
+
+## 3. State Management (Pydantic)
+
+The `HourglassState` object that persists across the graph.
+
+```mermaid
+classDiagram
+    class HourglassState {
+        +str query
+        +List[str] context
+        +float uncertainty
+        +List[Step] golden_path
+        +Dict[str, Any] final_result
+    }
+    class Step {
+        +str action
+        +Dict[str, Any] params
+    }
+    HourglassState *-- Step
+```
 
 ## 💻 Code Structure (Draft)
 
@@ -48,6 +92,7 @@ class HourglassState(TypedDict):
 def karmic_node(state: HourglassState):
     # Z < 0: Retrieve from GraphRAG
     print("🔻 Gravity: Pulling from Karmic Web...")
+```
     return {"context": ["Precedent A", "Precedent B"]}
 
 def swarm_node(state: HourglassState):

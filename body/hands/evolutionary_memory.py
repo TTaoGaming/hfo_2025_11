@@ -4,6 +4,12 @@ import random
 from typing import List
 from pydantic import BaseModel
 
+"""
+🦅 Hive Fleet Obsidian: Evolutionary Memory
+Intent: Manages the DNA (Prompt Genes) of the agents.
+Linked to: brain/architecture_hybrid_memory.feature
+"""
+
 
 class PromptGene(BaseModel):
     """A single unit of prompt strategy."""

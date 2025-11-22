@@ -1,3 +1,10 @@
+---
+owner: Swarmlord
+status: Placeholder
+title: Architecture Organs Roles Champions
+type: Intent
+---
+
 Feature: Organs, Roles, and Champions
   As the Architect
   I want to define the physiological structure of the Hive

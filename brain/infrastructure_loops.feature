@@ -1,3 +1,10 @@
+---
+owner: Swarmlord
+status: Placeholder
+title: Infrastructure Loops
+type: Intent
+---
+
 Feature: Cognitive Loops (PREY & SWARM)
   As the Swarmlord
   I want to standardize the cognitive loops

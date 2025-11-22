@@ -1,3 +1,10 @@
+---
+owner: Swarmlord
+status: Implemented
+title: Capability External Tools
+type: Intent
+---
+
 Feature: External Tool Capabilities
   As the Swarmlord
   I want the Swarm to have access to external tools like Web Search and Calculation

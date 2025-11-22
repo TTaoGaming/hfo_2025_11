@@ -1,3 +1,10 @@
+---
+owner: Swarmlord
+status: Placeholder
+title: Infrastructure Stigmergy
+type: Intent
+---
+
 Feature: Stigmergy Layer (NATS)
   As the Bridger (Communicator)
   I want to use NATS JetStream for Stigmergy

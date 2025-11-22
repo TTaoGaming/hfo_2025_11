@@ -1,3 +1,10 @@
+---
+owner: Swarmlord
+status: Placeholder
+title: Mission Audit Weave
+type: Intent
+---
+
 Feature: Knowledge Graph Weaving & Audit
   As the Swarmlord
   I want to weave the individual memory crystals into a cohesive Knowledge Graph

@@ -6,10 +6,15 @@
 
 concepts:
   # --- Strategy ---
-  - name: "strategy_obsidian_hourglass"
+  - name: "workflow_obsidian_hourglass"
     status: "Active"
-    feature: "strategy_obsidian_hourglass.feature"
+    feature: "workflow_obsidian_hourglass.feature"
     summary: "strategy_obsidian_hourglass.md"
+
+  - name: "workflow_karmic_web"
+    status: "Active"
+    feature: "workflow_karmic_web.feature"
+    summary: "workflow_karmic_web.md"
 
   - name: "strategy_fractal_holarchy"
     status: "Active"
@@ -85,6 +90,12 @@ concepts:
     feature: "pattern_async_swarm.feature"
     summary: "pattern_async_swarm.md"
 
+  # --- Capabilities ---
+  - name: "capability_external_tools"
+    status: "Active"
+    feature: "capability_external_tools.feature"
+    summary: "capability_external_tools.md"
+
   # --- Missions ---
   - name: "mission_ingest_gems"
     status: "Active"
@@ -101,3 +112,14 @@ concepts:
     status: "Proposal"
     feature: "antifragile_architecture_options.feature"
     summary: "antifragile_architecture_options.md"
+
+  # --- Implementation ---
+  - name: "implementation_obsidian_horizon"
+    status: "Active"
+    feature: "implementation_obsidian_horizon.feature"
+    summary: "implementation_obsidian_horizon_langgraph.md"
+
+  - name: "architecture_three_webs"
+    status: "Active"
+    feature: "architecture_three_webs.feature"
+    summary: "architecture_three_webs.md"

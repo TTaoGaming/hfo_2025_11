@@ -1,53 +1,102 @@
-# 🕸️ The Three Webs: Advanced Cognitive Architecture
+---
+title: The Three Webs Architecture
+status: Active
+type: Architecture
+tags:
+  - karmic-web
+  - present-web
+  - simulation-web
+---
 
-> **Status**: Draft (Gen 51 Vision)
-> **Context**: Evolution of the "Obsidian Horizon Hourglass" into a Hexagonal Hyper-Heuristic System.
+# 🕸️ The Three Webs Architecture
 
-## 1. The Karmic Web (Past / Context)
-**"The Hunter of Precedents"**
-
-*   **Core Philosophy**: Never start from zero. Use Case-Based Reasoning (CBR) to find the closest matching "case" from history.
-*   **Methodologies**:
-    *   **Cynefin Framework**: Categorize the problem domain (Simple, Complicated, Complex, Chaotic) to select the right search strategy.
-    *   **Exemplar Hunting**: Actively search for "Exemplars" in:
-        *   **Biomimicry**: How does nature solve this? (e.g., Slime molds for routing).
-        *   **Open Source**: What GitHub repos already do this?
-        *   **Industry Standards**: What is the "boring solution"?
-*   **Mechanism**: RAG (Retrieval Augmented Generation) + Graph Traversal.
-
-## 2. The Present Swarm Web (Action / Execution)
-**"The Engine of Now"**
-
-*   **Core Philosophy**: Durable, Concurrent, Anytime.
-*   **Methodologies**:
-    *   **Temporal / Durable Execution**: Workflows that cannot die. If a node fails, it retries. If the system crashes, it resumes.
-    *   **Concurrency**: Massive parallelism. Not just "batching", but true async scatter-gather.
-    *   **Anytime Algorithms**: The system can produce a valid result *at any moment*, but the quality improves with time.
-*   **Mechanism**: Temporal.io (Orchestration) + Ray (Compute) + NATS (Signaling).
-
-## 3. The Simulation Web (Future / Evolution)
-**"The Forge of Possibilities"**
-
-*   **Core Philosophy**: Divergent Evolution and Quality-Diversity (QD).
-*   **Methodologies**:
-    *   **Quality-Diversity (QD)**: Use `pyribs` (MAP-Elites) to find solutions that are not just "good", but "diverse" and "high-performing".
-    *   **DSPy / Test-Time Compute**: Optimize the *prompts* and *reasoning traces* themselves.
-    *   **Co-Evolution**:
-        *   **Venom (Disruptors)**: Agents specifically designed to break the system (Red Team).
-        *   **Immune System**: Agents designed to patch the breaks (Blue Team).
-*   **Mechanism**: Evolutionary Algorithms (OpenEvolve/PyRibs) running in background threads (Ray Actors).
+## ⚡ BLUF (Bottom Line Up Front)
+The **Three Webs** architecture is the cognitive framework of Hive Fleet Obsidian. It divides the system's operation into three distinct temporal domains: **The Karmic Web** (Past/Memory), **The Present Web** (Action/Execution), and **The Simulation Web** (Future/Planning). This separation allows the swarm to balance "Fast" reactive behaviors with "Slow" deliberative planning and "Deep" historical wisdom.
 
 ---
 
-## 🔬 Research & Industry Equivalents
+## 1. The Tri-Web Topology
 
-| Obsidian Concept | Industry / Research Equivalent |
-| :--- | :--- |
-| **Karmic Web** | **Case-Based Reasoning (CBR)**, **Retrieval-Augmented Generation (RAG)**, **Analogical Reasoning**. |
-| **Present Web** | **Durable Execution** (Temporal), **Actor Model** (Ray/Akka), **Swarm Intelligence**. |
-| **Simulation Web** | **Quality-Diversity (QD)**, **MAP-Elites**, **Generative Hyper-Heuristics**, **Automated Curriculum Learning**. |
+The spatial relationship between the three domains.
 
-## 🏷️ Formal Naming Candidates
+```mermaid
+graph TD
+    subgraph "Past (Z < 0)"
+        K[Karmic Web]
+        K_Desc[GraphRAG + VectorDB]
+    end
+
+    subgraph "Present (Z = 0)"
+        P[Present Web]
+        P_Desc[NATS + Temporal + Ray]
+    end
+
+    subgraph "Future (Z > 0)"
+        S[Simulation Web]
+        S_Desc[DSPy + MAP-Elites]
+    end
+
+    K -->|Context| P
+    P -->|Uncertainty| S
+    S -->|Golden Path| P
+    P -->|Experience| K
+
+    style K fill:#f9f,stroke:#333
+    style P fill:#bfb,stroke:#333
+    style S fill:#bbf,stroke:#333
+```
+
+## 2. Data Flow & Transformation
+
+How information mutates as it crosses the boundaries.
+
+```mermaid
+sequenceDiagram
+    participant K as Karmic Web
+    participant P as Present Web
+    participant S as Simulation Web
+
+    Note over K: Stigmergic Graph
+    K->>P: Retrieval (Context)
+    Note over P: Active Swarm
+    P->>P: Execute Action
+    alt Failure / Uncertainty
+        P->>S: Request Simulation
+        Note over S: Evolutionary Forge
+        S->>S: Mutate & Test
+        S->>P: Optimized Plan
+    end
+    P->>K: Commit Result (Memory)
+```
+
+## 3. Technology Stack Mapping
+
+The concrete technologies powering each Web.
+
+```mermaid
+classDiagram
+    class KarmicWeb {
+        +Postgres
+        +pgvector
+        +NetworkX
+        +AssimilatorAgent
+    }
+    class PresentWeb {
+        +NATS JetStream
+        +Temporal.io
+        +Ray Core
+        +SwarmController
+    }
+    class SimulationWeb {
+        +DSPy
+        +PyRibs (MAP-Elites)
+        +OpenELM
+        +DisruptorAgent
+    }
+
+    KarmicWeb <.. PresentWeb : Queries
+    PresentWeb ..> SimulationWeb : Spawns
+```
 
 **The Obsidian Hex-Hive**
 *   *Why*: Hexagonal architecture (Ports & Adapters) meets Hive mind.

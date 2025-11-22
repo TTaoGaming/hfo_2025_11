@@ -1,3 +1,10 @@
+---
+owner: Swarmlord
+status: Placeholder
+title: Pattern Async Swarm
+type: Intent
+---
+
 Feature: Async Swarm Process Pattern
   As the Swarmlord
   I want to use the "Async Swarm Process" pattern for all batch operations

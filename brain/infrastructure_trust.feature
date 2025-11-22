@@ -1,3 +1,10 @@
+---
+owner: Swarmlord
+status: Placeholder
+title: Infrastructure Trust
+type: Intent
+---
+
 Feature: Trust Engine (Byzantine Quorum)
   As the Disruptor (Red Team)
   I want to challenge the Hive's decisions
@@ -9,6 +16,14 @@ Feature: Trust Engine (Byzantine Quorum)
     Then it must consist of N=10 agents
     And f=3 agents must be "Disruptors" (Adversarial)
     And the decision requires 2f+1 (7) consensus to pass.
+
+  Scenario: Hidden Disruptor Injection
+    Given a "Cohort" of agents is formed
+    When the "Initial Quorum" (Round 1) begins
+    Then the Disruptors should remain "Hidden" (acting as Observers)
+    But when the "Second Iteration" (Round 2) begins
+    Then the Disruptors should "Reveal" themselves and attack the consensus
+    And this should create "Evolutionary Pressure" for the Immunizers to defend the truth.
 
   Scenario: MAP-Elites Evolution
     Given the Trust Engine is active
