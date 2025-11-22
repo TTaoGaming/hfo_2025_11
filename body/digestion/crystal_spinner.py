@@ -6,7 +6,7 @@ from pathlib import Path
 from typing import List
 from pydantic import BaseModel, Field
 import instructor
-from openai import OpenAI
+from openai import AsyncOpenAI
 from hfo_sdk.stigmergy import StigmergyClient
 
 # Setup Logging
@@ -55,7 +55,7 @@ class CrystalMetadata(BaseModel):
 class CrystalSpinner:
     def __init__(self, nats_url: str = "nats://localhost:4222"):
         self.client = instructor.from_openai(
-            OpenAI(
+            AsyncOpenAI(
                 base_url="https://openrouter.ai/api/v1",
                 api_key=os.getenv("OPENROUTER_API_KEY"),
             ),
@@ -79,8 +79,22 @@ class CrystalSpinner:
         """
         logger.info(f"🕸️  Spinning: {filename}...")
 
+        # Stigmergy Read: Fetch recent context to help linking
         try:
-            metadata = self.client.chat.completions.create(
+            recent_signals = await self.stigmergy.fetch_history(
+                "hfo.memory.crystallized", limit=5
+            )
+            context_str = "\n".join(
+                [
+                    f"- {s.get('metadata', {}).get('title', 'Unknown')}"
+                    for s in recent_signals
+                ]
+            )
+        except Exception:
+            context_str = "No recent context available."
+
+        try:
+            metadata = await self.client.chat.completions.create(
                 model=self.model,
                 response_model=CrystalMetadata,
                 messages=[
@@ -94,7 +108,15 @@ class CrystalSpinner:
                     },
                     {
                         "role": "user",
-                        "content": f"Analyze this file content and extract metadata:\n\nFilename: {filename}\n\nContent:\n{content[:10000]}",  # Truncate for safety
+                        "content": f"""Analyze this file content and extract metadata.
+
+                        STIGMERGY CONTEXT (Recently Processed):
+                        {context_str}
+
+                        Filename: {filename}
+
+                        Content:
+                        {content[:10000]}""",  # Truncate for safety
                     },
                 ],
                 max_retries=3,
@@ -155,7 +177,19 @@ class CrystalSpinner:
         )
         dest_dir.mkdir(parents=True, exist_ok=True)
 
-        dest_file = dest_dir / original_path.name
+        # Prevent Overwriting: Prepend parent folder name if filename is generic
+        # or if it comes from a specific generation folder (e.g. gen_23)
+        parent_name = original_path.parent.name
+        if "gen_" in parent_name or original_path.name.lower() in [
+            "readme.md",
+            "summary.md",
+            "deep_dive.md",
+        ]:
+            new_name = f"{parent_name}_{original_path.name}"
+        else:
+            new_name = original_path.name
+
+        dest_file = dest_dir / new_name
 
         # 2. Write File
         with open(dest_file, "w", encoding="utf-8") as f:

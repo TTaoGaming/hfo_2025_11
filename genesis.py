@@ -96,18 +96,86 @@ def run_smoke_tests():
         console.print("[yellow]Skipping tests.[/yellow]")
 
 
+def execute_mission(mission_file: str):
+    """
+    Parses a Gherkin feature file and executes the corresponding Body code.
+    This is the 'Genesis Bridge' (Word -> Flesh).
+    """
+    console.print(
+        "[bold purple]🔮 Genesis Protocol: Materializing Intent...[/bold purple]"
+    )
+    console.print(f"Intent Source: [cyan]{mission_file}[/cyan]")
+
+    path = Path(mission_file)
+    if not path.exists():
+        console.print(f"[bold red]❌ Intent file not found: {mission_file}[/bold red]")
+        return
+
+    # Simple Intent Mapping (Registry)
+    # In the future, this should be dynamic or use a proper registry file.
+    intent_map = {
+        "mission_ingest_gems.feature": "body/digestion/swarm_spinner.py",
+        "mission_evolutionary_loop.feature": "body/hands/run_evolution.py",
+    }
+
+    script_path = intent_map.get(path.name)
+
+    if not script_path:
+        console.print(
+            f"[bold red]❌ No physical body found for intent: {path.name}[/bold red]"
+        )
+        console.print("Please register the mapping in genesis.py")
+        return
+
+    console.print(f"Physical Body: [green]{script_path}[/green]")
+    console.print("[bold]🚀 Spawning Agent Swarm...[/bold]")
+
+    # Execute the script with the correct environment
+    try:
+        # Ensure PYTHONPATH includes current directory
+        env = sys.modules[__name__].__dict__.get("os", {}).get("environ", {}).copy()
+        # We need to import os if it's not imported, but subprocess uses the current env by default.
+        # Let's just pass a modified env.
+        import os
+
+        env = os.environ.copy()
+        env["PYTHONPATH"] = os.getcwd()
+
+        subprocess.run([sys.executable, script_path], env=env, check=True)
+        console.print("[bold green]✅ Mission Accomplished.[/bold green]")
+    except subprocess.CalledProcessError as e:
+        console.print(
+            f"[bold red]💥 Mission Failed with exit code {e.returncode}[/bold red]"
+        )
+    except Exception as e:
+        console.print(f"[bold red]💥 Execution Error: {e}[/bold red]")
+
+
 def main():
     console.print(
         Panel.fit(
-            "[bold magenta]Hive Fleet Obsidian (Gen 50)[/bold magenta]\n"
-            "[italic]The Phoenix Project[/italic]",
-            border_style="magenta",
+            "[bold yellow]🦅 Hive Fleet Obsidian: Genesis Protocol (Gen 51)[/bold yellow]",
+            subtitle="The Word becomes Flesh",
         )
     )
 
-    check_environment()
+    # Check for Mission Flag
+    if len(sys.argv) > 1 and sys.argv[1] == "--mission":
+        if len(sys.argv) < 3:
+            console.print(
+                "[red]Usage: python genesis.py --mission <feature_file>[/red]"
+            )
+            sys.exit(1)
+        execute_mission(sys.argv[2])
+        sys.exit(0)
+
     check_anatomy()
+    check_environment()
     run_smoke_tests()
+
+
+if __name__ == "__main__":
+    main()
 
     console.print("\n[bold magenta]🦅 Swarm Ready. Awaiting Directives.[/bold magenta]")
 

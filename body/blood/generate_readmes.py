@@ -23,6 +23,17 @@ HFO_DNA = """
 ### 📜 The Golden Rule
 1.  **Intent (Brain)**: Defined in Gherkin/Mermaid.
 2.  **Implementation (Body)**: Executed via R.A.P.T.O.R. stack.
+
+### 🏆 The Golden Pattern (Async Swarm)
+*   **Architecture**: NATS Queue Groups + AsyncIO Workers.
+*   **Coordination**: Stigmergy (Read Stream -> Act -> Write Stream).
+*   **Constraint**: NO blocking calls. NO synchronous loops.
+
+### 🧬 Regeneration Protocol (Stem Cells)
+If this system is corrupted or lost, use the **Genesis Script** to regenerate the Hive from this DNA:
+```bash
+python3 genesis.py --regenerate --source "https://github.com/TTaoGaming/hfo_2025_11"
+```
 """
 
 # 🏭 THE ORGAN FACTORY
@@ -113,10 +124,20 @@ ORGANS = {
         "name": "The Venom",
         "role": "Disruptor / Red Team",
         "jadc2": "Red Team",
-        "gherkin": "`brain/swarm_workflow.feature`",
-        "function": "The **Venom** is the agent of **Stress** and **Evolution**. It runs tests, injects faults, and challenges the system to ensure it is robust.",
-        "contents": "*   **Smoke Tests**: Quick verification (`smoke/`).\n*   **Unit Tests**: Detailed verification.\n*   **Chaos**: Fault injection.",
-        "instructions": "*   **Attack**: Try to break the system.\n*   **Verify**: Ensure fixes work.\n\n## 🚀 How to Run Tests\nUse the **Genesis Protocol**:\n```bash\npython genesis.py --venom\n```",
+        "gherkin": "`brain/immune_system.feature`",
+        "function": "The **Venom** is the **Testing** and **Validation** suite. It injects chaos, runs tests, and ensures the system is robust.",
+        "contents": "*   **Tests**: `pytest` suites.\n*   **Chaos**: Scripts to break things.\n*   **Reports**: Validation outputs.",
+        "instructions": "*   **Sting**: Test everything.\n*   **Verify**: Trust but verify.",
+    },
+    "stem_cells": {
+        "icon": "🧬",
+        "name": "Stem Cells",
+        "role": "Regenerator / Factory",
+        "jadc2": "Logistics (Reserve)",
+        "gherkin": "`brain/antifragile_strategy.feature`",
+        "function": "The **Stem Cells** are the **Source of Truth for Regeneration**. They contain the blueprints for spawning new agents and organs.",
+        "contents": "*   `agents/`: Micro-scale blueprints.\n*   `organs/`: Meso-scale blueprints.\n*   `hive/`: Macro-scale blueprints.",
+        "instructions": "*   **Preserve**: Keep these blueprints pure.\n*   **Clone**: Use these to restore lost functionality.",
     },
 }
 

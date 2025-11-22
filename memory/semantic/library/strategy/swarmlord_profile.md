@@ -80,3 +80,7 @@ The **Obsidian Hourglass** is the **Anytime Algorithm** used by the Swarmlord to
 *   **Output**: Probabilities & Tail Risks.
 
 > *"The Ship builds the Map, and the Map guides the Ship."* — The Quine Loop
+
+
+---
+**Grafted by Gardener**: [[gen_50_README|Gen 50 Hub]]

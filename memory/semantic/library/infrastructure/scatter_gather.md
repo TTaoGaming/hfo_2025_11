@@ -75,3 +75,7 @@ graph TD
     class Aggregator,FinalOutput nerves;
     class Filter,Discard carapace;
 ```
+
+
+---
+**Grafted by Gardener**: [[gen_50_README|Gen 50 Hub]]

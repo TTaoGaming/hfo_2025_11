@@ -78,3 +78,7 @@ graph TD
     *   **Ant Pattern**: Tools in **Mandibles** gain `action` strength when used successfully.
     *   **Termite Pattern**: Files in **Hemolymph** emit `nutrient` signals until configured.
     *   **Mold Pattern**: **Ganglia** connections strengthen with `impulse` flow.
+
+
+---
+**Grafted by Gardener**: [[gen_50_README|Gen 50 Hub]]

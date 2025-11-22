@@ -83,3 +83,7 @@ To achieve a "Hive Mind" that is both fast (tactical) and wise (strategic), we i
     *   *Goal*: Listen for "New File" events and index them.
 3.  **Step 3 (The Graph)**: Install `graphrag` and configure "Nightly Build".
     *   *Goal*: Run Map-Reduce on `memory/semantic` to find hidden patterns.
+
+
+---
+**Grafted by Gardener**: [[gen_50_README|Gen 50 Hub]]

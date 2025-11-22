@@ -2,25 +2,19 @@
 
 > **Role**: Disruptor / Red Team
 > **JADC2 Mapping**: Red Team
-> **Gherkin Source**: `brain/swarm_workflow.feature`
+> **Gherkin Source**: `brain/immune_system.feature`
 
 ## 🧬 Biological Function
-The **Venom** is the agent of **Stress** and **Evolution**. It runs tests, injects faults, and challenges the system to ensure it is robust.
+The **Venom** is the **Testing** and **Validation** suite. It injects chaos, runs tests, and ensures the system is robust.
 
 ## 📂 Contents
-*   **Smoke Tests**: Quick verification (`smoke/`).
-*   **Unit Tests**: Detailed verification.
-*   **Chaos**: Fault injection.
+*   **Tests**: `pytest` suites.
+*   **Chaos**: Scripts to break things.
+*   **Reports**: Validation outputs.
 
 ## 🤖 Agent Instructions
-*   **Attack**: Try to break the system.
-*   **Verify**: Ensure fixes work.
-
-## 🚀 How to Run Tests
-Use the **Genesis Protocol**:
-```bash
-python genesis.py --venom
-```
+*   **Sting**: Test everything.
+*   **Verify**: Trust but verify.
 
 ---
 ## 🧬 HFO DNA (System Context)
@@ -42,3 +36,14 @@ python genesis.py --venom
 ### 📜 The Golden Rule
 1.  **Intent (Brain)**: Defined in Gherkin/Mermaid.
 2.  **Implementation (Body)**: Executed via R.A.P.T.O.R. stack.
+
+### 🏆 The Golden Pattern (Async Swarm)
+*   **Architecture**: NATS Queue Groups + AsyncIO Workers.
+*   **Coordination**: Stigmergy (Read Stream -> Act -> Write Stream).
+*   **Constraint**: NO blocking calls. NO synchronous loops.
+
+### 🧬 Regeneration Protocol (Stem Cells)
+If this system is corrupted or lost, use the **Genesis Script** to regenerate the Hive from this DNA:
+```bash
+python3 genesis.py --regenerate --source "https://github.com/TTaoGaming/hfo_2025_11"
+```

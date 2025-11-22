@@ -83,3 +83,7 @@ pheromone:
 1.  **Define**: Create the Pydantic model for the `Pheromone` schema.
 2.  **Inject**: Add "Ant" pheromones to the Tool Execution loop.
 3.  **Observe**: Run a simulation and watch if agents naturally prefer "scented" tools.
+
+
+---
+**Grafted by Gardener**: [[gen_50_README|Gen 50 Hub]]

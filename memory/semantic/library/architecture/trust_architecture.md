@@ -85,3 +85,7 @@ graph TD
 1.  **Cognitive**: Processes information via OODA/PREY loops.
 2.  **Exoskeleton**: Provides rigid Pydantic/Temporal defense around fragile intent.
 3.  **Symbiote**: Requires User Intent (DNA) to live, but handles the metabolic cost (Compute).
+
+
+---
+**Grafted by Gardener**: [[gen_50_README|Gen 50 Hub]]

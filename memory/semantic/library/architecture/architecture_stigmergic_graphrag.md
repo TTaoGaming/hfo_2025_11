@@ -58,3 +58,7 @@ graph TD
 3.  **Dual-State**:
     *   **Hot State**: In NATS (Last 5 minutes, ephemeral, fast).
     *   **Cold State**: In Postgres (Permanent, structured, queryable).
+
+
+---
+**Grafted by Gardener**: [[gen_50_README|Gen 50 Hub]]

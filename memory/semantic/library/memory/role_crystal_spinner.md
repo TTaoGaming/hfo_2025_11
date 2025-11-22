@@ -88,3 +88,7 @@ graph LR
 *   **Input**: The tagged file.
 *   **Process**: Moving to `memory/semantic/library/{domain}/{concept}/`.
 *   **Output**: A node in the file system graph.
+
+
+---
+**Grafted by Gardener**: [[gen_50_README|Gen 50 Hub]]

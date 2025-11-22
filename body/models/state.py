@@ -44,6 +44,7 @@ class AgentState(BaseModel):
     # Telemetry
     last_heartbeat: datetime = Field(default_factory=datetime.utcnow)
     confidence_score: float = Field(default=0.0, ge=0.0, le=1.0)
+    active_strategy: Optional[str] = None
 
     def update_heartbeat(self):
         self.last_heartbeat = datetime.utcnow()

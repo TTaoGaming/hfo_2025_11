@@ -64,3 +64,7 @@ The **Hydra Protocol** treats every agent as a disposable, regenerative cell. We
 ## 🛡️ Why this is Antifragile
 *   **Attack Surface**: Constantly resetting. An attacker loses their foothold every time the agent dies.
 *   **Evolution**: The "Rebirth" phase allows us to inject *better* defenses derived from the `ImmunityForge`.
+
+
+---
+**Grafted by Gardener**: [[gen_50_README|Gen 50 Hub]]

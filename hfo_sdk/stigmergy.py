@@ -1,9 +1,9 @@
 import json
 import logging
 import os
-from typing import Any, Dict, List
+from typing import Any, Dict
 import nats
-from nats.js.api import StreamConfig, RetentionPolicy, ConsumerConfig, DeliverPolicy
+from nats.js.api import StreamConfig, RetentionPolicy
 
 logger = logging.getLogger("hfo.stigmergy")
 
@@ -33,7 +33,7 @@ class StigmergyClient:
                 )
                 await self.js.update_stream(
                     name=self.stream_name,
-                    subjects=["hfo.mission.>"],
+                    subjects=["hfo.>"],
                     config=StreamConfig(
                         retention=RetentionPolicy.LIMITS,
                         max_age=3600,
@@ -44,7 +44,7 @@ class StigmergyClient:
                 logger.info(f"   Creating stream '{self.stream_name}'...")
                 await self.js.add_stream(
                     name=self.stream_name,
-                    subjects=["hfo.mission.>"],  # Use > for recursive wildcard
+                    subjects=["hfo.>"],  # Use > for recursive wildcard
                     config=StreamConfig(
                         retention=RetentionPolicy.LIMITS,
                         max_age=3600,
@@ -70,27 +70,45 @@ class StigmergyClient:
         ack = await self.js.publish(subject, data)
         return ack
 
-    async def fetch_history(
-        self, subject: str, limit: int = 100
-    ) -> List[Dict[str, Any]]:
-        """Fetches recent messages from a subject (simulating memory lookup)."""
+    async def subscribe_queue(self, subject: str, queue: str, callback):
+        """Subscribes to a subject with a queue group for load balancing."""
         if not self.js:
             raise ConnectionError("Not connected to NATS JetStream")
 
-        results = []
-        try:
-            # Create an ephemeral consumer that reads ALL messages from the start
-            sub = await self.js.pull_subscribe(
-                subject,
-                durable=None,
-                config=ConsumerConfig(deliver_policy=DeliverPolicy.ALL),
-            )
-            msgs = await sub.fetch(limit, timeout=2)
-            for msg in msgs:
-                results.append(json.loads(msg.data.decode()))
-                await msg.ack()
-        except Exception:
-            # Timeout is expected if no messages
-            pass
+        # Use push subscription for queue groups
+        await self.js.subscribe(subject, queue=queue, cb=callback)
+        logger.info(f"   Subscribed to {subject} (Queue: {queue})")
 
-        return results
+    async def fetch_history(
+        self, subject: str, limit: int = 10
+    ) -> list[Dict[str, Any]]:
+        """Fetches the last N messages from a subject."""
+        if not self.js:
+            raise ConnectionError("Not connected to NATS JetStream")
+
+        messages = []
+        try:
+            # Create an ephemeral consumer to read the last N messages
+            sub = await self.js.subscribe(subject, ordered_consumer=True)
+
+            # This is a simplified fetch. In a real high-volume stream,
+            # we might want to use a pull consumer or specific sequence numbers.
+            # For now, we just try to fetch what's available quickly.
+            try:
+                async for msg in sub.messages:
+                    try:
+                        messages.append(json.loads(msg.data.decode()))
+                    except Exception:
+                        pass
+                    if len(messages) >= limit:
+                        break
+            except Exception:
+                # Timeout or end of stream
+                pass
+
+            await sub.unsubscribe()
+
+        except Exception as e:
+            logger.warning(f"Failed to fetch history for {subject}: {e}")
+
+        return messages

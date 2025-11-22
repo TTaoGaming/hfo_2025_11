@@ -185,3 +185,7 @@ classDiagram
     StigmergyHeader --> FileTypes : validates against
     StigmergyHeader --> Domains : validates against
 ```
+
+
+---
+**Grafted by Gardener**: [[gen_50_README|Gen 50 Hub]]

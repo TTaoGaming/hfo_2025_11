@@ -10,6 +10,7 @@ from langgraph.graph import StateGraph, END, START
 
 from body.models.state import AgentState, PreyStep, AgentRole
 from body.hands.tools import ToolSet
+from body.hands.evolutionary_memory import EvolutionaryMemory
 from hfo_sdk.stigmergy import StigmergyClient
 
 # Setup Logging
@@ -98,6 +99,9 @@ class PreyAgent:
         # Initialize Stigmergy
         self.stigmergy = StigmergyClient(nats_url)
 
+        # Initialize Evolutionary Memory (Test-Time Compute)
+        self.evolution = EvolutionaryMemory()
+
         # Initialize Tools
         self.tools = ToolSet()
 
@@ -145,6 +149,11 @@ class PreyAgent:
             memory_context = "No external memory available."
 
         # 2. LLM Call
+        # Select Evolutionary Strategy
+        strategy = self.evolution.select_strategy()
+        state.active_strategy = strategy.strategy_name
+        logger.info(f"   🧬 Strategy Selected: {strategy.strategy_name}")
+
         prompt = f"""
         You are {self.agent_id} ({self.role}).
         Task: {state.short_term_memory[-1] if state.short_term_memory else 'No task'}
@@ -153,6 +162,8 @@ class PreyAgent:
         {memory_context}
 
         REASONING MODE: HIGH
+        STRATEGY: {strategy.instruction}
+
         Analyze the situation deeply. Look for patterns in the External Memory.
         If previous agents failed, identify WHY.
         """
@@ -285,9 +296,19 @@ class PreyAgent:
             signal = yield_obj.stigmergy_signal
             signal["lessons_learned"] = yield_obj.lessons_learned
             signal["confidence"] = yield_obj.confidence_score
+            signal["strategy"] = state.active_strategy
 
             await self.stigmergy.publish(f"hfo.mission.{self.agent_id}.yield", signal)
             logger.info("   Signal emitted to NATS.")
+
+            # Update Evolutionary Fitness
+            if state.active_strategy:
+                success = yield_obj.confidence_score > 0.7
+                self.evolution.update_fitness(state.active_strategy, success)
+                logger.info(
+                    f"   🧬 Fitness Updated for {state.active_strategy} (Success: {success})"
+                )
+
         except Exception as e:
             logger.error(f"Failed to publish signal: {e}")
 

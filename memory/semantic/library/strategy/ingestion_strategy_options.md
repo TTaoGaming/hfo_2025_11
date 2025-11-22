@@ -98,3 +98,7 @@ We can compose these into a pipeline:
 3.  **Run Option 4 (Weaver)**: (Future) Build the graph from the clean files.
 
 **Immediate Action**: Implement **Option 2** using a `PreyAgent` script.
+
+
+---
+**Grafted by Gardener**: [[gen_50_README|Gen 50 Hub]]

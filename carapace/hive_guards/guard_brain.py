@@ -39,13 +39,31 @@ def check_concept_integrity(concept: Dict) -> List[str]:
             f"[{name}] Summary file must be Markdown (.md), found: {summary_file.suffix}"
         )
     else:
-        # 3. Check for Mermaid in Summary
+        # 3. Check Content Format (Swarmlord of Webs)
         try:
-            content = summary_file.read_text()
-            if "mermaid" not in content.lower():
+            content = summary_file.read_text(encoding="utf-8")
+
+            # A. YAML Header
+            if not content.startswith("---"):
                 issues.append(
-                    f"[{name}] Summary file missing Mermaid diagram: {summary_file}"
+                    f"[{name}] Missing YAML Frontmatter (must start with ---)"
                 )
+
+            # B. BLUF
+            if "BLUF" not in content and "Bottom Line Up Front" not in content:
+                issues.append(f"[{name}] Missing BLUF (Bottom Line Up Front) section")
+
+            # C. Matrix Table
+            if "|" not in content:
+                issues.append(f"[{name}] Missing Matrix Table (Markdown table syntax)")
+
+            # D. Mermaid Diagrams (3+)
+            mermaid_count = content.count("```mermaid")
+            if mermaid_count < 3:
+                issues.append(
+                    f"[{name}] Insufficient Visuals: Found {mermaid_count} Mermaid diagrams, required 3+"
+                )
+
         except Exception as e:
             issues.append(f"[{name}] Error reading summary file: {e}")
 

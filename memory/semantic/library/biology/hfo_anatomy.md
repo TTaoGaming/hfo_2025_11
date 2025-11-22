@@ -107,3 +107,7 @@ A SOTA swarm is not a static tool; it is a flow of information.
 *   **Skin** checks **Hands** output.
 *   **Acid** attacks **Body** code.
 *   **Memory** records the survivors.
+
+
+---
+**Grafted by Gardener**: [[gen_50_README|Gen 50 Hub]]

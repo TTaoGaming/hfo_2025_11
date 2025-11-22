@@ -132,3 +132,7 @@ graph TD
     Evolve -->|Patch| Regen
     Regen -->|Stronger| System
 ```
+
+
+---
+**Grafted by Gardener**: [[gen_50_README|Gen 50 Hub]]

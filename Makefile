@@ -47,7 +47,33 @@ test-gitops:
 
 regenerate-agent:
 	@echo "🦠 Regenerating Agent Role: $(role)..."
-	@# TODO: Call genesis.py --spawn-agent $(role)
+	@$(PYTHON) genesis.py --spawn-agent $(role)
+
+# --- 🕸️ GraphRAG Operations ---
+
+weave:
+	@echo "🕷️ Weaving Knowledge Graph..."
+	@$(PYTHON) body/digestion/weaver_ant.py
+
+audit:
+	@echo "🏛️ Convening Consensus Council..."
+	@$(PYTHON) body/digestion/consensus_council.py
+
+garden:
+	@echo "🌿 Gardening (Pruning & Grafting)..."
+	@$(PYTHON) body/digestion/graph_gardener.py
+
+heal: weave garden audit
+	@echo "✨ Hive Healed."
+
+# --- 🛡️ GitOps ---
+
+gitops:
+	@echo "🛡️ Executing GitOps Protocol..."
+	@git add .
+	@git commit -m "🛡️ Hive Guard: Auto-Commit via Makefile" || echo "Nothing to commit"
+	@git push origin main
+	@echo "✅ Pushed to Main."
 	@echo "✅ Agent $(role) regenerated from Stem Cells."
 
 regenerate-organ:

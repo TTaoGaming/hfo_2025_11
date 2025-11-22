@@ -78,3 +78,7 @@ graph TD
     Assimilator -->|Updates| KG
     KG -->|Prunes| Archive
 ```
+
+
+---
+**Grafted by Gardener**: [[gen_50_README|Gen 50 Hub]]

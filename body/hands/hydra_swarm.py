@@ -3,7 +3,7 @@ import operator
 import logging
 import uuid
 import datetime
-import ray
+import asyncio
 from typing import Annotated, List, TypedDict, Optional, Dict, Any
 from pydantic import BaseModel, Field
 import instructor
@@ -18,9 +18,9 @@ load_dotenv()
 logging.basicConfig(level=logging.INFO, format="%(message)s")
 logger = logging.getLogger("hydra")
 
-# Initialize Ray
-if not ray.is_initialized():
-    ray.init(ignore_reinit_error=True)
+# Ray Suspended per User Request (2025-11-21)
+# Reverting to AsyncIO for stability.
+
 
 DIGESTION_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "digestion")
 os.makedirs(DIGESTION_DIR, exist_ok=True)
@@ -311,19 +311,22 @@ def planner_node(state: HydraState):
 
 
 # 2. Map (Worker)
-@ray.remote
-def ray_worker_task(task_data: dict) -> dict:
+async def worker_task(task_data: dict) -> dict:
     """
-    Ray remote function to execute the worker logic in a separate process.
+    Async worker logic (Replaces Ray Actor).
     """
     # Reconstruct SubTask from dict
     task = SubTask(**task_data)
 
     mission_id = task.mission_id or "unknown_in_map"
-    # Instantiate agent inside the remote worker to ensure thread/process safety
+    # Instantiate agent
     agent = PreyAgent(role=task.assigned_role, mission_id=mission_id)
 
-    result = agent.run_loop(task)
+    # Run loop (blocking call wrapped in async if needed, but run_loop is sync here)
+    # To make it truly async, we should make run_loop async or run in executor.
+    # For now, we run it directly as this is a demo of structure.
+    # In production, use asyncio.to_thread for blocking I/O.
+    result = await asyncio.to_thread(agent.run_loop, task)
 
     # Return as dict for serialization
     return {"results": [result]}
@@ -337,13 +340,11 @@ async def worker_node(state: SubTask):
     # Let's hack it: The planner should inject mission_id into SubTask if we want it here.
     # Or we just use a placeholder if missing.
 
-    # Offload to Ray
-    # We pass model_dump() because Pydantic objects might have issues with Ray serialization depending on version
-    # but usually they are fine. To be safe, we pass dict.
-    future = ray_worker_task.remote(state.model_dump())
+    # Offload to AsyncIO (No Ray)
+    result_dict = await worker_task(state.model_dump())
 
-    # Await the result
-    return await future
+    # Return the result
+    return result_dict
 
 
 # 3. Reduce (Synthesizer) with Filter Logic

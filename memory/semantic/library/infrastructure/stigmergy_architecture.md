@@ -66,3 +66,7 @@ sequenceDiagram
         NATS->>Swarmlord: Publish "ConsensusReached"
     end
 ```
+
+
+---
+**Grafted by Gardener**: [[gen_50_README|Gen 50 Hub]]

@@ -44,3 +44,20 @@ To maintain sustainable operations while maximizing intelligence, we enforce a s
 ## 🛡️ Circuit Breakers
 *   If a Swarm Loop requests a Navigator model, the request is **rejected**.
 *   Total Swarm Cost per run (10 agents x 5 turns) should not exceed **$0.05**.
+
+## 🔄 The Living Hive: Feedback & Evolution
+*The system is not static. It evolves based on "Yield" data.*
+
+### 1. Evolutionary Prompting (Test-Time Compute)
+*   **Mechanism**: Agents use `EvolutionaryMemory` to select strategies (e.g., "ChainOfThought", "Reflexion").
+*   **Feedback**: Successful missions (Confidence > 0.7) increase the fitness of the strategy.
+*   **Mutation**: The "Crystal Spinner" agent will periodically inject new strategies into the gene pool based on successful patterns found in `memory/episodic/`.
+
+### 2. Model Rotation Schedule
+*   **Weekly Council**: Every Sunday, the Swarmlord reviews:
+    *   `memory/evolutionary/prompt_genes.json`: Which strategies are winning?
+    *   `DATA_QUALITY_LOG.md`: Which models are hallucinating?
+*   **Action**:
+    *   **Cull**: Remove models with < 50% success rate.
+    *   **Promote**: Move high-performing Swarm models to Navigator roles if cost permits.
+    *   **Import**: Scan `carapace/openrouter-top-weekly-cheap-*.md` for new contenders.

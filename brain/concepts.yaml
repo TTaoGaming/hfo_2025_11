@@ -4,4 +4,100 @@
 #   1. A Gherkin file (`.feature`) for Behavior/Requirements.
 #   2. A Markdown file (`.md`) for Executive Summary & Visualization (Mermaid).
 
-concepts: []
+concepts:
+  # --- Strategy ---
+  - name: "strategy_obsidian_hourglass"
+    status: "Active"
+    feature: "strategy_obsidian_hourglass.feature"
+    summary: "strategy_obsidian_hourglass.md"
+
+  - name: "strategy_fractal_holarchy"
+    status: "Active"
+    feature: "strategy_fractal_holarchy.feature"
+    summary: "strategy_fractal_holarchy.md"
+
+  - name: "strategy_antifragile_hydra"
+    status: "Active"
+    feature: "strategy_antifragile_hydra.feature"
+    summary: "strategy_antifragile_hydra.md"
+
+  # --- Infrastructure ---
+  - name: "infrastructure_hydra"
+    status: "Active"
+    feature: "infrastructure_hydra.feature"
+    summary: "infrastructure_hydra.md"
+
+  - name: "infrastructure_stigmergy"
+    status: "Active"
+    feature: "infrastructure_stigmergy.feature"
+    summary: "infrastructure_stigmergy.md"
+
+  - name: "infrastructure_loops"
+    status: "Active"
+    feature: "infrastructure_loops.feature"
+    summary: "infrastructure_loops.md"
+
+  - name: "infrastructure_governance"
+    status: "Active"
+    feature: "infrastructure_governance.feature"
+    summary: "infrastructure_governance.md"
+
+  - name: "infrastructure_trust"
+    status: "Active"
+    feature: "infrastructure_trust.feature"
+    summary: "infrastructure_trust.md"
+
+  # --- Architecture ---
+  - name: "architecture_hybrid_memory"
+    status: "Active"
+    feature: "architecture_hybrid_memory.feature"
+    summary: "architecture_hybrid_memory.md"
+
+  - name: "architecture_organs_roles_champions"
+    status: "Active"
+    feature: "architecture_organs_roles_champions.feature"
+    summary: "architecture_organs_roles_champions.md"
+
+  - name: "architecture_core_declarative"
+    status: "Active"
+    feature: "architecture_core_declarative.feature"
+    summary: "architecture_core_declarative.md"
+
+  # --- Biology ---
+  - name: "biology_organ_registry"
+    status: "Active"
+    feature: "biology_organ_registry.feature"
+    summary: "biology_organ_registry.md"
+
+  - name: "biology_organ_loops"
+    status: "Active"
+    feature: "biology_organ_loops.feature"
+    summary: "biology_organ_loops.md"
+
+  - name: "biology_stigmergy"
+    status: "Active"
+    feature: "biology_stigmergy.feature"
+    summary: "biology_stigmergy.md"
+
+  # --- Patterns ---
+  - name: "pattern_async_swarm"
+    status: "Active"
+    feature: "pattern_async_swarm.feature"
+    summary: "pattern_async_swarm.md"
+
+  # --- Missions ---
+  - name: "mission_ingest_gems"
+    status: "Active"
+    feature: "mission_ingest_gems.feature"
+    summary: "mission_ingest_gems.md"
+
+  - name: "mission_audit_weave"
+    status: "Active"
+    feature: "mission_audit_weave.feature"
+    summary: "mission_audit_weave.md"
+
+  # --- Research ---
+  - name: "antifragile_architecture_options"
+    status: "Proposal"
+    feature: "antifragile_architecture_options.feature"
+    summary: "antifragile_architecture_options.md"

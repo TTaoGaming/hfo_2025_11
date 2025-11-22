@@ -1,0 +1,18 @@
+Feature: Trust Engine (Byzantine Quorum)
+  As the Disruptor (Red Team)
+  I want to challenge the Hive's decisions
+  So that only robust truths survive.
+
+  Scenario: Byzantine Quorum
+    Given a critical decision (e.g., Code Merge, Strategic Pivot)
+    When the "Council" convenes
+    Then it must consist of N=10 agents
+    And f=3 agents must be "Disruptors" (Adversarial)
+    And the decision requires 2f+1 (7) consensus to pass.
+
+  Scenario: MAP-Elites Evolution
+    Given the Trust Engine is active
+    When a strategy fails or succeeds
+    Then the "Evolutionary Forge" should update the "Archive"
+    And it should mutate the prompts/weights of the agents
+    And it should select for "Quality" and "Diversity".

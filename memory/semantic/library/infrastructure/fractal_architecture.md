@@ -95,3 +95,7 @@ In a Holonic Fractal, time scales with the hierarchy. Lower levels operate fast 
 | **2** | **Platoon** | Hours | Operational Goal |
 | **3** | **Company** | Days | Strategic Campaign |
 | **4** | **Battalion** | Weeks | Grand Strategy |
+
+
+---
+**Grafted by Gardener**: [[gen_50_README|Gen 50 Hub]]

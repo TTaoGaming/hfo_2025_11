@@ -36,3 +36,14 @@ The **Eyes** are responsible for **Perception** and **Ingestion**. They scan the
 ### 📜 The Golden Rule
 1.  **Intent (Brain)**: Defined in Gherkin/Mermaid.
 2.  **Implementation (Body)**: Executed via R.A.P.T.O.R. stack.
+
+### 🏆 The Golden Pattern (Async Swarm)
+*   **Architecture**: NATS Queue Groups + AsyncIO Workers.
+*   **Coordination**: Stigmergy (Read Stream -> Act -> Write Stream).
+*   **Constraint**: NO blocking calls. NO synchronous loops.
+
+### 🧬 Regeneration Protocol (Stem Cells)
+If this system is corrupted or lost, use the **Genesis Script** to regenerate the Hive from this DNA:
+```bash
+python3 genesis.py --regenerate --source "https://github.com/TTaoGaming/hfo_2025_11"
+```

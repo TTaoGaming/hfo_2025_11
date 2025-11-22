@@ -1,0 +1,32 @@
+[
+  {
+    "strategy_name": "N Navigator Playbook",
+    "instruction": "Follow the N Navigator Playbook protocol: # Navigator Playbook (N) \u2013 Swarmlord of Webs...",
+    "success_rate": 0.6,
+    "usage_count": 0
+  },
+  {
+    "strategy_name": "AUTOGEN PATTERN",
+    "instruction": "Apply the AUTOGEN PATTERN pattern. Focus on structure and repeatability.",
+    "success_rate": 0.55,
+    "usage_count": 0
+  },
+  {
+    "strategy_name": "VALIDATED PATTERNS",
+    "instruction": "Apply the VALIDATED PATTERNS pattern. Focus on structure and repeatability.",
+    "success_rate": 0.55,
+    "usage_count": 0
+  },
+  {
+    "strategy_name": "PATTERNS QUICK REF",
+    "instruction": "Apply the PATTERNS QUICK REF pattern. Focus on structure and repeatability.",
+    "success_rate": 0.55,
+    "usage_count": 0
+  },
+  {
+    "strategy_name": "Spiral Quorum",
+    "instruction": "Execute a Spiral Quorum: Start with 1 agent, expand to 3, then 10. Validate consensus at each turn.",
+    "success_rate": 0.8,
+    "usage_count": 0
+  }
+]

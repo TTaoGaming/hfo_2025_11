@@ -51,3 +51,7 @@ We rename the folders to parts of a body. This makes the system intuitive: "Wher
 1.  Is **`acid`** too aggressive for tests? (Alternative: **`gym`**).
 2.  Is **`blood`** clear enough for config? (Alternative: **`heart`**).
 3.  Is **`memory`** fine to keep as is? (It's the plainest term).
+
+
+---
+**Grafted by Gardener**: [[gen_50_README|Gen 50 Hub]]

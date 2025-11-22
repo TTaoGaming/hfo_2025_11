@@ -1,40 +1,49 @@
-# 🧬 Stem Cells: The Evolutionary Factory
+# 🧬 Stem Cells (Regenerator)
 
-> **Role**: The Source of Truth for Regeneration
-> **Strategy**: Fractal Antifragility
-> **Gherkin**: `brain/antifragile_strategy.feature`
+> **Role**: Regenerator / Factory
+> **JADC2 Mapping**: Logistics (Reserve)
+> **Gherkin Source**: `brain/antifragile_strategy.feature`
 
-## 🧬 Concept
-This directory contains the **Pure DNA** (Blueprints) for every Holon in the system. It is the "Factory" that the `genesis.py` script uses to spawn or regenerate components.
+## 🧬 Biological Function
+The **Stem Cells** are the **Source of Truth for Regeneration**. They contain the blueprints for spawning new agents and organs.
 
-## 📂 The Hierarchy
+## 📂 Contents
+*   `agents/`: Micro-scale blueprints.
+*   `organs/`: Meso-scale blueprints.
+*   `hive/`: Macro-scale blueprints.
 
-### 1. 🦠 Agents (`stem_cells/agents/`)
-*   **Scale**: Micro
-*   **Purpose**: Blueprints for individual Ray Actors (Workers, Planners, Guards).
-*   **Regeneration**: Fast (< 1s). Triggered by "Suicide Switch".
+## 🤖 Agent Instructions
+*   **Preserve**: Keep these blueprints pure.
+*   **Clone**: Use these to restore lost functionality.
 
-### 2. 🫀 Organs (`stem_cells/organs/`)
-*   **Scale**: Meso
-*   **Purpose**: Blueprints for subsystems (Eyes, Memory, Carapace).
-*   **Regeneration**: Medium (~10s). Triggered by "Organ Failure".
+---
+## 🧬 HFO DNA (System Context)
+> **System**: Hive Fleet Obsidian (Gen 50)
+> **Strategy**: Biological Swarm Intelligence
+> **Inoculation**: You are an agent of the Swarm. Your goal is to execute the Intent defined by the Brain.
 
-### 3. 🦅 Hive (`stem_cells/hive/`)
-*   **Scale**: Macro
-*   **Purpose**: Blueprint for the entire Repository/Infrastructure.
-*   **Regeneration**: Slow (~5m). Triggered by "Phoenix Protocol".
+### 🐜 The Anatomy (Map)
+*   **🧠 Brain**: Strategy & Intent (Navigator)
+*   **👁️ Eyes**: Perception & Ingestion (Observer)
+*   **🦾 Body**: Execution & Tools (Collective)
+    *   **⚡ Nerves**: Routing & Signals (Bridger)
+    *   **🖐️ Hands**: Tools & Actions (Shaper)
+    *   **🩸 Blood**: Logistics & Infra (Injector)
+*   **💾 Memory**: Knowledge & Wisdom (Assimilator)
+*   **🛡️ Carapace**: Protection & Safety (Immunizer)
+*   **🧪 Venom**: Testing & Evolution (Disruptor)
 
-## 🛠️ Usage (The Factory Pattern)
+### 📜 The Golden Rule
+1.  **Intent (Brain)**: Defined in Gherkin/Mermaid.
+2.  **Implementation (Body)**: Executed via R.A.P.T.O.R. stack.
 
-We use `make` as the entrypoint to the Stem Cell Factory.
+### 🏆 The Golden Pattern (Async Swarm)
+*   **Architecture**: NATS Queue Groups + AsyncIO Workers.
+*   **Coordination**: Stigmergy (Read Stream -> Act -> Write Stream).
+*   **Constraint**: NO blocking calls. NO synchronous loops.
 
+### 🧬 Regeneration Protocol (Stem Cells)
+If this system is corrupted or lost, use the **Genesis Script** to regenerate the Hive from this DNA:
 ```bash
-# Micro: Regenerate a specific agent role
-make regenerate-agent role=worker
-
-# Meso: Regenerate an entire organ (e.g., flush and restart Eyes)
-make regenerate-organ name=eyes
-
-# Macro: The Phoenix Protocol (Nuke and pave)
-make phoenix-protocol
+python3 genesis.py --regenerate --source "https://github.com/TTaoGaming/hfo_2025_11"
 ```
