@@ -98,7 +98,9 @@ class SwarmNode:
         self.model_name = os.getenv("DEFAULT_MODEL", SWARM_CFG["model"])
         self.tools = ToolSet()
         self.artifact_dir = SWARM_CFG["artifact_dir"]
+        self.mission_dir = os.path.join("memory", "missions")
         os.makedirs(self.artifact_dir, exist_ok=True)
+        os.makedirs(self.mission_dir, exist_ok=True)
 
     async def set_intent(self, mission: str) -> List[ResearchTask]:
         """Navigator: Sets the plan."""
@@ -247,6 +249,11 @@ class SwarmNode:
             digest = f"Quorum Failed: {e}"
 
         await self._save_artifact("QUORUM", "ImmunizerCouncil", digest, round_num)
+
+        # Save Final Report to Mission Memory if it's the last round
+        if round_num == SWARM_CFG.get("max_rounds", 2):
+            await self._save_final_report(mission, digest)
+
         return digest
 
     async def _save_artifact(self, task_id, role, content, round_num):
@@ -259,11 +266,32 @@ class SwarmNode:
             self._write_file, path, task_id, role, round_num, timestamp, content
         )
 
+    async def _save_final_report(self, mission, content):
+        timestamp = datetime.utcnow().strftime("%Y%m%d_%H%M%S")
+        slug = mission[:30].replace(" ", "_").replace("'", "").lower()
+        filename = f"{timestamp}_{slug}_REPORT.md"
+        path = os.path.join(self.mission_dir, filename)
+
+        header = f"""# 🦅 Hive Fleet Obsidian: Mission Report
+**Mission**: {mission}
+**Date**: {timestamp}
+**Status**: COMPLETE
+
+---
+
+"""
+        await asyncio.to_thread(self._write_simple_file, path, header + content)
+        logger.info(f"💎 Final Report Saved: {path}")
+
     def _write_file(self, path, task_id, role, round_num, timestamp, content):
         with open(path, "w") as f:
             f.write(
                 f"---\nid: {task_id}\nrole: {role}\nround: {round_num}\ntimestamp: {timestamp}\n---\n\n{content}"
             )
+
+    def _write_simple_file(self, path, content):
+        with open(path, "w") as f:
+            f.write(content)
 
 
 # --- The Graph ---

@@ -39,7 +39,7 @@ memory/episodic/raw_audit_logs/hfo_gems_raw/concept_map.json
 # Stigmergy Artifacts
 body/digestion/*.md
 !body/digestion/README.md
-memory/missions/
+# memory/missions/ # Keep missions in repo for now, or at least the reports
 
 # Memory Episodic - Keep Digests, Ignore Noise
 memory/episodic/*_Shaper_*.md

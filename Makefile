@@ -112,7 +112,11 @@ dashboard:
 
 run-swarm:
 	@echo "🐜 Launching Obsidian Research Swarm..."
-	@PYTHONPATH=. $(PYTHON) body/hands/obsidian_research_swarm.py
+	@PYTHONPATH=. $(PYTHON) body/hands/research_swarm.py
+
+research:
+	@echo "🐜 Launching Research Mission: $(TOPIC)"
+	@PYTHONPATH=. $(PYTHON) body/hands/research_swarm.py --mission "$(TOPIC)"
 
 # --- 🕸️ The Three Webs ---
 
