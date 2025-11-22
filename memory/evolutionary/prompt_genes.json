@@ -2,8 +2,8 @@
   {
     "strategy_name": "N Navigator Playbook",
     "instruction": "Follow the N Navigator Playbook protocol: # Navigator Playbook (N) \u2013 Swarmlord of Webs...",
-    "success_rate": 0.6,
-    "usage_count": 0
+    "success_rate": 0.5760000000000001,
+    "usage_count": 2
   },
   {
     "strategy_name": "AUTOGEN PATTERN",
@@ -26,7 +26,7 @@
   {
     "strategy_name": "Spiral Quorum",
     "instruction": "Execute a Spiral Quorum: Start with 1 agent, expand to 3, then 10. Validate consensus at each turn.",
-    "success_rate": 0.8,
-    "usage_count": 0
+    "success_rate": 0.77878,
+    "usage_count": 4
   }
 ]

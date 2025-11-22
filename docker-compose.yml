@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  # --- The Nervous System (Messaging) ---
+  nats:
+    image: nats:latest
+    ports:
+      - "4225:4222"  # Mapped to safe port 4225
+      - "8222:8222"  # Monitoring
+    command: "-js -m 8222"
+    volumes:
+      - nats_data:/data
+
+  # --- The Memory (Database) ---
+  postgres:
+    image: ankane/pgvector:latest
+    ports:
+      - "5435:5432"  # Mapped to safe port 5435
+    environment:
+      POSTGRES_USER: hfo
+      POSTGRES_PASSWORD: hfo_password
+      POSTGRES_DB: hfo_memory
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  # --- The Factory (Orchestration) ---
+  temporal:
+    image: temporalio/auto-setup:latest
+    ports:
+      - "7235:7233"  # Mapped to safe port 7235
+      - "8233:8233"  # UI
+    environment:
+      - DB=postgresql
+      - DB_PORT=5432
+      - POSTGRES_USER=hfo
+      - POSTGRES_PWD=hfo_password
+      - POSTGRES_SEEDS=postgres
+    depends_on:
+      - postgres
+
+volumes:
+  nats_data:
+  postgres_data:

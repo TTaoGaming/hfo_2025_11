@@ -13,26 +13,30 @@ async def run_math_swarm_activity(user_request: str) -> str:
 
     # Import here to avoid Temporal Sandbox issues with Ray/Filelock
     import ray
-    from body.nerves.math_swarm import build_swarm_graph, SwarmState
+    import uuid
+    from body.hands.hydra_swarm import build_hydra_graph, HydraState
 
     # Initialize Ray if needed (it might be running globally, but safe to check)
     if not ray.is_initialized():
         ray.init(ignore_reinit_error=True)
 
-    app = build_swarm_graph()
+    app = build_hydra_graph()
 
-    initial_state = SwarmState(
-        user_request=user_request,
-        problems=[],
+    mission_id = str(uuid.uuid4())
+    initial_state = HydraState(
+        mission_id=mission_id,
+        mission=user_request,
+        plan=[],
         results=[],
-        quorum_report="",
-        final_digest="",
+        final_output=None,
     )
 
     # Run the graph
     final_state = await app.ainvoke(initial_state)
 
-    return final_state["final_digest"]
+    if final_state.get("final_output"):
+        return final_state["final_output"].summary
+    return "Mission Failed: No output generated."
 
 
 # --- Workflow ---

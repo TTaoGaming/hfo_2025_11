@@ -1,0 +1,15 @@
+{
+  "intent": "Research implementations of stigmergy and how to create a truly SOTA network stigmergy system.",
+  "cynefin_domain": "Complex",
+  "reasoning": "The development of a state-of-the-art (SOTA) network stigmergy system involves emergent properties and unpredictable interactions, fitting the Complex domain where experimentation and probing are necessary to understand cause and effect.",
+  "exemplars": [
+    {
+      "name": "Ant Colony Optimization (ACO)",
+      "type": "Biomimicry",
+      "source_url": null,
+      "relevance": "ACO is a classic stigmergy example, where artificial ants leave pheromone trails that guide routing decisions. This is highly relevant to network routing based on stigmergy.",
+      "mechanism": "Indirect communication via environment modification (pheromone trails) to guide collective behavior."
+    }
+  ],
+  "recommended_strategy": "Due to the complex nature of the problem, adopt a probe-sense-respond approach. Begin with experiments based on biomimicry (e.g., ACO). Explore how agents can indirectly communicate preferences through modifications to the network 'environment.' Iteratively refine your NATS-based Python solution, studying emergent routing behavior."
+}

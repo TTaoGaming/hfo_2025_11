@@ -1,15 +1,26 @@
 ---
-title: Trust Engine (Byzantine Quorum)
+title: Trust Engine (Holonic Byzantine Quorum)
 status: Active (Gen 51)
 domain: Infrastructure
 owners: [Swarmlord]
 type: Security & Evolution
 ---
 
-# 🛡️ Trust Engine: Byzantine Quorum
+# 🛡️ Trust Engine: Holonic Byzantine Quorum
 
 ## ⚡ BLUF (Bottom Line Up Front)
-The **Trust Engine** is the immune system of the Hive's logic. It assumes that any single agent can be wrong, hallucinating, or malicious. By employing a **Byzantine Quorum** ($N=3f+1$), we ensure that the truth emerges from the consensus of multiple agents, including adversarial **Disruptors** who actively try to break the system.
+The **Trust Engine** has evolved into a **Network Stigmergy Hierarchical Holonic Fractal Adversarial Byzantine Quorum**. It combines:
+1.  **Network Stigmergy**: Indirect coordination via NATS.
+2.  **Fractal Holarchy**: Recursive L0/L1/L2 loops.
+3.  **Adversarial Consensus**: $N=3f+1$ tolerance with active Red Teaming.
+4.  **Co-Evolution**: **QD Optimization (MAP-Elites)** drives meta-evolution of the swarm's DNA.
+
+## 🌀 The Algorithm: V²C-SPIRAL-QUORUM
+To achieve consensus in this complex system, we use the **V²C-SPIRAL-QUORUM** mechanism:
+1.  **Seed (1 Agent)**: A single agent proposes a solution.
+2.  **Spiral (3 Agents)**: Two reviewers (one potentially adversarial) critique the seed.
+3.  **Quorum (10 Agents)**: If the Spiral holds, it expands to a full Byzantine Council ($N=10, f=3$).
+4.  **Crystallization**: If $2f+1$ agree, the memory is written to the Stigmergy Layer.
 
 ## 📊 Trust Matrix
 
@@ -18,31 +29,25 @@ The **Trust Engine** is the immune system of the Hive's logic. It assumes that a
 | **Quorum Size** | $N=3f+1$ | Minimum agents needed to tolerate $f$ failures. |
 | **Disruptors** | $f$ | Agents programmed to attack/critique. |
 | **Consensus** | $2f+1$ | Votes needed to carry a motion. |
-| **Evolution** | MAP-Elites | Optimization of agent prompts based on success. |
+| **Evolution** | MAP-Elites | **QD Optimization** of agent prompts based on success. |
 
 ## 🧠 Concept Visualization
 
-### View 1: The Council (Conceptual)
-*Truth through conflict.*
+### View 1: The Spiral Quorum (Conceptual)
+*From Seed to Swarm.*
 
 ```mermaid
-graph TD
-    Proposal[Proposal] --> Council
+graph LR
+    Seed[Seed: 1 Agent] -->|Propose| Spiral[Spiral: 3 Agents]
+    Spiral -->|Critique| Quorum[Quorum: 10 Agents]
+    Quorum -->|Vote| Consensus{Consensus?}
 
-    subgraph Council [Byzantine Quorum N=10]
-        Honest[7 Honest Agents]
-        Disrupt[3 Disruptor Agents]
-    end
-
-    Honest -->|Vote| Consensus{Consensus?}
-    Disrupt -->|Attack| Consensus
-
-    Consensus -->|Yes| Commit[Commit Action]
-    Consensus -->|No| Reject[Reject & Learn]
+    Consensus -->|Yes| Stigmergy[Network Stigmergy]
+    Consensus -->|No| Evolution[QD Optimization]
 ```
 
 ### View 2: The Evolutionary Loop (Logical)
-*Failure drives improvement.*
+*Failure drives improvement via MAP-Elites.*
 
 ```mermaid
 graph LR

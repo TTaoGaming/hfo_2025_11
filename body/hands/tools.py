@@ -33,10 +33,30 @@ class ToolSet:
     @staticmethod
     def search_web(query: str) -> str:
         """
-        Mock web search for now.
-        In production, connect to Tavily/SerpAPI.
+        Searches the local 'brain/' directory for concepts.
+        (Simulates a 'Web Search' over the internal Knowledge Base).
         """
-        return f"Mock Search Result for '{query}': The answer is 42."
+        results = []
+        search_root = "brain"
+        if not os.path.exists(search_root):
+            return "Error: Brain directory not found."
+
+        try:
+            for root, _, files in os.walk(search_root):
+                for file in files:
+                    if file.endswith(".md") or file.endswith(".feature"):
+                        path = os.path.join(root, file)
+                        with open(path, "r") as f:
+                            content = f.read()
+                            if query.lower() in content.lower():
+                                snippet = content[:200].replace("\n", " ") + "..."
+                                results.append(f"Found in {path}: {snippet}")
+
+            if not results:
+                return f"No results found for '{query}' in local brain archives."
+            return "\n".join(results[:5])  # Return top 5 matches
+        except Exception as e:
+            return f"Search failed: {str(e)}"
 
     @staticmethod
     def list_directory(path: str = ".") -> str:

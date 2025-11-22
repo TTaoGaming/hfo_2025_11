@@ -92,3 +92,19 @@ guards:
 	@./carapace/hive_guards/guard_brain.py
 	@./carapace/hive_guards/guard_mermaid.py
 	@echo "✨ All Guards Passed!"
+
+# --- 🦅 Swarm Operations ---
+
+dashboard:
+	@echo "🦅 Launching Swarm Dashboard..."
+	@PYTHONPATH=. $(PYTHON) body/eyes/swarm_dashboard.py
+
+run-swarm:
+	@echo "🐜 Launching Obsidian Research Swarm..."
+	@PYTHONPATH=. $(PYTHON) body/hands/obsidian_research_swarm.py
+
+# --- 🕸️ The Three Webs ---
+
+karmic-hunt:
+	@echo "🕸️ Initiating Karmic Hunt for: $(intent)"
+	@. .env && PYTHONPATH=. $(PYTHON) body/hands/obsidian_research_swarm.py --mission "KARMIC HUNT: $(intent). Use Cynefin to categorize the domain. Search for 'Exemplars' (Biomimicry, Open Source, Industry Standards). Synthesize a report with specific precedents."

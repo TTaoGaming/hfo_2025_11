@@ -5,13 +5,13 @@ import asyncio
 from typing import Dict, Any, List, Optional
 from pydantic import BaseModel, Field
 import instructor
-from openai import OpenAI
+from openai import AsyncOpenAI
 from langgraph.graph import StateGraph, END, START
 
 from body.models.state import AgentState, PreyStep, AgentRole
-from body.hands.tools import ToolSet
+from body.hands.tool_registry import ToolRegistry
 from body.hands.evolutionary_memory import EvolutionaryMemory
-from hfo_sdk.stigmergy import StigmergyClient
+from body.hfo_sdk.stigmergy import StigmergyClient
 
 # Setup Logging
 logging.basicConfig(level=logging.INFO)
@@ -89,7 +89,7 @@ class PreyAgent:
 
         # Initialize LLM Client (Instructor)
         self.client = instructor.from_openai(
-            OpenAI(
+            AsyncOpenAI(
                 base_url="https://openrouter.ai/api/v1",
                 api_key=os.getenv("OPENROUTER_API_KEY"),
             ),
@@ -103,7 +103,7 @@ class PreyAgent:
         self.evolution = EvolutionaryMemory()
 
         # Initialize Tools
-        self.tools = ToolSet()
+        self.tools = ToolRegistry()
 
         # Build the Graph
         self.graph = self._build_graph()
@@ -168,7 +168,7 @@ class PreyAgent:
         If previous agents failed, identify WHY.
         """
 
-        perception = self.client.chat.completions.create(
+        perception = await self.client.chat.completions.create(
             model=self.model_name,
             response_model=Perception,
             messages=[{"role": "user", "content": prompt}],
@@ -185,13 +185,7 @@ class PreyAgent:
         """Phase 2: Plan & Decide"""
         logger.info(f"[{self.agent_id}] 🧠 REACT")
 
-        tool_definitions = """
-        - read_file(file_path: str): Read content of a file.
-        - write_file(file_path: str, content: str): Write content to a file.
-        - search_web(query: str): Search the internet.
-        - list_directory(path: str): List files in a folder.
-        - grep_files(pattern: str, path: str): Search for text in files.
-        """
+        tool_definitions = self.tools.get_definitions_str()
 
         prompt = f"""
         You are {self.agent_id} ({self.role}).
@@ -201,12 +195,13 @@ class PreyAgent:
         REASONING MODE: HIGH
         Based on your perception, formulate a robust plan.
         Think step-by-step. Anticipate errors.
+        Use 'sequential_thinking' if the problem is complex.
 
         Available Tools:
         {tool_definitions}
         """
 
-        reaction = self.client.chat.completions.create(
+        reaction = await self.client.chat.completions.create(
             model=self.model_name,
             response_model=Reaction,
             messages=[{"role": "user", "content": prompt}],
@@ -238,21 +233,7 @@ class PreyAgent:
             tool_name = tool_call.get("tool")
             args = tool_call.get("args", {})
 
-            result = "Unknown Tool"
-            if tool_name == "read_file":
-                result = self.tools.read_file(args.get("file_path"))
-            elif tool_name == "write_file":
-                result = self.tools.write_file(
-                    args.get("file_path"), args.get("content")
-                )
-            elif tool_name == "search_web":
-                result = self.tools.search_web(args.get("query"))
-            elif tool_name == "list_directory":
-                result = self.tools.list_directory(args.get("path", "."))
-            elif tool_name == "grep_files":
-                result = self.tools.grep_files(
-                    args.get("pattern"), args.get("path", ".")
-                )
+            result = self.tools.execute(tool_name, args)
 
             outputs.append({"tool": tool_name, "result": result})
             logger.info(f"   Ran {tool_name}: {str(result)[:50]}...")
@@ -284,7 +265,7 @@ class PreyAgent:
         What should the next agent know to do better? (Reinforcement Learning)
         """
 
-        yield_obj = self.client.chat.completions.create(
+        yield_obj = await self.client.chat.completions.create(
             model=self.model_name,
             response_model=Yield,
             messages=[{"role": "user", "content": prompt}],
