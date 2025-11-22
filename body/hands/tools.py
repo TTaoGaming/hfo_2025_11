@@ -33,8 +33,35 @@ class ToolSet:
     @staticmethod
     def search_web(query: str) -> str:
         """
+        Performs a REAL web search using DuckDuckGo (ddgs).
+        """
+        try:
+            from ddgs import DDGS
+
+            # Use the context manager as recommended by ddgs docs
+            with DDGS() as ddgs:
+                results = list(ddgs.text(query, max_results=3))
+
+            if not results:
+                return f"No results found for '{query}'."
+
+            formatted = []
+            for r in results:
+                formatted.append(
+                    f"Title: {r.get('title', 'No Title')}\nLink: {r.get('href', 'No Link')}\nSnippet: {r.get('body', 'No Body')}\n"
+                )
+
+            return "\n---\n".join(formatted)
+        except ImportError:
+            return "Error: ddgs package not installed. Please run 'pip install ddgs'."
+        except Exception as e:
+            return f"Web search failed: {str(e)}"
+
+    @staticmethod
+    def search_brain(query: str) -> str:
+        """
         Searches the local 'brain/' directory for concepts.
-        (Simulates a 'Web Search' over the internal Knowledge Base).
+        (Internal Knowledge Base Search).
         """
         results = []
         search_root = "brain"

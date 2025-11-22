@@ -138,6 +138,59 @@ stateDiagram-v2
     Flip --> Gravity : Path Collapsed
 ```
 
+### View 3: The Workflow (Operational)
+*The Mastercrafted Artifact Flow.*
+
+```mermaid
+graph TD
+    %% Nodes
+    User([User Intent])
+    Nav[Navigator: Swarmlord of Webs]
+
+    subgraph "The Upper Bulb (The Past)"
+        Karmic[Karmic Swarm]
+        Tools[Tools: Web, Code, RAG]
+        Precedent[Past Precedents]
+    end
+
+    Neck((The Flip))
+
+    subgraph "The Lower Bulb (The Future)"
+        Sim[Simulation Swarm]
+        Fut1[Future A]
+        Fut2[Future B]
+        Fut3[Future C]
+    end
+
+    subgraph "The Base (The Lesson)"
+        Retro[Retro-Analysis Swarm]
+        Evo[Evolutionary Memory]
+    end
+
+    Output([Anytime Probabilistic Distribution])
+
+    %% Edges
+    User -->|Raw Question| Nav
+    Nav -->|Genesis Spec| Karmic
+
+    Karmic -->|Query| Tools
+    Tools -->|Context| Karmic
+    Karmic -->|Deep Insight| Neck
+
+    Neck -->|Inversion| Sim
+    Sim -->|Project| Fut1
+    Sim -->|Project| Fut2
+    Sim -->|Project| Fut3
+
+    Fut1 -->|Outcome| Retro
+    Fut2 -->|Outcome| Retro
+    Fut3 -->|Outcome| Retro
+
+    Retro -->|Lessons| Evo
+    Evo -->|Feedback| Neck
+    Neck -->|Yield| Output
+```
+
 ## 🗝️ Top Concepts
 *   **Geometric State-Action Space**: The literal 3D coordinate system of the Hive.
 *   **The Flip**: The algorithmic inversion of causality (Future -> Present).
@@ -219,23 +272,57 @@ stateDiagram-v2
     Flip --> Gravity : Path Collapsed
 ```
 
-### View 3: LangGraph Implementation (Physical)
-*Mapping Geometry to Code.*
+### View 3: The Workflow (Operational)
+*The Mastercrafted Artifact Flow.*
 
 ```mermaid
-graph LR
-    subgraph Graph [LangGraph State Machine]
-        Node_Past[Node: Karmic_Retrieval]
-        Node_Present[Node: Swarm_Execution]
-        Node_Future[Node: Simulation_Engine]
+graph TD
+    %% Nodes
+    User([User Intent])
+    Nav[Navigator: Swarmlord of Webs]
 
-        Edge_Gravity[Edge: Gravity]
-        Edge_Flip[Edge: The_Flip]
+    subgraph "The Upper Bulb (The Past)"
+        Karmic[Karmic Swarm]
+        Tools[Tools: Web, Code, RAG]
+        Precedent[Past Precedents]
     end
 
-    Node_Past -->|Context| Node_Present
-    Node_Present -->|State| Node_Future
-    Node_Future -->|Golden Path| Node_Present
+    Neck((The Flip))
+
+    subgraph "The Lower Bulb (The Future)"
+        Sim[Simulation Swarm]
+        Fut1[Future A]
+        Fut2[Future B]
+        Fut3[Future C]
+    end
+
+    subgraph "The Base (The Lesson)"
+        Retro[Retro-Analysis Swarm]
+        Evo[Evolutionary Memory]
+    end
+
+    Output([Anytime Probabilistic Distribution])
+
+    %% Edges
+    User -->|Raw Question| Nav
+    Nav -->|Genesis Spec| Karmic
+
+    Karmic -->|Query| Tools
+    Tools -->|Context| Karmic
+    Karmic -->|Deep Insight| Neck
+
+    Neck -->|Inversion| Sim
+    Sim -->|Project| Fut1
+    Sim -->|Project| Fut2
+    Sim -->|Project| Fut3
+
+    Fut1 -->|Outcome| Retro
+    Fut2 -->|Outcome| Retro
+    Fut3 -->|Outcome| Retro
+
+    Retro -->|Lessons| Evo
+    Evo -->|Feedback| Neck
+    Neck -->|Yield| Output
 ```
 
 ## 🦅 Executive Summary

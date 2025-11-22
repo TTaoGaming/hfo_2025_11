@@ -40,3 +40,4 @@ openai>=1.0.0           # Direct OpenAI Client
 mcp>=0.1.0              # Model Context Protocol
 duckduckgo-search>=5.0.0  # Real Web Search
 numexpr>=2.8.0          # Safe Calculation
+rich>=13.0.0            # Terminal UI
