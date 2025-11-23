@@ -1,3 +1,24 @@
+# # ==================================================================
+# # 🤖 THE HEXAGON (System Generated)
+# # ==================================================================
+# hexagon:
+#   ontos:
+#     id: 78675b36-04c8-41a1-ab3c-8599c0251d2b
+#     type: feature
+#     owner: Swarmlord
+#   chronos:
+#     status: active
+#     urgency: 0.5
+#     decay: 0.5
+#     created: '2025-11-23T10:21:31.573025+00:00'
+#   topos:
+#     address: eyes/tools/INGESTION_SPEC.feature
+#     links: []
+#   telos:
+#     viral_factor: 0.0
+#     meme: INGESTION_SPEC.feature
+#
+
 Feature: Universal Knowledge Ingestion
   As a Hive Fleet Obsidian Orchestrator
   I want to ingest the entire workspace history into a centralized vector database

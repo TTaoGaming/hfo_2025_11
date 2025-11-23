@@ -1,3 +1,25 @@
+---
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: fdc6c556-4dc4-482b-aebe-4008296403d1
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.545245+00:00'
+  topos:
+    address: carapace/manual_model_import.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: manual_model_import.md
+---
+
 # 🦅 Hive Fleet Obsidian: Selected Model Intelligence (2025-11-20)
 
 Based on the **Artificial Analysis Leaderboard (2025-11-20)**, we have selected the following models. We are optimizing for the **Intelligence/Price Ratio**.

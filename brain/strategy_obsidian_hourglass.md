@@ -52,7 +52,7 @@ The ultimate purpose of this geometry is to grant the Overmind absolute power ov
 ## 🎓 Formal Research Classification
 **"Evolutionary Model Predictive Control (E-MPC) in Semantic State-Space"**
 
-In academic terms, the Obsidian Horizon Hourglass is a **Hyper-Heuristic Evolutionary Model Predictive Control system operating on a Semantic State-Action Space**.
+In academic terms, the Obsidian Horizon Hourglass is a **Hyper-Heuristic Evolutionary Model Predictive Control system operating on a Semantic State-Action Space**. It is a **Complex Adaptive System (CAS)** defined by cyclical reinforcing and balancing loops.
 
 ### The Equation of the Hourglass
 $$

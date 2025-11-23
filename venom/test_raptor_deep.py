@@ -1,3 +1,25 @@
+"""
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: d32fa77a-7ee1-4e90-9c61-3570d391f333
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.254194+00:00'
+  topos:
+    address: venom/test_raptor_deep.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: test_raptor_deep.py
+"""
+
 import pytest
 import ray
 import numpy as np

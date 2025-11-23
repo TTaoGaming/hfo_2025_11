@@ -1,3 +1,24 @@
+# # ==================================================================
+# # 🤖 THE HEXAGON (System Generated)
+# # ==================================================================
+# hexagon:
+#   ontos:
+#     id: ad1a12fd-dd10-4c11-85d2-4878c93c802c
+#     type: yml
+#     owner: Swarmlord
+#   chronos:
+#     status: active
+#     urgency: 0.5
+#     decay: 0.5
+#     created: '2025-11-23T10:20:43.113544+00:00'
+#   topos:
+#     address: docker-compose.yml
+#     links: []
+#   telos:
+#     viral_factor: 0.0
+#     meme: docker-compose.yml
+#
+
 version: '3.8'
 
 services:

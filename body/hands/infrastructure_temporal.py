@@ -1,4 +1,25 @@
 """
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: f558ddd6-853d-4a18-99d9-0a02599b31a4
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.412395+00:00'
+  topos:
+    address: body/hands/infrastructure_temporal.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: infrastructure_temporal.py
+
+
 ⏳ Temporal Orchestration Implementation
 Corresponding to: brain/infrastructure_temporal.feature
 Intent: Implement the Temporal Workflow wrapper for the Research Swarm.

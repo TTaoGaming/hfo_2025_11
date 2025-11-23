@@ -1,3 +1,25 @@
+"""
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 2d147faa-19cc-41ea-84d2-34605a942ea7
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.555008+00:00'
+  topos:
+    address: carapace/immune_system/immunizer.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: immunizer.py
+"""
+
 import sys
 import logging
 from hfo_sdk import SwarmController, SwarmConfig, MissionIntent

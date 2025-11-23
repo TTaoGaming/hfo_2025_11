@@ -1,3 +1,25 @@
+---
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: fbb9d8bd-9434-4f39-b442-eaa2184115a6
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:11.852359+00:00'
+  topos:
+    address: memory/missions/20251122_reskinning_report.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: 20251122_reskinning_report.md
+---
+
 # 🦅 Hive Fleet Obsidian: Mission Report
 **Mission**: Reskinning Open Source Games with Evolutionary Gesture Controls for Hypercasual Mobile
 **Date**: 2025-11-22

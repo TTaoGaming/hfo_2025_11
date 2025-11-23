@@ -1,3 +1,24 @@
+# # ==================================================================
+# # 🤖 THE HEXAGON (System Generated)
+# # ==================================================================
+# hexagon:
+#   ontos:
+#     id: b4275ece-48f9-437b-a8c4-13b2d6220921
+#     type: feature
+#     owner: Swarmlord
+#   chronos:
+#     status: active
+#     urgency: 0.5
+#     decay: 0.5
+#     created: '2025-11-23T10:21:10.171051+00:00'
+#   topos:
+#     address: memory/semantic/library/architecture/prey_workflow.feature
+#     links: []
+#   telos:
+#     viral_factor: 0.0
+#     meme: prey_workflow.feature
+#
+
 ---
 title: 'PREY Loop: Atomic Holon State Machine'
 summary: Defines the PREY Loop (Perceive, React, Execute, Yield) as the fundamental,

@@ -1,3 +1,24 @@
+# # ==================================================================
+# # 🤖 THE HEXAGON (System Generated)
+# # ==================================================================
+# hexagon:
+#   ontos:
+#     id: 7c4aa16a-bd88-480c-b523-d211268a731a
+#     type: feature
+#     owner: Swarmlord
+#   chronos:
+#     status: active
+#     urgency: 0.5
+#     decay: 0.5
+#     created: '2025-11-23T10:21:07.000584+00:00'
+#   topos:
+#     address: memory/episodic/gen_50_archive/obsidian_hourglass.feature
+#     links: []
+#   telos:
+#     viral_factor: 0.0
+#     meme: obsidian_hourglass.feature
+#
+
 Feature: The Obsidian Hourglass (Anytime Algorithm)
     As the Swarmlord (Navigator)
     I want to use the Obsidian Hourglass logic

@@ -1,3 +1,25 @@
+---
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 57989c9e-7fb8-469d-83fd-24a3f64f0438
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:09.718054+00:00'
+  topos:
+    address: memory/semantic/consensus_statement.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: consensus_statement.md
+---
+
 # 🕷️ HFO Consensus Council Audit Verdict
 
 **Hive Fleet Obsidian: Knowledge Graph Audit**

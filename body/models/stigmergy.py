@@ -1,3 +1,25 @@
+"""
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: c62e4f57-7be3-4062-b7de-d22a4a91b00b
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.349322+00:00'
+  topos:
+    address: body/models/stigmergy.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: stigmergy.py
+"""
+
 from enum import Enum
 from typing import List, Optional
 from pydantic import BaseModel, Field

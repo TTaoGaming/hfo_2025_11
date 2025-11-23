@@ -1,3 +1,24 @@
+# # ==================================================================
+# # 🤖 THE HEXAGON (System Generated)
+# # ==================================================================
+# hexagon:
+#   ontos:
+#     id: cb6ae65b-1318-433b-9832-48eafe214657
+#     type: feature
+#     owner: Swarmlord
+#   chronos:
+#     status: active
+#     urgency: 0.5
+#     decay: 0.5
+#     created: '2025-11-23T10:21:31.503211+00:00'
+#   topos:
+#     address: brain/design_mountain_web_stigmergy.feature
+#     links: []
+#   telos:
+#     viral_factor: 0.0
+#     meme: design_mountain_web_stigmergy.feature
+#
+
 Feature: The Mountain and The Web (Deep Stigmergy)
   As the Swarmlord
   I want to implement a Fractal Stigmergy System (Mountain & Web)

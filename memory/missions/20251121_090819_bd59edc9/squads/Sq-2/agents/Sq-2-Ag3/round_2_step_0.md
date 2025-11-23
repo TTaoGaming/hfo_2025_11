@@ -1,3 +1,25 @@
+---
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 51eedcc2-b88b-40b2-9bc1-903093bb301e
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:12.148329+00:00'
+  topos:
+    address: memory/missions/20251121_090819_bd59edc9/squads/Sq-2/agents/Sq-2-Ag3/round_2_step_0.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: round_2_step_0.md
+---
+
 # Audit Log: Sq-2-Ag3 - Round 2 - Step 0
 **Timestamp**: 2025-11-21T09:12:22.868376
 **Thought**: Previous round failed to retrieve data for Hive Fleet Obsidian Current State Aspect 4 from eyes/archive and memory (3 failed attempts, 0 files). Directory structure confirms 'eyes' and 'memory' exist. Start investigation by listing contents of 'eyes/archive' to identify relevant files. Will follow with 'memory' if needed. Iteration 1 of up to 3 tool uses.

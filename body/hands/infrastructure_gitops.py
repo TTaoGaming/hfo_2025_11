@@ -1,4 +1,25 @@
 """
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: f3748aa2-0d6e-467a-8acf-607f60f7247c
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.414261+00:00'
+  topos:
+    address: body/hands/infrastructure_gitops.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: infrastructure_gitops.py
+
+
 ---
 type: agent
 role: GitOps

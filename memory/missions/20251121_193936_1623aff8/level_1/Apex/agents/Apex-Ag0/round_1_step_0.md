@@ -1,3 +1,25 @@
+---
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: bcffb252-fe72-4435-8fb4-55eb84797c4d
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:12.359025+00:00'
+  topos:
+    address: memory/missions/20251121_193936_1623aff8/level_1/Apex/agents/Apex-Ag0/round_1_step_0.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: round_1_step_0.md
+---
+
 # Audit Log: Apex-Ag0 - Round 1 - Step 0
 **Timestamp**: 2025-11-21T19:39:48.948409
 **Thought**: To begin evaluating the Obsidian Horizon Hourglass algorithm, I need to locate relevant files in the directory structure that describe it. The directory lists files like Swarmlord_of_Webs_Digest_2025-11-21_18-56-23.md and GAP_ANALYSIS_GEN51.md which might contain info. I'll search for files mentioning 'Obsidian Horizon Hourglass' to find ground truth sources.

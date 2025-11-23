@@ -1,3 +1,25 @@
+---
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: bbb09ad6-0e96-4704-8775-547cd6137f72
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:06.999407+00:00'
+  topos:
+    address: memory/episodic/gen_50_archive/memory_tri_brain_draft.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: memory_tri_brain_draft.md
+---
+
 # 🧠 HFO Tri-Brain Memory Architecture (Draft)
 
 > **Status**: Draft / Proposed

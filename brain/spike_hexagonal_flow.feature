@@ -1,3 +1,24 @@
+# # ==================================================================
+# # 🤖 THE HEXAGON (System Generated)
+# # ==================================================================
+# hexagon:
+#   ontos:
+#     id: 6298ff03-a91a-48dc-bfa7-28294a9f0fbf
+#     type: feature
+#     owner: Swarmlord
+#   chronos:
+#     status: active
+#     urgency: 0.5
+#     decay: 0.5
+#     created: '2025-11-23T10:21:31.531657+00:00'
+#   topos:
+#     address: brain/spike_hexagonal_flow.feature
+#     links: []
+#   telos:
+#     viral_factor: 0.0
+#     meme: spike_hexagonal_flow.feature
+#
+
 Feature: Spike Hexagonal Flow
   """
   This spike verifies the end-to-end lifecycle of a Hexagonal Holon.

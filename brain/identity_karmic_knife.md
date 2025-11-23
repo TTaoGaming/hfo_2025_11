@@ -61,3 +61,53 @@ This concept is the **Telos** (Purpose) of the entire Hive. It defines the syste
 
 ## 🧠 Knowledge Graph
 *See `memory/semantic/knowledge_graph/core_identity.json` for the graph representation.*
+
+## 📊 The Matrix (Concept Dimensions)
+
+| Dimension | Value | Description |
+| :--- | :--- | :--- |
+| **Ontos** | Identity | The Cognitive Memetic Knife. |
+| **Telos** | Severance | Cutting Karmic Ties (Manual Labor). |
+| **Chronos** | Instant | Real-time State-Action pruning. |
+| **Topos** | State-Action Space | The geometric manifold of all possible actions. |
+| **Logos** | Virtualization | The logic of replacing hardware with software. |
+| **Pathos** | Liberation | The emotional drive to free the Creator. |
+
+## 🖼️ Visual Architecture
+
+### 1. The Knife Anatomy (Concept)
+```mermaid
+graph TD
+    A[The Cognitive Knife] --> B(The Blade)
+    A --> C(The Handle)
+    A --> D(The Cut)
+    B -->|Tectangle| E[Gesture Interface]
+    C -->|Hexagon| F[Holonic Coord System]
+    D -->|Virtualization| G[Sever Karmic Tie]
+    style A fill:#f9f,stroke:#333,stroke-width:4px
+```
+
+### 2. The Cutting Process (Flow)
+```mermaid
+sequenceDiagram
+    participant Overmind
+    participant Knife as Cognitive Knife
+    participant Web as Karmic Web
+    participant Reality
+    Overmind->>Knife: Identify Karmic Tie (Manual Task)
+    Knife->>Web: Scan Dependencies
+    Knife->>Reality: Execute Virtualization (The Cut)
+    Reality-->>Web: Remove Edge (Labor)
+    Web-->>Overmind: Return Time (Sands of Life)
+```
+
+### 3. State-Action Pruning (State)
+```mermaid
+stateDiagram-v2
+    [*] --> Entangled
+    Entangled --> Scanning: Karmic Hunt
+    Scanning --> Targeted: Tie Identified
+    Targeted --> Severing: The Cut
+    Severing --> Liberated: Virtualized
+    Liberated --> [*]
+```

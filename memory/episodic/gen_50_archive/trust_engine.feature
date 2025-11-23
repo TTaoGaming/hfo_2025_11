@@ -1,3 +1,24 @@
+# # ==================================================================
+# # 🤖 THE HEXAGON (System Generated)
+# # ==================================================================
+# hexagon:
+#   ontos:
+#     id: 697c083f-5f1b-4223-9e32-2659c4dec666
+#     type: feature
+#     owner: Swarmlord
+#   chronos:
+#     status: active
+#     urgency: 0.5
+#     decay: 0.5
+#     created: '2025-11-23T10:21:07.026710+00:00'
+#   topos:
+#     address: memory/episodic/gen_50_archive/trust_engine.feature
+#     links: []
+#   telos:
+#     viral_factor: 0.0
+#     meme: trust_engine.feature
+#
+
 Feature: HFO Trust Engine (Cognitive Exoskeleton)
   As the Overmind (User)
   I want a Co-evolutionary Adversarial Byzantine Quorum system

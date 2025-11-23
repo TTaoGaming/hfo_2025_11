@@ -1,3 +1,24 @@
+# # ==================================================================
+# # 🤖 THE HEXAGON (System Generated)
+# # ==================================================================
+# hexagon:
+#   ontos:
+#     id: 86d83192-a8f9-4b6d-ad68-53b7a3faca3a
+#     type: feature
+#     owner: Swarmlord
+#   chronos:
+#     status: active
+#     urgency: 0.5
+#     decay: 0.5
+#     created: '2025-11-23T10:21:31.489823+00:00'
+#   topos:
+#     address: brain/infrastructure_temporal.feature
+#     links: []
+#   telos:
+#     viral_factor: 0.0
+#     meme: infrastructure_temporal.feature
+#
+
 Feature: Temporal Orchestration (Stabilization Layer)
   As the Swarmlord
   I want to wrap the Research Swarm in a Temporal Workflow

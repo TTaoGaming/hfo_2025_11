@@ -1,3 +1,24 @@
+# # ==================================================================
+# # 🤖 THE HEXAGON (System Generated)
+# # ==================================================================
+# hexagon:
+#   ontos:
+#     id: 5d0d6545-9599-4cc3-8fc4-d89f461c23fa
+#     type: feature
+#     owner: Swarmlord
+#   chronos:
+#     status: active
+#     urgency: 0.5
+#     decay: 0.5
+#     created: '2025-11-23T10:21:10.169884+00:00'
+#   topos:
+#     address: memory/semantic/library/architecture/hfo_system_architecture.feature
+#     links: []
+#   telos:
+#     viral_factor: 0.0
+#     meme: hfo_system_architecture.feature
+#
+
 ---
 title: 'HFO System Architecture: Organs, Roles, Champions'
 summary: Defines a composable, evolutionary architecture for the HFO system where

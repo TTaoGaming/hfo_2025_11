@@ -1,3 +1,24 @@
+# # ==================================================================
+# # 🤖 THE HEXAGON (System Generated)
+# # ==================================================================
+# hexagon:
+#   ontos:
+#     id: d141e0ae-0756-4580-bb49-78e428b0a863
+#     type: yaml
+#     owner: Swarmlord
+#   chronos:
+#     status: active
+#     urgency: 0.5
+#     decay: 0.5
+#     created: '2025-11-23T10:21:07.009545+00:00'
+#   topos:
+#     address: memory/episodic/gen_50_archive/registry.yaml
+#     links: []
+#   telos:
+#     viral_factor: 0.0
+#     meme: registry.yaml
+#
+
 # 📜 The Holocron: Hive Fleet Obsidian Registry Spine
 # Status: Active (Metamorphosis Target)
 # Purpose: Defines the biological organ structure and the OBSIDIAN Roles that seat them.

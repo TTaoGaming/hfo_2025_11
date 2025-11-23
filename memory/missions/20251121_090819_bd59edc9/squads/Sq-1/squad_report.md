@@ -1,3 +1,25 @@
+---
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: d280d253-90ec-45ed-addf-7233fbb03a09
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:12.243171+00:00'
+  topos:
+    address: memory/missions/20251121_090819_bd59edc9/squads/Sq-1/squad_report.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: squad_report.md
+---
+
 # Squad Sq-1 Report: Historical Context
 **Consensus Score**: 0.88
 

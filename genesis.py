@@ -1,5 +1,25 @@
 #!/usr/bin/env python3
 """
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: ffade77a-c60b-42cb-94cb-04cb4723dbf1
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:20:43.110977+00:00'
+  topos:
+    address: genesis.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: genesis.py
+
 🦅 Hive Fleet Obsidian: Genesis Protocol (Gen 51)
 Usage: python genesis.py [scan|evolve]
 
@@ -184,7 +204,7 @@ class GenesisFactory:
         title_match = re.search(r"Feature: (.+)", content)
         title = title_match.group(1) if title_match else feature_file.stem
 
-        bluf_match = re.search(r'"""(.*?)"""', content, re.DOTALL)
+        bluf_match = re.search(r"\"\"\"(.*?)\"\"\"", content, re.DOTALL)
         bluf = (
             bluf_match.group(1).strip()
             if bluf_match
@@ -233,9 +253,9 @@ class GenesisFactory:
             f"    {line}" for line in header_yaml.splitlines()
         )
 
-        file_content = f'''"""
+        file_content = f"""\"\"\"
 {header_yaml_indented}
-"""
+\"\"\"
 
 # 🛡️ HIVE GUARD: ACTIVE
 # ---------------------
@@ -245,13 +265,13 @@ class GenesisFactory:
 # INTENT SOURCE: {hexagon.telos.meme}
 
 def implementation():
-    """
+    \"\"\"
     Stubs for: {hexagon.telos.bluf}
-    """
+    \"\"\"
     pass
 
 # End of Holon
-'''
+"""
         target_file.write_text(file_content)
         console.print(
             "    🔒 [green]Hive Guards Applied. Stigmergy Link Established.[/green]"

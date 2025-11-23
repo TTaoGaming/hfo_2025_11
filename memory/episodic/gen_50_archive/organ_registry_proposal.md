@@ -1,3 +1,25 @@
+---
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: a164bc43-bbdc-456d-91f4-14d5865a4d7e
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:07.002577+00:00'
+  topos:
+    address: memory/episodic/gen_50_archive/organ_registry_proposal.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: organ_registry_proposal.md
+---
+
 # 🫀 HFO Biomimetic Organ Registry (Plain Biology)
 
 > **Status**: Draft

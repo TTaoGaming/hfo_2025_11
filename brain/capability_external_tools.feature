@@ -1,3 +1,24 @@
+# # ==================================================================
+# # 🤖 THE HEXAGON (System Generated)
+# # ==================================================================
+# hexagon:
+#   ontos:
+#     id: f21e33f2-3d17-4010-8ab5-b8261b11483f
+#     type: feature
+#     owner: Swarmlord
+#   chronos:
+#     status: active
+#     urgency: 0.5
+#     decay: 0.5
+#     created: '2025-11-23T10:21:31.475614+00:00'
+#   topos:
+#     address: brain/capability_external_tools.feature
+#     links: []
+#   telos:
+#     viral_factor: 0.0
+#     meme: capability_external_tools.feature
+#
+
 ---
 owner: Swarmlord
 status: Implemented

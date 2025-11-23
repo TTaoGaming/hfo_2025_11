@@ -1,3 +1,25 @@
+"""
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 321b1e8e-7c32-4047-8001-72ea4d8b70ab
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.360226+00:00'
+  topos:
+    address: body/nerves/heartbeat.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: heartbeat.py
+"""
+
 import asyncio
 import os
 import time

@@ -1,3 +1,25 @@
+"""
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 73a3df8b-3518-4a76-84b2-b9bf3c5afda2
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.590524+00:00'
+  topos:
+    address: eyes/tools/step2_worker.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: step2_worker.py
+"""
+
 import os
 import sys
 import time

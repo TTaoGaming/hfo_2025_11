@@ -1,3 +1,24 @@
+# # ==================================================================
+# # 🤖 THE HEXAGON (System Generated)
+# # ==================================================================
+# hexagon:
+#   ontos:
+#     id: 41416c1d-b994-40bb-8135-143f95047914
+#     type: feature
+#     owner: Swarmlord
+#   chronos:
+#     status: active
+#     urgency: 0.5
+#     decay: 0.5
+#     created: '2025-11-23T10:21:11.112957+00:00'
+#   topos:
+#     address: memory/semantic/library/cognitive_architecture/cognitive_architecture.feature
+#     links: []
+#   telos:
+#     viral_factor: 0.0
+#     meme: cognitive_architecture.feature
+#
+
 ---
 title: 'Cognitive Architecture: Reasoning & Learning'
 summary: Defines Gherkin scenarios for enforcing high reasoning mode, reinforcement

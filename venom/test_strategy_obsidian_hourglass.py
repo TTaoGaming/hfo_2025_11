@@ -1,3 +1,25 @@
+"""
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: f5e85ecd-ccfc-40b4-9e0a-b0d7d8bff045
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.302011+00:00'
+  topos:
+    address: venom/test_strategy_obsidian_hourglass.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: test_strategy_obsidian_hourglass.py
+"""
+
 import pytest
 
 # 🛡️ Placeholder Test for strategy_obsidian_hourglass

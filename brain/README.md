@@ -1,3 +1,25 @@
+---
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 1157857d-4379-4593-9ea6-913072c78990
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.450279+00:00'
+  topos:
+    address: brain/README.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: README.md
+---
+
 # 🧠 The Brain (Navigator)
 
 > **Role**: Navigator / Strategist

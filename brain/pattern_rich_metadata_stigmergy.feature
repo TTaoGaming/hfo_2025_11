@@ -1,3 +1,24 @@
+# # ==================================================================
+# # 🤖 THE HEXAGON (System Generated)
+# # ==================================================================
+# hexagon:
+#   ontos:
+#     id: a531adb7-5646-4ba4-b961-89e48243290c
+#     type: feature
+#     owner: Swarmlord
+#   chronos:
+#     status: active
+#     urgency: 0.5
+#     decay: 0.5
+#     created: '2025-11-23T10:21:31.495733+00:00'
+#   topos:
+#     address: brain/pattern_rich_metadata_stigmergy.feature
+#     links: []
+#   telos:
+#     viral_factor: 0.0
+#     meme: pattern_rich_metadata_stigmergy.feature
+#
+
 Feature: Rich Metadata Stigmergy
   As the Swarmlord
   I want to define a "Rich Metadata" schema for Stigmergy

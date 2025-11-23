@@ -1,3 +1,24 @@
+# # ==================================================================
+# # 🤖 THE HEXAGON (System Generated)
+# # ==================================================================
+# hexagon:
+#   ontos:
+#     id: a2097cae-767c-4057-9f5a-86b5f2e6c0cb
+#     type: feature
+#     owner: Swarmlord
+#   chronos:
+#     status: active
+#     urgency: 0.5
+#     decay: 0.5
+#     created: '2025-11-23T10:21:09.997114+00:00'
+#   topos:
+#     address: memory/semantic/library/infrastructure/fractal_scaling.feature
+#     links: []
+#   telos:
+#     viral_factor: 0.0
+#     meme: fractal_scaling.feature
+#
+
 ---
 title: 'HFO Fractal Scaling: Holonic Hierarchy'
 summary: Feature specification for a recursive holonic command structure enabling

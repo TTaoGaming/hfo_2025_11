@@ -4,6 +4,27 @@ status: Active
 domain: Memory
 owners: [Swarmlord]
 type: Mission
+
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 3b4a025e-1e78-4248-a795-ead395c9e1dc
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.467944+00:00'
+  topos:
+    address: brain/mission_audit_weave.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: mission_audit_weave.md
+
 ---
 
 # 🕸️ Mission: Audit & Weave

@@ -1,3 +1,24 @@
+# # ==================================================================
+# # 🤖 THE HEXAGON (System Generated)
+# # ==================================================================
+# hexagon:
+#   ontos:
+#     id: 80458dca-1d62-4cff-8aa6-78154d9a4f80
+#     type: feature
+#     owner: Swarmlord
+#   chronos:
+#     status: active
+#     urgency: 0.5
+#     decay: 0.5
+#     created: '2025-11-23T10:21:10.326828+00:00'
+#   topos:
+#     address: memory/semantic/library/operations/growth_workflow.feature
+#     links: []
+#   telos:
+#     viral_factor: 0.0
+#     meme: growth_workflow.feature
+#
+
 ---
 title: GROWTH Loop Workflow (F3EAD Operational Cycle)
 summary: Defines the Level 2 GROWTH operational loop for the Swarm Architect, adapting

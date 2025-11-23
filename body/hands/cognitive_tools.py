@@ -1,3 +1,25 @@
+"""
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: faabeda7-032c-41d7-b8c7-bdbd7357ad3e
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.377558+00:00'
+  topos:
+    address: body/hands/cognitive_tools.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: cognitive_tools.py
+"""
+
 from typing import List, Optional
 from pydantic import BaseModel, Field
 

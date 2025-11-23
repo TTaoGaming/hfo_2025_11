@@ -1,3 +1,25 @@
+"""
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: f78be71b-5583-4a8d-b517-e31d69d950ad
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.565485+00:00'
+  topos:
+    address: carapace/hive_guards/guard_fractal_config.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: guard_fractal_config.py
+"""
+
 #!/usr/bin/env python3
 import yaml
 import sys

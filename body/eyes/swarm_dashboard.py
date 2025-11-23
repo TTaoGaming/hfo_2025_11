@@ -1,3 +1,25 @@
+"""
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 36d47c2f-67b7-48fb-a15e-db81c404658e
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.447672+00:00'
+  topos:
+    address: body/eyes/swarm_dashboard.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: swarm_dashboard.py
+"""
+
 import asyncio
 import json
 from datetime import datetime

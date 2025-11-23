@@ -4,6 +4,27 @@ status: Active
 domain: Memory
 owners: [Swarmlord]
 type: Mission
+
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: d63df030-df4c-4735-a63c-16578c92ead2
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.469548+00:00'
+  topos:
+    address: brain/mission_ingest_gems.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: mission_ingest_gems.md
+
 ---
 
 # 💎 Mission: Ingest Gems

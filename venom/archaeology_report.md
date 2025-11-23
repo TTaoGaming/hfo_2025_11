@@ -1,3 +1,25 @@
+---
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 1dc07753-b6ff-483b-9f79-f3f47dd91e82
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.316317+00:00'
+  topos:
+    address: venom/archaeology_report.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: archaeology_report.md
+---
+
 # 🦕 Fractal Archaeology Report
 **Date**: "1763884766.0839024" (Simulated)
 **Strata Analyzed**: 42 Generations

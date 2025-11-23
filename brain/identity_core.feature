@@ -1,3 +1,24 @@
+# # ==================================================================
+# # 🤖 THE HEXAGON (System Generated)
+# # ==================================================================
+# hexagon:
+#   ontos:
+#     id: d888bbe1-3a61-4fbd-83e0-f1c5a9ed1092
+#     type: feature
+#     owner: Swarmlord
+#   chronos:
+#     status: active
+#     urgency: 0.5
+#     decay: 0.5
+#     created: '2025-11-23T10:21:31.533006+00:00'
+#   topos:
+#     address: brain/identity_core.feature
+#     links: []
+#   telos:
+#     viral_factor: 0.0
+#     meme: identity_core.feature
+#
+
 Feature: Hive Fleet Obsidian Core Identity
   As the Swarmlord
   I want to define the immutable identity of the system

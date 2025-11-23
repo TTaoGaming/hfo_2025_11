@@ -1,3 +1,25 @@
+"""
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 7b5ce666-8571-47fe-aff5-4af33b178e48
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.433499+00:00'
+  topos:
+    address: body/digestion/graph_gardener.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: graph_gardener.py
+"""
+
 import json
 from pathlib import Path
 

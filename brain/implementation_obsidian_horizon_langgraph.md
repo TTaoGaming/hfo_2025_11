@@ -4,6 +4,27 @@ status: Draft
 domain: Architecture
 owners: [Swarmlord]
 type: Implementation Spec
+
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 6a4432fd-4435-4a10-a8d6-477238a3795e
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.474058+00:00'
+  topos:
+    address: brain/implementation_obsidian_horizon_langgraph.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: implementation_obsidian_horizon_langgraph.md
+
 ---
 
 # 🛠️ Implementation: Obsidian Horizon Hourglass (LangGraph)

@@ -3,6 +3,27 @@ title: 'Workshop: Recalibrating the Obsidian Mind'
 status: 'Active'
 participants: ['User', 'Swarmlord']
 objective: 'Identify context drift and re-anchor the Holonic Knowledge Leveling design to the core Obsidian philosophy.'
+
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 4b2472d2-85a8-4682-85a0-94fc9420ed71
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.523861+00:00'
+  topos:
+    address: brain/workshop_recalibration.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: workshop_recalibration.md
+
 ---
 
 # 🛠️ Workshop: Recalibrating the Obsidian Mind

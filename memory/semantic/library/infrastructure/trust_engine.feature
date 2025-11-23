@@ -1,3 +1,24 @@
+# # ==================================================================
+# # 🤖 THE HEXAGON (System Generated)
+# # ==================================================================
+# hexagon:
+#   ontos:
+#     id: eff48194-5cdd-4d28-8c7a-88c5dd2ec0ef
+#     type: feature
+#     owner: Swarmlord
+#   chronos:
+#     status: active
+#     urgency: 0.5
+#     decay: 0.5
+#     created: '2025-11-23T10:21:10.004636+00:00'
+#   topos:
+#     address: memory/semantic/library/infrastructure/trust_engine.feature
+#     links: []
+#   telos:
+#     viral_factor: 0.0
+#     meme: trust_engine.feature
+#
+
 ---
 title: 'HFO Trust Engine: Co-evolutionary Adversarial Byzantine Quorum System'
 summary: Feature specification for a trust engine ensuring reliable outputs from unreliable

@@ -1,3 +1,25 @@
+---
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: d5746dc1-8687-49c1-83c5-0d0c2650a10b
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:20:43.115052+00:00'
+  topos:
+    address: Swarmlord_of_Webs_Digest_2025-11-21_18-56-23.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: Swarmlord_of_Webs_Digest_2025-11-21_18-56-23.md
+---
+
 # 🦅 Swarmlord of Webs Digest
 
 **Date**: 2025-11-21_18-56-23

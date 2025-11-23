@@ -1,3 +1,25 @@
+---
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 2a7817c7-b6a9-439f-bca2-180e9a1f23d5
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:11.876128+00:00'
+  topos:
+    address: memory/missions/20251121_040700_6c587438/squads/Sq-3/agents/Sq-3-Ag0/round_1.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: round_1.md
+---
+
 # Agent Sq-3-Ag0 - Round 1
 **Role**: Investigative Journalist
 **Style**: Narrative, connecting dots, skeptical

@@ -1,3 +1,25 @@
+"""
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 8308d916-f17b-46bd-a34a-578eade0a1ea
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.444237+00:00'
+  topos:
+    address: body/digestion/import_gen43.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: import_gen43.py
+"""
+
 import json
 import networkx as nx
 from pathlib import Path

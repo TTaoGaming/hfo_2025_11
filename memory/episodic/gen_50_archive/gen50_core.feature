@@ -1,3 +1,24 @@
+# # ==================================================================
+# # 🤖 THE HEXAGON (System Generated)
+# # ==================================================================
+# hexagon:
+#   ontos:
+#     id: b44cd263-663b-430a-9137-9335f6e891ba
+#     type: feature
+#     owner: Swarmlord
+#   chronos:
+#     status: active
+#     urgency: 0.5
+#     decay: 0.5
+#     created: '2025-11-23T10:21:06.985167+00:00'
+#   topos:
+#     address: memory/episodic/gen_50_archive/gen50_core.feature
+#     links: []
+#   telos:
+#     viral_factor: 0.0
+#     meme: gen50_core.feature
+#
+
 Feature: Gen 50 Core Architecture
     As the Hive Mind (User)
     I want a declarative system for defining agent behaviors

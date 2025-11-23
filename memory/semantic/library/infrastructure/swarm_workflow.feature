@@ -1,3 +1,24 @@
+# # ==================================================================
+# # 🤖 THE HEXAGON (System Generated)
+# # ==================================================================
+# hexagon:
+#   ontos:
+#     id: ecb550e4-c989-4a4a-ba98-b4e4dcf33070
+#     type: feature
+#     owner: Swarmlord
+#   chronos:
+#     status: active
+#     urgency: 0.5
+#     decay: 0.5
+#     created: '2025-11-23T10:21:10.001853+00:00'
+#   topos:
+#     address: memory/semantic/library/infrastructure/swarm_workflow.feature
+#     links: []
+#   telos:
+#     viral_factor: 0.0
+#     meme: swarm_workflow.feature
+#
+
 ---
 title: 'SWARM Loop: Fractal Coordination Holon Workflow'
 summary: Defines the recursive lifecycle of a Swarm Holon through phases of Set (decomposition),

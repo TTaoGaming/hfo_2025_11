@@ -1,3 +1,25 @@
+"""
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: f600b2b4-52ca-4a20-8ef6-d3bd2171f56d
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.378755+00:00'
+  topos:
+    address: body/hands/tool_registry.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: tool_registry.py
+"""
+
 import logging
 from typing import Dict, Any, Callable
 from body.hands.tools import ToolSet

@@ -1,3 +1,25 @@
+---
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 6fe73c59-28b1-43ac-aed1-0699754f1a41
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:11.885038+00:00'
+  topos:
+    address: memory/missions/20251121_040700_6c587438/squads/Sq-3/agents/Sq-3-Ag3/round_2.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: round_2.md
+---
+
 # Agent Sq-3-Ag3 - Round 2
 **Role**: Futurist
 **Style**: Speculative, trend-focused, visionary

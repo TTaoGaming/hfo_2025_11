@@ -1,3 +1,24 @@
+# # ==================================================================
+# # 🤖 THE HEXAGON (System Generated)
+# # ==================================================================
+# hexagon:
+#   ontos:
+#     id: 7c7a9185-99e9-46cf-9d9d-55e5f4231028
+#     type: yaml
+#     owner: Swarmlord
+#   chronos:
+#     status: active
+#     urgency: 0.5
+#     decay: 0.5
+#     created: '2025-11-23T10:21:06.976567+00:00'
+#   topos:
+#     address: memory/episodic/gen_50_archive/concepts.yaml
+#     links: []
+#   telos:
+#     viral_factor: 0.0
+#     meme: concepts.yaml
+#
+
 # 🧠 Hive Fleet Obsidian: Brain Concept Registry
 # Purpose: Define the "Intent" concepts and their maturity status.
 # Rule: Every concept must have:

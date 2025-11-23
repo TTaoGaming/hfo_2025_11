@@ -1,13 +1,35 @@
+"""
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 3e5f11ef-4f4f-48b0-a3c5-bc42bfea0c66
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.610253+00:00'
+  topos:
+    address: scripts/generate_visualizations.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: generate_visualizations.py
+"""
+
 import sys
 import subprocess
 
 # Install dependencies if not present
 try:
-    import networkx
-    import matplotlib
-    import pandas
-    import pyvis
-    import sklearn
+    import networkx  # noqa: F401
+    import matplotlib  # noqa: F401
+    import pandas  # noqa: F401
+    import pyvis  # noqa: F401
+    import sklearn  # noqa: F401
 except ImportError:
     print("Installing dependencies...")
     subprocess.check_call(
@@ -210,13 +232,15 @@ try:
     top_nodes = sorted(centrality, key=centrality.get, reverse=True)[:15]
 
     # Get subgraph of top nodes + their immediate neighbors to ensure connections
-    core_nodes = set(top_nodes)
+    core_nodes_set = set(top_nodes)
     for n in top_nodes:
-        core_nodes.update(list(G.neighbors(n)))
+        core_nodes_set.update(list(G.neighbors(n)))
+
+    core_nodes = list(core_nodes_set)
 
     # Limit to reasonable size for Mermaid (max 50 nodes)
     if len(core_nodes) > 50:
-        core_nodes = list(core_nodes)[:50]
+        core_nodes = core_nodes[:50]
 
     subgraph_core = G.subgraph(core_nodes)
 

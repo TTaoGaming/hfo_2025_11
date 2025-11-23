@@ -1,4 +1,25 @@
 """
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 10820020-9bb5-4339-94d7-5146e3754f41
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.350251+00:00'
+  topos:
+    address: body/models/hexagon.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: hexagon.py
+
+
 Hexagonal Holon Model (The Universal Adapter)
 ---------------------------------------------
 This module defines the Single Source of Truth (SSOT) for the Hexagonal Holon.

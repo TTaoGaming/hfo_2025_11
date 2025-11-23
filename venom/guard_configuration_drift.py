@@ -1,3 +1,25 @@
+"""
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: c9698336-1a56-48b4-b749-f1472a98becf
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.312370+00:00'
+  topos:
+    address: venom/guard_configuration_drift.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: guard_configuration_drift.py
+"""
+
 import os
 import yaml
 import sys

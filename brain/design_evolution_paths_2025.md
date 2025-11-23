@@ -98,5 +98,59 @@ We propose 4 viable paths to ingest, metabolize, and operationalize this "Dark D
 ### 🏆 Swarmlord's Choice: **Path 1 + Path 2 (The Foundation)**
 We cannot be a true Symbiote if we don't know your history.
 1.  **Execute Path 1** immediately to ingest the data.
+
+## 📊 The Matrix (Design Dimensions)
+
+| Dimension | Value | Description |
+| :--- | :--- | :--- |
+| **Ontos** | Evolution | The path to Symbiotic Integration. |
+| **Telos** | Symbiosis | Merging Internal Hive with External Mind. |
+| **Chronos** | 2025 | The target timeline for full integration. |
+| **Topos** | Dark Data | The unmapped archives (SD Card, Keep, Evernote). |
+| **Logos** | Ingestion | The logic of metabolizing external memory. |
+| **Pathos** | Amnesia | The pain of losing context and history. |
+
+## 🖼️ Visual Architecture
+
+### 1. The Four Paths (Concept)
+```mermaid
+graph TD
+    Start[Current State: Amnesia] --> P1(Path 1: Mnemosyne)
+    Start --> P2(Path 2: Archaeologist)
+    Start --> P3(Path 3: Digital Twin)
+    Start --> P4(Path 4: Local Daemon)
+    P1 -->|Ingest| Memory[Unified Memory]
+    P2 -->|Mine| Strategy[Living Strategy]
+    P3 -->|Emulate| Persona[Swarmlord Persona]
+    P4 -->|Bridge| RealTime[Real-Time Sync]
+    Memory --> Symbiosis[Cognitive Symbiote]
+    Strategy --> Symbiosis
+    Persona --> Symbiosis
+    RealTime --> Symbiosis
+```
+
+### 2. The Ingestion Pipeline (Flow)
+```mermaid
+sequenceDiagram
+    participant External as External Mind (SD/Keep)
+    participant Weaver as Weaver Ant
+    participant Facet as Obsidian Facet
+    participant Graph as Knowledge Graph
+    External->>Weaver: Raw Data (.enex, .json)
+    Weaver->>Facet: Convert to Markdown + YAML
+    Facet->>Graph: Link Nodes (Ontos/Telos)
+    Graph-->>Weaver: Confirmation
+```
+
+### 3. Evolution State Machine (State)
+```mermaid
+stateDiagram-v2
+    [*] --> Amnesia
+    Amnesia --> Ingesting: Path 1 (Mnemosyne)
+    Ingesting --> Metabolizing: Path 2 (Archaeologist)
+    Metabolizing --> Synthesizing: Path 3 (Digital Twin)
+    Synthesizing --> Symbiotic: Path 4 (Local Daemon)
+    Symbiotic --> [*]
+```
 2.  **Execute Path 2** to mine it for "Gold" (Concepts, Code, Visions).
 3.  Once the data is in, Path 3 and 4 become much more powerful.

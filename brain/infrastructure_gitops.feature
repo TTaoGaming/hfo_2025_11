@@ -1,3 +1,24 @@
+# # ==================================================================
+# # 🤖 THE HEXAGON (System Generated)
+# # ==================================================================
+# hexagon:
+#   ontos:
+#     id: 555dcbba-5d2f-4b67-bcb2-aba7d1a3bb64
+#     type: feature
+#     owner: Swarmlord
+#   chronos:
+#     status: active
+#     urgency: 0.5
+#     decay: 0.5
+#     created: '2025-11-23T10:21:31.490912+00:00'
+#   topos:
+#     address: brain/infrastructure_gitops.feature
+#     links: []
+#   telos:
+#     viral_factor: 0.0
+#     meme: infrastructure_gitops.feature
+#
+
 Feature: GitOps Automation Protocol
   As the Swarmlord
   I want a resilient, agentic GitOps workflow

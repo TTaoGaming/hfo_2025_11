@@ -18,6 +18,27 @@ related_files:
 type: crystallized_memory
 status: active
 last_verified: '2025-11-21'
+
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: a3b39302-aa13-41ce-be9c-781086bbf891
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:10.275463+00:00'
+  topos:
+    address: memory/semantic/library/strategy/README.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: README.md
+
 ---
 
 # 🧠 The Brain (Navigator)

@@ -1,3 +1,24 @@
+# # ==================================================================
+# # 🤖 THE HEXAGON (System Generated)
+# # ==================================================================
+# hexagon:
+#   ontos:
+#     id: 96970e84-b648-41c8-8e5d-1e3b45ee4334
+#     type: yaml
+#     owner: Swarmlord
+#   chronos:
+#     status: active
+#     urgency: 0.5
+#     decay: 0.5
+#     created: '2025-11-23T10:21:31.488167+00:00'
+#   topos:
+#     address: brain/configuration_ssot.yaml
+#     links: []
+#   telos:
+#     viral_factor: 0.0
+#     meme: configuration_ssot.yaml
+#
+
 # 🦅 Hive Fleet Obsidian: Single Source of Truth (SSOT) Configuration
 # This file defines the canonical configuration for the "Hybrid Stability Protocol".
 # All code must reference these values or use os.getenv() with these as defaults.

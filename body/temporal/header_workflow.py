@@ -1,3 +1,25 @@
+"""
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: d24abba3-1fa5-4ecc-b925-837be2fcd17b
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.353766+00:00'
+  topos:
+    address: body/temporal/header_workflow.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: header_workflow.py
+"""
+
 from datetime import timedelta
 from temporalio import activity, workflow
 from temporalio.common import RetryPolicy

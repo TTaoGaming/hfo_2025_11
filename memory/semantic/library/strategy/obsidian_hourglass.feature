@@ -1,3 +1,24 @@
+# # ==================================================================
+# # 🤖 THE HEXAGON (System Generated)
+# # ==================================================================
+# hexagon:
+#   ontos:
+#     id: d9d25c84-20a0-422a-8825-e97805105cf8
+#     type: feature
+#     owner: Swarmlord
+#   chronos:
+#     status: active
+#     urgency: 0.5
+#     decay: 0.5
+#     created: '2025-11-23T10:21:10.280585+00:00'
+#   topos:
+#     address: memory/semantic/library/strategy/obsidian_hourglass.feature
+#     links: []
+#   telos:
+#     viral_factor: 0.0
+#     meme: obsidian_hourglass.feature
+#
+
 ---
 title: 'Obsidian Hourglass: Anytime Algorithm for Swarmlord'
 summary: The Obsidian Hourglass is an anytime decision-making algorithm that enables

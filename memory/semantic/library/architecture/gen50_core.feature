@@ -1,3 +1,24 @@
+# # ==================================================================
+# # 🤖 THE HEXAGON (System Generated)
+# # ==================================================================
+# hexagon:
+#   ontos:
+#     id: 4117c935-4c9c-4124-b53e-c6e09b706fd8
+#     type: feature
+#     owner: Swarmlord
+#   chronos:
+#     status: active
+#     urgency: 0.5
+#     decay: 0.5
+#     created: '2025-11-23T10:21:10.168421+00:00'
+#   topos:
+#     address: memory/semantic/library/architecture/gen50_core.feature
+#     links: []
+#   telos:
+#     viral_factor: 0.0
+#     meme: gen50_core.feature
+#
+
 ---
 title: Gen 50 Core Architecture
 summary: Defines a declarative system for Hive Mind agent behaviors, covering historical

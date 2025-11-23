@@ -1,3 +1,24 @@
+# # ==================================================================
+# # 🤖 THE HEXAGON (System Generated)
+# # ==================================================================
+# hexagon:
+#   ontos:
+#     id: e661800f-9788-46ed-87cc-6b176bbe1970
+#     type: feature
+#     owner: Swarmlord
+#   chronos:
+#     status: active
+#     urgency: 0.5
+#     decay: 0.5
+#     created: '2025-11-23T10:21:31.458242+00:00'
+#   topos:
+#     address: brain/biology_stigmergy.feature
+#     links: []
+#   telos:
+#     viral_factor: 0.0
+#     meme: biology_stigmergy.feature
+#
+
 ---
 owner: Swarmlord
 status: Placeholder

@@ -1,3 +1,24 @@
+# # ==================================================================
+# # 🤖 THE HEXAGON (System Generated)
+# # ==================================================================
+# hexagon:
+#   ontos:
+#     id: 3e21fb60-c729-42bc-91fd-80f3a5bfc7e8
+#     type: feature
+#     owner: Swarmlord
+#   chronos:
+#     status: active
+#     urgency: 0.5
+#     decay: 0.5
+#     created: '2025-11-23T10:21:10.279027+00:00'
+#   topos:
+#     address: memory/semantic/library/strategy/hive_workflow.feature
+#     links: []
+#   telos:
+#     viral_factor: 0.0
+#     meme: hive_workflow.feature
+#
+
 ---
 title: 'HIVE Loop: Strategic Double Diamond Workflow'
 summary: Defines the Level 3 HIVE strategic loop as a recursive Double Diamond process

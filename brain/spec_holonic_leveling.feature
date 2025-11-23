@@ -1,3 +1,24 @@
+# # ==================================================================
+# # 🤖 THE HEXAGON (System Generated)
+# # ==================================================================
+# hexagon:
+#   ontos:
+#     id: eb0a877e-bf9e-4b4e-8420-f2b3b6f09164
+#     type: feature
+#     owner: Swarmlord
+#   chronos:
+#     status: active
+#     urgency: 0.5
+#     decay: 0.5
+#     created: '2025-11-23T10:21:31.522471+00:00'
+#   topos:
+#     address: brain/spec_holonic_leveling.feature
+#     links: []
+#   telos:
+#     viral_factor: 0.0
+#     meme: spec_holonic_leveling.feature
+#
+
 Feature: Holonic Knowledge Leveling (Cooling System)
 
   As the Swarmlord

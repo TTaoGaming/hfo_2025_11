@@ -1,3 +1,24 @@
+# # ==================================================================
+# # 🤖 THE HEXAGON (System Generated)
+# # ==================================================================
+# hexagon:
+#   ontos:
+#     id: 84708028-21c0-475f-a5cc-ef4c5ed186da
+#     type: feature
+#     owner: Swarmlord
+#   chronos:
+#     status: active
+#     urgency: 0.5
+#     decay: 0.5
+#     created: '2025-11-23T10:21:06.987536+00:00'
+#   topos:
+#     address: memory/episodic/gen_50_archive/hfo_anatomy.feature
+#     links: []
+#   telos:
+#     viral_factor: 0.0
+#     meme: hfo_anatomy.feature
+#
+
 Feature: HFO Biological Anatomy
     As the Swarmlord
     I want the system organized into biological organs

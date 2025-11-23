@@ -1,3 +1,25 @@
+"""
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: ade2792e-04e4-4ddd-8a95-ba3992ce79de
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.325552+00:00'
+  topos:
+    address: venom/smoke/test_06_langsmith.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: test_06_langsmith.py
+"""
+
 import os
 import pytest
 from langchain_core.tracers.context import tracing_v2_enabled

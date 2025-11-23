@@ -1,4 +1,25 @@
 """
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 5cbe2091-e4db-45c5-b380-600d360b8020
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.421555+00:00'
+  topos:
+    address: body/hands/design_mountain_web_stigmergy.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: design_mountain_web_stigmergy.py
+
+
 Intent: Implement the Mountain & Web Stigmergy System.
 """
 

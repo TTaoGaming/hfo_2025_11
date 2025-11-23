@@ -1,3 +1,25 @@
+---
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 3d32c9c9-5d20-49df-880b-1c2a259fffc2
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.552775+00:00'
+  topos:
+    address: carapace/README.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: README.md
+---
+
 # 🛡️ The Carapace (Immunizer)
 
 > **Role**: Immunizer / Guardian

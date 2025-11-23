@@ -1,3 +1,25 @@
+"""
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 5cc4cfcd-a6b1-4899-85ac-cbc44c4daa93
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.266597+00:00'
+  topos:
+    address: venom/verify_nats_swarm.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: verify_nats_swarm.py
+"""
+
 import logging
 import sys
 import os

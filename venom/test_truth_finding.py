@@ -1,3 +1,25 @@
+"""
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: f5103830-869b-4723-936d-b4d6703236d6
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.269653+00:00'
+  topos:
+    address: venom/test_truth_finding.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: test_truth_finding.py
+"""
+
 import asyncio
 import ray
 import uuid

@@ -1,3 +1,25 @@
+---
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 22869021-6fc4-48b6-94a9-c17ee546cc8b
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.501921+00:00'
+  topos:
+    address: brain/guide_holographic_intuition.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: guide_holographic_intuition.md
+---
+
 # 🧠 The Holographic Intuition: A Field Guide
 
 > **Context**: Deep Dive into Fractal Holarchy + Obsidian Facet

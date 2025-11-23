@@ -1,3 +1,25 @@
+---
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 7dc90842-1268-4dc3-a400-8c337b4d5c73
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:12.325661+00:00'
+  topos:
+    address: memory/missions/20251121_101320_c8e171db/level_1/Apex/holon_report.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: holon_report.md
+---
+
 # Holon Apex (L1) Report: Mission Objective
 **Consensus Score**: 0.99
 

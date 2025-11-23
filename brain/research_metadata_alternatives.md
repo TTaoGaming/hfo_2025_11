@@ -1,3 +1,25 @@
+---
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: c0d498e7-22d1-40b0-b8ad-a74a96944a08
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.499676+00:00'
+  topos:
+    address: brain/research_metadata_alternatives.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: research_metadata_alternatives.md
+---
+
 # 🧬 Rich Metadata: 4 Viable Evolutionary Paths
 
 > **Status**: Research

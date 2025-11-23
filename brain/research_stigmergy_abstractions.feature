@@ -1,3 +1,24 @@
+# # ==================================================================
+# # 🤖 THE HEXAGON (System Generated)
+# # ==================================================================
+# hexagon:
+#   ontos:
+#     id: 082a3073-2c04-401b-9856-7f893589ac1c
+#     type: feature
+#     owner: Swarmlord
+#   chronos:
+#     status: active
+#     urgency: 0.5
+#     decay: 0.5
+#     created: '2025-11-23T10:21:31.504291+00:00'
+#   topos:
+#     address: brain/research_stigmergy_abstractions.feature
+#     links: []
+#   telos:
+#     viral_factor: 0.0
+#     meme: research_stigmergy_abstractions.feature
+#
+
 Feature: Higher-Order Stigmergy Abstractions
   As the Swarmlord
   I want to define the philosophical and physical abstractions of Stigmergy

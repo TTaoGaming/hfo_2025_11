@@ -1,3 +1,25 @@
+"""
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: aaebd93c-31fb-430d-862b-b849ef5855bd
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.309266+00:00'
+  topos:
+    address: venom/smart_cleanup.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: smart_cleanup.py
+"""
+
 #!/usr/bin/env python3
 import shutil
 from pathlib import Path

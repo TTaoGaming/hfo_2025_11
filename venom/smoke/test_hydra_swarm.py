@@ -1,3 +1,25 @@
+"""
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 3fbe57b0-2431-4c8b-b713-177869f5ec29
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.329277+00:00'
+  topos:
+    address: venom/smoke/test_hydra_swarm.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: test_hydra_swarm.py
+"""
+
 import pytest
 from body.hands.hydra_swarm import build_hydra_graph
 

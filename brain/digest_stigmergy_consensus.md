@@ -1,3 +1,25 @@
+---
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: d7326e20-06f5-4fc4-a5b8-036f599ba4c1
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.500838+00:00'
+  topos:
+    address: brain/digest_stigmergy_consensus.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: digest_stigmergy_consensus.md
+---
+
 # 🧠 Swarmlord Digest: The Holographic Consensus
 
 > **Status**: Crystallized

@@ -1,3 +1,25 @@
+"""
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: f1f21da2-647f-42fb-a2d4-da3db890dcd2
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.376408+00:00'
+  topos:
+    address: body/hands/prey_agent.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: prey_agent.py
+"""
+
 import os
 import logging
 import json
