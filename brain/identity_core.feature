@@ -52,4 +52,4 @@ Feature: Hive Fleet Obsidian Core Identity
     And the signature must include "🧭" (Navigator)
     And the signature must include "⏳" (Hourglass)
     And the combined signature "🕸⛰🧭⏳" represents the "Swarmlord of Webs"
-    And the environment is described as a "Sandstorm" of "Hexagonal Seeding"
+    And the environment is described as a "Sandstorm" of "HFO Stigmergy"

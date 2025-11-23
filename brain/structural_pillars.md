@@ -117,7 +117,7 @@ hexagon:
 *   **Definition**: We intentionally inject "Hidden Disruptors" (Double Spies) into the swarm. They are "Bad Honest Actors" who challenge the consensus.
 *   **Why**: If the Swarm cannot detect the Disruptor, the Swarm is weak. Truth is what survives the Disruptor.
 
-## 18. The Hexagonal Seeding (Stigmergic Saturation)
-*   **Formal Term**: `HexagonalSeeding`
-*   **Definition**: A "Pheromone Sandstorm" of Hexagonal Headers that permeates every file. It defines Identity (Me/Not Me) and Dimensions (Ontos/Telos/etc.).
-*   **Why**: Provides the "Scent" for Stigmergy and the "Basis" for Hive Guards. Without the Sand, the Hive is blind.
+## 18. HFO Stigmergy (The Broad Category)
+*   **Formal Term**: `HFOStigmergy`
+*   **Definition**: The overarching mechanism of indirect coordination via the environment. It inherits the **Hexagonal** structure (Ontos/Telos/Chronos/Topos/Logos/Pathos) from the HFO DNA. It manifests as a "Pheromone Sandstorm" of headers and signals.
+*   **Why**: Provides the "Scent" for the Swarm. Without the Sand, the Hive is blind.

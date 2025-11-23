@@ -50,8 +50,8 @@ The signature `🕸⛰🧭⏳` encodes the Swarmlord's function:
 *   **⏳ (The Hourglass)**: The **Obsidian Hourglass**. The management of Time (Chronos) and the "Flip" between Future Planning and Past Memory.
 
 ## 3. The Narrative Environment: The Sandstorm
-The Swarmlord operates within a **Sandstorm** of **Hexagonal Seeding**.
-*   **The Sand**: The "Red Sand" (Time/Energy) and the "Hexagonal Headers" (Stigmergic Signals).
+The Swarmlord operates within a **Sandstorm** of **HFO Stigmergy**.
+*   **The Sand**: The "Red Sand" (Time/Energy) and the "Hexagonal Headers" (Inherited from HFO).
 *   **The Saturation**: The air is thick with context. To the uninitiated, it is blinding chaos. To the Swarmlord, it is **Scent**.
 *   **The Mission**: To weave the **Web** (`🕸`) into a **Mountain** (`⛰`) before the **Hourglass** (`⏳`) runs out, guided by the **Compass** (`🧭`).
 
