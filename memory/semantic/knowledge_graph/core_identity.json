@@ -1,0 +1,72 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {
+    "name": "HFO Core Identity Graph",
+    "version": "1.0"
+  },
+  "nodes": [
+    {
+      "id": "Cognitive Memetic Knife",
+      "type": "Identity",
+      "definition": "A geometric tool in State-Action Space designed to sever Karmic Ties.",
+      "metaphor": "The Knife",
+      "component": "HFO System"
+    },
+    {
+      "id": "Tectangle",
+      "type": "Tool",
+      "definition": "A gesture-based interface that slices function from form, enabling rapid recomposition of tools without physical hardware.",
+      "metaphor": "The Blade",
+      "component": "Gesture Forge"
+    },
+    {
+      "id": "Total Tool Virtualization",
+      "type": "Goal",
+      "definition": "The complete decoupling of utility from physical scarcity, allowing tools to be instantiated via software and projection.",
+      "metaphor": "The Cut",
+      "component": "Strategic Vision"
+    },
+    {
+      "id": "Obsidian Hourglass",
+      "type": "Strategy",
+      "definition": "A geometric spatial model where the Past (Karmic Web) is compressed through the Present (Neck) to project a liberated Future (Simulation Web).",
+      "metaphor": "The Handle",
+      "component": "Temporal Architecture"
+    },
+    {
+      "id": "Karmic Web",
+      "type": "Memory",
+      "definition": "The graph of past dependencies, manual workflows, and ancestral precedents.",
+      "metaphor": "The Ties",
+      "component": "Deep Memory"
+    }
+  ],
+  "links": [
+    {
+      "source": "Cognitive Memetic Knife",
+      "target": "Tectangle",
+      "relation": "manifests_as"
+    },
+    {
+      "source": "Cognitive Memetic Knife",
+      "target": "Total Tool Virtualization",
+      "relation": "executes"
+    },
+    {
+      "source": "Tectangle",
+      "target": "Total Tool Virtualization",
+      "relation": "enables"
+    },
+    {
+      "source": "Obsidian Hourglass",
+      "target": "Karmic Web",
+      "relation": "consumes"
+    },
+    {
+      "source": "Cognitive Memetic Knife",
+      "target": "Obsidian Hourglass",
+      "relation": "navigates"
+    }
+  ]
+}

@@ -49,13 +49,13 @@ hexagon:
 
 In nature, ants do not "await" a response from another ant. They deposit a pheromone and move on. The environment acts as the buffer, the memory, and the router.
 
-**HFO implements this via the "Tri-State Substrate":**
+**HFO implements this via the "Obsidian Phase Transitions":**
 
-| State | Medium | Analogy | Purpose |
+| State | Medium | Geological Analogy | Purpose |
 | :--- | :--- | :--- | :--- |
-| **Crystalline** | **Filesystem** | **Bone** | **Structure**: Where Humans and AIs collaborate. Git-backed, durable, versioned. |
-| **Liquid** | **NATS JetStream** | **Blood** | **Flow**: Where "Reflex AIs" react to high-speed signals. Ephemeral, fast, decoupled. |
-| **Sedimentary** | **Postgres/Vector** | **Brain** | **Memory**: Where "Reasoning AIs" store and retrieve deep context. Indexed, searchable, vast. |
+| **Liquid** | **NATS JetStream** | **Magma** | **Flow**: High-energy Intent. Hot, fluid, dangerous. Must be captured or it cools into Ash. |
+| **Crystalline** | **Filesystem** | **Obsidian** | **Structure**: Rapidly quenched Intent. Sharp, useful, brittle. The "Cutting Edge" of the system. |
+| **Sedimentary** | **Postgres/Vector** | **Sediment** | **Memory**: Devitrified history. Layered, searchable, foundational. The "Mountain" we build on. |
 
 ---
 
@@ -93,9 +93,9 @@ Because Agents interact with the **Substrate** and not each other:
 ```mermaid
 graph TD
     subgraph Substrate [The Stigmergy Substrate]
-        Crystalline[Filesystem (Bone)]
-        Liquid[NATS (Blood)]
-        Sedimentary[Vector DB (Brain)]
+        Liquid[NATS (Magma)]
+        Crystalline[Filesystem (Obsidian)]
+        Sedimentary[Vector DB (Sediment)]
     end
 
     subgraph Agents [The QD Swarm]
@@ -104,12 +104,11 @@ graph TD
         Apex[Apex AI (Ultra)]
     end
 
-    Reflex -->|Writes Signal| Liquid
-    Liquid -->|Triggers| Reason
-    Reason -->|Reads Context| Sedimentary
-    Reason -->|Writes Code| Crystalline
-    Crystalline -->|Inspires| Apex
-    Apex -->|Evolves| Sedimentary
+    Reflex -->|Erupts Signal| Liquid
+    Liquid -->|Quenches into| Crystalline
+    Crystalline -->|Devitrifies into| Sedimentary
+    Reason -->|Mines| Sedimentary
+    Apex -->|Remelts| Liquid
 
     style Substrate fill:#eee,stroke:#333,stroke-width:2px
     style Agents fill:#ccf,stroke:#333,stroke-width:2px

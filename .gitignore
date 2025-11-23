@@ -74,3 +74,4 @@ eyes/archive/
 brain/*.feature.draft
 *.log
 memory/episodic/**
+memory/semantic/gen43_vector_store.ndjson

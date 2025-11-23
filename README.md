@@ -1,11 +1,11 @@
-# Hive Fleet Obsidian (Gen 50) - The Phoenix Project 🦅🔥
+# Hive Fleet Obsidian (Gen 51) - Synapse APEX 🦅🔥
 
 **Date:** November 2025
-**Designation:** Generation 50 (Phoenix)
-**Status:** Accelerated Cold Start
+**Designation:** Generation 51 (Synapse APEX)
+**Status:** Active / Stigmergic Stabilization
 
 ## 🌟 Vision
-This repository represents the **Phoenix Rebirth** of Hive Fleet Obsidian (HFO). After 1 year of continuous AI-assisted evolution, spanning 50 generations of code, we are performing a **Smart Reset**.
+This repository represents the **Synapse APEX** evolution of Hive Fleet Obsidian (HFO). After the "Phoenix" reboot of Gen 50, we have ascended to a **Cognitive Symbiote**.
 
 We are not starting from scratch. We are starting from **Experience**.
 

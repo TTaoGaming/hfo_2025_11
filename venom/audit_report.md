@@ -1,39 +1,57 @@
 # 🕷️ Weaver Audit Report
-**Date**: 2025-11-21T16:35:51.432764
+**Date**: 2025-11-23T01:39:35.822837
 **Status**: 🟡 Fragmented
 
 ## 📊 Statistics
-*   **Nodes**: 332
-*   **Edges**: 345
-*   **Density**: 0.0031
-*   **Components**: 16
+*   **Nodes**: 2952
+*   **Edges**: 186
+*   **Density**: 0.0000
+*   **Components**: 2803
 
-## 🏝️ Orphan Nodes (3)
+## 🏝️ Orphan Nodes (2793)
 *(Nodes with no incoming or outgoing connections)*
-*   `gen_50_VISION`
-*   `gen_50_KNOWLEDGE_BANK_OPTIONS`
-*   `gen_2_original_gem`
+*   `antifragile_architecture_options`
+*   `architecture_core_declarative`
+*   `architecture_hybrid_memory`
+*   `architecture_organs_roles_champions`
+*   `biology_organ_loops`
+*   `biology_organ_registry`
+*   `biology_stigmergy`
+*   `infrastructure_governance`
+*   `infrastructure_hydra`
+*   `infrastructure_loops`
+*   `infrastructure_stigmergy`
+*   `infrastructure_trust`
+*   `mission_audit_weave`
+*   `mission_ingest_gems`
+*   `pattern_async_swarm`
+*   `strategy_antifragile_hydra`
+*   `strategy_fractal_holarchy`
+*   `strategy_obsidian_hourglass`
+*   `implementation_obsidian_horizon_langgraph`
+*   `architecture_three_webs`
+*   ... and 2773 more.
 
-## 🔗 Broken Links (708)
+## 🔗 Broken Links (622)
 *(Links pointing to non-existent nodes)*
-*   `HFO_evolution_gen1-19_analysis` -> `ACTIVE_GEM1.md`
-*   `HFO_evolution_gen1-25_and_missions_up_to_2025-11-07` -> `gen_19 deep_dive`
-*   `HFO_evolution_gen1-25_and_missions_up_to_2025-11-07` -> `crew_ai_swarm_attempt`
-*   `HFO_evolution_gen1-25_and_missions_up_to_2025-11-07` -> `HFOMBSE_Gen23_Roadmap`
-*   `file_structure_governance` -> `brain/registry.yaml`
-*   `file_structure_governance` -> `venom/quarantine/`
-*   `hydra_architecture` -> `brain/antifragile_strategy.feature`
-*   `hydra_architecture` -> `hydra_swarm.py`
-*   `organ_renaming_plan` -> `registry.yaml`
-*   `HFO_Gem_Review.2025-10-26T23:58:00Z` -> `current-gen-ai-weakness-analysis-ictober-25-2025.md`
-*   `HFO_Gem_Review.2025-10-26T23:58:00Z` -> `research-checklist-10252025.md`
-*   `HFO_Gem_Review.2025-10-26T23:58:00Z` -> `hfo_gem/gen_1_evolution_19/evolution_analysis.md`
-*   `HFO_Gem_Review.2025-10-26T23:58:00Z` -> `ai-chat-obsidian-horizon-hourglass-10252025.md`
-*   `HFO_Gem_Review.2025-10-26T23:58:00Z` -> `molt_shell_hash/`
-*   `original_gem` -> `scripts/holon_orchestrator.py`
-*   `gen_23_HFOMBSE_Gen23_Roadmap_2025-11-05T00:00:00Z` -> `AGENTS.md`
+*   `vision_level_diagrams` -> `Mission Intent`
+*   `vision_level_diagrams` -> `Mission Constraints`
+*   `vision_level_diagrams` -> `Cadence / N-Star Horizon`
+*   `vision_level_diagrams` -> `Mission Intent`
+*   `vision_level_diagrams` -> `Mission Constraints`
+*   `vision_level_diagrams` -> `Cadence / Horizon`
+*   `vision_level_diagrams` -> `Swarm Brief & Tasking`
+*   `vision_level_diagrams` -> `Swarm Brief & Tasking`
 *   `gen_23_HFOMBSE_Gen23_Roadmap_2025-11-05T00:00:00Z` -> `hfo_gem/gen_22/`
 *   `gen_23_HFOMBSE_Gen23_Roadmap_2025-11-05T00:00:00Z` -> `models/hfo.yml`
 *   `gen_23_HFOMBSE_Gen23_Roadmap_2025-11-05T00:00:00Z` -> `scripts/mbse/gen_views.py`
+*   `gen_23_HFOMBSE_Gen23_Roadmap_2025-11-05T00:00:00Z` -> `scripts/mbse/gen_sysml.py`
+*   `gen_23_HFOMBSE_Gen23_Roadmap_2025-11-05T00:00:00Z` -> `scripts/crew_ai/runner_unified.py`
+*   `gen_23_HFOMBSE_Gen23_Roadmap_2025-11-05T00:00:00Z` -> `hfo_blackboard/obsidian_synapse_blackboard.jsonl`
 *   `gen_22_crew_ai_swarm_ssot_gen22` -> `mission_pointer.yml`
-*   ... and 688 more.
+*   `gen_22_crew_ai_swarm_ssot_gen22` -> `perception_snapshot.yml`
+*   `gen_22_crew_ai_swarm_ssot_gen22` -> `react_plan.yml`
+*   `gen_22_crew_ai_swarm_ssot_gen22` -> `engage_report.yml`
+*   `gen_22_crew_ai_swarm_ssot_gen22` -> `yield_summary.yml`
+*   `gen_22_crew_ai_swarm_ssot_gen22` -> `quorum_report.yml`
+*   ... and 602 more.

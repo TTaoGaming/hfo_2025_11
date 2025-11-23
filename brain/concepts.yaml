@@ -5,6 +5,12 @@
 #   2. A Markdown file (`.md`) for Executive Summary & Visualization (Mermaid).
 
 concepts:
+  # --- Identity ---
+  - name: "identity_karmic_knife"
+    status: "Active"
+    feature: "identity_karmic_knife.feature" # Placeholder
+    summary: "identity_karmic_knife.md"
+
   # --- Strategy ---
   - name: "workflow_obsidian_hourglass"
     status: "Active"
@@ -197,3 +203,9 @@ concepts:
     status: "Active"
     feature: "design_mountain_web_stigmergy.feature"
     summary: "design_hexagonal_holon_header.md"
+
+  # --- Design ---
+  - name: "design_evolution_paths_2025"
+    status: "Draft"
+    feature: "design_evolution_paths_2025.feature" # Placeholder
+    summary: "design_evolution_paths_2025.md"
