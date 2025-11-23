@@ -17,6 +17,13 @@ import instructor
 from openai import AsyncOpenAI
 from dotenv import load_dotenv
 from body.constants import DEFAULT_MODEL
+from body.models.stigmergy import (
+    StigmergySignal,
+    ClaimCheck,
+    RichMetadata,
+    ArtifactType,
+)
+from body.hfo_sdk.stigmergy import StigmergyClient
 
 # Setup
 load_dotenv()
@@ -95,21 +102,50 @@ class HeaderSwarm:
             ),
             mode=instructor.Mode.JSON,
         )
+        self.stigmergy = StigmergyClient()
+
+    async def _emit_signal(self, stage: str, details: dict):
+        """Emits a Hot Stigmergy Signal to NATS."""
+        try:
+            await self.stigmergy.connect()
+            signal = StigmergySignal(
+                producer_id="HeaderSwarm",
+                claim_check=ClaimCheck(
+                    storage="filesystem", pointer=str(self.file_path)
+                ),
+                metadata=RichMetadata(
+                    type=ArtifactType.PHEROMONE,
+                    urgency="normal",
+                    context_tags=["swarm", "header", stage],
+                    quality_score=1.0,
+                ),
+            )
+            subject = f"swarm.header.{stage}"
+            await self.stigmergy.publish(subject, signal.model_dump())
+            logger.info(f"📡 Signal Emitted: {subject}")
+        except Exception as e:
+            logger.warning(f"⚠️ Failed to emit signal: {e}")
+        finally:
+            await self.stigmergy.close()
 
     async def generate_header(self) -> HolonHeader:
         logger.info(f"🦅 Swarm initialized for {self.file_path.name}")
+        await self._emit_signal("started", {"target": self.file_path.name})
 
         # Round 1: Divergence (10 Agents)
         logger.info(f"🌊 Round 1: Divergence ({SQUAD_SIZE} Agents)...")
         candidates = await self._round_1_divergence()
+        await self._emit_signal("divergence_complete", {"count": len(candidates)})
 
         # Round 2: Convergence (5 Agents)
         logger.info(f"🌪️ Round 2: Convergence ({REFINE_SIZE} Agents)...")
         refined = await self._round_2_convergence(candidates)
+        await self._emit_signal("convergence_complete", {"count": len(refined)})
 
         # Round 3: Consensus (1 Swarmlord)
         logger.info("👑 Round 3: Consensus (Swarmlord)...")
         final_header = await self._round_3_consensus(refined)
+        await self._emit_signal("crystallized", {"id": final_header.hexagon.ontos.id})
 
         return final_header
 

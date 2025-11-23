@@ -33,6 +33,7 @@ organs:
       - "vision_synapse_apex.md"
       - "guide_holographic_intuition.md"
       - "design_mountain_web_stigmergy.md"
+      - "workflow_header_swarm_stigmergy.feature"
     old_path: "intent/"
 
   eyes:
