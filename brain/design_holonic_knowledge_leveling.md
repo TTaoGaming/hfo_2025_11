@@ -1,18 +1,25 @@
 ---
-title: 'Holonic Knowledge Leveling: The RPG of Truth'
-bluf: 'We gamify GraphRAG by assigning "Levels" (0-3) and "Attributes" (STR, DEX, INT, WIS, CHA) to knowledge artifacts. Information must "Level Up" through increasingly rigorous Swarm Consensus (Hot) to become Canonical Truth (Cold).'
-story: '> **The Concept**: Information is not binary (True/False). It is a living organism that grows stronger with scrutiny.
+title: 'Holonic Knowledge Leveling: Cooling & Crystallization'
+bluf: 'We implement a "Cooling System" for Truth, grounded in Thermodynamics and Stigmergy. Information starts as Hot Plasma (NATS) and cools into Solid Crystal (Graph) through Log-10 Swarm Consensus. No invention, only composition of exemplars.'
+story: '> **The Metaphor**: Truth is a phase transition.
+  > 1. **Plasma (Lvl 0)**: High Energy, Low Structure. (NATS Signals)
+  > 2. **Gas (Lvl 1)**: Coalescing Clouds. (Markdown Files)
+  > 3. **Liquid (Lvl 2)**: Flowing Vectors. (pgvector)
+  > 4. **Crystal (Lvl 3)**: Rigid, Durable Structure. (Knowledge Graph)
 
-  > **The Mechanic**:
-  > 1. **Hot Phase (The Gym)**: Artifacts gain XP by surviving NATS debates (Swarm Consensus).
-  > 2. **Cold Phase (The Save)**: Artifacts "Level Up" when written to Postgres/Graph with a higher Trust Score.
+  > **The Hexagon**: The 6 Facets of Crystallization (Ontos, Chronos, Topos, Telos, Logos, Ethos).
 
-  > **The Goal**: A self-pruning Knowledge Graph where only "High Level" nodes are queried for critical decisions, while "Low Level" nodes provide creative noise.'
+  > **The Exemplars**:
+  > - **Stigmergy** (Grassé, 1959): Indirect coordination via environment.
+  > - **Dunbar''s Number** (150): Limits of Lvl 2 Squads.
+  > - **Byzantine Fault Tolerance** (Lamport): Consensus mechanism.
+  > - **MAP-Elites** (Mouret & Clune): Diversity preservation.'
 tags:
   - architecture
-  - gamification
+  - thermodynamics
   - knowledge_graph
   - stigmergy
+  - research_grounded
 
 # ==================================================================
 # 🤖 THE HEXAGON (System Generated)
@@ -24,60 +31,73 @@ hexagon:
     owner: Swarmlord
   chronos:
     status: active
-    urgency: 0.8
-    decay: 0.1
-    created: '2025-11-23T12:00:00Z'
+    urgency: 0.9
+    decay: 0.05
+    created: '2025-11-23T12:30:00Z'
   topos:
     address: 1.0.0
     links:
       - brain/spec_holonic_leveling.feature
       - brain/design_mountain_web_stigmergy.md
   telos:
-    viral_factor: 0.9
-    meme: "🎮 Knowledge RPG: Level Up your Truth"
+    viral_factor: 0.95
+    meme: "❄️ Truth Cools: Plasma -> Gas -> Liquid -> Crystal"
 
 ---
 
-# 🎮 Holonic Knowledge Leveling (HKL)
+# ❄️ Holonic Knowledge Leveling: The Cooling System
 
-## 1. The Leveling System (Log 10 Scale)
+## 1. The Phase Transitions (Log 10 Scale)
 
-| Level | Rank | Agent Count | Trust Score | Requirement | Storage |
+We map the state of matter to the scale of consensus.
+
+| Level | Phase | Agent Count (Log 10) | Exemplar | Storage | Properties |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Lvl 0** | **Spark** | 1 (Individual) | 10% | Raw Output, No Consensus | Ephemeral (NATS) |
-| **Lvl 1** | **Ember** | 10 (Squad) | 50% | 80% Squad Consensus | Episodic (File/JSON) |
-| **Lvl 2** | **Flame** | 100 (Platoon) | 80% | Multi-Squad Verification | Semantic (Vector DB) |
-| **Lvl 3** | **Inferno** | 1000 (Hive) | 99% | Temporal Persistence (>1 week) | Canonical (Graph DB) |
+| **Lvl 0** | **Plasma** | $10^0$ (1) | **Stigmergy** (Pheromone) | NATS (Hot) | High Energy, Ephemeral, No Structure. |
+| **Lvl 1** | **Gas** | $10^1$ (10) | **Agile Squad** (Scrum) | File (Warm) | Loose coupling, Human-readable, Drafts. |
+| **Lvl 2** | **Liquid** | $10^2$ (100) | **Dunbar's Tribe** | Vector (Cool) | Flowing, Semantic, Searchable, Dense. |
+| **Lvl 3** | **Crystal** | $10^3$ (1000) | **Byzantine Quorum** | Graph (Cold) | Rigid, Durable, Interconnected, True. |
 
-## 2. The Attribute System (D&D for Data)
+## 2. The Hexagonal Lattice (Attributes)
 
-Every Artifact (Holon) has a character sheet:
+For a Holon to crystallize, it must satisfy the **Hexagonal Quality Metrics** (HQM). These map to our Header Schema.
 
-*   **STR (Strength)**: **Durability**. How long has this truth survived without being refuted?
-    *   *Metric*: Time since creation / Decay rate.
-*   **DEX (Dexterity)**: **Velocity**. How fast does this signal travel through the NATS network?
-    *   *Metric*: Re-broadcast count / Latency.
-*   **INT (Intelligence)**: **Density**. How much meaning is packed into the tokens?
-    *   *Metric*: Vector Embedding Density (Information/Token ratio).
-*   **WIS (Wisdom)**: **Consensus**. How many unique agents agree with this?
-    *   *Metric*: Unique Signatures in the Ledger.
-*   **CHA (Charisma)**: **Virality**. How many other nodes link to this?
-    *   *Metric*: In-degree centrality in the Graph.
+1.  **ONTOS (Identity)**: Does it have a unique, persistent UUID? (No duplicates).
+2.  **CHRONOS (Time)**: Does it have a valid decay rate and timestamp? (Thermodynamics).
+3.  **TOPOS (Space)**: Is it linked to at least 3 other Crystals? (Triangulation).
+4.  **TELOS (Purpose)**: Does it have a Viral Factor > 0.5? (Utility).
+5.  **LOGOS (Logic)**: Is the Vector Density (Information/Token) high? (Compression).
+6.  **ETHOS (Trust)**: Is the Consensus Score > 99%? (Verification).
 
-## 3. The Gameplay Loop (Hot -> Cold -> Hot)
+## 3. The Cooling Process (Workflow)
 
-1.  **Spawn (Lvl 0)**: An agent has an idea. It emits a **Spark** (Hot Signal).
-2.  **Party Up (Lvl 0 -> 1)**: The Spark attracts a Squad. They debate. If they agree, they mint an **Ember** (Cold File).
-3.  **Raid (Lvl 1 -> 2)**: The Ember is picked up by a Platoon (Research Swarm). They stress-test it against other Embers. If it survives, it becomes a **Flame** (Vector).
-4.  **Ascension (Lvl 2 -> 3)**: The Flame burns in the Knowledge Graph. If it links to many other Flames and survives the test of time (Temporal), it becomes an **Inferno** (Canonical Truth).
+### Step 1: Ionization (Lvl 0 -> 1)
+*   **Action**: An agent emits a thought (Plasma).
+*   **Filter**: **Stigmergic Pheromone Decay**. If not reinforced by 9 other agents within $T_{decay}$, it evaporates.
+*   **Result**: If reinforced, it condenses into a Markdown File (Gas).
 
-## 4. GraphRAG Implications
+### Step 2: Condensation (Lvl 1 -> 2)
+*   **Action**: A Research Swarm (100 agents) ingests the File.
+*   **Filter**: **MAP-Elites Diversity**. Is this new? Is it high performing?
+*   **Result**: If unique and valuable, it is embedded into `pgvector` (Liquid).
 
-*   **Query Routing**:
-    *   "What is the absolute truth?" -> Query **Lvl 3 Only**.
-    *   "What are the latest rumors?" -> Query **Lvl 0-1 Stream**.
-    *   "Give me a creative solution." -> Mix **Lvl 1** (Novelty) with **Lvl 2** (Stability).
+### Step 3: Crystallization (Lvl 2 -> 3)
+*   **Action**: The Assimilator (1000-node simulation) tests the Vector against the Graph.
+*   **Filter**: **Byzantine Fault Tolerance**. Can 1/3rd of the network attack this truth and fail?
+*   **Result**: If robust, it is linked into the Knowledge Graph (Crystal) as a permanent node.
 
-*   **Pruning**:
-    *   Lvl 0 Sparks that don't level up within 24h are extinguished (Garbage Collection).
-    *   Lvl 1 Embers that lose STR (refuted) are archived.
+## 4. Research Grounding (Exemplars)
+
+We do not invent. We compose.
+
+*   **Stigmergy**: We use NATS as the "Environment" for indirect coordination (Grassé).
+*   **Thermodynamics**: We use "Cooling" (Simulated Annealing) to find global optima (Truth).
+*   **Fractal Geometry**: The Hexagon repeats at every scale (1, 10, 100, 1000).
+*   **Complex Systems**: We respect "More is Different" (Anderson, 1972). Lvl 3 behavior cannot be predicted by Lvl 0 agents.
+
+## 5. GraphRAG Implementation
+
+*   **Hot Query**: "What is happening *now*?" -> Subscribe to NATS (Plasma).
+*   **Warm Query**: "What are we working on?" -> Search Files (Gas).
+*   **Cool Query**: "What is the context?" -> Search Vectors (Liquid).
+*   **Cold Query**: "What is TRUE?" -> Traverse Graph (Crystal).

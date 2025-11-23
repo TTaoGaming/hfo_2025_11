@@ -1,40 +1,44 @@
-Feature: Holonic Knowledge Leveling
+Feature: Holonic Knowledge Leveling (Cooling System)
 
   As the Swarmlord
-  I want to assign Levels (0-3) and Attributes (STR, WIS, CHA) to all Knowledge Artifacts
-  So that I can filter Truth from Noise based on Consensus and Durability
+  I want to implement a "Cooling System" for Truth (Plasma -> Gas -> Liquid -> Crystal)
+  So that I can filter Truth from Noise based on Log-10 Swarm Consensus
 
   Background:
-    Given the Leveling Table is defined as:
-      | Level | Name    | Agents | Trust | Storage   |
-      | 0     | Spark   | 1      | 0.1   | NATS      |
-      | 1     | Ember   | 10     | 0.5   | File      |
-      | 2     | Flame   | 100    | 0.8   | VectorDB  |
-      | 3     | Inferno | 1000   | 0.99  | GraphDB   |
+    Given the Phase Transition Table is defined as:
+      | Level | Phase   | Agents | Exemplar           | Storage   |
+      | 0     | Plasma  | 1      | Stigmergy          | NATS      |
+      | 1     | Gas     | 10     | Agile Squad        | File      |
+      | 2     | Liquid  | 100    | Dunbar's Tribe     | VectorDB  |
+      | 3     | Crystal | 1000   | Byzantine Quorum   | GraphDB   |
 
-  Scenario: Level Up from Spark to Ember
-    Given a "Spark" artifact exists in NATS with:
+  Scenario: Condensation (Plasma to Gas)
+    Given a "Plasma" signal exists in NATS with:
       | attribute | value |
-      | WIS       | 1     |
       | content   | "Sky is Green" |
-    When a Squad of 10 Agents reviews the artifact
+    When a Squad of 10 Agents reviews the signal
     And 9 Agents vote "Reject"
-    Then the artifact fails to Level Up
-    And the artifact is extinguished (Deleted)
+    Then the signal fails to Condense
+    And the signal evaporates (Deleted)
 
-  Scenario: Level Up from Ember to Flame
-    Given an "Ember" artifact exists in Filesystem with:
+  Scenario: Liquefaction (Gas to Liquid)
+    Given a "Gas" artifact exists in Filesystem with:
       | attribute | value |
-      | WIS       | 10    |
       | content   | "Sky is Blue" |
     When a Platoon of 100 Agents reviews the artifact
     And 85 Agents vote "Accept"
-    Then the artifact Levels Up to "Flame"
-    And the artifact is written to "VectorDB"
+    Then the artifact Liquefies into "VectorDB"
     And the Trust Score increases to 0.8
 
-  Scenario: Attribute Check for Query Routing
-    Given a User asks "What is the established truth?"
+  Scenario: Crystallization (Liquid to Crystal)
+    Given a "Liquid" vector exists in VectorDB
+    When the Assimilator (1000 nodes) tests it against the Graph
+    And it survives a Byzantine Attack (1/3rd malicious)
+    Then the artifact Crystallizes into "GraphDB"
+    And it becomes a permanent Node
+
+  Scenario: Query Routing by Phase
+    Given a User asks "What is the absolute truth?"
     When the Query Router filters artifacts
-    Then only artifacts with "Level >= 2" are returned
-    And artifacts with "STR < 0.5" (Decayed) are excluded
+    Then only artifacts in "Crystal" phase are returned
+    And artifacts with "Decay > 0.5" are excluded
