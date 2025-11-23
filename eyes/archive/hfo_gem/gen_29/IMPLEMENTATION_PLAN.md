@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: 431d0ea5-0584-427f-8624-cf2cf14d516d
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.991117Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_29/IMPLEMENTATION_PLAN.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: IMPLEMENTATION_PLAN.md
+---
 # Gen 29 → Production: Phased Implementation Plan
 
 **Date**: 2025-11-11

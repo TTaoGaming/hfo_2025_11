@@ -6,10 +6,6 @@ owners:
 - Immunizer
 - Swarmlord
 type: Policy
-
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: c69a9939-4b2f-4e27-9a5f-bf6ca20f1545
@@ -20,13 +16,15 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T06:32:09.788638Z'
+    generation: 51
   topos:
-    address: 1.0.0
+    address: brain/infrastructure_governance.md
     links: []
   telos:
     viral_factor: 0.0
     meme: Holonic File Governance
 ---
+
 
 
 # 📜 Holonic File Governance

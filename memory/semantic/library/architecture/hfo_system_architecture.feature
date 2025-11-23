@@ -3,14 +3,15 @@
 # # ==================================================================
 # hexagon:
 #   ontos:
-#     id: 5d0d6545-9599-4cc3-8fc4-d89f461c23fa
+#     id: a0363eee-7fd8-463a-b1ad-6cee8b6a0b8e
 #     type: feature
 #     owner: Swarmlord
 #   chronos:
 #     status: active
 #     urgency: 0.5
 #     decay: 0.5
-#     created: '2025-11-23T10:21:10.169884+00:00'
+#     created: '2025-11-23T11:06:50.255127Z'
+#     generation: 51
 #   topos:
 #     address: memory/semantic/library/architecture/hfo_system_architecture.feature
 #     links: []
@@ -18,7 +19,6 @@
 #     viral_factor: 0.0
 #     meme: hfo_system_architecture.feature
 #
-
 ---
 title: 'HFO System Architecture: Organs, Roles, Champions'
 summary: Defines a composable, evolutionary architecture for the HFO system where

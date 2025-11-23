@@ -1,7 +1,4 @@
 ---
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: 03f12e07-aa26-462c-a7e2-1686ae5a41dc
@@ -12,6 +9,7 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T10:21:06.853210+00:00'
+    generation: 51
   topos:
     address: memory/episodic/sorted/Librarian_3_report.md
     links: []
@@ -19,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: Librarian_3_report.md
 ---
+
 
 # Stigmergy
 

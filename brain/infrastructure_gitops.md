@@ -6,10 +6,6 @@ owners:
 - Swarmlord
 - GitOps Agent
 type: Protocol
-
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: 4ec0a22a-3cc4-49c9-b6c2-ba872413d26f
@@ -20,13 +16,15 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T06:32:09.828530Z'
+    generation: 51
   topos:
-    address: 1.0.0
+    address: brain/infrastructure_gitops.md
     links: []
   telos:
     viral_factor: 0.0
     meme: GitOps Automation Protocol
 ---
+
 
 
 # 🔄 GitOps Automation Protocol

@@ -3,14 +3,15 @@
 # # ==================================================================
 # hexagon:
 #   ontos:
-#     id: ce777786-3c59-494c-9972-21282bb3c5dc
+#     id: 4e59e8d9-8e8f-44e4-85c3-a32c4598419a
 #     type: feature
 #     owner: Swarmlord
 #   chronos:
 #     status: active
 #     urgency: 0.5
 #     decay: 0.5
-#     created: '2025-11-23T10:21:31.520388+00:00'
+#     created: '2025-11-23T11:07:35.480837Z'
+#     generation: 51
 #   topos:
 #     address: brain/workflow_header_swarm_stigmergy.feature
 #     links: []
@@ -18,7 +19,6 @@
 #     viral_factor: 0.0
 #     meme: workflow_header_swarm_stigmergy.feature
 #
-
 Feature: Header Swarm Stigmergy Workflow
 
   As the Swarmlord

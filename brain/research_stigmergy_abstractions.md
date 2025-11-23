@@ -15,10 +15,6 @@ tags:
 - philosophy
 - physics
 - abstraction
-
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: a98f0315-f79f-48b9-92f9-8ae375e06cdf
@@ -29,13 +25,15 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T06:32:09.853624Z'
+    generation: 51
   topos:
-    address: 1.0.0
+    address: brain/research_stigmergy_abstractions.md
     links: []
   telos:
     viral_factor: 0.0
     meme: Higher-Order Stigmergy Abstractions
 ---
+
 
 
 # 🌌 Higher-Order Stigmergy Abstractions

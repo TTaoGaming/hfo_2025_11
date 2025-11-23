@@ -5,10 +5,6 @@ domain: Infrastructure
 owners:
 - Swarmlord
 type: Control Flow
-
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: 1a2a017d-e342-44fe-b9c3-3e5369e17a29
@@ -19,13 +15,15 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T06:32:09.793044Z'
+    generation: 51
   topos:
-    address: 1.0.0
+    address: brain/infrastructure_loops.md
     links: []
   telos:
     viral_factor: 0.0
     meme: Cognitive Loops (PREY & SWARM)
 ---
+
 
 
 # 🔄 Cognitive Loops: PREY & SWARM

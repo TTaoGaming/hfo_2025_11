@@ -1,7 +1,4 @@
 ---
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: 414aa904-c908-45ad-93ba-22485144cf07
@@ -12,6 +9,7 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T10:21:31.317372+00:00'
+    generation: 51
   topos:
     address: venom/gen43_import_report.md
     links: []
@@ -19,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: gen43_import_report.md
 ---
+
 
 # 🐜 Gen 43 Import & Archaeology Report
 

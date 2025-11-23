@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: 5bdf704f-16fd-48d9-8a41-6947744a071f
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.740222Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_43/HFO_GENE_SEED_GEN43.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: HFO_GENE_SEED_GEN43.md
+---
 💠 HFO_GENE_SEED_GEN43.md
 
 Designation: HFO-SEED-GEN43-QUINE

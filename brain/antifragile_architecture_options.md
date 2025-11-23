@@ -5,10 +5,6 @@ domain: Research
 owners:
 - Swarmlord
 type: Research
-
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: b59162ab-5d5c-4f18-8a3d-bc16daeb1939
@@ -19,13 +15,15 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T06:32:09.771510Z'
+    generation: 51
   topos:
-    address: 1.0.0
+    address: brain/antifragile_architecture_options.md
     links: []
   telos:
     viral_factor: 0.0
     meme: Antifragile Architecture Options
 ---
+
 
 
 # 🛡️ Antifragile Architecture Options: The Fractal Defense

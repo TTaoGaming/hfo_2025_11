@@ -15,10 +15,6 @@ tags:
 - architecture
 - sota
 - tradeoffs
-
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: 550e8400-e29b-41d4-a716-446655440205
@@ -29,13 +25,15 @@ hexagon:
     urgency: 1.0
     decay: 0.0
     created: '2025-11-23T10:15:00Z'
+    generation: 51
   topos:
-    address: 1.4.3
+    address: brain/research_header_sota_options.md
     links: []
   telos:
     viral_factor: 0.8
-    meme: 'Compare before you commit.'
+    meme: Compare before you commit.
 ---
+
 
 # 🔬 SOTA Analysis: Universal Metadata Protocols
 

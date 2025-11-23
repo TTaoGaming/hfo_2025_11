@@ -3,14 +3,15 @@
 # # ==================================================================
 # hexagon:
 #   ontos:
-#     id: bf643ec1-442e-4f53-ad48-c5ed67ae9983
+#     id: 5d2544b2-8f55-473f-9e5d-04dd753db35b
 #     type: feature
 #     owner: Swarmlord
 #   chronos:
 #     status: active
 #     urgency: 0.5
 #     decay: 0.5
-#     created: '2025-11-23T10:21:31.530103+00:00'
+#     created: '2025-11-23T11:07:35.519509Z'
+#     generation: 51
 #   topos:
 #     address: brain/design_stigmergy_substrate.feature
 #     links: []
@@ -18,7 +19,6 @@
 #     viral_factor: 0.0
 #     meme: design_stigmergy_substrate.feature
 #
-
 Feature: Stigmergy Substrate (The Natural Async System)
   """
   The Stigmergy Substrate is the environment where the Swarm lives.

@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: 7eb8c0bd-bbcb-403e-b5b5-515ed2679d99
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.735385Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_42/docs/architecture/HFO_VIEWS.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: HFO_VIEWS.md
+---
 # HFO Gen 42.1 Visual Topology
 
 View 1: The Mosaic (Hexagonal)

@@ -5,10 +5,6 @@ domain: Biology
 owners:
 - Swarmlord
 type: Anatomy
-
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: f4120552-a3d4-46ab-8e0e-902ba4267cee
@@ -19,13 +15,15 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T06:32:09.784033Z'
+    generation: 51
   topos:
-    address: 1.0.0
+    address: brain/biology_organ_registry.md
     links: []
   telos:
     viral_factor: 0.0
     meme: Biomimetic Organ Registry
 ---
+
 
 
 # 🐜 Biomimetic Organ Registry

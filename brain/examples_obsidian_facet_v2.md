@@ -15,10 +15,6 @@ tags:
 - examples
 - yaml
 - ontology
-
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: bc604c41-9af5-4e16-9a77-6e42acd96e4a
@@ -29,13 +25,15 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T06:32:09.857084Z'
+    generation: 51
   topos:
-    address: 1.0.0
+    address: brain/examples_obsidian_facet_v2.md
     links: []
   telos:
     viral_factor: 0.0
     meme: 'Obsidian Facet V2: 4 Flavors of Stigmergy'
 ---
+
 
 
 # 💎 Obsidian Facet V2: 4 Flavors of Stigmergy

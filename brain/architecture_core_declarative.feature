@@ -3,14 +3,15 @@
 # # ==================================================================
 # hexagon:
 #   ontos:
-#     id: 1b4192a8-958f-4e6b-afe3-69faada3ca36
+#     id: 3974c63d-0a4b-4e02-847e-ffdf67849750
 #     type: feature
 #     owner: Swarmlord
 #   chronos:
 #     status: active
 #     urgency: 0.5
 #     decay: 0.5
-#     created: '2025-11-23T10:21:31.452869+00:00'
+#     created: '2025-11-23T11:07:35.243605Z'
+#     generation: 51
 #   topos:
 #     address: brain/architecture_core_declarative.feature
 #     links: []
@@ -18,7 +19,6 @@
 #     viral_factor: 0.0
 #     meme: architecture_core_declarative.feature
 #
-
 ---
 owner: Swarmlord
 status: Placeholder

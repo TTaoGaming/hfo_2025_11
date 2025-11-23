@@ -1,7 +1,4 @@
 ---
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: 1214a143-6bcb-46e5-9f85-1ba9097f53f2
@@ -12,6 +9,7 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T10:21:31.366455+00:00'
+    generation: 51
   topos:
     address: body/blood/README.md
     links: []
@@ -19,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: README.md
 ---
+
 
 # 🩸 The Blood (Injector)
 

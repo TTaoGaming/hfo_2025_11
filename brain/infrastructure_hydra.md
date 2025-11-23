@@ -5,10 +5,6 @@ domain: Infrastructure
 owners:
 - Swarmlord
 type: Technical Specification
-
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: b741bf46-90ba-44c0-9e5b-a155d08c86a6
@@ -19,13 +15,15 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T06:32:09.790746Z'
+    generation: 51
   topos:
-    address: 1.0.0
+    address: brain/infrastructure_hydra.md
     links: []
   telos:
     viral_factor: 0.0
     meme: Hydra Protocol Technical Specification
 ---
+
 
 
 # 🐍 Hydra Protocol: Technical Specification

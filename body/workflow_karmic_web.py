@@ -1,4 +1,27 @@
 """
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: e01e1591-6170-4e7c-af8e-e1c2188b7a08
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:34.859885Z'
+    generation: 51
+  topos:
+    address: body/workflow_karmic_web.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: workflow_karmic_web.py
+"""
+
+"""
     hexagon:
       ontos:
         id: 1e942b59-bb7b-4478-9e94-254e87ad8797

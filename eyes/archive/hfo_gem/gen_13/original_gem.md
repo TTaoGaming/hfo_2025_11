@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: 9b61b8c7-63be-458d-92f2-81fa77a568ca
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.796989Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_13/original_gem.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: original_gem.md
+---
 # 🧬🥇 GEM GENE SEED 01 — Hive Fleet Obsidian Regenerative Specification
 
 ```

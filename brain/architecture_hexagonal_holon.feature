@@ -3,14 +3,15 @@
 # # ==================================================================
 # hexagon:
 #   ontos:
-#     id: cc0eb95d-e2cf-470c-b640-b415686aa6e8
+#     id: 57c3241a-61b3-437f-85bb-a1c7f68b764d
 #     type: feature
 #     owner: Swarmlord
 #   chronos:
 #     status: active
 #     urgency: 0.5
 #     decay: 0.5
-#     created: '2025-11-23T10:21:31.528398+00:00'
+#     created: '2025-11-23T11:07:35.509931Z'
+#     generation: 51
 #   topos:
 #     address: brain/architecture_hexagonal_holon.feature
 #     links: []
@@ -18,7 +19,6 @@
 #     viral_factor: 0.0
 #     meme: architecture_hexagonal_holon.feature
 #
-
 Feature: Hexagonal Holon Architecture (The Universal Adapter)
   """
   The Hexagonal Holon is the fundamental "Cell" of Hive Fleet Obsidian.

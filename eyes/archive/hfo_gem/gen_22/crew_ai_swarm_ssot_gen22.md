@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: 725944da-9aa0-4843-95b4-61357dce2489
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.871390Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_22/crew_ai_swarm_ssot_gen22.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: crew_ai_swarm_ssot_gen22.md
+---
 # Gen22 SSOT — Crew AI + Swarm Orchestration (Single Source of Truth)
 
 BLUF

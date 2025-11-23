@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: d8120853-5a64-46bf-9a78-acb0dd6d27ec
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.849731Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_21/crew_ai_swarm_pilot_2025-10-30.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: crew_ai_swarm_pilot_2025-10-30.md
+---
 # Crew AI Swarm Pilot — Gen21 Handoff (2025-10-30)
 
 BLUF

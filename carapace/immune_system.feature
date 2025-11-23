@@ -3,14 +3,15 @@
 # # ==================================================================
 # hexagon:
 #   ontos:
-#     id: 3f6cc2a3-806d-4d0d-8132-21edb2b1f948
+#     id: bf87c549-7ed9-4ce1-9b78-58bbd72d978c
 #     type: feature
 #     owner: Swarmlord
 #   chronos:
 #     status: active
 #     urgency: 0.5
 #     decay: 0.5
-#     created: '2025-11-23T10:21:31.548575+00:00'
+#     created: '2025-11-23T11:07:35.603567Z'
+#     generation: 51
 #   topos:
 #     address: carapace/immune_system.feature
 #     links: []
@@ -18,7 +19,6 @@
 #     viral_factor: 0.0
 #     meme: immune_system.feature
 #
-
 Feature: The Immune System Collective
   As the Swarm Immunizer
   I want to orchestrate a multi-layered defense system

@@ -5,10 +5,6 @@ domain: Architecture
 owners:
 - Swarmlord
 type: Design Document
-
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: a5312143-465f-47ad-a8a6-e2b1345dd0b8
@@ -19,14 +15,15 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T10:21:31.536387+00:00'
+    generation: 51
   topos:
     address: brain/structural_pillars.md
     links: []
   telos:
     viral_factor: 0.0
     meme: structural_pillars.md
-
 ---
+
 
 # 🏛️ The 10 Structural Pillars of Hive Fleet Obsidian
 

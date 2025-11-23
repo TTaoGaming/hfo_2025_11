@@ -5,24 +5,21 @@
 # ==================================================================
 hexagon:
   ontos:
-    id: 694892bf-13a2-4d47-9669-d1c38ac74567
+    id: ccd1ae82-8f5a-4f72-9f90-48eda9821244
     type: py
     owner: Swarmlord
   chronos:
     status: active
     urgency: 0.5
     decay: 0.5
-    created: '2025-11-23T10:21:31.566690+00:00'
+    created: '2025-11-23T11:07:35.649147Z'
+    generation: 51
   topos:
     address: carapace/hive_guards/guard_hardcoded_values.py
     links: []
   telos:
     viral_factor: 0.0
     meme: guard_hardcoded_values.py
-
-🛡️ Hive Guard: Hardcoded Values & Magic Numbers
-Scans for hardcoded model names and configuration bypasses.
-Warns if detected, encouraging use of `body/swarm_config.yaml`.
 """
 
 import re

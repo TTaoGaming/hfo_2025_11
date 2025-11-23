@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: 7de177d1-092f-42a3-9ffb-fd06d1e8d8ee
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:36.095305Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_50/KNOWLEDGE_BANK_STATUS.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: KNOWLEDGE_BANK_STATUS.md
+---
 # Gen 50 Knowledge Bank Status
 
 **Date**: 2025-11-18

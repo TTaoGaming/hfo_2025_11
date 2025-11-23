@@ -3,14 +3,15 @@
 # # ==================================================================
 # hexagon:
 #   ontos:
-#     id: 3c50ec40-57ce-47ad-ba0a-01ba0851f641
+#     id: 012faa55-84f5-43db-a877-589fccb02d0f
 #     type: feature
 #     owner: Swarmlord
 #   chronos:
 #     status: active
 #     urgency: 0.5
 #     decay: 0.5
-#     created: '2025-11-23T10:21:31.463891+00:00'
+#     created: '2025-11-23T11:07:35.288361Z'
+#     generation: 51
 #   topos:
 #     address: brain/infrastructure_loops.feature
 #     links: []
@@ -18,7 +19,6 @@
 #     viral_factor: 0.0
 #     meme: infrastructure_loops.feature
 #
-
 ---
 owner: Swarmlord
 status: Placeholder

@@ -5,10 +5,6 @@ domain: Architecture
 owners:
 - Swarmlord
 type: Design Pattern
-
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: 94cd0e7e-912f-4219-852c-f4e322eed947
@@ -19,13 +15,15 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T06:32:09.839416Z'
+    generation: 51
   topos:
-    address: 1.0.0
+    address: brain/pattern_rich_metadata_stigmergy.md
     links: []
   telos:
     viral_factor: 0.0
     meme: Rich Metadata Stigmergy
 ---
+
 
 
 # 💎 Rich Metadata Stigmergy

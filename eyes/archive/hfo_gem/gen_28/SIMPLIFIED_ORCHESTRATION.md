@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: 02bd6f6f-9251-43ef-aa87-69940a32eae8
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.959089Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_28/SIMPLIFIED_ORCHESTRATION.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: SIMPLIFIED_ORCHESTRATION.md
+---
 # Simplified Orchestration Variants – Fan-Out Research Pattern
 **Date**: 2025-11-11
 **Goal**: Simplify from 4-agent pipeline to 1 orchestrator + N researchers

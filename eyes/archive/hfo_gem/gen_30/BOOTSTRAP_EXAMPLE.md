@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: 550d639c-b3d9-406d-8ede-beea0f7d2799
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.672326Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_30/BOOTSTRAP_EXAMPLE.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: BOOTSTRAP_EXAMPLE.md
+---
 # Gen 30 Bootstrap Example - Using V²C-SPIRAL-QUORUM Launchers
 
 **Status**: Ready to run (pending PREYOrchestrator extension)

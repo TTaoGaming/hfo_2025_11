@@ -1,7 +1,4 @@
 ---
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: b9e87cf4-5e67-4ac4-a74b-25decf6f0867
@@ -12,6 +9,7 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T10:21:31.497327+00:00'
+    generation: 51
   topos:
     address: brain/recommendation_rich_metadata_primitives.md
     links: []
@@ -19,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: recommendation_rich_metadata_primitives.md
 ---
+
 
 # 🦅 Rich Metadata Stigmergy: Composable Primitives
 

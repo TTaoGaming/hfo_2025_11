@@ -3,14 +3,15 @@
 # # ==================================================================
 # hexagon:
 #   ontos:
-#     id: 3def9ecd-c943-445f-99dd-2f83550326f7
+#     id: b4ba16e6-fb0b-4255-9bf0-44b8f93d7390
 #     type: feature
 #     owner: Swarmlord
 #   chronos:
 #     status: active
 #     urgency: 0.5
 #     decay: 0.5
-#     created: '2025-11-23T10:21:31.486847+00:00'
+#     created: '2025-11-23T11:07:35.362757Z'
+#     generation: 51
 #   topos:
 #     address: brain/biology_pheromones_composability.feature
 #     links: []
@@ -18,7 +19,6 @@
 #     viral_factor: 0.0
 #     meme: biology_pheromones_composability.feature
 #
-
 Feature: Pheromone Composability and Antifragility
   As the Swarmlord
   I want a multi-layered Stigmergy system (YAML, NATS, Vector)

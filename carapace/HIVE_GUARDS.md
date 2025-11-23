@@ -1,7 +1,4 @@
 ---
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: 77889f8d-e6e4-4861-bdba-f749b760aa63
@@ -12,6 +9,7 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T10:21:31.550000+00:00'
+    generation: 51
   topos:
     address: carapace/HIVE_GUARDS.md
     links: []
@@ -19,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: HIVE_GUARDS.md
 ---
+
 
 # 🛡️ Carapace Hive Guards
 

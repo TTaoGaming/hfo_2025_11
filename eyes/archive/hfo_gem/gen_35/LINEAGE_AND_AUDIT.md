@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: 4e3c1c7c-8dd4-42ac-89b8-e08d75f30ccc
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:36.053006Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_35/LINEAGE_AND_AUDIT.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: LINEAGE_AND_AUDIT.md
+---
 # HFO Gen 35: Lineage Trace & Workflow Audit
 
 **Date**: 2025-11-17

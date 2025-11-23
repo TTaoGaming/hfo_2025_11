@@ -1,5 +1,27 @@
 #!/usr/bin/env python3
 """
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 2b21690b-d7a0-4b82-8ac4-3f95c03cc597
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.718517Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_30/hive_guards/guard_runner.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: guard_runner.py
+"""
+"""
 Hive Guards Runner - Immunizer Role
 
 Runs all static validation guards in sequence.

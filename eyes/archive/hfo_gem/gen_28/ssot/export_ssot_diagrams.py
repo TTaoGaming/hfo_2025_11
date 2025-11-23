@@ -1,4 +1,26 @@
 #!/usr/bin/env python3
+"""
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 10912f65-5844-417c-9824-004066316bed
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.973158Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_28/ssot/export_ssot_diagrams.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: export_ssot_diagrams.py
+"""
 """Generate Mermaid diagrams from the HFO SSOT textual model."""
 
 from __future__ import annotations

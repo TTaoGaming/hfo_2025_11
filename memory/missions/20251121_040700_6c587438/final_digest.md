@@ -1,7 +1,4 @@
 ---
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: 750c7319-7f71-45cd-b65b-f8eb7a7e32d8
@@ -12,6 +9,7 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T10:21:11.856406+00:00'
+    generation: 51
   topos:
     address: memory/missions/20251121_040700_6c587438/final_digest.md
     links: []
@@ -19,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: final_digest.md
 ---
+
 
 # Mission Digest: 20251121_040700_6c587438
 **Overall Confidence**: 0.8866666666666667

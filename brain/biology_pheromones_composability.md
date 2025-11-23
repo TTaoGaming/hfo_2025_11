@@ -6,10 +6,6 @@ owners:
 - Swarmlord
 - Immunizer
 type: Conceptual Architecture
-
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: 6718f2e1-29b1-48c2-960a-f298eda48613
@@ -20,13 +16,15 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T06:32:09.820405Z'
+    generation: 51
   topos:
-    address: 1.0.0
+    address: brain/biology_pheromones_composability.md
     links: []
   telos:
     viral_factor: 0.0
     meme: Pheromones & Composability
 ---
+
 
 
 # 🧪 Pheromones & Composability: The Antifragile Stigmergy

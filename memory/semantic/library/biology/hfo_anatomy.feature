@@ -3,14 +3,15 @@
 # # ==================================================================
 # hexagon:
 #   ontos:
-#     id: 5c9b343d-2dac-49a9-a0a8-702684431890
+#     id: 3548b13f-ee5a-41a0-8cbf-3082b62f782e
 #     type: feature
 #     owner: Swarmlord
 #   chronos:
 #     status: active
 #     urgency: 0.5
 #     decay: 0.5
-#     created: '2025-11-23T10:21:10.195397+00:00'
+#     created: '2025-11-23T11:06:50.327731Z'
+#     generation: 51
 #   topos:
 #     address: memory/semantic/library/biology/hfo_anatomy.feature
 #     links: []
@@ -18,7 +19,6 @@
 #     viral_factor: 0.0
 #     meme: hfo_anatomy.feature
 #
-
 ---
 title: HFO Biological Anatomy
 summary: Defines the organ-based biological architecture of the HFO system, including

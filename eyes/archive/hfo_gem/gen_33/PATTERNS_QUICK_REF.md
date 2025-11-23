@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: d816e217-2550-4d0d-96a7-d2cae93ff850
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:36.041100Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_33/PATTERNS_QUICK_REF.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: PATTERNS_QUICK_REF.md
+---
 # Gen 33 Architecture Patterns - Quick Reference
 
 **Created**: 2025-11-17

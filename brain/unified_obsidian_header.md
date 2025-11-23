@@ -15,10 +15,6 @@ tags:
 - yaml
 - header
 - unified
-
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: 36a2518e-cefd-484b-8746-84908eaaf712
@@ -29,13 +25,15 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T06:32:09.860685Z'
+    generation: 51
   topos:
-    address: 1.0.0
+    address: brain/unified_obsidian_header.md
     links: []
   telos:
     viral_factor: 0.0
     meme: The Unified Obsidian Header (HFO Standard)
 ---
+
 
 
 # 💎 The Unified Obsidian Header: One Structure to Rule Them All

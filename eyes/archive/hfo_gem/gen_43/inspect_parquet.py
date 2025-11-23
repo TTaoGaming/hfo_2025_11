@@ -1,3 +1,26 @@
+"""
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: d525e2d2-9e34-4f1e-bbc6-04f43e22545a
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.748696Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_43/inspect_parquet.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: inspect_parquet.py
+"""
+
 import pandas as pd
 
 try:

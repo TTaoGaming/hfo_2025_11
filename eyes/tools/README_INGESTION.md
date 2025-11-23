@@ -1,7 +1,4 @@
 ---
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: 2ee13021-36eb-4020-b31a-ce16217bcf18
@@ -12,6 +9,7 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T10:21:31.574137+00:00'
+    generation: 51
   topos:
     address: eyes/tools/README_INGESTION.md
     links: []
@@ -19,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: README_INGESTION.md
 ---
+
 
 # HFO Unified Ingestion System
 

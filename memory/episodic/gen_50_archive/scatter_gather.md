@@ -1,7 +1,4 @@
 ---
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: 4ca4fb67-9e5a-4085-9f79-ea3881c7812b
@@ -12,6 +9,7 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T10:21:07.013620+00:00'
+    generation: 51
   topos:
     address: memory/episodic/gen_50_archive/scatter_gather.md
     links: []
@@ -19,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: scatter_gather.md
 ---
+
 
 # 🐍 Hydra Protocol: Scatter-Gather Architecture
 

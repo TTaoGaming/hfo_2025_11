@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: 109431a2-8b41-4036-b9c1-4cfa5bf600c6
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.948725Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_28/BENCHMARK_FINDINGS.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: BENCHMARK_FINDINGS.md
+---
 # Math Benchmark Findings (2025-11-11)
 
 ## Executive Summary

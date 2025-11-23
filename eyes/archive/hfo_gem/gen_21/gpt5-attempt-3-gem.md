@@ -1,4 +1,23 @@
 ---
+hexagon:
+  ontos:
+    id: 76fcb4d0-6933-48e2-a1dd-2625dd2ef7b6
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.852266Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_21/gpt5-attempt-3-gem.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: gpt5-attempt-3-gem.md
+---
+---
 
 ## Editorial Note (2025-10-29): Ordering and Guardrails
 

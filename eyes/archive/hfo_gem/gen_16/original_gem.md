@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: 4296e6c6-631f-452b-97d5-92c93ab6c600
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.816575Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_16/original_gem.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: original_gem.md
+---
 # 🕸⛰🧬 Gem 1 Gene Pass 16 — Exemplar Workflow Synthesis
 
 **Version:** 2025-10-23T22:00:00Z

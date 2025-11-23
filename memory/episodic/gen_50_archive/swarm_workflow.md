@@ -1,7 +1,4 @@
 ---
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: d8fb0b47-0c58-45c2-8e19-e44669934ada
@@ -12,6 +9,7 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T10:21:07.020807+00:00'
+    generation: 51
   topos:
     address: memory/episodic/gen_50_archive/swarm_workflow.md
     links: []
@@ -19,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: swarm_workflow.md
 ---
+
 
 # The SWARM Loop: Fractal Coordination Holon
 

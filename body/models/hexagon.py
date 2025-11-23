@@ -4,27 +4,21 @@
 # ==================================================================
 hexagon:
   ontos:
-    id: 10820020-9bb5-4339-94d7-5146e3754f41
+    id: 4d2393ec-2212-4f92-bfab-1ae4349dfc3a
     type: py
     owner: Swarmlord
   chronos:
     status: active
     urgency: 0.5
     decay: 0.5
-    created: '2025-11-23T10:21:31.350251+00:00'
+    created: '2025-11-23T11:07:34.907671Z'
+    generation: 51
   topos:
     address: body/models/hexagon.py
     links: []
   telos:
     viral_factor: 0.0
     meme: hexagon.py
-
-
-Hexagonal Holon Model (The Universal Adapter)
----------------------------------------------
-This module defines the Single Source of Truth (SSOT) for the Hexagonal Holon.
-It implements the 6-dimensional structure (Ontos, Telos, Chronos, Topos, Logos, Pathos)
-and provides adapter methods for Crystalline (YAML), Liquid (NATS), and Sedimentary (DB) states.
 """
 
 from typing import List, Dict, Any, Optional, Union

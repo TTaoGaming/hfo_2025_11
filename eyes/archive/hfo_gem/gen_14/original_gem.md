@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: 2909d5f7-796c-4578-bdbb-3a5d608af857
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.804960Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_14/original_gem.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: original_gem.md
+---
 
 # 🕸⛰💎🧬🥇 GEM 1 Pass 14 — Kilo Code Integration & SwarmLord Setup
 

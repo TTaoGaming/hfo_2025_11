@@ -12,6 +12,7 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T10:20:43.120797+00:00'
+    generation: 51
   topos:
     address: verify_nats_connection.py
     links: []

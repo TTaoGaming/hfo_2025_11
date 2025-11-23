@@ -5,10 +5,6 @@ domain: Biology
 owners:
 - Swarmlord
 type: Rhythms
-
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: cb118335-bb1f-464d-8138-e3e5b40bfb84
@@ -19,13 +15,15 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T06:32:09.781743Z'
+    generation: 51
   topos:
-    address: 1.0.0
+    address: brain/biology_organ_loops.md
     links: []
   telos:
     viral_factor: 0.0
     meme: Physiology Loops
 ---
+
 
 
 # 🔄 Physiology Loops

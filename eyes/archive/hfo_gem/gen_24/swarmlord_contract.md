@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: 50df37b7-d44a-41e7-b4d6-b0a899a5c66e
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.897118Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_24/swarmlord_contract.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: swarmlord_contract.md
+---
 # Swarmlord Contract (Gen24)
 
 BLUF

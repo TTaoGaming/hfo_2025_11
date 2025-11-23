@@ -1,7 +1,4 @@
 ---
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: 387ba78c-f842-4d0d-afca-9270257af550
@@ -12,6 +9,7 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T10:21:31.543977+00:00'
+    generation: 51
   topos:
     address: carapace/ai-chat-tech-stack-2025-11-20.md
     links: []
@@ -19,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: ai-chat-tech-stack-2025-11-20.md
 ---
+
 
 HFO tech stack important idea
 

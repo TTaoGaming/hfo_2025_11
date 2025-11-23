@@ -1,7 +1,4 @@
 ---
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: 138a9d72-c0cc-42ca-b817-cdc7a36efbb6
@@ -12,6 +9,7 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T10:21:11.888502+00:00'
+    generation: 51
   topos:
     address: memory/missions/20251121_040700_6c587438/squads/Sq-2/squad_report.md
     links: []
@@ -19,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: squad_report.md
 ---
+
 
 # Squad Sq-2 Report: Current State
 **Consensus Score**: 0.86

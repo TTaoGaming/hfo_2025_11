@@ -3,14 +3,15 @@
 # # ==================================================================
 # hexagon:
 #   ontos:
-#     id: a0fd418d-9209-49c6-82ed-b6189c363aaf
+#     id: ef003612-de20-427b-8e28-6f19d48e0683
 #     type: feature
 #     owner: Swarmlord
 #   chronos:
 #     status: active
 #     urgency: 0.5
 #     decay: 0.5
-#     created: '2025-11-23T10:21:31.471343+00:00'
+#     created: '2025-11-23T11:07:35.315611Z'
+#     generation: 51
 #   topos:
 #     address: brain/strategy_antifragile_hydra.feature
 #     links: []
@@ -18,7 +19,6 @@
 #     viral_factor: 0.0
 #     meme: strategy_antifragile_hydra.feature
 #
-
 ---
 owner: Swarmlord
 status: Placeholder

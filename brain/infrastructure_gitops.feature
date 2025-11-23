@@ -3,14 +3,15 @@
 # # ==================================================================
 # hexagon:
 #   ontos:
-#     id: 555dcbba-5d2f-4b67-bcb2-aba7d1a3bb64
+#     id: 1b470354-bdc9-4a62-9346-5c4749a2a88e
 #     type: feature
 #     owner: Swarmlord
 #   chronos:
 #     status: active
 #     urgency: 0.5
 #     decay: 0.5
-#     created: '2025-11-23T10:21:31.490912+00:00'
+#     created: '2025-11-23T11:07:35.379523Z'
+#     generation: 51
 #   topos:
 #     address: brain/infrastructure_gitops.feature
 #     links: []
@@ -18,7 +19,6 @@
 #     viral_factor: 0.0
 #     meme: infrastructure_gitops.feature
 #
-
 Feature: GitOps Automation Protocol
   As the Swarmlord
   I want a resilient, agentic GitOps workflow

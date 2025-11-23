@@ -3,14 +3,15 @@
 # # ==================================================================
 # hexagon:
 #   ontos:
-#     id: 24329f76-0ad2-4c55-980a-7bd71338f54e
+#     id: d2dfc96b-3f24-4a66-ac61-ea0fd267a615
 #     type: feature
 #     owner: Swarmlord
 #   chronos:
 #     status: active
 #     urgency: 0.5
 #     decay: 0.5
-#     created: '2025-11-23T10:21:06.997577+00:00'
+#     created: '2025-11-23T11:06:41.129680Z'
+#     generation: 51
 #   topos:
 #     address: memory/episodic/gen_50_archive/memory_graphrag.feature
 #     links: []
@@ -18,7 +19,6 @@
 #     viral_factor: 0.0
 #     meme: memory_graphrag.feature
 #
-
 Feature: Memory GraphRAG System (The Karmic Web)
     As the Swarmlord
     I want a self-organizing Knowledge Graph (The Karmic Web)

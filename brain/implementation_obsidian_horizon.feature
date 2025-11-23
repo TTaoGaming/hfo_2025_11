@@ -3,14 +3,15 @@
 # # ==================================================================
 # hexagon:
 #   ontos:
-#     id: acaf2ff5-9548-4565-96c5-2dbc60a4d7ac
+#     id: 718b5bc7-e6eb-4c4d-a038-305e0016b681
 #     type: feature
 #     owner: Swarmlord
 #   chronos:
 #     status: active
 #     urgency: 0.5
 #     decay: 0.5
-#     created: '2025-11-23T10:21:31.479770+00:00'
+#     created: '2025-11-23T11:07:35.351577Z'
+#     generation: 51
 #   topos:
 #     address: brain/implementation_obsidian_horizon.feature
 #     links: []
@@ -18,7 +19,6 @@
 #     viral_factor: 0.0
 #     meme: implementation_obsidian_horizon.feature
 #
-
 ---
 owner: Swarmlord
 status: Missing

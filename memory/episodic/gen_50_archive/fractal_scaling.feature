@@ -3,14 +3,15 @@
 # # ==================================================================
 # hexagon:
 #   ontos:
-#     id: 8e4a7895-a553-4682-bb9a-c38fbf089e04
+#     id: 150522fe-2e71-45c5-a71e-8034b23132e8
 #     type: feature
 #     owner: Swarmlord
 #   chronos:
 #     status: active
 #     urgency: 0.5
 #     decay: 0.5
-#     created: '2025-11-23T10:21:06.982974+00:00'
+#     created: '2025-11-23T11:06:41.104367Z'
+#     generation: 51
 #   topos:
 #     address: memory/episodic/gen_50_archive/fractal_scaling.feature
 #     links: []
@@ -18,7 +19,6 @@
 #     viral_factor: 0.0
 #     meme: fractal_scaling.feature
 #
-
 Feature: HFO Fractal Scaling (Holonic Hierarchy)
   As the Overmind (User)
   I want a Recursive/Holonic Command Structure

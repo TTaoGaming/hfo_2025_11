@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: 600126c6-5f48-4c22-9116-7790fef20189
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.771715Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_1/summary.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: summary.md
+---
 # Summary of Gen_1: Original Gem Foundations
 
 ## Key Concepts

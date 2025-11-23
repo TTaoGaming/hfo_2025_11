@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: 8ab8d506-ff15-467e-9cf0-75ea7315e6e5
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:36.049310Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_34/VISION_ALIGNMENT_SESSION.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: VISION_ALIGNMENT_SESSION.md
+---
 # Gen 34: Vision Alignment Session
 
 **Date**: 2025-11-18

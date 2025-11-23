@@ -5,23 +5,21 @@
 # ==================================================================
 hexagon:
   ontos:
-    id: 9e62ec21-62dc-4ed7-836a-93b45ecf0235
+    id: 87993b2d-85ec-4461-bab9-ce10a7ad0c59
     type: py
     owner: Swarmlord
   chronos:
     status: active
     urgency: 0.5
     decay: 0.5
-    created: '2025-11-23T10:21:31.557729+00:00'
+    created: '2025-11-23T11:07:35.631026Z'
+    generation: 51
   topos:
     address: carapace/hive_guards/guard_mermaid.py
     links: []
   telos:
     viral_factor: 0.0
     meme: guard_mermaid.py
-
-
-Checks for balanced brackets in the mermaid block.
 """
 import re
 from pathlib import Path

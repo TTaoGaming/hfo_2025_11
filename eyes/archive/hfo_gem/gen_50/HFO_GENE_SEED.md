@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: 0cce25be-415a-43f5-9a75-0c99e252ecad
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:36.090736Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_50/HFO_GENE_SEED.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: HFO_GENE_SEED.md
+---
 """
 # 💠 HFO_GENE_SEED_GEN50.md
 # Designation: HFO-SEED-GEN50-GAME-FORGE

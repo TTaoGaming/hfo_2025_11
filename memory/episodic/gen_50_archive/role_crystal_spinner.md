@@ -1,7 +1,4 @@
 ---
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: 8c0d7fea-ef6d-41eb-a0d9-d9beea8ba271
@@ -12,6 +9,7 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T10:21:07.010844+00:00'
+    generation: 51
   topos:
     address: memory/episodic/gen_50_archive/role_crystal_spinner.md
     links: []
@@ -19,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: role_crystal_spinner.md
 ---
+
 
 # 🕸️ The Crystal-Spinner: Assimilator Sub-Role
 

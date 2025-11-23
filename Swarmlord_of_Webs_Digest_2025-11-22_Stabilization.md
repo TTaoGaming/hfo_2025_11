@@ -1,7 +1,4 @@
 ---
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: e6879c9e-05f9-4133-ac65-4b734bc2ad72
@@ -12,6 +9,7 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T10:20:43.121924+00:00'
+    generation: 51
   topos:
     address: Swarmlord_of_Webs_Digest_2025-11-22_Stabilization.md
     links: []
@@ -19,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: Swarmlord_of_Webs_Digest_2025-11-22_Stabilization.md
 ---
+
 
 # 🦅 Swarmlord of Webs Digest: The Stabilization Epoch
 

@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: 982da942-45f4-4846-9a18-3289402446eb
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.975965Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_28/ssot/obsidian_hourglass/README.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: README.md
+---
 # Obsidian Horizon Hourglass SSOT
 
 This folder carries the single source of truth for the Obsidian Horizon Hourglass loop in Generation 28. Keep it tool agnostic: the loop can run by hand, by one assistant, or by a full agent crew.

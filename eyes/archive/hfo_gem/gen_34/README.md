@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: 2a709078-243e-45bf-a9bd-2fe990c5e09c
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:36.047711Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_34/README.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: README.md
+---
 # Gen 34: Fractal Holonic Definition (SysML v2)
 
 **Created**: 2025-11-18

@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: 59d2f39d-cd55-4ef8-a9b9-30efdc8a4242
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.989327Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_29/HOURGLASS_GEOMETRIC_MODEL.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: HOURGLASS_GEOMETRIC_MODEL.md
+---
 # Obsidian Horizon Hourglass – Geometric Model
 
 **Date**: 2025-11-11

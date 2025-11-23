@@ -1,7 +1,4 @@
 ---
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: 1d7509c5-1eb0-44cb-b05c-70694531f002
@@ -12,6 +9,7 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T10:21:31.358801+00:00'
+    generation: 51
   topos:
     address: body/nerves/README.md
     links: []
@@ -19,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: README.md
 ---
+
 
 # ⚡ The Nerves (Bridger)
 

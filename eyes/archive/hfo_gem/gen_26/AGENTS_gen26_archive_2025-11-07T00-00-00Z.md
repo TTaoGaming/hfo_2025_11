@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: c5990dd8-deca-41df-a8b4-c64183fadef3
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.931834Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_26/AGENTS_gen26_archive_2025-11-07T00-00-00Z.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: AGENTS_gen26_archive_2025-11-07T00-00-00Z.md
+---
 # AGENTS.md Archive (Frozen Snapshot) — 2025-11-07T00-00-00Z
 
 This file is a verbatim archive of the root `AGENTS.md` on 2025-11-07. Treat as read-only reference for Gen26 evolution work. Do not edit; create new versions instead.

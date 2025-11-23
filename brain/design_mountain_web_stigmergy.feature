@@ -3,14 +3,15 @@
 # # ==================================================================
 # hexagon:
 #   ontos:
-#     id: cb6ae65b-1318-433b-9832-48eafe214657
+#     id: edf115c0-9d3b-476b-9bd7-7872acdedabc
 #     type: feature
 #     owner: Swarmlord
 #   chronos:
 #     status: active
 #     urgency: 0.5
 #     decay: 0.5
-#     created: '2025-11-23T10:21:31.503211+00:00'
+#     created: '2025-11-23T11:07:35.433657Z'
+#     generation: 51
 #   topos:
 #     address: brain/design_mountain_web_stigmergy.feature
 #     links: []
@@ -18,7 +19,6 @@
 #     viral_factor: 0.0
 #     meme: design_mountain_web_stigmergy.feature
 #
-
 Feature: The Mountain and The Web (Deep Stigmergy)
   As the Swarmlord
   I want to implement a Fractal Stigmergy System (Mountain & Web)

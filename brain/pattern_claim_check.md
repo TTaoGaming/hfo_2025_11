@@ -5,10 +5,6 @@ domain: Architecture
 owners:
 - Swarmlord
 type: Design Pattern
-
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: 60e75863-bbfb-4ead-b384-1634a35532a8
@@ -19,13 +15,15 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T06:32:09.831196Z'
+    generation: 51
   topos:
-    address: 1.0.0
+    address: brain/pattern_claim_check.md
     links: []
   telos:
     viral_factor: 0.0
     meme: Claim Check Pattern (Rich Stigmergy)
 ---
+
 
 
 # 🎫 Claim Check Pattern (Rich Stigmergy)

@@ -1,4 +1,27 @@
 """
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: c2979b38-014a-4eb3-b664-fa6f2c1177cd
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:34.840204Z'
+    generation: 51
+  topos:
+    address: body/biology_stigmergy.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: biology_stigmergy.py
+"""
+
+"""
     hexagon:
       ontos:
         id: 14204405-0b04-4ac0-8808-8648e28eef74

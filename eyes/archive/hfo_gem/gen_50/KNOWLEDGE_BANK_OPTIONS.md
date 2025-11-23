@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: f4358a0e-bda4-4a88-8cf3-9028abf99a26
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:36.093585Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_50/KNOWLEDGE_BANK_OPTIONS.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: KNOWLEDGE_BANK_OPTIONS.md
+---
 # Knowledge Transfer Bank: Options for Gen 50
 
 To accelerate the cold start of Generation 50, we need to transfer the "Wisdom" from Generations 1-44 without carrying over the "Weight" (technical debt).

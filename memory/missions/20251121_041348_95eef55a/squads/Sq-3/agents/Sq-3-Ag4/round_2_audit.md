@@ -1,7 +1,4 @@
 ---
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: e21d4cf8-e718-4600-a2b2-fe09c5c59221
@@ -12,6 +9,7 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T10:21:11.982753+00:00'
+    generation: 51
   topos:
     address: memory/missions/20251121_041348_95eef55a/squads/Sq-3/agents/Sq-3-Ag4/round_2_audit.md
     links: []
@@ -19,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: round_2_audit.md
 ---
+
 
 # Audit Log: Sq-3-Ag4 - Round 2
 **Timestamp**: 2025-11-21T04:16:35.622110

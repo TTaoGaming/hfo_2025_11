@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: 8e186d6b-1700-4276-a020-c87bf60dfa8b
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.674720Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_30/CHATGPT_MEMORY_IMPORT_2025-11-12.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: CHATGPT_MEMORY_IMPORT_2025-11-12.md
+---
 # ChatGPT Memory Import – HFO Vision (2025-11-12)
 
 **Import Date**: 2025-11-12

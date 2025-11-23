@@ -1,7 +1,4 @@
 ---
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: c88aff54-66e2-493e-8508-24b2c2831677
@@ -12,6 +9,7 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T10:21:07.022633+00:00'
+    generation: 51
   topos:
     address: memory/episodic/gen_50_archive/swarmlord_profile.md
     links: []
@@ -19,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: swarmlord_profile.md
 ---
+
 
 # 🦅 Swarmlord of Webs: The Ship in State-Action Space
 

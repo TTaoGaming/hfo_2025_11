@@ -1,7 +1,4 @@
 ---
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: 1182d111-e3dd-4dd4-8152-2804e4104453
@@ -12,6 +9,7 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T10:21:31.276410+00:00'
+    generation: 51
   topos:
     address: venom/audit_report.md
     links: []
@@ -19,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: audit_report.md
 ---
+
 
 # 🕷️ Weaver Audit Report
 **Date**: 2025-11-23T01:39:35.822837

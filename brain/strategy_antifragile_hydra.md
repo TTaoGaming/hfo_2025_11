@@ -5,10 +5,6 @@ domain: Strategy
 owners:
 - Swarmlord
 type: Defense & Execution
-
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: 4c609c9d-5f70-426f-bb5b-5acfa3531735
@@ -19,13 +15,15 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T06:32:09.803704Z'
+    generation: 51
   topos:
-    address: 1.0.0
+    address: brain/strategy_antifragile_hydra.md
     links: []
   telos:
     viral_factor: 0.0
     meme: Antifragile Hydra Strategy
 ---
+
 
 
 # 🐍 Antifragile Hydra Strategy

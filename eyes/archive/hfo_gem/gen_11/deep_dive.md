@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: 9ab32a3b-1167-4615-b0c2-6b0fecb522cd
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.780116Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_11/deep_dive.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: deep_dive.md
+---
 # Deep Dive: Gen_11 Bio-Feedback Regenerative Architecture
 
 ## Introduction

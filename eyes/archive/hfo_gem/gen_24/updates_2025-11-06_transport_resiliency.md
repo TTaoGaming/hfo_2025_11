@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: 33cd0b40-5cf3-419a-b98c-f30e24fd6ccb
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.899237Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_24/updates_2025-11-06_transport_resiliency.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: updates_2025-11-06_transport_resiliency.md
+---
 # Gen24 update — transport resiliency and quorum lift (2025-11-06)
 
 BLUF

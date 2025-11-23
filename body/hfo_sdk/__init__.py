@@ -4,24 +4,21 @@
 # ==================================================================
 hexagon:
   ontos:
-    id: 5fecca89-184c-457b-8888-7a5cc00a6497
+    id: 4fbe772e-2731-4afa-8ead-5b2530f9c43c
     type: py
     owner: Swarmlord
   chronos:
     status: active
     urgency: 0.5
     decay: 0.5
-    created: '2025-11-23T10:21:31.425276+00:00'
+    created: '2025-11-23T11:07:35.130205Z'
+    generation: 51
   topos:
     address: body/hfo_sdk/__init__.py
     links: []
   telos:
     viral_factor: 0.0
     meme: __init__.py
-
-
-Hive Fleet Obsidian SDK
-The unified entry point for the HFO R.A.P.T.O.R. stack.
 """
 
 from .client import HFOClient

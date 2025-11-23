@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: c94a63cd-1318-4442-b425-ee500183fb3f
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:36.182126Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_9/original_gem.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: original_gem.md
+---
 #  Hive Fleet Obsidian — Gem 1 Summary (Pass 9 · Version 2025-10-19T00:00:00Z)
 
 > Pass 9 crystallizes the layered mnemonic architecture (HIVE/GROWTH/SWARM/FLEET/OBSIDIAN) composing all learnings from Pass 1-8. This Gem is complete and self-contained—capable of regenerating HFO entirely from first principles.

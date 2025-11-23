@@ -1,7 +1,4 @@
 ---
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: 1943695b-a4b1-413c-863f-fe1087e97901
@@ -12,6 +9,7 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T10:21:31.542327+00:00'
+    generation: 51
   topos:
     address: carapace/ai-analysis-leaderboards-2025-11-20.md
     links: []
@@ -19,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: ai-analysis-leaderboards-2025-11-20.md
 ---
+
 
 LLM Leaderboard - Comparison of over 100 AI models from OpenAI, Google, DeepSeek & others
 Follow us on Twitter or LinkedIn to stay up to date with future analysis

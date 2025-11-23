@@ -3,14 +3,15 @@
 # # ==================================================================
 # hexagon:
 #   ontos:
-#     id: b746a31f-d6c1-4ac6-aaf7-4da122bf6459
+#     id: e7a20c01-362c-40ca-bd51-ff31eeaf492f
 #     type: feature
 #     owner: Swarmlord
 #   chronos:
 #     status: active
 #     urgency: 0.5
 #     decay: 0.5
-#     created: '2025-11-23T10:21:07.019322+00:00'
+#     created: '2025-11-23T11:06:41.167935Z'
+#     generation: 51
 #   topos:
 #     address: memory/episodic/gen_50_archive/swarm_workflow.feature
 #     links: []
@@ -18,7 +19,6 @@
 #     viral_factor: 0.0
 #     meme: swarm_workflow.feature
 #
-
 Feature: The SWARM Loop (Fractal Coordination Holon)
   As the Swarm Architect
   I want to define the coordination unit (The SWARM Loop)

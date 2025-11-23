@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: d16891b2-a060-4508-82d9-b9cf5eec6640
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.846226Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_20/hallucination-original_gem.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: hallucination-original_gem.md
+---
 # 🕸⛰💎🧬🥇 GEM GENE SEED 01 — Generation 20 Regenerative Specification
 
 ```

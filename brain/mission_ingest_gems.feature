@@ -3,14 +3,15 @@
 # # ==================================================================
 # hexagon:
 #   ontos:
-#     id: 85ae9c3f-55a1-47ed-b2a4-7a2d78df5522
+#     id: ced7aff9-b8b2-4100-80c2-bc1e6f1843a5
 #     type: feature
 #     owner: Swarmlord
 #   chronos:
 #     status: active
 #     urgency: 0.5
 #     decay: 0.5
-#     created: '2025-11-23T10:21:31.468723+00:00'
+#     created: '2025-11-23T11:07:35.307108Z'
+#     generation: 51
 #   topos:
 #     address: brain/mission_ingest_gems.feature
 #     links: []
@@ -18,7 +19,6 @@
 #     viral_factor: 0.0
 #     meme: mission_ingest_gems.feature
 #
-
 ---
 owner: Swarmlord
 status: Placeholder

@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: 4bae5b28-54d5-442d-ac46-b0d45c0f32ba
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.910864Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_25/pgvector_knowledge_notes.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: pgvector_knowledge_notes.md
+---
 # PGVector Knowledge Notes (Gen25)
 
 BLUF: Curated high-signal reference snippets for the Knowledge layer (PostgreSQL + pgvector) to speed agent retrieval and grounding. Each snippet is <= 30 lines, attribution included, and designed for hybrid vector + text search.

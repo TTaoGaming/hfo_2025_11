@@ -3,14 +3,15 @@
 # # ==================================================================
 # hexagon:
 #   ontos:
-#     id: c1b423b9-4ef1-42b2-8b81-02ecb690f178
+#     id: 273b69e5-0bec-4a86-9b9a-a9d6f9f52328
 #     type: feature
 #     owner: Swarmlord
 #   chronos:
 #     status: active
 #     urgency: 0.5
 #     decay: 0.5
-#     created: '2025-11-23T10:21:31.455989+00:00'
+#     created: '2025-11-23T11:07:35.261792Z'
+#     generation: 51
 #   topos:
 #     address: brain/biology_organ_loops.feature
 #     links: []
@@ -18,7 +19,6 @@
 #     viral_factor: 0.0
 #     meme: biology_organ_loops.feature
 #
-
 ---
 owner: Swarmlord
 status: Placeholder

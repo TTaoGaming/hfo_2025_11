@@ -5,10 +5,6 @@ domain: Infrastructure
 owners:
 - Swarmlord
 type: Architecture
-
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: 30b36407-3c84-41d7-9bc9-aa55ea247db4
@@ -19,13 +15,15 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T06:32:09.825869Z'
+    generation: 51
   topos:
-    address: 1.0.0
+    address: brain/infrastructure_temporal.md
     links: []
   telos:
     viral_factor: 0.0
     meme: Temporal Orchestration
 ---
+
 
 
 # ⏳ Temporal Orchestration (The Backbone)

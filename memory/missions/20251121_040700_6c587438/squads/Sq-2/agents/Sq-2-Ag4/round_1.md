@@ -1,7 +1,4 @@
 ---
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: e800c4ee-7b2f-4408-8ec0-49002f2e820d
@@ -12,6 +9,7 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T10:21:11.901004+00:00'
+    generation: 51
   topos:
     address: memory/missions/20251121_040700_6c587438/squads/Sq-2/agents/Sq-2-Ag4/round_1.md
     links: []
@@ -19,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: round_1.md
 ---
+
 
 # Agent Sq-2-Ag4 - Round 1
 **Role**: Futurist

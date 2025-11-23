@@ -3,14 +3,15 @@
 # # ==================================================================
 # hexagon:
 #   ontos:
-#     id: 6d4e0bec-a04b-4ea5-9163-cbca9e64fb76
+#     id: ec1c870e-d3bd-40fc-bddb-d471294614bb
 #     type: feature
 #     owner: Swarmlord
 #   chronos:
 #     status: active
 #     urgency: 0.5
 #     decay: 0.5
-#     created: '2025-11-23T10:21:31.537233+00:00'
+#     created: '2025-11-23T11:07:35.559406Z'
+#     generation: 51
 #   topos:
 #     address: brain/structural_pillars.feature
 #     links: []
@@ -18,7 +19,6 @@
 #     viral_factor: 0.0
 #     meme: structural_pillars.feature
 #
-
 Feature: Structural Pillars of Hive Fleet Obsidian
   As the Swarmlord
   I want to enforce the 10 Structural Pillars

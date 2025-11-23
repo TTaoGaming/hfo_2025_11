@@ -3,14 +3,15 @@
 # # ==================================================================
 # hexagon:
 #   ontos:
-#     id: 9dd58bb5-87a7-4360-b10e-70d7cb8a9f49
+#     id: 3689182d-d905-454f-a3d9-ead9ba544a1e
 #     type: feature
 #     owner: Swarmlord
 #   chronos:
 #     status: active
 #     urgency: 0.5
 #     decay: 0.5
-#     created: '2025-11-23T10:21:31.483618+00:00'
+#     created: '2025-11-23T11:07:35.358275Z'
+#     generation: 51
 #   topos:
 #     address: brain/mission_gesture_game_forge.feature
 #     links: []
@@ -18,7 +19,6 @@
 #     viral_factor: 0.0
 #     meme: mission_gesture_game_forge.feature
 #
-
 ---
 owner: Swarmlord
 status: Active

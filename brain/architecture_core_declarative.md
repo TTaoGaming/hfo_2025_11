@@ -5,10 +5,6 @@ domain: Architecture
 owners:
 - Swarmlord
 type: Core Logic
-
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: 61cda793-f08c-4cfa-83ff-9530f0d371cc
@@ -19,13 +15,15 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T06:32:09.774703Z'
+    generation: 51
   topos:
-    address: 1.0.0
+    address: brain/architecture_core_declarative.md
     links: []
   telos:
     viral_factor: 0.0
     meme: Declarative Intent Loading
 ---
+
 
 
 # 📜 Declarative Intent Loading

@@ -1,7 +1,4 @@
 ---
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: 2092ec9e-8dff-45be-bb3c-638e65b155af
@@ -12,6 +9,7 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T10:21:06.978336+00:00'
+    generation: 51
   topos:
     address: memory/episodic/gen_50_archive/file_structure_governance.md
     links: []
@@ -19,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: file_structure_governance.md
 ---
+
 
 # 🏛️ Hive Fleet Obsidian: File Structure Governance (Hybrid Protocol)
 

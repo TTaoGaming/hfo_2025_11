@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: 1256ee49-c0aa-48e9-851a-cf308a85d6da
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.858375Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_21/archive-hallucination-be-careful/gpt-5-attempt-2-gem.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: gpt-5-attempt-2-gem.md
+---
 # 🕸⛰💎🧬🥇
 
 # HIVE FLEET OBSIDIAN

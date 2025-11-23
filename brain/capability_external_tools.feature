@@ -3,14 +3,15 @@
 # # ==================================================================
 # hexagon:
 #   ontos:
-#     id: f21e33f2-3d17-4010-8ab5-b8261b11483f
+#     id: 461ff3be-fc98-42b3-84ff-0271679339ff
 #     type: feature
 #     owner: Swarmlord
 #   chronos:
 #     status: active
 #     urgency: 0.5
 #     decay: 0.5
-#     created: '2025-11-23T10:21:31.475614+00:00'
+#     created: '2025-11-23T11:07:35.333793Z'
+#     generation: 51
 #   topos:
 #     address: brain/capability_external_tools.feature
 #     links: []
@@ -18,7 +19,6 @@
 #     viral_factor: 0.0
 #     meme: capability_external_tools.feature
 #
-
 ---
 owner: Swarmlord
 status: Implemented

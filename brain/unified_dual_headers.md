@@ -15,10 +15,6 @@ tags:
 - yaml
 - header
 - dual-split
-
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: d9188c64-3e45-4700-b4bf-77f24e5afb25
@@ -29,13 +25,15 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T06:32:09.867310Z'
+    generation: 51
   topos:
-    address: 1.0.0
+    address: brain/unified_dual_headers.md
     links: []
   telos:
     viral_factor: 0.0
     meme: 'Unified Dual-Split Headers: Human vs. Machine'
 ---
+
 
 
 # 💎 Unified Dual-Split Headers: Human vs. Machine

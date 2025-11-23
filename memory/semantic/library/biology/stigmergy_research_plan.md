@@ -16,10 +16,6 @@ related_files: []
 type: crystallized_memory
 status: active
 last_verified: '2025-11-21'
-
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: f85983f7-8f18-4d1b-ad03-a1fc1ea7f0f8
@@ -30,14 +26,15 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T10:21:10.200565+00:00'
+    generation: 51
   topos:
     address: memory/semantic/library/biology/stigmergy_research_plan.md
     links: []
   telos:
     viral_factor: 0.0
     meme: stigmergy_research_plan.md
-
 ---
+
 
 # 🧪 Research Intent: Evolutionary Stigmergy Patterns
 

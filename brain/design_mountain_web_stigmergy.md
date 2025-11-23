@@ -10,28 +10,19 @@ bluf: 'We are replacing "Active Inference" (too complex) with **Fractal Stigmerg
 
   3. **The Facet (Schema)**: Standardized YAML header (`id`, `urgency`, `last_touched`)
   makes every file a machine-readable neuron.'
-story: '> **Symbolism**: 🕸️ (The Web: Hot/Active agents via NATS vibrations) + ⛰️
-  (The Mountain: Static/Cold filesystem with sink/float dynamics).
-
-  > **Goal**: Embed stigmergy directly into the filesystem (static memory) and agents
-  (dynamic connections) for fractal holonic swarm intelligence.
-
-  > **Obsidian Facet**: Unified metadata schema enabling machine-readable artifacts,
-  visualization, and holonic roles (Sherpa: retrieval, Gardener: pruning, Weaver:
-  synthesis).
-
-
-  The repository **IS** the stigmergy medium—unifying static/dynamic holons via decay/uplift,
-  strata naming, and NATS JetStream.'
+story: "> **Symbolism**: \U0001F578\uFE0F (The Web: Hot/Active agents via NATS vibrations)\
+  \ + \u26F0\uFE0F (The Mountain: Static/Cold filesystem with sink/float dynamics).\n\
+  > **Goal**: Embed stigmergy directly into the filesystem (static memory) and agents\
+  \ (dynamic connections) for fractal holonic swarm intelligence.\n> **Obsidian Facet**:\
+  \ Unified metadata schema enabling machine-readable artifacts, visualization, and\
+  \ holonic roles (Sherpa: retrieval, Gardener: pruning, Weaver: synthesis).\n\nThe\
+  \ repository **IS** the stigmergy medium\u2014unifying static/dynamic holons via\
+  \ decay/uplift, strata naming, and NATS JetStream."
 tags:
 - architecture
 - stigmergy
 - core
 - obsidian_facet
-
-# ==================================================================
-# 🤖 THE HEXAGON (Swarm Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: 550e8400-e29b-41d4-a716-446655440099
@@ -42,15 +33,18 @@ hexagon:
     urgency: 0.9
     decay: 0.1
     created: '2025-11-22T12:00:00Z'
+    generation: 51
   topos:
-    address: 1.0.0
+    address: brain/design_mountain_web_stigmergy.md
     links:
     - brain/concepts.yaml
     - brain/design_mountain_web_stigmergy.feature
   telos:
     viral_factor: 0.9
-    meme: '🕸️⛰️ Mountain-Web: Fractal Stigmergy (Sink, Float, Vibrate)'
+    meme: "\U0001F578\uFE0F\u26F0\uFE0F Mountain-Web: Fractal Stigmergy (Sink, Float,\
+      \ Vibrate)"
 ---
+
 
 
 

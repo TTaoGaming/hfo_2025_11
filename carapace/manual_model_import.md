@@ -1,7 +1,4 @@
 ---
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: fdc6c556-4dc4-482b-aebe-4008296403d1
@@ -12,6 +9,7 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T10:21:31.545245+00:00'
+    generation: 51
   topos:
     address: carapace/manual_model_import.md
     links: []
@@ -19,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: manual_model_import.md
 ---
+
 
 # 🦅 Hive Fleet Obsidian: Selected Model Intelligence (2025-11-20)
 

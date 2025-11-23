@@ -1,29 +1,23 @@
 ---
 title: 'Holonic Knowledge Leveling: Cooling & Crystallization'
-bluf: 'We implement a "Cooling System" for Truth, grounded in Thermodynamics and Stigmergy. Information starts as Hot Plasma (NATS) and cools into Solid Crystal (Graph) through Log-10 Swarm Consensus. No invention, only composition of exemplars.'
-story: '> **The Metaphor**: Truth is a phase transition.
-  > 1. **Plasma (Lvl 0)**: High Energy, Low Structure. (NATS Signals)
-  > 2. **Gas (Lvl 1)**: Coalescing Clouds. (Markdown Files)
-  > 3. **Liquid (Lvl 2)**: Flowing Vectors. (pgvector)
-  > 4. **Crystal (Lvl 3)**: Rigid, Durable Structure. (Knowledge Graph)
-
-  > **The Hexagon**: The 6 Facets of Crystallization (Ontos, Chronos, Topos, Telos, Logos, Ethos).
-
-  > **The Exemplars**:
-  > - **Stigmergy** (Grassé, 1959): Indirect coordination via environment.
-  > - **Dunbar''s Number** (150): Limits of Lvl 2 Squads.
-  > - **Byzantine Fault Tolerance** (Lamport): Consensus mechanism.
-  > - **MAP-Elites** (Mouret & Clune): Diversity preservation.'
+bluf: We implement a "Cooling System" for Truth, grounded in Thermodynamics and Stigmergy.
+  Information starts as Hot Plasma (NATS) and cools into Solid Crystal (Graph) through
+  Log-10 Swarm Consensus. No invention, only composition of exemplars.
+story: "> **The Metaphor**: Truth is a phase transition. > 1. **Plasma (Lvl 0)**:\
+  \ High Energy, Low Structure. (NATS Signals) > 2. **Gas (Lvl 1)**: Coalescing Clouds.\
+  \ (Markdown Files) > 3. **Liquid (Lvl 2)**: Flowing Vectors. (pgvector) > 4. **Crystal\
+  \ (Lvl 3)**: Rigid, Durable Structure. (Knowledge Graph)\n> **The Hexagon**: The\
+  \ 6 Facets of Crystallization (Ontos, Chronos, Topos, Telos, Logos, Ethos).\n> **The\
+  \ Exemplars**: > - **Stigmergy** (Grass\xE9, 1959): Indirect coordination via environment.\
+  \ > - **Dunbar's Number** (150): Limits of Lvl 2 Squads. > - **Byzantine Fault Tolerance**\
+  \ (Lamport): Consensus mechanism. > - **MAP-Elites** (Mouret & Clune): Diversity\
+  \ preservation."
 tags:
-  - architecture
-  - thermodynamics
-  - knowledge_graph
-  - stigmergy
-  - research_grounded
-
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
+- architecture
+- thermodynamics
+- knowledge_graph
+- stigmergy
+- research_grounded
 hexagon:
   ontos:
     id: 550e8400-e29b-41d4-a716-446655440100
@@ -34,16 +28,17 @@ hexagon:
     urgency: 0.9
     decay: 0.05
     created: '2025-11-23T12:30:00Z'
+    generation: 51
   topos:
-    address: 1.0.0
+    address: brain/design_holonic_knowledge_leveling.md
     links:
-      - brain/spec_holonic_leveling.feature
-      - brain/design_mountain_web_stigmergy.md
+    - brain/spec_holonic_leveling.feature
+    - brain/design_mountain_web_stigmergy.md
   telos:
     viral_factor: 0.95
-    meme: "❄️ Truth Cools: Plasma -> Gas -> Liquid -> Crystal"
-
+    meme: "\u2744\uFE0F Truth Cools: Plasma -> Gas -> Liquid -> Crystal"
 ---
+
 
 # ❄️ Holonic Knowledge Leveling: The Cooling System
 

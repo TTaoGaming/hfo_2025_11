@@ -1,7 +1,4 @@
 ---
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: b7d69045-a63e-46a7-b375-f06d841ad385
@@ -12,6 +9,7 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T10:21:31.541090+00:00'
+    generation: 51
   topos:
     address: carapace/KCS_V6_METHODOLOGY.md
     links: []
@@ -19,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: KCS_V6_METHODOLOGY.md
 ---
+
 
 # Knowledge-Centered Service (KCS v6) Methodology 🧠
 ## For Hive Fleet Obsidian (Gen 50)

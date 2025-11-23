@@ -3,14 +3,15 @@
 # # ==================================================================
 # hexagon:
 #   ontos:
-#     id: ecb550e4-c989-4a4a-ba98-b4e4dcf33070
+#     id: 08673e1b-5b26-4298-8b89-6f26ad364652
 #     type: feature
 #     owner: Swarmlord
 #   chronos:
 #     status: active
 #     urgency: 0.5
 #     decay: 0.5
-#     created: '2025-11-23T10:21:10.001853+00:00'
+#     created: '2025-11-23T11:06:49.836734Z'
+#     generation: 51
 #   topos:
 #     address: memory/semantic/library/infrastructure/swarm_workflow.feature
 #     links: []
@@ -18,7 +19,6 @@
 #     viral_factor: 0.0
 #     meme: swarm_workflow.feature
 #
-
 ---
 title: 'SWARM Loop: Fractal Coordination Holon Workflow'
 summary: Defines the recursive lifecycle of a Swarm Holon through phases of Set (decomposition),

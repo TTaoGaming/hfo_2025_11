@@ -5,10 +5,6 @@ domain: Architecture
 owners:
 - Swarmlord
 type: Physiology
-
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: a2084caf-c715-471f-89e1-00db4124a19a
@@ -19,13 +15,15 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T06:32:09.779370Z'
+    generation: 51
   topos:
-    address: 1.0.0
+    address: brain/architecture_organs_roles_champions.md
     links: []
   telos:
     viral_factor: 0.0
     meme: Organs, Roles, and Champions
 ---
+
 
 
 # 🧬 Organs, Roles, and Champions

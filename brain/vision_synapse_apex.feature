@@ -3,14 +3,15 @@
 # # ==================================================================
 # hexagon:
 #   ontos:
-#     id: 0e9e2bc6-cf8b-49cf-b228-1f81274e6a54
+#     id: 864af8fd-21b9-49c2-b0bd-6f06a88b9004
 #     type: feature
 #     owner: Swarmlord
 #   chronos:
 #     status: active
 #     urgency: 0.5
 #     decay: 0.5
-#     created: '2025-11-23T10:21:31.492739+00:00'
+#     created: '2025-11-23T11:07:35.391793Z'
+#     generation: 51
 #   topos:
 #     address: brain/vision_synapse_apex.feature
 #     links: []
@@ -18,7 +19,6 @@
 #     viral_factor: 0.0
 #     meme: vision_synapse_apex.feature
 #
-
 Feature: Synapse APEX Swarm (Network Stigmergy)
 
   Background:

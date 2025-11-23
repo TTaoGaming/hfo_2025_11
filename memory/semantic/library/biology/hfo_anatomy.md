@@ -24,10 +24,6 @@ related_files:
 type: crystallized_memory
 status: active
 last_verified: '2025-11-21'
-
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: 34756962-bb07-4cfc-996c-aa656df2f83f
@@ -38,14 +34,15 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T10:21:10.196728+00:00'
+    generation: 51
   topos:
     address: memory/semantic/library/biology/hfo_anatomy.md
     links: []
   telos:
     viral_factor: 0.0
     meme: hfo_anatomy.md
-
 ---
+
 
 # 🧬 HFO Anatomy: The Biological Swarm
 

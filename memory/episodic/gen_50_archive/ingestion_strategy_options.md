@@ -1,7 +1,4 @@
 ---
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: 5173ff46-eb10-40bb-bb9b-0383e9ad8fde
@@ -12,6 +9,7 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T10:21:06.995083+00:00'
+    generation: 51
   topos:
     address: memory/episodic/gen_50_archive/ingestion_strategy_options.md
     links: []
@@ -19,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: ingestion_strategy_options.md
 ---
+
 
 # 📥 HFO Gem Ingestion Strategy: 4 Viable Options
 

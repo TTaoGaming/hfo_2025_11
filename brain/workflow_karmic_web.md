@@ -6,10 +6,6 @@ tags:
 - stigmergy
 - graphrag
 - memory
-
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: 8a17b157-325d-4295-b14f-377e71aa375a
@@ -20,13 +16,15 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T06:32:09.814743Z'
+    generation: 51
   topos:
-    address: 1.0.0
+    address: brain/workflow_karmic_web.md
     links: []
   telos:
     viral_factor: 0.0
     meme: Karmic Web Workflow
 ---
+
 
 
 # 🕸️ Karmic Web Workflow

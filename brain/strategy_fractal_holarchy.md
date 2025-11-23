@@ -5,10 +5,6 @@ domain: Strategy
 owners:
 - Swarmlord
 type: Organizational Structure
-
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: 66a858c7-519a-48bb-aca1-ec5fb3aca67a
@@ -19,13 +15,15 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T06:32:09.806086Z'
+    generation: 51
   topos:
-    address: 1.0.0
+    address: brain/strategy_fractal_holarchy.md
     links: []
   telos:
     viral_factor: 0.0
     meme: Fractal Holarchy Strategy
 ---
+
 
 
 # 🕸️ Fractal Holarchy Strategy

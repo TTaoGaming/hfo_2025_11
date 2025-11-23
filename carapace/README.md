@@ -1,7 +1,4 @@
 ---
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: 3d32c9c9-5d20-49df-880b-1c2a259fffc2
@@ -12,6 +9,7 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T10:21:31.552775+00:00'
+    generation: 51
   topos:
     address: carapace/README.md
     links: []
@@ -19,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: README.md
 ---
+
 
 # 🛡️ The Carapace (Immunizer)
 

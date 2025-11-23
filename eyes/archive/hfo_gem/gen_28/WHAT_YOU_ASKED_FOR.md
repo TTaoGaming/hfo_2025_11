@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: f2b49c48-530a-4c48-96d2-d439272015e7
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.965155Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_28/WHAT_YOU_ASKED_FOR.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: WHAT_YOU_ASKED_FOR.md
+---
 # 🎯 What You Asked For vs What You Got
 
 **Your Question**:

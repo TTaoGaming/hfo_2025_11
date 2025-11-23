@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: 56012365-0c1b-42c1-b160-eee1e19388f9
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.875744Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_23/HFOMBSE_Gen23_Roadmap_2025-11-05T00:00:00Z.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: HFOMBSE_Gen23_Roadmap_2025-11-05T00:00:00Z.md
+---
 # HFOMBSE — Gen23 MBSE Roadmap (Single‑Source Guide)
 
 BLUF: This is the one place to understand and advance Hive Fleet Obsidian’s MBSE path (Gen23). Start with a single YAML model, generate all diagrams (Mermaid C4), mirror to SysML v2 text, and enforce drift with CI. Short tutorials and examples included to get you moving fast.

@@ -1,7 +1,4 @@
 ---
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: 26b3de7b-ca3c-4bc3-a0db-2661cd0ba09c
@@ -12,6 +9,7 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T10:21:31.570257+00:00'
+    generation: 51
   topos:
     address: eyes/tools/HFO_CONCEPTS.md
     links: []
@@ -19,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: HFO_CONCEPTS.md
 ---
+
 
 # HFO Conceptual Armory
 

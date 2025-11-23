@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: 53b06b95-2f41-4a16-afde-e9b47499cb0c
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.733718Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_42/docs/HFO_LINEAGE.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: HFO_LINEAGE.md
+---
 # HFO Gen 42.1 Research Lineage
 
 A. The Philosophy (Why)

@@ -3,14 +3,15 @@
 # # ==================================================================
 # hexagon:
 #   ontos:
-#     id: cd78d17c-0a32-41cd-ad31-f1be25e13d82
+#     id: f14a65d2-e4f8-4211-8b0f-d944110275ed
 #     type: feature
 #     owner: Swarmlord
 #   chronos:
 #     status: active
 #     urgency: 0.5
 #     decay: 0.5
-#     created: '2025-11-23T10:21:31.472393+00:00'
+#     created: '2025-11-23T11:07:35.321344Z'
+#     generation: 51
 #   topos:
 #     address: brain/strategy_fractal_holarchy.feature
 #     links: []
@@ -18,7 +19,6 @@
 #     viral_factor: 0.0
 #     meme: strategy_fractal_holarchy.feature
 #
-
 ---
 owner: Swarmlord
 status: Implemented

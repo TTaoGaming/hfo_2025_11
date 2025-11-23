@@ -16,10 +16,6 @@ tags:
 - thermodynamics
 - biomimicry
 - analogy
-
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: 550e8400-e29b-41d4-a716-446655440220
@@ -30,13 +26,15 @@ hexagon:
     urgency: 1.0
     decay: 0.0
     created: '2025-11-23T11:30:00Z'
+    generation: 51
   topos:
-    address: 1.4.5
+    address: brain/research_obsidian_thermodynamics.md
     links: []
   telos:
     viral_factor: 0.9
-    meme: 'Code is Frozen Magma.'
+    meme: Code is Frozen Magma.
 ---
+
 
 # 🌋 Obsidian Thermodynamics: Phase Transitions in HFO
 

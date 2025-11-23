@@ -1,7 +1,4 @@
 ---
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: b2dd60c7-a18f-4c0a-a109-c2ef57b73097
@@ -12,6 +9,7 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T10:21:31.498524+00:00'
+    generation: 51
   topos:
     address: brain/design_tri_state_metadata.md
     links: []
@@ -19,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: design_tri_state_metadata.md
 ---
+
 
 # 💎 Tri-State Metadata: The Unified Field Theory of HFO
 

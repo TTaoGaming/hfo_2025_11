@@ -1,50 +1,53 @@
-# # ==================================================================
-# # 🤖 THE HEXAGON (System Generated)
-# # ==================================================================
-# hexagon:
-#   ontos:
-#     id: a9025a61-4788-4f93-8299-8b4629ca974b
-#     type: yaml
-#     owner: Swarmlord
-#   chronos:
-#     status: active
-#     urgency: 0.5
-#     decay: 0.5
-#     created: '2025-11-23T10:20:43.105791+00:00'
-#   topos:
-#     address: .pre-commit-config.yaml
-#     links: []
-#   telos:
-#     viral_factor: 0.0
-#     meme: .pre-commit-config.yaml
-#
+hexagon:
+  ontos:
+    id: 305747f5-896f-44bb-add5-e2dc6911a425
+    type: yaml
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:06:38.145905Z'
+    generation: 51
+  topos:
+    address: .pre-commit-config.yaml
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: .pre-commit-config.yaml
 
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.5.0
     hooks:
     -   id: trailing-whitespace
+        exclude: ^eyes/archive/|^memory/episodic/gen_50_archive/|^body/hands/archive/
     -   id: end-of-file-fixer
+        exclude: ^eyes/archive/|^memory/episodic/gen_50_archive/|^body/hands/archive/
     -   id: check-yaml
+        exclude: ^eyes/archive/|^memory/episodic/gen_50_archive/|^body/hands/archive/
     -   id: check-added-large-files
+        exclude: ^eyes/archive/|^memory/episodic/gen_50_archive/|^body/hands/archive/
 
 -   repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.1.6
     hooks:
     -   id: ruff
         args: [ --fix ]
+        exclude: ^eyes/archive/|^memory/episodic/gen_50_archive/|^body/hands/archive/
 
 -   repo: https://github.com/psf/black
     rev: 23.11.0
     hooks:
     -   id: black
+        exclude: ^eyes/archive/|^memory/episodic/gen_50_archive/|^body/hands/archive/
 
 -   repo: https://github.com/pre-commit/mirrors-mypy
     rev: v1.7.1
     hooks:
     -   id: mypy
         additional_dependencies: [types-PyYAML, types-tabulate]
-        exclude: ^tests/
+        exclude: ^tests/|^eyes/archive/|^memory/episodic/gen_50_archive/|^body/hands/archive/
 
 -   repo: local
     hooks:

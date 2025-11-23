@@ -3,14 +3,15 @@
 # # ==================================================================
 # hexagon:
 #   ontos:
-#     id: aec0b69f-34d6-48b9-ab87-d50205c486bc
+#     id: 12a5c66b-bfc7-4820-86ab-7cdbe8c6d935
 #     type: feature
 #     owner: Swarmlord
 #   chronos:
 #     status: active
 #     urgency: 0.5
 #     decay: 0.5
-#     created: '2025-11-23T10:21:31.480814+00:00'
+#     created: '2025-11-23T11:07:35.352852Z'
+#     generation: 51
 #   topos:
 #     address: brain/architecture_three_webs.feature
 #     links: []
@@ -18,7 +19,6 @@
 #     viral_factor: 0.0
 #     meme: architecture_three_webs.feature
 #
-
 ---
 owner: Swarmlord
 status: Missing

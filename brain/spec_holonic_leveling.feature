@@ -3,14 +3,15 @@
 # # ==================================================================
 # hexagon:
 #   ontos:
-#     id: eb0a877e-bf9e-4b4e-8420-f2b3b6f09164
+#     id: 05cf4602-2618-48da-8a84-8f70875fee9d
 #     type: feature
 #     owner: Swarmlord
 #   chronos:
 #     status: active
 #     urgency: 0.5
 #     decay: 0.5
-#     created: '2025-11-23T10:21:31.522471+00:00'
+#     created: '2025-11-23T11:07:35.490196Z'
+#     generation: 51
 #   topos:
 #     address: brain/spec_holonic_leveling.feature
 #     links: []
@@ -18,7 +19,6 @@
 #     viral_factor: 0.0
 #     meme: spec_holonic_leveling.feature
 #
-
 Feature: Holonic Knowledge Leveling (Cooling System)
 
   As the Swarmlord

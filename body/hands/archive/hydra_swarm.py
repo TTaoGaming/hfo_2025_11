@@ -1,3 +1,26 @@
+"""
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 2251c279-98a8-4c90-a0dc-70d7e2a87c23
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.120546Z'
+    generation: 51
+  topos:
+    address: body/hands/archive/hydra_swarm.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: hydra_swarm.py
+"""
+
 import os
 import operator
 import logging

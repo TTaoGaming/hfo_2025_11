@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: 1645364a-b4f0-4618-8470-56ea4649c460
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.968832Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_28/vision_level_diagrams.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: vision_level_diagrams.md
+---
 ### Generation 28 Vision Workspace
 
 This file is the handwritten staging area for Generation 28 vision material. Treat it like a notebook: append new dictations, do not overwrite prior intent, and feel free to leave rough notes that we can polish later.

@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: 937b1473-1731-48d3-b307-95138c62a8bf
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:36.022497Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_31/HFO_SCATTER_GATHER_DIAGRAMS.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: HFO_SCATTER_GATHER_DIAGRAMS.md
+---
 # HFO Scatter-Gather Visual Diagrams
 
 **Generation**: 31

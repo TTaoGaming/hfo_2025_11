@@ -5,10 +5,6 @@ domain: Strategy
 owners:
 - Swarmlord
 type: Vision Document
-
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: 5fe3fa55-8a58-4cf8-b40d-56d74677f208
@@ -19,13 +15,15 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T06:32:09.834154Z'
+    generation: 51
   topos:
-    address: 1.0.0
+    address: brain/vision_synapse_apex.md
     links: []
   telos:
     viral_factor: 0.0
     meme: Synapse APEX Swarm
 ---
+
 
 
 # 🧠 Synapse APEX Swarm: The Network Stigmergy Vision

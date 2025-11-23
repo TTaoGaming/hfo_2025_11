@@ -3,14 +3,15 @@
 # # ==================================================================
 # hexagon:
 #   ontos:
-#     id: 221e1195-584c-40d3-aaab-3017b321b444
+#     id: 91c2a6c3-fbb8-4ab5-906f-92df01368d94
 #     type: feature
 #     owner: Swarmlord
 #   chronos:
 #     status: active
 #     urgency: 0.5
 #     decay: 0.5
-#     created: '2025-11-23T10:21:07.012338+00:00'
+#     created: '2025-11-23T11:06:41.155541Z'
+#     generation: 51
 #   topos:
 #     address: memory/episodic/gen_50_archive/scatter_gather.feature
 #     links: []
@@ -18,7 +19,6 @@
 #     viral_factor: 0.0
 #     meme: scatter_gather.feature
 #
-
 Feature: Scatter-Gather Protocol (The Hydra Pattern)
     As the Swarmlord (Navigator)
     I want to dispatch a cohort of agents with specific genetic compositions

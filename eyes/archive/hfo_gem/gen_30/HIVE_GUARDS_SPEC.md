@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: 0d878656-33ab-4e1a-94e1-daa908c5e7a7
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.685212Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_30/HIVE_GUARDS_SPEC.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: HIVE_GUARDS_SPEC.md
+---
 # HFO Hive Guards - Immunizer Role Static Validators
 
 **Role**: Immunizer (OBSIDIAN Architecture)

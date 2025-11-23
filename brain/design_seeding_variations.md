@@ -5,7 +5,25 @@ domain: Architecture
 owners:
 - Swarmlord
 type: Design Document
+hexagon:
+  ontos:
+    id: 6a391fda-4419-4868-96e2-55f64fc04b95
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.577958Z'
+    generation: 51
+  topos:
+    address: brain/design_seeding_variations.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: design_seeding_variations.md
 ---
+
 
 # 💎 Design: Hexagonal Seeding Variations (The Silica Saturation)
 

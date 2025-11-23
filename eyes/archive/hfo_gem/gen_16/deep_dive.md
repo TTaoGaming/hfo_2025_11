@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: 77eaa4a3-da68-4a13-8428-5ee8aae30ac4
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.814912Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_16/deep_dive.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: deep_dive.md
+---
 # Deep Dive: Collective Intelligence in Hive Fleet Obsidian (Gen_16)
 
 ## Introduction

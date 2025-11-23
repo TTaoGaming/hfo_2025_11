@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: 8ad32f88-122b-47ca-b679-84c08790cf90
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.997961Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_29/QUICK_AUDIT_SUMMARY.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: QUICK_AUDIT_SUMMARY.md
+---
 # Gen 29 Audit Summary - Quick Reference
 
 **Date**: 2025-11-11

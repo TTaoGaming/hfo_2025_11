@@ -1,7 +1,4 @@
 ---
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: ee282bb3-dd7c-4f63-939a-c06f45ef8bc9
@@ -12,6 +9,7 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T10:21:31.534244+00:00'
+    generation: 51
   topos:
     address: brain/identity_core.md
     links: []
@@ -19,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: identity_core.md
 ---
+
 
 # 🦅 Hive Fleet Obsidian: Core Identity
 

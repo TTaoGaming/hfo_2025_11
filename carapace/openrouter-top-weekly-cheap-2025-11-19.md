@@ -1,7 +1,4 @@
 ---
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: ab00870d-bbee-4b57-8b20-fc15a2c5b612
@@ -12,6 +9,7 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T10:21:31.547261+00:00'
+    generation: 51
   topos:
     address: carapace/openrouter-top-weekly-cheap-2025-11-19.md
     links: []
@@ -19,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: openrouter-top-weekly-cheap-2025-11-19.md
 ---
+
 
 Model Name & ID	Input ($/1M tokens)	Output ($/1M tokens)	Context (tokens)
 xAI: Grok Code Fast 1

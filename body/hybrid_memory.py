@@ -1,4 +1,27 @@
 """
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 0e2b3cf5-8d30-4595-a63e-989ce43b5535
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:34.835033Z'
+    generation: 51
+  topos:
+    address: body/hybrid_memory.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: hybrid_memory.py
+"""
+
+"""
     hexagon:
       ontos:
         id: d8c52073-431d-4031-9876-4c000c08d0a3

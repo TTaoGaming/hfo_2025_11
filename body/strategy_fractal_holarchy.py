@@ -1,4 +1,27 @@
 """
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: f9d072cd-f8d3-43d7-90ef-27de991dc5ab
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:34.856022Z'
+    generation: 51
+  topos:
+    address: body/strategy_fractal_holarchy.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: strategy_fractal_holarchy.py
+"""
+
+"""
     hexagon:
       ontos:
         id: 81081083-e863-4858-8767-38e47c78aa68

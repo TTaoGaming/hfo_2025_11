@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: f14eed45-aa95-43d5-9a4b-5eefe8c2b373
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.867578Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_21/archive-hallucination-be-careful/grok-4-fast-attempt-2-gem.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: grok-4-fast-attempt-2-gem.md
+---
 
 # GEM Gen21 Stigmergy Header: Chunk1 Regeneration Probe
 ## Timestamp: 2025-10-29T13:39:27Z

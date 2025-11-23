@@ -7,10 +7,6 @@ tags:
 - identity
 - karma
 - state-action-space
-
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: 9b28c268-436e-5306-c25g-488f82bb486b
@@ -21,15 +17,17 @@ hexagon:
     urgency: 1.0
     decay: 0.0
     created: '2025-11-23T12:00:00Z'
+    generation: 51
   topos:
-    address: 1.0.0
+    address: brain/identity_karmic_knife.md
     links:
-      - brain/strategy_obsidian_hourglass.md
-      - brain/workflow_karmic_web.md
+    - brain/strategy_obsidian_hourglass.md
+    - brain/workflow_karmic_web.md
   telos:
     viral_factor: 1.0
     meme: Cutting Karmic Ties
 ---
+
 
 # 🗡️ The Cognitive Memetic Knife
 

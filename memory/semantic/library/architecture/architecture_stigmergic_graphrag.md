@@ -15,10 +15,6 @@ related_files: []
 type: crystallized_memory
 status: active
 last_verified: '2025-11-21'
-
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: f18ce356-f00e-48eb-9f7e-2d8f91ba15a8
@@ -29,14 +25,15 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T10:21:10.172162+00:00'
+    generation: 51
   topos:
     address: memory/semantic/library/architecture/architecture_stigmergic_graphrag.md
     links: []
   telos:
     viral_factor: 0.0
     meme: architecture_stigmergic_graphrag.md
-
 ---
+
 
 # Stigmergic GraphRAG Architecture
 

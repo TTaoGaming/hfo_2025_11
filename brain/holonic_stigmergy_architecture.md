@@ -6,10 +6,6 @@ holon:
   status: draft
   author: Swarmlord
   timestamp: 2025-11-22 12:00:00+00:00
-
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: 4e02537d-7133-42a0-9215-68decd1b3262
@@ -20,13 +16,15 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T06:32:09.823155Z'
+    generation: 51
   topos:
-    address: 1.0.0
+    address: brain/holonic_stigmergy_architecture.md
     links: []
   telos:
     viral_factor: 0.0
     meme: Untitled
 ---
+
 
 # 🌀 Holonic Stigmergy Architecture
 

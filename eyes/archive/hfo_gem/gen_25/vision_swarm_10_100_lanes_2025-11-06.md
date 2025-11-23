@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: 768003c9-e2a1-49c8-a027-e01a247bdb2f
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.923563Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_25/vision_swarm_10_100_lanes_2025-11-06.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: vision_swarm_10_100_lanes_2025-11-06.md
+---
 # Gen25 — Swarm orchestration: 10 lanes and 100 lanes (Vision)
 
 BLUF

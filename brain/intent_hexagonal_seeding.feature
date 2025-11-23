@@ -3,14 +3,15 @@
 # # ==================================================================
 # hexagon:
 #   ontos:
-#     id: 82ec1131-627d-4acc-9f9d-641267a2e8b3
+#     id: baf2c225-dd69-46b4-93de-74403b4034fd
 #     type: feature
 #     owner: Swarmlord
 #   chronos:
 #     status: active
 #     urgency: 0.5
 #     decay: 0.5
-#     created: '2025-11-23T10:21:31.538818+00:00'
+#     created: '2025-11-23T11:07:35.566691Z'
+#     generation: 51
 #   topos:
 #     address: brain/intent_hexagonal_seeding.feature
 #     links: []
@@ -18,7 +19,6 @@
 #     viral_factor: 0.0
 #     meme: intent_hexagonal_seeding.feature
 #
-
 Feature: Hexagonal Stigmergy Seeding
   As the Swarmlord
   I want to seed every file in the repository with a "Hexagonal Stigmergy Header"

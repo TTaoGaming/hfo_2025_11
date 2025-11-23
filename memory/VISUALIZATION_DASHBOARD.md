@@ -1,7 +1,4 @@
 ---
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: dea29c77-854d-4601-9987-b06821ecac52
@@ -12,6 +9,7 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T10:20:43.136929+00:00'
+    generation: 51
   topos:
     address: memory/VISUALIZATION_DASHBOARD.md
     links: []
@@ -19,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: VISUALIZATION_DASHBOARD.md
 ---
+
 
 # 🧠 Memory Visualization Dashboard
 > **Status**: 🔴 Fragmented

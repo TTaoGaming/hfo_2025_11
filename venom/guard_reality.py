@@ -5,29 +5,21 @@
 # ==================================================================
 hexagon:
   ontos:
-    id: 678674f4-28ed-4ec1-8282-0d8b480dfdbb
+    id: 28030a6e-268f-4a54-a4ef-5c3af61eed4b
     type: py
     owner: Swarmlord
   chronos:
     status: active
     urgency: 0.5
     decay: 0.5
-    created: '2025-11-23T10:21:31.304826+00:00'
+    created: '2025-11-23T11:07:34.753054Z'
+    generation: 51
   topos:
     address: venom/guard_reality.py
     links: []
   telos:
     viral_factor: 0.0
     meme: guard_reality.py
-
-
-🦅 Hive Fleet Obsidian: Brutal Truth Test (Venom)
-Usage: python venom/test_brutal_truth.py
-
-This script verifies the "Realness" of the system by testing:
-1.  Concurrency (AsyncIO) - Is it actually parallel?
-2.  Stigmergy (NATS) - Can we actually pass messages?
-3.  Tooling (Web) - Can we actually hit the internet?
 """
 
 import asyncio

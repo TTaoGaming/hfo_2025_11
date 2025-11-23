@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: 3d537386-0f27-4a77-a3e7-3c8b22f66e8a
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:36.064036Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_4/deep_dive.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: deep_dive.md
+---
 # Deep Dive: Gen_4 Original Gem Analysis
 
 ## Introduction

@@ -5,10 +5,6 @@ domain: Identity
 owners:
 - Swarmlord
 type: Persona Definition
-
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: 68001d56-2caf-478a-9c64-23236b9d984f
@@ -19,14 +15,15 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T10:21:31.538040+00:00'
+    generation: 51
   topos:
     address: brain/persona_swarmlord_of_webs.md
     links: []
   telos:
     viral_factor: 0.0
     meme: persona_swarmlord_of_webs.md
-
 ---
+
 
 # 🕷️ The Swarmlord of Webs: The Digital Twin
 

@@ -5,10 +5,6 @@ domain: Biology
 owners:
 - Swarmlord
 type: Communication
-
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: 7048cebe-6ea9-4a60-b218-ca6eb3d19a0c
@@ -19,13 +15,15 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T06:32:09.786426Z'
+    generation: 51
   topos:
-    address: 1.0.0
+    address: brain/biology_stigmergy.md
     links: []
   telos:
     viral_factor: 0.0
     meme: Evolutionary Pheromones
 ---
+
 
 
 # 🧪 Evolutionary Pheromones

@@ -12,6 +12,7 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T12:00:00Z'
+    generation: 51
   topos:
     address: body/hands/intent_hexagonal_seeding.py
     links: []

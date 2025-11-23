@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: a1038003-83e9-492e-9300-577e5b767667
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.877170Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_23/README.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: README.md
+---
 # Gen23 Research Index (foundational docs for GEM diagrams)
 
 Date: 2025-11-05 (UTC)

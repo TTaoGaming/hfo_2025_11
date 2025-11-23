@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: 6c1b970b-2fe5-4e47-a233-87a12d83f780
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:36.051098Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_35/HFO_IDENTITY_QUIZ_V2.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: HFO_IDENTITY_QUIZ_V2.md
+---
 # HFO Identity Quiz V2: Nuance & Depth
 > **Objective**: Capture the "battlefield-tested" nuance of Hive Fleet Obsidian's axioms.
 > **Instructions**: Review the "Proposed Answer" (AI Hypothesis). If it misses the mark, provide your "Refinement".

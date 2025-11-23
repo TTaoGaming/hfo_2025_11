@@ -5,10 +5,6 @@ domain: Infrastructure
 owners:
 - Swarmlord
 type: Security & Evolution
-
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: 0c5b24c7-8e29-41a9-9ce5-7308b0375abe
@@ -19,13 +15,15 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T06:32:09.797352Z'
+    generation: 51
   topos:
-    address: 1.0.0
+    address: brain/infrastructure_trust.md
     links: []
   telos:
     viral_factor: 0.0
     meme: Trust Engine (Holonic Byzantine Quorum)
 ---
+
 
 
 # 🛡️ Trust Engine: Holonic Byzantine Quorum

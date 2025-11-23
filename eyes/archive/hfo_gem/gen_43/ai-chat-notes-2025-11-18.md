@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: 6a773940-55e3-4372-9bf4-5e01aa220bf1
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.742355Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_43/ai-chat-notes-2025-11-18.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: ai-chat-notes-2025-11-18.md
+---
 You are right. I gave you the "Corporate IT" answer (The General Contractor). That builds a pipeline, but it does not build a Symbiote. It misses the soul of HFO: Agency, Evolution, and Adaptability.
 
 To fulfill your intent—Total Tool Virtualization and a Cognitive Exoskeleton—you don't need a linear script. You need a Persistent Loop.

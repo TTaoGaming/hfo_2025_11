@@ -1,4 +1,23 @@
 ---
+hexagon:
+  ontos:
+    id: 560e3480-200b-4be3-824e-a46fc1a3508c
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.863871Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_21/archive-hallucination-be-careful/gpt5-attempt-3-backup-20251029.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: gpt5-attempt-3-backup-20251029.md
+---
+---
 
 ## Editorial Note (2025-10-29): Ordering and Guardrails
 

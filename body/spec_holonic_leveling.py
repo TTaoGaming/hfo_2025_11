@@ -1,4 +1,27 @@
 """
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 91f19f2f-4d4b-4166-82e2-659cba659a50
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:34.879356Z'
+    generation: 51
+  topos:
+    address: body/spec_holonic_leveling.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: spec_holonic_leveling.py
+"""
+
+"""
     hexagon:
       ontos:
         id: e2aad83c-deac-4e0c-9296-69c3f65b1d98

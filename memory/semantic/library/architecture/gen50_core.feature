@@ -3,14 +3,15 @@
 # # ==================================================================
 # hexagon:
 #   ontos:
-#     id: 4117c935-4c9c-4124-b53e-c6e09b706fd8
+#     id: 3c540d69-0dcf-4bb6-8ed5-ffad6872a7b9
 #     type: feature
 #     owner: Swarmlord
 #   chronos:
 #     status: active
 #     urgency: 0.5
 #     decay: 0.5
-#     created: '2025-11-23T10:21:10.168421+00:00'
+#     created: '2025-11-23T11:06:50.253222Z'
+#     generation: 51
 #   topos:
 #     address: memory/semantic/library/architecture/gen50_core.feature
 #     links: []
@@ -18,7 +19,6 @@
 #     viral_factor: 0.0
 #     meme: gen50_core.feature
 #
-
 ---
 title: Gen 50 Core Architecture
 summary: Defines a declarative system for Hive Mind agent behaviors, covering historical

@@ -5,10 +5,6 @@ domain: Architecture
 owners:
 - Swarmlord
 type: Design Pattern
-
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: c497cea1-757a-4a9b-b105-20743c7d46ef
@@ -19,13 +15,15 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T06:32:09.836727Z'
+    generation: 51
   topos:
-    address: 1.0.0
+    address: brain/pattern_fractal_holography.md
     links: []
   telos:
     viral_factor: 0.0
     meme: Fractal Holography (Stem Cell Regeneration)
 ---
+
 
 
 # 🧬 Fractal Holography: The Stem Cell Pattern

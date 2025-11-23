@@ -5,26 +5,21 @@
 # ==================================================================
 hexagon:
   ontos:
-    id: ffade77a-c60b-42cb-94cb-04cb4723dbf1
+    id: fd425bd0-c5a5-4219-8dfd-f396d5738213
     type: py
     owner: Swarmlord
   chronos:
     status: active
     urgency: 0.5
     decay: 0.5
-    created: '2025-11-23T10:20:43.110977+00:00'
+    created: '2025-11-23T11:06:38.159072Z'
+    generation: 51
   topos:
     address: genesis.py
     links: []
   telos:
     viral_factor: 0.0
     meme: genesis.py
-
-🦅 Hive Fleet Obsidian: Genesis Protocol (Gen 51)
-Usage: python genesis.py [scan|evolve]
-
-- scan: Validates the biological anatomy (Default).
-- evolve: Transmutes Brain (Gherkin) into Body (Code).
 """
 
 import sys

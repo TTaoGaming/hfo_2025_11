@@ -3,14 +3,15 @@
 # # ==================================================================
 # hexagon:
 #   ontos:
-#     id: 6298ff03-a91a-48dc-bfa7-28294a9f0fbf
+#     id: f60b07b3-4634-416c-8f95-0b8a1762e20f
 #     type: feature
 #     owner: Swarmlord
 #   chronos:
 #     status: active
 #     urgency: 0.5
 #     decay: 0.5
-#     created: '2025-11-23T10:21:31.531657+00:00'
+#     created: '2025-11-23T11:07:35.527868Z'
+#     generation: 51
 #   topos:
 #     address: brain/spike_hexagonal_flow.feature
 #     links: []
@@ -18,7 +19,6 @@
 #     viral_factor: 0.0
 #     meme: spike_hexagonal_flow.feature
 #
-
 Feature: Spike Hexagonal Flow
   """
   This spike verifies the end-to-end lifecycle of a Hexagonal Holon.

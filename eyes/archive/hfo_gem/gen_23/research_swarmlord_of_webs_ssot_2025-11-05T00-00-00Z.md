@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: f230c2ea-212a-400b-a4f2-381e7f270c9d
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.890272Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_23/research_swarmlord_of_webs_ssot_2025-11-05T00-00-00Z.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: research_swarmlord_of_webs_ssot_2025-11-05T00-00-00Z.md
+---
 # Research — Swarmlord of Webs (Gen23 SSOT) — 2025‑11‑05T00:00:00Z
 
 BLUF

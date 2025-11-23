@@ -1,3 +1,25 @@
+# # ==================================================================
+# # 🤖 THE HEXAGON (System Generated)
+# # ==================================================================
+# hexagon:
+#   ontos:
+#     id: cf99ac24-adbe-4d14-bd72-a9e4061886c7
+#     type: feature
+#     owner: Swarmlord
+#   chronos:
+#     status: active
+#     urgency: 0.5
+#     decay: 0.5
+#     created: '2025-11-23T11:07:35.574265Z'
+#     generation: 51
+#   topos:
+#     address: brain/design_evolution_paths_2025.feature
+#     links: []
+#   telos:
+#     viral_factor: 0.0
+#     meme: design_evolution_paths_2025.feature
+#
+
 Feature: Evolution Paths 2025 - The Symbiotic Integration
   As the Swarmlord
   I want to integrate the External Mind (SD Card, Keep, Evernote)

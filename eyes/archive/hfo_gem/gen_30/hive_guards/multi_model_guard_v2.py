@@ -1,5 +1,27 @@
 #!/usr/bin/env python3
 """
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 39054157-000a-4b1f-b5e6-846e636ec326
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.723233Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_30/hive_guards/multi_model_guard_v2.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: multi_model_guard_v2.py
+"""
+"""
 Hive Guard: Multi-Model Diversity Validator (V2 - Enhanced Groupthink Detection)
 =================================================================================
 

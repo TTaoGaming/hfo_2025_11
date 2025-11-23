@@ -1,7 +1,4 @@
 ---
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: 2d8c0923-8135-44a6-b090-5d69c13eb2c4
@@ -12,6 +9,7 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T10:20:43.123427+00:00'
+    generation: 51
   topos:
     address: Swarmlord_Digest_2025-11-22.md
     links: []
@@ -19,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: Swarmlord_Digest_2025-11-22.md
 ---
+
 
 # 🦅 Swarmlord Digest: The Synapse APEX Architecture
 > **Date**: 2025-11-22

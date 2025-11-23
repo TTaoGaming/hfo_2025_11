@@ -1,4 +1,27 @@
 """
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 233f57fa-24cb-440f-9578-ebed31a4a59c
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:34.858664Z'
+    generation: 51
+  topos:
+    address: body/workflow_obsidian_hourglass.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: workflow_obsidian_hourglass.py
+"""
+
+"""
     hexagon:
       ontos:
         id: 581d2a4b-fe2c-4c90-b606-0ae68b762160

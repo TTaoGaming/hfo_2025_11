@@ -16,10 +16,6 @@ tags:
 - stigmergy
 - schema
 - fractal
-
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: 74d69416-41dd-48d2-8821-3be8b9638549
@@ -30,13 +26,15 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T06:32:09.846805Z'
+    generation: 51
   topos:
-    address: 1.0.0
+    address: brain/design_obsidian_facet_v2.md
     links: []
   telos:
     viral_factor: 0.0
     meme: 'Obsidian Facet V2: High-Density Stigmergy'
 ---
+
 
 
 # 💎 Obsidian Facet V2: High-Density Stigmergy

@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: 6d4ef1ba-0f65-4554-8662-f5028ef634b2
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.683173Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_30/HIVE_GUARDS_QUICK_REF.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: HIVE_GUARDS_QUICK_REF.md
+---
 # 🛡️ HFO HIVE GUARDS - Quick Reference
 
 **OBSIDIAN Immunizer Role** | Static Validation | Fail Fast

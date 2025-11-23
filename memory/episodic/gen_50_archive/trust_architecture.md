@@ -1,7 +1,4 @@
 ---
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: bf4cc41e-c646-4f79-945a-83fd1e6ff72f
@@ -12,6 +9,7 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T10:21:07.024221+00:00'
+    generation: 51
   topos:
     address: memory/episodic/gen_50_archive/trust_architecture.md
     links: []
@@ -19,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: trust_architecture.md
 ---
+
 
 # 🛡️ HFO Trust Engine: The Cognitive Exoskeleton
 

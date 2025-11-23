@@ -16,10 +16,6 @@ related_files: []
 type: crystallized_memory
 status: active
 last_verified: '2025-11-21'
-
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: a56f9779-b1ab-40af-b25b-d781b10e8d2e
@@ -30,14 +26,15 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T10:21:10.281770+00:00'
+    generation: 51
   topos:
     address: memory/semantic/library/strategy/obsidian_hourglass.md
     links: []
   telos:
     viral_factor: 0.0
     meme: obsidian_hourglass.md
-
 ---
+
 
 # ⏳ The Obsidian Hourglass: Temporal Traversal Strategy
 

@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: 8ed40861-ed5f-446f-9e59-7fc1036ea931
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.823549Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_17/summary.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: summary.md
+---
 # Summary of Gen_17: Predictive Analytics in Hive Fleet Obsidian
 
 Gen_17 (2025-10-26T00:00:00Z) integrates predictive analytics into Hive Fleet Obsidian (HFO)'s multi-scale holons from Gen_12, enabling foresight-driven swarm operations that anticipate disruptions and opportunities. Layering atop Gen_16's collective intelligence, this evolution draws from forecasting models in ecology (Holling 1973, *Resilience and Stability of Ecological Systems*, DOI:10.1146/annurev.es.04.110173.000245) and post-quantum cryptography standards (NIST FIPS 203/204, 2024, DOI:10.6028/NIST.FIPS.203), replacing speculative "post-2025 quantum swarm events" with verifiable PQC migration strategies for secure predictions. The Predictive Analyzer in OBSIDIAN forecasts via stigmergy, sustaining V/H >1.5 through Layer 9 probabilistic queries (e.g., `git log` for trend extrapolation).

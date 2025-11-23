@@ -5,11 +5,7 @@ holon:
   layer: static
   status: active
   author: Swarmlord
-  timestamp: 2025-11-22T12:00:00Z
-
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
+  timestamp: 2025-11-22 12:00:00+00:00
 hexagon:
   ontos:
     id: 77d91e68-c114-43fb-b39a-e52aa5ab9a9d
@@ -20,14 +16,15 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T10:20:43.109256+00:00'
+    generation: 51
   topos:
     address: AGENTS.md
     links: []
   telos:
     viral_factor: 0.0
     meme: AGENTS.md
-
 ---
+
 # 🦅 Hive Fleet Obsidian: Agent Coordination Protocol (AGENTS.md)
 
 > **Status**: Active (Gen 51 Synapse APEX)

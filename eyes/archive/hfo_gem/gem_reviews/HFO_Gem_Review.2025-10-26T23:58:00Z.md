@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: ec9a4aef-2eb6-436a-b35b-448668e9d5a8
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.764479Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gem_reviews/HFO_Gem_Review.2025-10-26T23:58:00Z.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: HFO_Gem_Review.2025-10-26T23:58:00Z.md
+---
 # HFO Gem Extraction Project: Final Review and Closure
 
 ## Executive Summary / BLUF

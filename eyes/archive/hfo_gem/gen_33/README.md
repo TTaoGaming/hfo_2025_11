@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: 0fa96bd5-bd61-457c-a321-0f02fd40f100
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:36.043848Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_33/README.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: README.md
+---
 # Gen 33: Intent/Implementation Split Architecture
 
 **Created**: 2025-11-17

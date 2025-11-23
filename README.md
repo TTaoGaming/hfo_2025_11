@@ -1,7 +1,4 @@
 ---
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: 03552fd0-d802-4850-9d87-eacb478e9ab7
@@ -12,6 +9,7 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T10:20:43.107800+00:00'
+    generation: 51
   topos:
     address: README.md
     links: []
@@ -19,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: README.md
 ---
+
 
 # Hive Fleet Obsidian (Gen 51) - Synapse APEX 🦅🔥
 

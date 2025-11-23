@@ -5,10 +5,6 @@ domain: Strategy
 owners:
 - Swarmlord
 type: Geometric Spatial State-Action Model
-
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: 1d4b7684-69ea-4cbb-8586-36b8804f216f
@@ -19,13 +15,15 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T06:32:09.808992Z'
+    generation: 51
   topos:
-    address: 1.0.0
+    address: brain/strategy_obsidian_hourglass.md
     links: []
   telos:
     viral_factor: 0.0
     meme: Obsidian Horizon Hourglass
 ---
+
 
 
 # ⏳ Obsidian Horizon Hourglass

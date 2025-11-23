@@ -5,23 +5,21 @@
 # ==================================================================
 hexagon:
   ontos:
-    id: 4184ef26-9e48-4ba9-b52d-a19d6422b455
+    id: bd6643b5-99e7-4d4c-84cc-65bc0dfd2df9
     type: py
     owner: Swarmlord
   chronos:
     status: active
     urgency: 0.5
     decay: 0.5
-    created: '2025-11-23T10:21:31.562050+00:00'
+    created: '2025-11-23T11:07:35.640367Z'
+    generation: 51
   topos:
     address: carapace/hive_guards/guard_tools.py
     links: []
   telos:
     viral_factor: 0.0
     meme: guard_tools.py
-
-🛡️ Hive Guard: Tool Integrity
-Verifies that the Agent ToolSet is responsive and not freezing.
 """
 
 import sys

@@ -18,10 +18,6 @@ tags:
 - hexagonal
 - fractal
 - stigmergy
-
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: 550e8400-e29b-41d4-a716-446655440200
@@ -32,13 +28,15 @@ hexagon:
     urgency: 1.0
     decay: 0.0
     created: '2025-11-23T10:00:00Z'
+    generation: 51
   topos:
-    address: 1.4.3
+    address: brain/design_unified_hexagonal_adapter.md
     links: []
   telos:
     viral_factor: 0.9
-    meme: 'The Header is the Holon.'
+    meme: The Header is the Holon.
 ---
+
 
 # 💎 Unified Hexagonal Adapter: The Fractal Holon Protocol
 

@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: 4712eb89-004d-4b14-84a7-5dd0acd1ba74
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:36.024001Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_31/QUICK_REFERENCE.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: QUICK_REFERENCE.md
+---
 # HFO Quick Reference - Generation 31
 
 **Last Updated**: 2025-11-14

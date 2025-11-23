@@ -1,7 +1,4 @@
 ---
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: 12c3cb4c-53e4-4e9c-9a55-25f21e4a8fab
@@ -12,6 +9,7 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T10:21:07.007701+00:00'
+    generation: 51
   topos:
     address: memory/episodic/gen_50_archive/qd_optimization_options.md
     links: []
@@ -19,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: qd_optimization_options.md
 ---
+
 
 # 🧬 Quality-Diversity (QD) Optimization Stacks
 

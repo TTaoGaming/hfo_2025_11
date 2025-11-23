@@ -7,10 +7,6 @@ tags:
 - ingestion
 - symbiosis
 - evolution
-
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: 7c39d379-547f-6417-d36h-599g93cc597c
@@ -21,15 +17,17 @@ hexagon:
     urgency: 0.8
     decay: 0.1
     created: '2025-11-23T13:00:00Z'
+    generation: 51
   topos:
-    address: 1.0.0
+    address: brain/design_evolution_paths_2025.md
     links:
-      - brain/identity_karmic_knife.md
-      - brain/workflow_karmic_web.md
+    - brain/identity_karmic_knife.md
+    - brain/workflow_karmic_web.md
   telos:
     viral_factor: 0.9
     meme: Integrating the External Mind
 ---
+
 
 # 🧬 Evolution Paths: The Symbiotic Integration
 

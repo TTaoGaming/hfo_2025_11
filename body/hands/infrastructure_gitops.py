@@ -4,30 +4,21 @@
 # ==================================================================
 hexagon:
   ontos:
-    id: f3748aa2-0d6e-467a-8acf-607f60f7247c
+    id: cf2ed3e8-aa55-4006-9d9a-355fd252e14b
     type: py
     owner: Swarmlord
   chronos:
     status: active
     urgency: 0.5
     decay: 0.5
-    created: '2025-11-23T10:21:31.414261+00:00'
+    created: '2025-11-23T11:07:35.063580Z'
+    generation: 51
   topos:
     address: body/hands/infrastructure_gitops.py
     links: []
   telos:
     viral_factor: 0.0
     meme: infrastructure_gitops.py
-
-
----
-type: agent
-role: GitOps
-layer: infrastructure
-intent: brain/infrastructure_gitops.feature
----
-GitOps Agent Implementation
-Intent: Automate the GitOps cycle with Swarm Intelligence, Hive Guards, and Semantic Commits.
 """
 import os
 import sys

@@ -1,7 +1,4 @@
 ---
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: 714f427c-1894-4900-925b-15878b227b84
@@ -12,6 +9,7 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T10:21:31.373053+00:00'
+    generation: 51
   topos:
     address: body/hands/README.md
     links: []
@@ -19,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: README.md
 ---
+
 
 # 🖐️ The Hands (Shaper)
 

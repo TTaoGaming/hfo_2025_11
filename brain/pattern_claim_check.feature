@@ -3,14 +3,15 @@
 # # ==================================================================
 # hexagon:
 #   ontos:
-#     id: f0f9127e-077f-49ca-8661-2472f12b8b35
+#     id: 3a576782-7b5e-4af2-aba3-2b01d8f35700
 #     type: feature
 #     owner: Swarmlord
 #   chronos:
 #     status: active
 #     urgency: 0.5
 #     decay: 0.5
-#     created: '2025-11-23T10:21:31.491734+00:00'
+#     created: '2025-11-23T11:07:35.384699Z'
+#     generation: 51
 #   topos:
 #     address: brain/pattern_claim_check.feature
 #     links: []
@@ -18,7 +19,6 @@
 #     viral_factor: 0.0
 #     meme: pattern_claim_check.feature
 #
-
 Feature: Claim Check Pattern (Rich Stigmergy)
 
   Background:

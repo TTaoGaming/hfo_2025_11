@@ -16,10 +16,6 @@ related_files:
 type: crystallized_memory
 status: active
 last_verified: '2025-11-21'
-
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: de776d19-721f-4a86-a3c6-260201dda8d8
@@ -30,14 +26,15 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T10:21:10.013301+00:00'
+    generation: 51
   topos:
     address: memory/semantic/library/infrastructure/organ_renaming_plan.md
     links: []
   telos:
     viral_factor: 0.0
     meme: organ_renaming_plan.md
-
 ---
+
 
 # 🦋 HFO Metamorphosis: Organ Renaming Plan (Plain English)
 

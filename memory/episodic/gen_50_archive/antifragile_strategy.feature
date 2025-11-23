@@ -3,14 +3,15 @@
 # # ==================================================================
 # hexagon:
 #   ontos:
-#     id: f08a0e28-ebeb-4fbf-8cfa-805745abc6fb
+#     id: 8cd4188f-8279-472b-a7bd-c29ae831caea
 #     type: feature
 #     owner: Swarmlord
 #   chronos:
 #     status: active
 #     urgency: 0.5
 #     decay: 0.5
-#     created: '2025-11-23T10:21:06.972742+00:00'
+#     created: '2025-11-23T11:06:41.089100Z'
+#     generation: 51
 #   topos:
 #     address: memory/episodic/gen_50_archive/antifragile_strategy.feature
 #     links: []
@@ -18,7 +19,6 @@
 #     viral_factor: 0.0
 #     meme: antifragile_strategy.feature
 #
-
 Feature: Antifragile Defense Strategy (Fractal Hydra Protocol)
   As the Swarm Architect
   I want to implement a Fractal, Holonic Defense

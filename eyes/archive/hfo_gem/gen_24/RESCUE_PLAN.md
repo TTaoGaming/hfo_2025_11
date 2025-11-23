@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: 4eb31485-ef57-48ec-9de8-4f39873c5f87
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.895331Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_24/RESCUE_PLAN.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: RESCUE_PLAN.md
+---
 # Rescue Plan — Mission Intents and Gen Docs to Main (Gen24)
 
 BLUF

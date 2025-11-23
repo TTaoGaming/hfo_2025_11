@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: a54fc5d7-b85e-4a97-bd08-fb2ed05ba446
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.925751Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_25/vision_swarmlord_of_webs_2025-11-06.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: vision_swarmlord_of_webs_2025-11-06.md
+---
 # Gen25 — Swarm Lord of Webs (Vision)
 
 BLUF

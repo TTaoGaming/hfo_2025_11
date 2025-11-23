@@ -5,23 +5,21 @@
 # ==================================================================
 hexagon:
   ontos:
-    id: 9853489f-929e-4ecb-8b63-acf1dab3be4b
+    id: 25c82d4b-fe9e-43eb-bdc4-6117857870bc
     type: py
     owner: Swarmlord
   chronos:
     status: active
     urgency: 0.5
     decay: 0.5
-    created: '2025-11-23T10:21:31.560459+00:00'
+    created: '2025-11-23T11:07:35.637113Z'
+    generation: 51
   topos:
     address: carapace/hive_guards/guard_gherkin_parity.py
     links: []
   telos:
     viral_factor: 0.0
     meme: guard_gherkin_parity.py
-
-🛡️ Hive Guard: Gherkin-Code Parity
-Ensures that every Intent (.feature) has a corresponding Verification (.py).
 """
 
 import sys

@@ -3,14 +3,15 @@
 # # ==================================================================
 # hexagon:
 #   ontos:
-#     id: dc33ef36-e764-48df-b825-a0f98ae89591
+#     id: 4603699f-e168-4d21-91e1-9d3158a4bd21
 #     type: feature
 #     owner: Swarmlord
 #   chronos:
 #     status: active
 #     urgency: 0.5
 #     decay: 0.5
-#     created: '2025-11-23T10:21:31.451326+00:00'
+#     created: '2025-11-23T11:07:35.237875Z'
+#     generation: 51
 #   topos:
 #     address: brain/antifragile_architecture_options.feature
 #     links: []
@@ -18,7 +19,6 @@
 #     viral_factor: 0.0
 #     meme: antifragile_architecture_options.feature
 #
-
 ---
 owner: Swarmlord
 status: Placeholder

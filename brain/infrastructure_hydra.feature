@@ -3,14 +3,15 @@
 # # ==================================================================
 # hexagon:
 #   ontos:
-#     id: 2c84c35b-200f-4df1-9ced-bc884e804229
+#     id: e33bcefc-a2fc-44f6-a3d5-619518b768de
 #     type: feature
 #     owner: Swarmlord
 #   chronos:
 #     status: active
 #     urgency: 0.5
 #     decay: 0.5
-#     created: '2025-11-23T10:21:31.462421+00:00'
+#     created: '2025-11-23T11:07:35.282947Z'
+#     generation: 51
 #   topos:
 #     address: brain/infrastructure_hydra.feature
 #     links: []
@@ -18,7 +19,6 @@
 #     viral_factor: 0.0
 #     meme: infrastructure_hydra.feature
 #
-
 ---
 owner: Swarmlord
 status: Implemented

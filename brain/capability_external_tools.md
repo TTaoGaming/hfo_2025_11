@@ -6,10 +6,6 @@ tags:
 - tools
 - web-search
 - file-io
-
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: f353e740-45ae-4eae-9a0a-dda084cf9b52
@@ -20,13 +16,15 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T06:32:09.817422Z'
+    generation: 51
   topos:
-    address: 1.0.0
+    address: brain/capability_external_tools.md
     links: []
   telos:
     viral_factor: 0.0
     meme: External Tools Capability
 ---
+
 
 
 # 🛠️ External Tools Capability

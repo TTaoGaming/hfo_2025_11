@@ -15,10 +15,6 @@ tags:
 - header
 - hexagonal
 - automation
-
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: 7649ce58-6c4a-45d7-8b2d-c2529b361ac8
@@ -29,13 +25,15 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T06:32:09.875098Z'
+    generation: 51
   topos:
-    address: 1.0.0
+    address: brain/design_hexagonal_holon_header.md
     links: []
   telos:
     viral_factor: 0.0
     meme: 'The Hexagonal Holon Header: Composable Stigmergy'
 ---
+
 
 
 # 💎 The Hexagonal Holon Header

@@ -1,4 +1,27 @@
 """
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 6f138117-c902-4076-a593-7fdf7915b2ee
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.115364Z'
+    generation: 51
+  topos:
+    address: body/hands/archive/fractal_research_swarm.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: fractal_research_swarm.py
+"""
+
+"""
 🦅 Hive Fleet Obsidian: Fractal Research Swarm
 Intent: Implements the Recursive Fractal Holarchy for deep research.
 Linked to: brain/strategy_fractal_holarchy.feature

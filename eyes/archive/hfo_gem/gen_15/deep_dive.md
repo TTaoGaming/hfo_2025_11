@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: c387c189-44ba-4256-9961-1e8c9db23954
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.808669Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_15/deep_dive.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: deep_dive.md
+---
 # Deep Dive: Resilient Ecosystems in Hive Fleet Obsidian (Gen_15)
 
 ## Introduction

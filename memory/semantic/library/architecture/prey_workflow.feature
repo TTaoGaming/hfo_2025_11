@@ -3,14 +3,15 @@
 # # ==================================================================
 # hexagon:
 #   ontos:
-#     id: b4275ece-48f9-437b-a8c4-13b2d6220921
+#     id: 08dfcef5-33d5-4813-93e6-08d2f6d3eae1
 #     type: feature
 #     owner: Swarmlord
 #   chronos:
 #     status: active
 #     urgency: 0.5
 #     decay: 0.5
-#     created: '2025-11-23T10:21:10.171051+00:00'
+#     created: '2025-11-23T11:06:50.256882Z'
+#     generation: 51
 #   topos:
 #     address: memory/semantic/library/architecture/prey_workflow.feature
 #     links: []
@@ -18,7 +19,6 @@
 #     viral_factor: 0.0
 #     meme: prey_workflow.feature
 #
-
 ---
 title: 'PREY Loop: Atomic Holon State Machine'
 summary: Defines the PREY Loop (Perceive, React, Execute, Yield) as the fundamental,

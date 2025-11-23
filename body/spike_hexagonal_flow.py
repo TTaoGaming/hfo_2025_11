@@ -1,4 +1,25 @@
 """
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: f127000a-a0b5-4667-b532-d124149d124e
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:34.885130Z'
+    generation: 51
+  topos:
+    address: body/spike_hexagonal_flow.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: spike_hexagonal_flow.py
+
     hexagon:
       ontos:
         id: 5d2d98d6-4e9a-4a3c-aeae-b66cd6362075

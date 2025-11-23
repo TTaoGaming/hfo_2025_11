@@ -1,4 +1,23 @@
 ---
+hexagon:
+  ontos:
+    id: 946e97f8-b0ed-44d6-809f-04ba315d9018
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.331968Z'
+    generation: 51
+  topos:
+    address: brain/implementation_obsidian_horizon_langgraph.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: implementation_obsidian_horizon_langgraph.md
+---
+---
 title: Implementation: Obsidian Horizon Hourglass (LangGraph)
 status: Draft
 domain: Architecture

@@ -3,14 +3,15 @@
 # # ==================================================================
 # hexagon:
 #   ontos:
-#     id: 41416c1d-b994-40bb-8135-143f95047914
+#     id: 71008acc-1038-49bc-8628-34fe0032868a
 #     type: feature
 #     owner: Swarmlord
 #   chronos:
 #     status: active
 #     urgency: 0.5
 #     decay: 0.5
-#     created: '2025-11-23T10:21:11.112957+00:00'
+#     created: '2025-11-23T11:06:52.589623Z'
+#     generation: 51
 #   topos:
 #     address: memory/semantic/library/cognitive_architecture/cognitive_architecture.feature
 #     links: []
@@ -18,7 +19,6 @@
 #     viral_factor: 0.0
 #     meme: cognitive_architecture.feature
 #
-
 ---
 title: 'Cognitive Architecture: Reasoning & Learning'
 summary: Defines Gherkin scenarios for enforcing high reasoning mode, reinforcement

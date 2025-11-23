@@ -3,14 +3,15 @@
 # # ==================================================================
 # hexagon:
 #   ontos:
-#     id: 233593af-979c-4bc0-9594-e55d2b909569
+#     id: 32cfbdcd-c7ad-43fa-9ed5-a8c17f8aecba
 #     type: feature
 #     owner: Swarmlord
 #   chronos:
 #     status: active
 #     urgency: 0.5
 #     decay: 0.5
-#     created: '2025-11-23T10:21:10.316335+00:00'
+#     created: '2025-11-23T11:06:50.691089Z'
+#     generation: 51
 #   topos:
 #     address: memory/semantic/library/memory/memory_graphrag.feature
 #     links: []
@@ -18,7 +19,6 @@
 #     viral_factor: 0.0
 #     meme: memory_graphrag.feature
 #
-
 ---
 title: Memory GraphRAG System (The Karmic Web)
 summary: A Gherkin feature specification defining a self-organizing Knowledge Graph

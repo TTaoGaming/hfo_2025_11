@@ -1,7 +1,4 @@
 ---
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: 1dc07753-b6ff-483b-9f79-f3f47dd91e82
@@ -12,6 +9,7 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T10:21:31.316317+00:00'
+    generation: 51
   topos:
     address: venom/archaeology_report.md
     links: []
@@ -19,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: archaeology_report.md
 ---
+
 
 # 🦕 Fractal Archaeology Report
 **Date**: "1763884766.0839024" (Simulated)

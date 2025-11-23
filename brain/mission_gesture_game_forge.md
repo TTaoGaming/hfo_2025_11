@@ -1,4 +1,23 @@
 ---
+hexagon:
+  ontos:
+    id: a7ec1cb8-8bc2-4ec6-9637-6d948be663c1
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.361052Z'
+    generation: 51
+  topos:
+    address: brain/mission_gesture_game_forge.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: mission_gesture_game_forge.md
+---
+---
 title: Mission: Gesture Game Forge
 status: Active
 domain: Body

@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: 5f896db3-0043-42f4-a389-4b015616791f
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.727955Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_30/bootstrap/champion_role_reconciliation_mission.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: champion_role_reconciliation_mission.md
+---
 # V²C-SPIRAL-QUORUM Mission: Champion/Role Architecture Reconciliation
 
 **Mission ID**: GEN30-V2C-001

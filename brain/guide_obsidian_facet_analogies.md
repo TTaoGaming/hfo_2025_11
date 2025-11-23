@@ -14,10 +14,6 @@ tags:
 - guide
 - analogy
 - cognitive_scaffolding
-
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: b13926bf-0418-4c15-9dbf-fc3c27cf4946
@@ -28,13 +24,15 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T06:32:09.850049Z'
+    generation: 51
   topos:
-    address: 1.0.0
+    address: brain/guide_obsidian_facet_analogies.md
     links: []
   telos:
     viral_factor: 0.0
     meme: 'Cognitive Scaffolding: The Obsidian Facet V2'
 ---
+
 
 
 # 🧠 Cognitive Scaffolding: Understanding the Obsidian Facet V2

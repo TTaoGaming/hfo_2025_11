@@ -1,4 +1,25 @@
 """
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: d9a0655b-2868-4af9-9e67-8e507374ef4f
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.082609Z'
+    generation: 51
+  topos:
+    address: body/hands/header_swarm.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: header_swarm.py
+
 🦅 Hive Fleet Obsidian: Header Swarm (Gen 51)
 Intent: Generate "Deep Semantic" Stigmergy Headers using a 10-Agent Swarm.
 Workflow: 10 -> 5 -> 1 Funnel (Generate -> Refine -> Consensus).

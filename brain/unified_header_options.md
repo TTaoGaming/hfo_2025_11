@@ -15,10 +15,6 @@ tags:
 - yaml
 - header
 - tradeoffs
-
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: 31175411-8f7c-48b2-8a94-063a50b0d34e
@@ -29,13 +25,15 @@ hexagon:
     urgency: 0.5
     decay: 0.5
     created: '2025-11-23T06:32:09.864127Z'
+    generation: 51
   topos:
-    address: 1.0.0
+    address: brain/unified_header_options.md
     links: []
   telos:
     viral_factor: 0.0
     meme: 'Unified Header Options: 4 Paths to Stigmergy'
 ---
+
 
 
 # 💎 Unified Header Options: 4 Paths to Stigmergy

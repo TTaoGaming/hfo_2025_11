@@ -2,10 +2,6 @@
 title: Hexagonal Stigmergy Header Design
 status: Active
 type: Design Pattern
-
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: <UUID>
@@ -16,20 +12,16 @@ hexagon:
     urgency: <0.0-1.0>
     decay: <0.0-1.0>
     created: <ISO8601>
+    generation: 51
     last_touched: <ISO8601>
   topos:
-    address: <filepath>
+    address: brain/design_hexagonal_header.md
     links: []
   telos:
     viral_factor: <0.0-1.0>
     meme: <short_description>
-  logos:
-    language: <python|markdown|gherkin>
-    format: <text>
-  pathos:
-    sentiment: <0.0-1.0>
-    health: <green|yellow|red>
 ---
+
 
 # 🛑 Design Rules
 

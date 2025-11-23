@@ -1,3 +1,22 @@
+---
+hexagon:
+  ontos:
+    id: 40706fc8-c140-4766-b2e2-021ea44d6c73
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.687710Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_30/IMPLEMENTATION_AUDIT.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: IMPLEMENTATION_AUDIT.md
+---
 # Gen 30 Implementation Audit – 2025-11-12
 
 **Purpose**: Map existing HFO code to V²C-SPIRAL-QUORUM specification
