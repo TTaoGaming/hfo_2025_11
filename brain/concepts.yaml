@@ -144,3 +144,56 @@ concepts:
     status: "Draft"
     feature: "biology_pheromones_composability.feature"
     summary: "biology_pheromones_composability.md"
+
+  # --- Design ---
+  - name: "design_mountain_web_stigmergy"
+    status: "Active"
+    feature: "design_mountain_web_stigmergy.feature"
+    summary: "design_mountain_web_stigmergy.md"
+
+  - name: "design_obsidian_facet_v2"
+    status: "Active"
+    feature: "design_mountain_web_stigmergy.feature" # Reusing the feature as it covers the same domain
+    summary: "design_obsidian_facet_v2.md"
+
+  - name: "guide_obsidian_facet_analogies"
+    status: "Active"
+    feature: "design_mountain_web_stigmergy.feature" # Reusing the feature
+    summary: "guide_obsidian_facet_analogies.md"
+
+  # --- Research ---
+  - name: "research_stigmergy_abstractions"
+    status: "Active"
+    feature: "research_stigmergy_abstractions.feature"
+    summary: "research_stigmergy_abstractions.md"
+
+  # --- Examples ---
+  - name: "examples_obsidian_facet_v2"
+    status: "Active"
+    feature: "design_mountain_web_stigmergy.feature"
+    summary: "examples_obsidian_facet_v2.md"
+
+  - name: "unified_obsidian_header"
+    status: "Active"
+    feature: "design_mountain_web_stigmergy.feature"
+    summary: "unified_obsidian_header.md"
+
+  - name: "unified_header_options"
+    status: "Active"
+    feature: "design_mountain_web_stigmergy.feature"
+    summary: "unified_header_options.md"
+
+  - name: "unified_dual_headers"
+    status: "Active"
+    feature: "design_mountain_web_stigmergy.feature"
+    summary: "unified_dual_headers.md"
+
+  - name: "analysis_unified_hfo_header"
+    status: "Active"
+    feature: "design_mountain_web_stigmergy.feature"
+    summary: "analysis_unified_hfo_header.md"
+
+  - name: "design_hexagonal_holon_header"
+    status: "Active"
+    feature: "design_mountain_web_stigmergy.feature"
+    summary: "design_hexagonal_holon_header.md"

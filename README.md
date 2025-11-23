@@ -48,6 +48,8 @@ hive_fleet_obsidian_2025_11/
     *   Check `ingestion/graph_data/evolution_graph.gml` to see the lineage.
 3.  **Run the Phoenix:**
     *   `pytest` (Validates that the current implementation matches the Gherkin specs).
+4.  **GitOps (Swarm Powered):**
+    *   `make gitops` (Runs the GitOps Agent: Guards -> Semantic Commit -> Resilient Push).
 
 ## 🧠 Core Concepts (Gen 50)
 *   **Virtual Stigmergy:** Indirect coordination via a shared Blackboard.

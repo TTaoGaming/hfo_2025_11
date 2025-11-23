@@ -17,7 +17,22 @@ organs:
     jadc2_function: "Command & Control (C2)"
     biological_function: "Strategy & Will"
     contents: ["*.feature", "*.md", "*.yaml"]
-    allowlist: ["BRAIN_AUDIT_LOG.md"]
+    allowlist:
+      - "BRAIN_AUDIT_LOG.md"
+      - "recommendation_rich_metadata_primitives.md"
+      - "design_tri_state_metadata.md"
+      - "research_metadata_alternatives.md"
+      - "digest_stigmergy_consensus.md"
+      - "pattern_claim_check.feature"
+      - "pattern_claim_check.md"
+      - "pattern_fractal_holography.feature"
+      - "pattern_fractal_holography.md"
+      - "pattern_rich_metadata_stigmergy.feature"
+      - "pattern_rich_metadata_stigmergy.md"
+      - "vision_synapse_apex.feature"
+      - "vision_synapse_apex.md"
+      - "guide_holographic_intuition.md"
+      - "design_mountain_web_stigmergy.md"
     old_path: "intent/"
 
   eyes:

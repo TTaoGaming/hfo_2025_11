@@ -71,6 +71,20 @@ def check_concept_integrity(concept: Dict) -> List[str]:
 
 
 def find_slop(registry: Dict) -> List[str]:
+    # Load the main registry to get the allowlist
+    main_registry_path = BRAIN_DIR / "registry.yaml"
+    allowlist = []
+    if main_registry_path.exists():
+        with open(main_registry_path, "r") as reg_file:
+            main_reg = yaml.safe_load(reg_file)
+            # Navigate to organs.brain.allowlist
+            try:
+                allowlist = (
+                    main_reg.get("organs", {}).get("brain", {}).get("allowlist", [])
+                )
+            except AttributeError:
+                pass
+
     registered_files = {
         REGISTRY_FILE.name,
         "README.md",
@@ -80,6 +94,10 @@ def find_slop(registry: Dict) -> List[str]:
         "holonic_stigmergy_architecture.md",
         "configuration_ssot.yaml",
     }
+    # Add allowlisted files
+    for filename in allowlist:
+        registered_files.add(str(filename))
+
     for concept in registry.get("concepts", []):
         if concept.get("feature"):
             registered_files.add(concept["feature"])

@@ -27,6 +27,12 @@ from body.constants import DEFAULT_MODEL
 from body.hands.prey_agent import PreyAgent
 from body.models.state import AgentRole
 from body.config import Config
+from body.models.stigmergy import (
+    StigmergySignal,
+    ClaimCheck,
+    RichMetadata,
+    ArtifactType,
+)
 
 """
 🦅 Hive Fleet Obsidian: Canonical Research Swarm
@@ -96,8 +102,8 @@ class SwarmState(TypedDict):
     tasks: List[ResearchTask]
     findings: List[ResearchFinding]
     squad_digests: List[str]  # New: Holds the 5 Immunizer Digests
-    round_1_digest: str
-    round_2_digest: str
+    previous_round_digest: str  # Holds the digest from the previous round to feed into the next
+    all_digests: Dict[int, str]  # Holds all digests by round number
     disruptor_reveal_log: List[str]
     history: List[str]
 
@@ -137,6 +143,7 @@ class SwarmNode:
     async def connect_nats(self):
         """Connects to the NATS JetStream server."""
         nats_url = Config.NATS_URL
+        logger.info(f"🔌 Attempting NATS connection to: {nats_url}")
         try:
             self.nc = await nats.connect(nats_url)
             logger.info(f"🔌 Connected to NATS JetStream at {nats_url}")
@@ -290,12 +297,24 @@ class SwarmNode:
             final_state = await agent.run(full_task)
 
             # Handle both Pydantic model and Dict (LangGraph returns dict)
+            content = "No output produced."
+            confidence = 0.0
+
             if isinstance(final_state, dict):
-                content = final_state.get("final_output") or "No output produced."
-                confidence = final_state.get("confidence_score", 0.0)
+                content = final_state.get("final_output") or content
+                confidence = final_state.get("confidence_score", confidence)
+            elif hasattr(final_state, "final_output"):
+                content = getattr(final_state, "final_output") or content
+                confidence = getattr(final_state, "confidence_score", confidence)
             else:
-                content = getattr(final_state, "final_output", "No output produced.")
-                confidence = getattr(final_state, "confidence_score", 0.0)
+                # Fallback for objects that might support item access
+                try:
+                    content = final_state["final_output"] or content
+                    confidence = final_state.get("confidence_score", confidence)
+                except Exception:
+                    logger.warning(
+                        f"Could not extract output from state type: {type(final_state)}"
+                    )
 
         except Exception as e:
             logger.error(f"PreyAgent failed: {e}")
@@ -455,32 +474,57 @@ class SwarmNode:
         date_str,
         sub_group="general",
     ):
+        """
+        Saves an artifact using the Claim Check Pattern.
+        1. Save Payload to Cold Storage (Simulated via Disk for now, ready for Postgres).
+        2. Emit Rich Metadata Signal to Hot Storage (NATS).
+        """
         timestamp = datetime.now(timezone.utc).isoformat()
         filename = f"{timestamp}_{role}_{task_id}.md"
 
-        # Nested Structure: memory/episodic/{date}/{mission}/{sub_group}/
+        # 1. Cold Storage (Payload)
+        # In a full implementation, this would write to Postgres/S3 and return a UUID.
+        # For now, we write to disk to simulate the "Storage" part.
         save_dir = os.path.join(self.artifact_dir, date_str, mission_slug, sub_group)
         path = os.path.join(save_dir, filename)
 
-        logger.info(f"💾 Saving artifact to: {path}")
+        logger.info(f"💾 Saved Payload to Cold Storage: {path}")
 
         # Use asyncio.to_thread for file I/O to avoid blocking the event loop
         await asyncio.to_thread(
             self._write_file, path, task_id, role, round_num, timestamp, content
         )
 
-        # Hot Pheromone: Signal Stigmergy
-        signal_payload = {
-            "id": task_id,
-            "role": role,
-            "round": round_num,
-            "timestamp": timestamp,
-            "path": path,
-            "mission_slug": mission_slug,
-            "sub_group": sub_group,
-        }
-        subject = f"swarm.artifact.{role.lower()}.created"
-        await self.publish_signal(subject, signal_payload)
+        # 2. Hot Storage (Signal)
+        # Create the Rich Metadata Signal
+        try:
+            signal = StigmergySignal(
+                producer_id=f"{role}-{task_id}",
+                claim_check=ClaimCheck(
+                    storage="filesystem",  # TODO: Switch to 'postgres'
+                    pointer=path,
+                    hash=str(hash(content)),
+                ),
+                metadata=RichMetadata(
+                    type=ArtifactType.REPORT,
+                    quality_score=0.8,  # Placeholder, should come from agent
+                    dispersion=0.5,
+                    evaporation_rate=0.1,
+                    urgency="normal",
+                    context_tags=[mission_slug, role, sub_group],
+                ),
+            )
+
+            # Publish to NATS
+            subject = f"hfo.signal.artifact.{role.lower()}.created"
+            if self.nc:
+                await self.nc.publish(subject, signal.model_dump_json().encode())
+                logger.info(f"📡 Emitted Rich Signal: {subject}")
+            else:
+                logger.warning("⚠️ NATS not connected. Signal dropped.")
+
+        except Exception as e:
+            logger.error(f"Failed to emit signal: {e}")
 
     async def _save_final_report(self, mission, content, mission_slug, date_str):
         timestamp = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
@@ -577,7 +621,7 @@ def build_swarm_graph(node: SwarmNode):
         round_num = state["current_round"]
 
         # Recursive Reduction: Pass previous round's digest as context
-        previous_digest = cast(str, state.get(f"round_{round_num-1}_digest", ""))
+        previous_digest = state.get("previous_round_digest", "")
         if previous_digest:
             logger.info(
                 f"🔄 Feeding Round {round_num-1} Digest into Round {round_num} Act Step."
@@ -640,21 +684,27 @@ def build_swarm_graph(node: SwarmNode):
 
     async def mutate_step(state: SwarmState):
         """1 Mutate: Final Synthesis of Squad Digests."""
+        current_round = state["current_round"]
         digest = await node.synthesize_final_digest(
             state["squad_digests"],
-            state["current_round"],
+            current_round,
             state["mission"],
             state["mission_slug"],
             state["date_str"],
         )
 
         updates: Dict[str, Any] = {}
-        if state["current_round"] == 1:
-            updates["round_1_digest"] = digest
-            updates["current_round"] = 2
-        else:
-            updates["round_2_digest"] = digest
-            # End loop
+
+        # Update generic digest storage
+        all_digests = state.get("all_digests", {})
+        all_digests[current_round] = digest
+        updates["all_digests"] = all_digests
+
+        # Set previous digest for next round
+        updates["previous_round_digest"] = digest
+
+        # Increment round
+        updates["current_round"] = current_round + 1
 
         return updates
 
@@ -672,13 +722,11 @@ def build_swarm_graph(node: SwarmNode):
 
     def check_round(state: SwarmState):
         max_rounds = SWARM_CFG.get("max_rounds", 2)
-        if state["current_round"] <= max_rounds and not state.get("round_2_digest"):
-            # Logic to loop back could be refined here based on Quorum failure
-            # For now, we stick to the simple 2-round debate
-            if state["current_round"] == 2:
-                return END
-            return "act"
-        return END
+        # Note: current_round was incremented in mutate_step, so we check if it EXCEEDS max_rounds
+        # e.g. if max_rounds=3, and we just finished round 3, current_round is now 4. 4 > 3 -> END.
+        if state["current_round"] > max_rounds:
+            return END
+        return "act"
 
     workflow.add_conditional_edges("mutate", check_round)
 
@@ -702,11 +750,10 @@ async def run_swarm(mission: str):
             "date_str": date_str,
             "tasks": [],
             "findings": [],
-            "round_1_digest": "",
-            "round_2_digest": "",
-            "disruptor_reveal_log": [],
+            "squad_digests": [],
+            "previous_round_digest": "",
+            "all_digests": {},
             "current_round": 1,
-            "history": [],
         }
 
         print(f"🦅 Starting SWARM Loop: {mission}")
@@ -714,10 +761,14 @@ async def run_swarm(mission: str):
             for key, value in output.items():
                 print(f"Finished Step: {key}")
                 if key == "mutate":
-                    if value.get("round_1_digest"):
-                        print(f"📜 Round 1 Digest: {value['round_1_digest'][:100]}...")
-                    if value.get("round_2_digest"):
-                        print(f"💎 Final Digest: {value['round_2_digest'][:100]}...")
+                    # Check the latest digest from the updated state
+                    # Note: 'value' contains the updates returned by mutate_step
+                    if "all_digests" in value:
+                        digests = value["all_digests"]
+                        latest_round = max(digests.keys())
+                        print(
+                            f"💎 Round {latest_round} Digest: {digests[latest_round][:100]}..."
+                        )
     finally:
         await node.close_nats()
 

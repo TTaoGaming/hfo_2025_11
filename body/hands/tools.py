@@ -36,7 +36,7 @@ class ToolSet:
         Performs a REAL web search using DuckDuckGo (ddgs).
         """
         try:
-            from duckduckgo_search import DDGS
+            from ddgs import DDGS
 
             # Use the context manager as recommended by ddgs docs
             with DDGS() as ddgs:

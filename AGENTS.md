@@ -190,6 +190,20 @@ We are executing **Generation 50 (The Evolutionary Forge)**. This is a "Phoenix"
 | 2025-11-22 | Swarmlord | **Refactor**: Implemented Hexagonal Composability (Act/Review separation) and Recursive Reduction in `research_swarm.py`. | 🟢 Active |
 | 2025-11-22 | Swarmlord | **Cleanup**: Refactored magic numbers into `body/constants.py` and `swarm_config.yaml`. | 🟢 Active |
 | 2025-11-22 | Swarmlord | **Handoff Prep**: Context limit reached. Logging high-leverage tasks. System is stable, guarded, and git-backed. | 🟢 Handoff Ready |
+| 2025-11-22 | Swarmlord | **GitOps Upgrade**: Replaced brittle Makefile with `infrastructure_gitops.py`. Agent enforces Guards, generates Semantic Commits (LLM), and handles Push Resilience (Rebase/Retry). Verified with 72-file commit. | 🟢 Active |
+| 2025-11-22 | Swarmlord | **Consolidation Complete**: Archived deprecated launchers (`fractal_research_swarm.py`, `hydra_swarm.py`, etc.) to `body/hands/archive/`. Validated canonical `research_swarm.py` with "Test Mission". | 🟢 Active |
+| 2025-11-22 | Swarmlord | **Architecture Definition**: Formalized "Claim Check Pattern" (Rich Stigmergy) in `brain/pattern_claim_check.feature` and `.md`. Defines Hexagonal Composability for total decoupling. | 🟢 Active |
+| 2025-11-22 | Swarmlord | **Strategic Pivot**: Shifting Artifact Store from Filesystem to **Postgres (pgvector)**. Filesystem reserved for High-Level Digests (Human Readable). | 🟡 In Progress |
+| 2025-11-22 | Swarmlord | **Vision Definition**: Formalized "Synapse APEX Swarm" in `brain/vision_synapse_apex.feature` and `.md`. Defines Network Stigmergy, Memory Stratification, and Co-evolutionary Immunity. | 🟢 Active |
+| 2025-11-22 | Swarmlord | **Pattern Definition**: Formalized "Fractal Holography" in `brain/pattern_fractal_holography.feature` and `.md`. Every `README.md` is now a Stem Cell containing the full HFO DNA. | 🟢 Active |
+| 2025-11-22 | Swarmlord | **Incident Report**: Tool Failure (DuckDuckGo). Swarm returned "No results" for all queries. **Resolution**: Replaced deprecated `duckduckgo_search` with `ddgs` and verified with `test_ddgs_direct.py`. | 🟢 Resolved |
+| 2025-11-22 | Swarmlord | **Mission Success**: Executed "Rich Metadata Hunt" (Round 2). Swarm successfully retrieved chemical/industry data using fixed tools. | 🟢 Active |
+| 2025-11-22 | Swarmlord | **Assimilator Verified**: Implemented `body/digestion/assimilator.py`. Successfully consumed NATS signals and verified "Claim Check" payloads on disk. | 🟢 Active |
+| 2025-11-22 | Swarmlord | **Recommendation**: Synthesized "Rich Metadata Primitives" (Signal, Decay, Spread, Payload) based on swarm findings. | 🟢 Active |
+| 2025-11-22 | Swarmlord | **Design Definition**: Formalized "Tri-State Metadata" (Crystalline/Liquid/Sedimentary) in `brain/design_tri_state_metadata.md`. Defines the "Obsidian Facet" unified schema. | 🟢 Active |
+| 2025-11-22 | Swarmlord | **Research**: Analyzed 4 SOTA alternatives (Obsidian Facet, Active Inference, Mycelial, Pheromone) in `brain/research_metadata_alternatives.md`. | 🟢 Active |
+| 2025-11-23 | Swarmlord | **Swarm Consensus**: Executed 50-Agent Swarm (2 Rounds). Verdict: **Active Inference is too complex**. **Obsidian Facet + Fractal Holarchy** is the optimal path for Cognitive Simplicity. | 🟢 Active |
+| 2025-11-23 | Swarmlord | **Digest**: Crystallized swarm findings into `brain/digest_stigmergy_consensus.md`. Visualized "The Holographic Hive" architecture. | 🟢 Active |
 
 ---
 
@@ -222,6 +236,12 @@ We are executing **Generation 50 (The Evolutionary Forge)**. This is a "Phoenix"
 - [x] **Define GROWTH Workflow**: Create `brain/growth_workflow.feature` (F3EAD).
 - [x] **Refactor L0 (PREY)**: Implement `body/hands/prey_agent.py` using LangGraph (Real LLM, Real Tools).
 - [x] **Refactor L1 (SWARM)**: Implement `research_swarm.py` with Hexagonal Composability and Recursive Reduction.
+- [x] **GitOps Agent**: Implement `infrastructure_gitops.py` with LLM Commits + Resilience.
+- [x] **Consolidate Launchers**: Archive deprecated scripts and validate canonical `research_swarm.py`.
+- [x] **Formalize Claim Check**: Define the pattern for decoupling Swarm stages via NATS.
+- [x] **Tooling**: Verify "Real Tool Calls" (Web Search, File I/O) are robust and error-handled.
+- [ ] **Migrate Artifacts to Postgres**: Update `research_swarm.py` to write to DB instead of Disk (except for Digests).
+- [ ] **Upgrade Digest Format**: Implement "Cognitive Global Workspace" prompting for high-signal synthesis.
 - [ ] **Refactor L2 (ORCHESTRATION)**: Implement `body/hands/swarm_controller.py` using Temporal.
 - [ ] **DevOps Pipeline**: Setup CI/CD for "Real Scale" testing (start with 10 agents, scale to 100).
 - [ ] **Tooling**: Verify "Real Tool Calls" (Web Search, File I/O) are robust and error-handled.

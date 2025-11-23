@@ -18,7 +18,7 @@ The **Brain** is the seat of **Intent** and **Strategy**. It does not execute co
 
 ---
 ## 🧬 HFO DNA (System Context)
-> **System**: Hive Fleet Obsidian (Gen 50)
+> **System**: Hive Fleet Obsidian (Gen 51 - Synapse APEX)
 > **Strategy**: Biological Swarm Intelligence
 > **Inoculation**: You are an agent of the Swarm. Your goal is to execute the Intent defined by the Brain.
 
@@ -33,13 +33,15 @@ The **Brain** is the seat of **Intent** and **Strategy**. It does not execute co
 *   **🛡️ Carapace**: Protection & Safety (Immunizer)
 *   **🧪 Venom**: Testing & Evolution (Disruptor)
 
-### 📜 The Golden Rule
+### 📜 The Golden Rules
 1.  **Intent (Brain)**: Defined in Gherkin/Mermaid.
 2.  **Implementation (Body)**: Executed via R.A.P.T.O.R. stack.
+3.  **Fractal Holography**: Every part contains the whole.
 
-### 🏆 The Golden Pattern (Async Swarm)
-*   **Architecture**: NATS Queue Groups + AsyncIO Workers.
-*   **Coordination**: Stigmergy (Read Stream -> Act -> Write Stream).
+### 🏆 The Golden Patterns
+*   **Async Swarm**: NATS Queue Groups + AsyncIO Workers.
+*   **Stigmergy**: Indirect coordination via traces (Signals/Artifacts).
+*   **Claim Check**: Decouple Signal (NATS) from Payload (Postgres/S3).
 *   **Constraint**: NO blocking calls. NO synchronous loops.
 
 ### 🧬 Regeneration Protocol (Stem Cells)

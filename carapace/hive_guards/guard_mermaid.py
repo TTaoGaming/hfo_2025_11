@@ -24,6 +24,66 @@ VALID_DIAGRAM_TYPES = {
 }
 
 
+def check_balanced_brackets(content: str) -> list[str]:
+    """Checks for balanced brackets in the mermaid block."""
+    stack = []
+    issues = []
+    # Map of closing to opening brackets
+    brackets = {")": "(", "]": "[", "}": "{"}
+    # Reverse map for error messages
+    names = {"(": "parentheses", "[": "square brackets", "{": "curly braces"}
+
+    # We need to ignore brackets inside strings
+    in_string = False
+    string_char = None
+
+    lines = content.split("\n")
+    for line_idx, line in enumerate(lines, 1):
+        # Ignore comments
+        if line.strip().startswith("%%"):
+            continue
+
+        # Strip comments at end of line
+        if "%%" in line:
+            line = line.split("%%")[0]
+
+        for char_idx, char in enumerate(line):
+            if char in "\"'":
+                if not in_string:
+                    in_string = True
+                    string_char = char
+                elif char == string_char:
+                    in_string = False
+                continue
+
+            if in_string:
+                continue
+
+            if char in "([{":
+                # Special handling for Mermaid ER diagram arrows: |{, o{
+                if char == "{" and char_idx > 0 and line[char_idx - 1] in "o|":
+                    continue
+
+                stack.append((char, line_idx, char_idx))
+            elif char in ")]}":
+                if not stack:
+                    issues.append(
+                        f"Line {line_idx}: Unmatched closing {names[brackets[char]]} '{char}'"
+                    )
+                else:
+                    last_open, last_line, _ = stack.pop()
+                    if last_open != brackets[char]:
+                        issues.append(
+                            f"Line {line_idx}: Mismatched closing '{char}' for opening '{last_open}' on line {last_line}"
+                        )
+
+    if stack:
+        for char, line_idx, _ in stack:
+            issues.append(f"Line {line_idx}: Unclosed {names[char]} '{char}'")
+
+    return issues
+
+
 def check_mermaid_blocks(file_path: Path) -> list[str]:
     issues = []
     try:
@@ -54,6 +114,15 @@ def check_mermaid_blocks(file_path: Path) -> list[str]:
 
         # Handle "graph TD" or "direction TB" inside stateDiagram
         # We just want the first word
+        if not first_line:
+            # Could happen if first line was just a comment
+            # Find first non-empty non-comment line
+            for line in lines:
+                line = line.strip()
+                if line and not line.startswith("%%"):
+                    first_line = line
+                    break
+
         first_word = first_line.split(" ")[0]
 
         if first_word not in VALID_DIAGRAM_TYPES:
@@ -64,6 +133,12 @@ def check_mermaid_blocks(file_path: Path) -> list[str]:
                 issues.append(
                     f"Unknown or missing diagram type: '{first_word}'. Valid types: {', '.join(sorted(list(VALID_DIAGRAM_TYPES)))}"
                 )
+
+        # Run deeper syntax checks
+        bracket_issues = check_balanced_brackets(block_content)
+        if bracket_issues:
+            for issue in bracket_issues:
+                issues.append(f"Syntax Error: {issue}")
 
     if found_blocks == 0 and file_path.suffix == ".md":
         # Not all MD files need mermaid, but if they are in brain/ and registered as summary, they might.
