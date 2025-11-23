@@ -1,28 +1,47 @@
 ---
 title: Async Swarm Process Pattern
-status: Active (Validated)
-domain: Architecture
-owners:
-- Swarmlord
-type: Design Pattern
+bluf: '**Golden Pattern** for high-throughput batch processing in Hive Fleet Obsidian
+  using **NATS Queue Groups** and **AsyncIO**, replacing brittle `multiprocessing`
+  or sync loops. Validated 2025-11-21 on **Swarm Spinner** (207 gems).'
+story: In Hive Fleet Obsidian's dynamic environment, synchronous processing creates
+  bottlenecks and fragility. This **Golden Pattern** deploys a Dispatcher publishing
+  fire-and-forget tasks to NATS JetStream Queue Groups for automatic round-robin load
+  balancing across single-threaded AsyncIO workers. Workers use stigmergy—reading
+  recent stream history for context—process non-blocking with aiohttp/AsyncOpenAI,
+  emit signals, and ack. Fault-tolerant via redelivery; scales seamlessly with emergent
+  intelligence. Validated in production via swarm_spinner.py.
+tags:
+- Architecture
+- Design Pattern
+- NATS
+- AsyncIO
+- Swarm
+- Hive Fleet Obsidian
+- Stigmergy
+
+# ==================================================================
+# 🤖 THE HEXAGON (Swarm Generated)
+# ==================================================================
 hexagon:
   ontos:
     id: 2e86e859-fcd9-4808-872d-e1bdd52a0526
-    type: doc
+    type: pattern
     owner: Swarmlord
   chronos:
-    status: active
-    urgency: 0.5
-    decay: 0.5
+    status: stable
+    urgency: 0.7
+    decay: 0.3
     created: '2025-11-23T06:32:09.801504Z'
-    generation: 51
   topos:
     address: brain/pattern_async_swarm.md
-    links: []
+    links:
+    - body/digestion/swarm_spinner.py
   telos:
-    viral_factor: 0.0
-    meme: Async Swarm Process Pattern
+    viral_factor: 0.8
+    meme: '🐝 Golden Pattern: Fire-and-Forget Swarm Scaling'
 ---
+
+
 
 
 

@@ -74,7 +74,7 @@ class Chronos(BaseModel):
     )
     decay: float = Field(..., ge=0.0, le=1.0, description="Relevance decay rate")
     created: str = Field(
-        default_factory=lambda: datetime.datetime.utcnow().isoformat() + "Z"
+        default_factory=lambda: datetime.datetime.now(datetime.timezone.utc).isoformat()
     )
 
 
@@ -142,7 +142,7 @@ class HeaderSwarm:
                 ),
             )
             subject = f"swarm.header.{stage}"
-            await self.stigmergy.publish(subject, signal.model_dump())
+            await self.stigmergy.publish(subject, signal.model_dump(mode="json"))
             logger.info(f"📡 Signal Emitted: {subject}")
         except Exception as e:
             logger.warning(f"⚠️ Failed to emit signal: {e}")
