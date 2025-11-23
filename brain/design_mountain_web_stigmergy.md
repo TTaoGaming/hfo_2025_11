@@ -1,18 +1,43 @@
 ---
-id: "550e8400-e29b-41d4-a716-446655440099"
-type: "design"
-status: "active"
-title: "The Mountain & The Web: Deep Stigmergy Architecture"
-created: "2025-11-22T12:00:00Z"
-last_touched: "2025-11-22T12:00:00Z"
+id: 550e8400-e29b-41d4-a716-446655440099
+type: design
+status: active
+title: 'The Mountain & The Web: Deep Stigmergy Architecture'
+created: '2025-11-22T12:00:00Z'
+last_touched: '2025-11-22T12:00:00Z'
 urgency: 0.9
 stigmergy_score: 100.0
-author: "Swarmlord"
+author: Swarmlord
 links:
-  - "brain/concepts.yaml": "defines"
-  - "brain/design_mountain_web_stigmergy.feature": "implements"
-tags: ["architecture", "stigmergy", "core", "obsidian_facet"]
+- brain/concepts.yaml: defines
+- brain/design_mountain_web_stigmergy.feature: implements
+tags:
+- architecture
+- stigmergy
+- core
+- obsidian_facet
+
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 90da7c22-9b52-49c7-bc59-d0ab38b58a38
+    type: doc
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T06:32:09.843223Z'
+  topos:
+    address: 1.0.0
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: 'The Mountain & The Web: Deep Stigmergy Architecture'
 ---
+
 
 # 🕸️⛰️ The Mountain & The Web: Deep Stigmergy Architecture
 

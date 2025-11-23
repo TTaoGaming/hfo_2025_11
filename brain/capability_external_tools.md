@@ -3,10 +3,31 @@ title: External Tools Capability
 status: Active
 type: Capability
 tags:
-  - tools
-  - web-search
-  - file-io
+- tools
+- web-search
+- file-io
+
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: f353e740-45ae-4eae-9a0a-dda084cf9b52
+    type: doc
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T06:32:09.817422Z'
+  topos:
+    address: 1.0.0
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: External Tools Capability
 ---
+
 
 # 🛠️ External Tools Capability
 

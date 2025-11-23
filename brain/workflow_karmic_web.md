@@ -3,10 +3,31 @@ title: Karmic Web Workflow
 status: Active
 type: Workflow
 tags:
-  - stigmergy
-  - graphrag
-  - memory
+- stigmergy
+- graphrag
+- memory
+
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 8a17b157-325d-4295-b14f-377e71aa375a
+    type: doc
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T06:32:09.814743Z'
+  topos:
+    address: 1.0.0
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: Karmic Web Workflow
 ---
+
 
 # 🕸️ Karmic Web Workflow
 

@@ -1,17 +1,42 @@
 ---
-id: "550e8400-e29b-41d4-a716-446655440102"
-type: "research"
-status: "active"
-title: "Higher-Order Stigmergy Abstractions"
-created: "2025-11-23T05:30:00Z"
-last_touched: "2025-11-23T05:30:00Z"
+id: 550e8400-e29b-41d4-a716-446655440102
+type: research
+status: active
+title: Higher-Order Stigmergy Abstractions
+created: '2025-11-23T05:30:00Z'
+last_touched: '2025-11-23T05:30:00Z'
 urgency: 0.8
 stigmergy_score: 100.0
-author: "Swarmlord"
+author: Swarmlord
 links:
-  - "brain/design_obsidian_facet_v2.md": "abstracts"
-tags: ["research", "philosophy", "physics", "abstraction"]
+- brain/design_obsidian_facet_v2.md: abstracts
+tags:
+- research
+- philosophy
+- physics
+- abstraction
+
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: a98f0315-f79f-48b9-92f9-8ae375e06cdf
+    type: doc
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T06:32:09.853624Z'
+  topos:
+    address: 1.0.0
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: Higher-Order Stigmergy Abstractions
 ---
+
 
 # 🌌 Higher-Order Stigmergy Abstractions
 

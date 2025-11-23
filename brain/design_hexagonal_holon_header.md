@@ -1,17 +1,42 @@
 ---
-id: "550e8400-e29b-41d4-a716-446655440108"
-type: "standard"
-status: "active"
-title: "The Hexagonal Holon Header: Composable Stigmergy"
-created: "2025-11-23T09:00:00Z"
-last_touched: "2025-11-23T09:00:00Z"
+id: 550e8400-e29b-41d4-a716-446655440108
+type: standard
+status: active
+title: 'The Hexagonal Holon Header: Composable Stigmergy'
+created: '2025-11-23T09:00:00Z'
+last_touched: '2025-11-23T09:00:00Z'
 urgency: 1.0
 stigmergy_score: 100.0
-author: "Swarmlord"
+author: Swarmlord
 links:
-  - "brain/analysis_unified_hfo_header.md": "implements"
-tags: ["standard", "header", "hexagonal", "automation"]
+- brain/analysis_unified_hfo_header.md: implements
+tags:
+- standard
+- header
+- hexagonal
+- automation
+
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 7649ce58-6c4a-45d7-8b2d-c2529b361ac8
+    type: doc
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T06:32:09.875098Z'
+  topos:
+    address: 1.0.0
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: 'The Hexagonal Holon Header: Composable Stigmergy'
 ---
+
 
 # 💎 The Hexagonal Holon Header
 

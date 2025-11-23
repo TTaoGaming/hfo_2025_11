@@ -2,9 +2,31 @@
 title: Organs, Roles, and Champions
 status: Active (Gen 51)
 domain: Architecture
-owners: [Swarmlord]
+owners:
+- Swarmlord
 type: Physiology
+
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: a2084caf-c715-471f-89e1-00db4124a19a
+    type: doc
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T06:32:09.779370Z'
+  topos:
+    address: 1.0.0
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: Organs, Roles, and Champions
 ---
+
 
 # 🧬 Organs, Roles, and Champions
 

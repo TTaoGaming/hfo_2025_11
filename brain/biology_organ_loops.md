@@ -2,9 +2,31 @@
 title: Physiology Loops
 status: Active (Gen 51)
 domain: Biology
-owners: [Swarmlord]
+owners:
+- Swarmlord
 type: Rhythms
+
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: cb118335-bb1f-464d-8138-e3e5b40bfb84
+    type: doc
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T06:32:09.781743Z'
+  topos:
+    address: 1.0.0
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: Physiology Loops
 ---
+
 
 # 🔄 Physiology Loops
 

@@ -3,10 +3,31 @@ title: The Three Webs Architecture
 status: Active
 type: Architecture
 tags:
-  - karmic-web
-  - present-web
-  - simulation-web
+- karmic-web
+- present-web
+- simulation-web
+
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 118b92c6-187b-4d70-9381-1a756f37012f
+    type: doc
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T06:32:09.812322Z'
+  topos:
+    address: 1.0.0
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: The Three Webs Architecture
 ---
+
 
 # 🕸️ The Three Webs Architecture
 

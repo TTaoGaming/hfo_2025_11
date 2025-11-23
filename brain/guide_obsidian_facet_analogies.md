@@ -1,17 +1,41 @@
 ---
-id: "550e8400-e29b-41d4-a716-446655440101"
-type: "guide"
-status: "active"
-title: "Cognitive Scaffolding: The Obsidian Facet V2"
-created: "2025-11-23T05:20:00Z"
-last_touched: "2025-11-23T05:20:00Z"
+id: 550e8400-e29b-41d4-a716-446655440101
+type: guide
+status: active
+title: 'Cognitive Scaffolding: The Obsidian Facet V2'
+created: '2025-11-23T05:20:00Z'
+last_touched: '2025-11-23T05:20:00Z'
 urgency: 0.8
 stigmergy_score: 100.0
-author: "Swarmlord"
+author: Swarmlord
 links:
-  - "brain/design_obsidian_facet_v2.md": "explains"
-tags: ["guide", "analogy", "cognitive_scaffolding"]
+- brain/design_obsidian_facet_v2.md: explains
+tags:
+- guide
+- analogy
+- cognitive_scaffolding
+
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: b13926bf-0418-4c15-9dbf-fc3c27cf4946
+    type: doc
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T06:32:09.850049Z'
+  topos:
+    address: 1.0.0
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: 'Cognitive Scaffolding: The Obsidian Facet V2'
 ---
+
 
 # 🧠 Cognitive Scaffolding: Understanding the Obsidian Facet V2
 

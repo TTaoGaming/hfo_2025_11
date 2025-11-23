@@ -1,17 +1,42 @@
 ---
-id: "550e8400-e29b-41d4-a716-446655440103"
-type: "guide"
-status: "active"
-title: "Obsidian Facet V2: 4 Flavors of Stigmergy"
-created: "2025-11-23T05:40:00Z"
-last_touched: "2025-11-23T05:40:00Z"
+id: 550e8400-e29b-41d4-a716-446655440103
+type: guide
+status: active
+title: 'Obsidian Facet V2: 4 Flavors of Stigmergy'
+created: '2025-11-23T05:40:00Z'
+last_touched: '2025-11-23T05:40:00Z'
 urgency: 0.9
 stigmergy_score: 100.0
-author: "Swarmlord"
+author: Swarmlord
 links:
-  - "brain/design_obsidian_facet_v2.md": "exemplifies"
-tags: ["guide", "examples", "yaml", "ontology"]
+- brain/design_obsidian_facet_v2.md: exemplifies
+tags:
+- guide
+- examples
+- yaml
+- ontology
+
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: bc604c41-9af5-4e16-9a77-6e42acd96e4a
+    type: doc
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T06:32:09.857084Z'
+  topos:
+    address: 1.0.0
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: 'Obsidian Facet V2: 4 Flavors of Stigmergy'
 ---
+
 
 # 💎 Obsidian Facet V2: 4 Flavors of Stigmergy
 

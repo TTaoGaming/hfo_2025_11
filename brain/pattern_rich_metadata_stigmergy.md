@@ -2,9 +2,31 @@
 title: Rich Metadata Stigmergy
 status: Proposed
 domain: Architecture
-owners: [Swarmlord]
+owners:
+- Swarmlord
 type: Design Pattern
+
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 94cd0e7e-912f-4219-852c-f4e322eed947
+    type: doc
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T06:32:09.839416Z'
+  topos:
+    address: 1.0.0
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: Rich Metadata Stigmergy
 ---
+
 
 # 💎 Rich Metadata Stigmergy
 

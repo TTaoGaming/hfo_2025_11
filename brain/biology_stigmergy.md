@@ -2,9 +2,31 @@
 title: Evolutionary Pheromones
 status: Active (Gen 51)
 domain: Biology
-owners: [Swarmlord]
+owners:
+- Swarmlord
 type: Communication
+
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 7048cebe-6ea9-4a60-b218-ca6eb3d19a0c
+    type: doc
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T06:32:09.786426Z'
+  topos:
+    address: 1.0.0
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: Evolutionary Pheromones
 ---
+
 
 # 🧪 Evolutionary Pheromones
 

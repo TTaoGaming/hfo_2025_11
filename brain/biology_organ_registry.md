@@ -2,9 +2,31 @@
 title: Biomimetic Organ Registry
 status: Active (Gen 51)
 domain: Biology
-owners: [Swarmlord]
+owners:
+- Swarmlord
 type: Anatomy
+
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: f4120552-a3d4-46ab-8e0e-902ba4267cee
+    type: doc
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T06:32:09.784033Z'
+  topos:
+    address: 1.0.0
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: Biomimetic Organ Registry
 ---
+
 
 # 🐜 Biomimetic Organ Registry
 

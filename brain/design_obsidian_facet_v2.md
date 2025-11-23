@@ -1,18 +1,43 @@
 ---
-id: "550e8400-e29b-41d4-a716-446655440100"
-type: "design"
-status: "active"
-title: "Obsidian Facet V2: High-Density Stigmergy"
-created: "2025-11-23T05:10:00Z"
-last_touched: "2025-11-23T05:10:00Z"
+id: 550e8400-e29b-41d4-a716-446655440100
+type: design
+status: active
+title: 'Obsidian Facet V2: High-Density Stigmergy'
+created: '2025-11-23T05:10:00Z'
+last_touched: '2025-11-23T05:10:00Z'
 urgency: 0.95
 stigmergy_score: 100.0
-author: "Swarmlord"
+author: Swarmlord
 links:
-  - "brain/concepts.yaml": "defines"
-  - "brain/design_mountain_web_stigmergy.md": "evolves"
-tags: ["architecture", "stigmergy", "schema", "fractal"]
+- brain/concepts.yaml: defines
+- brain/design_mountain_web_stigmergy.md: evolves
+tags:
+- architecture
+- stigmergy
+- schema
+- fractal
+
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 74d69416-41dd-48d2-8821-3be8b9638549
+    type: doc
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T06:32:09.846805Z'
+  topos:
+    address: 1.0.0
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: 'Obsidian Facet V2: High-Density Stigmergy'
 ---
+
 
 # 💎 Obsidian Facet V2: High-Density Stigmergy
 

@@ -2,9 +2,31 @@
 title: Synapse APEX Swarm
 status: Active (Vision)
 domain: Strategy
-owners: [Swarmlord]
+owners:
+- Swarmlord
 type: Vision Document
+
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 5fe3fa55-8a58-4cf8-b40d-56d74677f208
+    type: doc
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T06:32:09.834154Z'
+  topos:
+    address: 1.0.0
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: Synapse APEX Swarm
 ---
+
 
 # 🧠 Synapse APEX Swarm: The Network Stigmergy Vision
 

@@ -2,9 +2,31 @@
 title: Async Swarm Process Pattern
 status: Active (Validated)
 domain: Architecture
-owners: [Swarmlord]
+owners:
+- Swarmlord
 type: Design Pattern
+
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 2e86e859-fcd9-4808-872d-e1bdd52a0526
+    type: doc
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T06:32:09.801504Z'
+  topos:
+    address: 1.0.0
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: Async Swarm Process Pattern
 ---
+
 
 # 🐝 Async Swarm Process Pattern
 

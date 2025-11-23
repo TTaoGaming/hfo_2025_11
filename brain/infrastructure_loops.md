@@ -2,9 +2,31 @@
 title: Cognitive Loops (PREY & SWARM)
 status: Active (Gen 51)
 domain: Infrastructure
-owners: [Swarmlord]
+owners:
+- Swarmlord
 type: Control Flow
+
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 1a2a017d-e342-44fe-b9c3-3e5369e17a29
+    type: doc
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T06:32:09.793044Z'
+  topos:
+    address: 1.0.0
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: Cognitive Loops (PREY & SWARM)
 ---
+
 
 # 🔄 Cognitive Loops: PREY & SWARM
 

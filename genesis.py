@@ -10,6 +10,8 @@ Usage: python genesis.py [scan|evolve]
 import sys
 import yaml
 import re
+import uuid
+import datetime
 import subprocess
 from pathlib import Path
 from rich.console import Console
@@ -152,11 +154,129 @@ def test_{target_file.stem}():
         target_file.parent.mkdir(parents=True, exist_ok=True)
         target_file.write_text(code)
 
+    def crystallize(self):
+        """Injects the Hexagonal Holon Header into all Markdown files."""
+        console.print("[bold cyan]💎 Initiating Great Crystallization...[/bold cyan]")
+
+        # Scan Brain and Body for Markdown files
+        targets = list(self.brain_path.rglob("*.md")) + list(
+            self.body_path.rglob("*.md")
+        )
+        console.print(f"Found {len(targets)} potential crystals.")
+
+        for file_path in targets:
+            self._process_markdown(file_path)
+
+    def _process_markdown(self, file_path: Path):
+        try:
+            content = file_path.read_text(encoding="utf-8")
+
+            # Split YAML frontmatter
+            if not content.startswith("---"):
+                # console.print(f"[dim]  Skipping {file_path.name} (No frontmatter)[/dim]")
+                return
+
+            parts = content.split("---", 2)
+            if len(parts) < 3:
+                return
+
+            yaml_text = parts[1]
+            body = parts[2]
+
+            # Parse Face
+            try:
+                face = yaml.safe_load(yaml_text)
+            except yaml.YAMLError:
+                console.print(f"[red]❌ Invalid YAML in {file_path.name}[/red]")
+                return
+
+            if not isinstance(face, dict):
+                return
+
+            if "hexagon" in face:
+                # console.print(f"[dim]  ✨ {file_path.name} already crystallized.[/dim]")
+                return
+
+            # Generate Hexagon
+            hexagon = self._generate_hexagon(face, file_path)
+
+            # Merge and Write
+            face["hexagon"] = hexagon
+
+            # Reconstruct File
+            new_yaml = yaml.dump(face, sort_keys=False, allow_unicode=True)
+
+            # Add comments for visual separation
+            new_yaml = new_yaml.replace(
+                "hexagon:",
+                "\n# ==================================================================\n# 🤖 THE HEXAGON (System Generated)\n# ==================================================================\nhexagon:",
+            )
+
+            new_content = f"---\n{new_yaml}---\n{body}"
+            file_path.write_text(new_content, encoding="utf-8")
+            console.print(f"[green]  💎 Crystallized: {file_path.name}[/green]")
+
+        except Exception as e:
+            console.print(f"[red]  ❌ Error processing {file_path.name}: {e}[/red]")
+
+    def _generate_hexagon(self, face_data: dict, file_path: Path) -> dict:
+        """Computes the Hexagon based on the Face and File Context."""
+
+        # 1. ONTOS (Identity)
+        ontos = {
+            "id": str(uuid.uuid4()),
+            "type": "doc",  # Default to doc for markdown
+            "owner": "Swarmlord",  # Default owner
+        }
+
+        # 2. CHRONOS (Thermodynamics)
+        tags = face_data.get("tags", [])
+        urgency = 0.1 if "test" in tags else 0.5
+        chronos = {
+            "status": "active",
+            "urgency": urgency,
+            "decay": 0.5,
+            "created": datetime.datetime.utcnow().isoformat() + "Z",
+        }
+
+        # 3. TOPOS (Connectivity)
+        # Map directory structure to address
+        # brain -> 1, body -> 2, carapace -> 3
+        parts = file_path.parts
+        address = "0.0.0"
+        if "brain" in parts:
+            address = "1.0.0"
+        elif "body" in parts:
+            address = "2.0.0"
+        elif "carapace" in parts:
+            address = "3.0.0"
+
+        topos = {"address": address, "links": []}
+
+        # 4. TELOS (Purpose)
+        # Viral factor based on BLUF length
+        bluf_len = len(face_data.get("bluf", ""))
+        viral = min(1.0, bluf_len / 100)
+        telos = {"viral_factor": viral, "meme": face_data.get("title", "Untitled")}
+
+        return {"ontos": ontos, "chronos": chronos, "topos": topos, "telos": telos}
+
 
 def main():
-    if len(sys.argv) > 1 and sys.argv[1] == "evolve":
-        factory = GenesisFactory()
-        factory.evolve()
+    if len(sys.argv) > 1:
+        cmd = sys.argv[1]
+        if cmd == "evolve":
+            factory = GenesisFactory()
+            factory.evolve()
+        elif cmd == "crystallize":
+            factory = GenesisFactory()
+            factory.crystallize()
+        elif cmd == "scan":
+            scanner = GenesisScanner()
+            scanner.scan()
+        else:
+            console.print(f"[red]Unknown command: {cmd}[/red]")
+            console.print("Usage: python genesis.py [scan|evolve|crystallize]")
     else:
         scanner = GenesisScanner()
         scanner.scan()

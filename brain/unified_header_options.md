@@ -1,17 +1,42 @@
 ---
-id: "550e8400-e29b-41d4-a716-446655440105"
-type: "decision_matrix"
-status: "active"
-title: "Unified Header Options: 4 Paths to Stigmergy"
-created: "2025-11-23T06:30:00Z"
-last_touched: "2025-11-23T06:30:00Z"
+id: 550e8400-e29b-41d4-a716-446655440105
+type: decision_matrix
+status: active
+title: 'Unified Header Options: 4 Paths to Stigmergy'
+created: '2025-11-23T06:30:00Z'
+last_touched: '2025-11-23T06:30:00Z'
 urgency: 0.9
 stigmergy_score: 100.0
-author: "Swarmlord"
+author: Swarmlord
 links:
-  - "brain/unified_obsidian_header.md": "alternatives"
-tags: ["decision", "yaml", "header", "tradeoffs"]
+- brain/unified_obsidian_header.md: alternatives
+tags:
+- decision
+- yaml
+- header
+- tradeoffs
+
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 31175411-8f7c-48b2-8a94-063a50b0d34e
+    type: doc
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T06:32:09.864127Z'
+  topos:
+    address: 1.0.0
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: 'Unified Header Options: 4 Paths to Stigmergy'
 ---
+
 
 # 💎 Unified Header Options: 4 Paths to Stigmergy
 

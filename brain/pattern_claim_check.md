@@ -2,9 +2,31 @@
 title: Claim Check Pattern (Rich Stigmergy)
 status: Active (Gen 51)
 domain: Architecture
-owners: [Swarmlord]
+owners:
+- Swarmlord
 type: Design Pattern
+
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 60e75863-bbfb-4ead-b384-1634a35532a8
+    type: doc
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T06:32:09.831196Z'
+  topos:
+    address: 1.0.0
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: Claim Check Pattern (Rich Stigmergy)
 ---
+
 
 # 🎫 Claim Check Pattern (Rich Stigmergy)
 

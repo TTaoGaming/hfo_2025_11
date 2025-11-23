@@ -1,17 +1,42 @@
 ---
-id: "550e8400-e29b-41d4-a716-446655440104"
-type: "standard"
-status: "active"
-title: "The Unified Obsidian Header (HFO Standard)"
-created: "2025-11-23T06:00:00Z"
-last_touched: "2025-11-23T06:00:00Z"
+id: 550e8400-e29b-41d4-a716-446655440104
+type: standard
+status: active
+title: The Unified Obsidian Header (HFO Standard)
+created: '2025-11-23T06:00:00Z'
+last_touched: '2025-11-23T06:00:00Z'
 urgency: 1.0
 stigmergy_score: 100.0
-author: "Swarmlord"
+author: Swarmlord
 links:
-  - "brain/design_obsidian_facet_v2.md": "refines"
-tags: ["standard", "yaml", "header", "unified"]
+- brain/design_obsidian_facet_v2.md: refines
+tags:
+- standard
+- yaml
+- header
+- unified
+
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 36a2518e-cefd-484b-8746-84908eaaf712
+    type: doc
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T06:32:09.860685Z'
+  topos:
+    address: 1.0.0
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: The Unified Obsidian Header (HFO Standard)
 ---
+
 
 # 💎 The Unified Obsidian Header: One Structure to Rule Them All
 
