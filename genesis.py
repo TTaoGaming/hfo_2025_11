@@ -261,6 +261,17 @@ def test_{target_file.stem}():
 
         return {"ontos": ontos, "chronos": chronos, "topos": topos, "telos": telos}
 
+    def swarm_crystallize(self, target_file: str):
+        """Invokes the Header Swarm for a specific file."""
+        console.print(
+            f"[bold purple]🦅 Launching Swarm for {target_file}...[/bold purple]"
+        )
+        cmd = ["python3", "body/hands/header_swarm.py", target_file]
+        try:
+            subprocess.run(cmd, check=True)
+        except subprocess.CalledProcessError as e:
+            console.print(f"[red]❌ Swarm failed: {e}[/red]")
+
 
 def main():
     if len(sys.argv) > 1:
@@ -271,6 +282,12 @@ def main():
         elif cmd == "crystallize":
             factory = GenesisFactory()
             factory.crystallize()
+        elif cmd == "swarm":
+            if len(sys.argv) < 3:
+                console.print("[red]Usage: python genesis.py swarm <file_path>[/red]")
+            else:
+                factory = GenesisFactory()
+                factory.swarm_crystallize(sys.argv[2])
         elif cmd == "scan":
             scanner = GenesisScanner()
             scanner.scan()

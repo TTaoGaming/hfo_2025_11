@@ -1,16 +1,28 @@
 ---
-id: 550e8400-e29b-41d4-a716-446655440099
-type: design
-status: active
 title: 'The Mountain & The Web: Deep Stigmergy Architecture'
-created: '2025-11-22T12:00:00Z'
-last_touched: '2025-11-22T12:00:00Z'
-urgency: 0.9
-stigmergy_score: 100.0
-author: Swarmlord
-links:
-- brain/concepts.yaml: defines
-- brain/design_mountain_web_stigmergy.feature: implements
+bluf: 'We are replacing "Active Inference" (too complex) with **Fractal Stigmergy**.
+
+  1. **The Mountain (Static/Cold)**: The File System is the memory. Files "sink" over
+  time (Decay) and "float" when touched (Uplift).
+
+  2. **The Web (Hot/Active)**: NATS JetStream connects static points; agents (Sherpa,
+  Gardener, Weaver) crawl & vibrate.
+
+  3. **The Facet (Schema)**: Standardized YAML header (`id`, `urgency`, `last_touched`)
+  makes every file a machine-readable neuron.'
+story: '> **Symbolism**: 🕸️ (The Web: Hot/Active agents via NATS vibrations) + ⛰️
+  (The Mountain: Static/Cold filesystem with sink/float dynamics).
+
+  > **Goal**: Embed stigmergy directly into the filesystem (static memory) and agents
+  (dynamic connections) for fractal holonic swarm intelligence.
+
+  > **Obsidian Facet**: Unified metadata schema enabling machine-readable artifacts,
+  visualization, and holonic roles (Sherpa: retrieval, Gardener: pruning, Weaver:
+  synthesis).
+
+
+  The repository **IS** the stigmergy medium—unifying static/dynamic holons via decay/uplift,
+  strata naming, and NATS JetStream.'
 tags:
 - architecture
 - stigmergy
@@ -18,25 +30,28 @@ tags:
 - obsidian_facet
 
 # ==================================================================
-# 🤖 THE HEXAGON (System Generated)
+# 🤖 THE HEXAGON (Swarm Generated)
 # ==================================================================
 hexagon:
   ontos:
-    id: 90da7c22-9b52-49c7-bc59-d0ab38b58a38
-    type: doc
+    id: 550e8400-e29b-41d4-a716-446655440099
+    type: design
     owner: Swarmlord
   chronos:
     status: active
-    urgency: 0.5
-    decay: 0.5
-    created: '2025-11-23T06:32:09.843223Z'
+    urgency: 0.9
+    decay: 0.1
+    created: '2025-11-22T12:00:00Z'
   topos:
     address: 1.0.0
-    links: []
+    links:
+    - brain/concepts.yaml
+    - brain/design_mountain_web_stigmergy.feature
   telos:
-    viral_factor: 0.0
-    meme: 'The Mountain & The Web: Deep Stigmergy Architecture'
+    viral_factor: 0.9
+    meme: '🕸️⛰️ Mountain-Web: Fractal Stigmergy (Sink, Float, Vibrate)'
 ---
+
 
 
 # 🕸️⛰️ The Mountain & The Web: Deep Stigmergy Architecture
