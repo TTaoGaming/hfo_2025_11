@@ -34,6 +34,8 @@ organs:
       - "guide_holographic_intuition.md"
       - "design_mountain_web_stigmergy.md"
       - "workflow_header_swarm_stigmergy.feature"
+      - "design_holonic_knowledge_leveling.md"
+      - "spec_holonic_leveling.feature"
     old_path: "intent/"
 
   eyes:
