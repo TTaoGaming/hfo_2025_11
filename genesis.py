@@ -262,15 +262,38 @@ def test_{target_file.stem}():
         return {"ontos": ontos, "chronos": chronos, "topos": topos, "telos": telos}
 
     def swarm_crystallize(self, target_file: str):
-        """Invokes the Header Swarm for a specific file."""
+        """Invokes the Header Swarm Workflow via Temporal."""
         console.print(
-            f"[bold purple]🦅 Launching Swarm for {target_file}...[/bold purple]"
+            f"[bold purple]🦅 Launching Temporal Swarm for {target_file}...[/bold purple]"
         )
-        cmd = ["python3", "body/hands/header_swarm.py", target_file]
-        try:
-            subprocess.run(cmd, check=True)
-        except subprocess.CalledProcessError as e:
-            console.print(f"[red]❌ Swarm failed: {e}[/red]")
+
+        # We need to run this in an async context
+        import asyncio
+        from temporalio.client import Client
+        from body.config import Config
+        from body.temporal.header_workflow import HeaderSwarmWorkflow
+
+        async def run_workflow():
+            try:
+                # Connect to Temporal
+                client = await Client.connect(Config.TEMPORAL_ADDRESS)
+
+                # Execute Workflow
+                result = await client.execute_workflow(
+                    HeaderSwarmWorkflow.run,
+                    target_file,
+                    id=f"header-swarm-{uuid.uuid4()}",
+                    task_queue="header-swarm-queue",
+                )
+                console.print(f"[green]{result}[/green]")
+
+            except Exception as e:
+                console.print(f"[red]❌ Temporal Workflow failed: {e}[/red]")
+                console.print(
+                    "[yellow]Ensure Temporal server is running and Worker is active.[/yellow]"
+                )
+
+        asyncio.run(run_workflow())
 
 
 def main():

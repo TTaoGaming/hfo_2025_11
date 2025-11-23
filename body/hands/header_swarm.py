@@ -16,6 +16,7 @@ from pydantic import BaseModel, Field
 import instructor
 from openai import AsyncOpenAI
 from dotenv import load_dotenv
+from body.constants import DEFAULT_MODEL
 
 # Setup
 load_dotenv()
@@ -25,7 +26,7 @@ logging.basicConfig(
 logger = logging.getLogger("HeaderSwarm")
 
 # Constants
-MODEL = os.getenv("DEFAULT_MODEL", "google/gemini-2.0-flash-001")  # Fast & Cheap
+MODEL = DEFAULT_MODEL
 SQUAD_SIZE = 10
 REFINE_SIZE = 5
 
