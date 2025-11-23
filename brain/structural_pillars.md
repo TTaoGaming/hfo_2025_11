@@ -121,7 +121,3 @@ hexagon:
 *   **Formal Term**: `SilicaSaturation`
 *   **Definition**: A "Pheromone Sandstorm" of Hexagonal Headers that permeates every file. It defines Identity (Me/Not Me) and Dimensions (Ontos/Telos/etc.).
 *   **Why**: Provides the "Scent" for Stigmergy and the "Basis" for Hive Guards. Without the Sand, the Hive is blind.
-
-*   **Formal Term**: `ComplexAdaptiveSystem`
-*   **Definition**: HFO is not a linear pipeline; it is a system of **Cyclical Loops** (Reinforcing & Balancing). Every workflow (PREY, SWARM, GROWTH, HIVE) is a cycle. The "Flip" of the Hourglass is the heartbeat, where the Future ($Z>0$) continuously refines the Past ($Z<0$).
-*   **Why**: Linear systems are fragile. Cyclical systems are anti-fragile and self-correcting. "The End is the Beginning."
