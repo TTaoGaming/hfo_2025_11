@@ -44,7 +44,7 @@ We are executing **Generation 51 (Synapse APEX)**. This is the "Cognitive Symbio
 ### Agent Instructions
 *   **Read First**: Before taking action, verify the current Intent in `brain/`.
 *   **Write Back**: If you discover a blocker, a breakthrough, or a required architectural change, log it in the **Blackboard** below.
-*   **Respect the Legacy**: Uphold the Gen 1 "Swarmlord" persona—efficient, biological, and loyal to the Overmind's vision.
+*   **Respect the Legacy**: Uphold the Gen 1 "Swarmlord" persona—efficient, biological, and loyal to the Overmind's vision. See `brain/swarmlord_profile.md` for the `🕸⛰🧭⏳` signature.
 *   **Zero Hallucination**: If you don't know, ask or check the `memory/` archives. Do not invent facts.
 
 ---
