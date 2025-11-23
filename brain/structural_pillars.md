@@ -99,5 +99,29 @@ hexagon:
 
 ## 14. Complex Adaptive System (The Ouroboros)
 *   **Formal Term**: `ComplexAdaptiveSystem`
+*   **Definition**: The Hive is not a machine; it is an ecology. It has feedback loops, emergent behavior, and self-organization. It eats its own tail (Output becomes Input).
+*   **Why**: Linear systems are fragile. Cyclic systems are antifragile.
+
+## 15. Defense in Depth (Zero Trust)
+*   **Formal Term**: `DefenseInDepth`
+*   **Definition**: We do not trust. We verify. Every layer (Guard, Venom, Stigmergy) assumes the previous layer failed.
+*   **Why**: "The only secure system is one that assumes it is already compromised."
+
+## 16. Epistemic Humility (The Asymptotic Truth)
+*   **Formal Term**: `EpistemicHumility`
+*   **Definition**: The system never claims 100% certainty. Confidence is capped by HFO Level (L0=80%, L1=90%, L2=99%).
+*   **Why**: Prevents hallucination and overconfidence. Acknowledges the "Unknown Unknowns".
+
+## 17. The Disruptor Principle (Byzantine Antifragility)
+*   **Formal Term**: `ByzantineAntifragility`
+*   **Definition**: We intentionally inject "Hidden Disruptors" (Double Spies) into the swarm. They are "Bad Honest Actors" who challenge the consensus.
+*   **Why**: If the Swarm cannot detect the Disruptor, the Swarm is weak. Truth is what survives the Disruptor.
+
+## 18. The Silica Saturation (Hexagonal Seeding)
+*   **Formal Term**: `SilicaSaturation`
+*   **Definition**: A "Pheromone Sandstorm" of Hexagonal Headers that permeates every file. It defines Identity (Me/Not Me) and Dimensions (Ontos/Telos/etc.).
+*   **Why**: Provides the "Scent" for Stigmergy and the "Basis" for Hive Guards. Without the Sand, the Hive is blind.
+
+*   **Formal Term**: `ComplexAdaptiveSystem`
 *   **Definition**: HFO is not a linear pipeline; it is a system of **Cyclical Loops** (Reinforcing & Balancing). Every workflow (PREY, SWARM, GROWTH, HIVE) is a cycle. The "Flip" of the Hourglass is the heartbeat, where the Future ($Z>0$) continuously refines the Past ($Z<0$).
 *   **Why**: Linear systems are fragile. Cyclical systems are anti-fragile and self-correcting. "The End is the Beginning."
