@@ -1,99 +1,109 @@
-# 🌋 Design: Obsidian Thermodynamics (The Hot-to-Cold Transition)
+# 🌋 Design: Obsidian Thermodynamics (Stigmergy Phase Transitions)
 
-> **Status**: Draft (Gen 52)
-> **Context**: Defining the "Physics of Information" within Hive Fleet Obsidian.
-> **Goal**: Map the transition from "Hot Stigmergy" (NATS) to "Cold Knowledge" (Graph) using accurate geological metaphors of Obsidian formation.
+> **Status**: Proposed (Gen 52)
+> **Focus**: Mapping the "Hot-to-Cold" information lifecycle to Obsidian formation physics.
+> **Constraint**: 4 Distinct Variations of the Thermodynamic Cycle.
 
-## 🧠 The Core Physics: Why Obsidian?
-
-Obsidian is **Volcanic Glass**. It is defined by what it *lacks*: **Crystalline Structure**.
-*   **Formation**: It forms when felsic lava cools **so rapidly** (Quenching) that atoms are unable to arrange themselves into a crystalline lattice.
-*   **Result**: An **Amorphous Solid**. Because it has no crystal grain, it breaks with a **Conchoidal Fracture** (curved, extremely sharp edges).
-*   **Metaphor**: In HFO, we prefer **Raw Context (Glass)** over **Rigid Schema (Crystal)**. We capture the "Melt" of thought instantly, then "Knap" it into tools later.
-
----
-
-## 🌡️ Variation 1: The Quench Protocol (State Transition)
-*Focus: Speed of Capture vs. Rigidity of Structure.*
-
-This model posits that **Information** begins as high-energy **Magma** and must be captured before it degrades.
-
-| State | Geological Equivalent | HFO Component | Characteristics |
-| :--- | :--- | :--- | :--- |
-| **Plasma / Melt** | **Magma Chamber** | **LLM Context Window** | High energy, fluid, transient, chaotic. The "Thought" before it is spoken. |
-| **Eruption** | **Lava Flow** | **NATS JetStream** | The thought in motion. High velocity, dangerous, directional. "Hot Stigmergy". |
-| **The Quench** | **Rapid Cooling** | **File Write / Log** | **CRITICAL STEP**. Freezing the stream *instantly* into storage. |
-| **Glass** | **Obsidian Block** | **Markdown / YAML** | **Amorphous Storage**. We store the *text*, not a rigid SQL row. It retains the "flow" of the original thought. |
-| **Rock** | **Rhyolite** | **Rigid SQL Schema** | *Anti-Pattern*. If we cool too slowly (force strict schema too early), the data "crystallizes" and becomes grainy/brittle. |
-
-### 💡 The Insight
-**"Don't Crystallize the Stream."**
-If we try to force NATS messages immediately into a complex Relational DB (Crystals), we lose the nuance. Instead, we **Quench** them into Markdown/JSON (Glass). It's unstructured but high-fidelity.
+## 🧠 The Physics of Information
+In HFO, **Information is Energy**.
+*   **High Temperature (Plasma)**: Active Context, NATS Streams, RAM. High Entropy.
+*   **Low Temperature (Glass)**: Stored Files, Vector DBs, Disk. Low Entropy.
+*   **The Transition**: How we move from Hot to Cold determines the *quality* of the Obsidian (Data).
 
 ---
 
-## 🔨 Variation 2: The Knapping Protocol (Refinement)
-*Focus: Utility and Sharpness.*
+## 🌡️ Variation 1: The Flash Quench (Direct Capture)
+*The "Black Box" Pattern. Maximum Fidelity, Zero Structure.*
 
-This model focuses on how we turn the "Cold" storage into "Sharp" utility.
+**Geology**: Lava hits water and cools instantly. No crystals form. Pure glass.
+**Architecture**: Every NATS message is immediately appended to a Markdown file.
 
-| Component | Geological Equivalent | HFO Component | Action |
-| :--- | :--- | :--- | :--- |
-| **The Core** | **Obsidian Nodule** | **The Raw File** | The bulk storage. Heavy, full of potential, but blunt. |
-| **The Striker** | **Hammerstone** | **Assimilator Agent** | The force that impacts the core to extract value. |
-| **The Flake** | **Razor Flake** | **Vector Embedding** | A small, extremely sharp piece of the whole. Used for "cutting" (Search/Retrieval). |
-| **The Tool** | **Arrowhead** | **Knowledge Graph** | A composite structure made of shaped flakes. Directed utility. |
-| **Debitage** | **Waste Flakes** | **Logs / Temp Files** | The byproduct of refinement. Useful for forensics, but not for cutting. |
+*   **Mechanism**: `NATS -> File Append`
+*   **Thermodynamics**: $\Delta T \approx \infty$ (Instant cooling).
+*   **Pros**: Zero data loss. Perfect historical record.
+*   **Cons**: High noise. "Shattered" data (thousands of tiny files).
 
-### 💡 The Insight
-**"Knap the Glass, Don't Polish the Rock."**
-We don't try to make the *entire file* perfect. We strike it (Embed it) to get **Flakes** (Vectors) that are sharp enough to solve a query. The "File" remains the "Core" (Source of Truth).
-
----
-
-## ⏳ Variation 3: The Hydration Protocol (Time & Decay)
-*Focus: Aging and Relevance.*
-
-Obsidian absorbs water from the atmosphere over time, forming a "Hydration Rind". This is used for dating artifacts.
-
-| Phase | Geological Equivalent | HFO Component | Behavior |
-| :--- | :--- | :--- | :--- |
-| **Fresh** | **Fresh Fracture** | **New Commit** | Zero hydration. "Hot" relevance. Immediate context. |
-| **Rind Formation** | **Water Absorption** | **Backlink Accumulation** | As a file sits in the repo, other files link to it. It gathers "Mass" (PageRank). |
-| **Saturation** | **Hydration Band** | **Deep Knowledge** | The file is old, but heavily linked. It is "Stable Wisdom". |
-| **Devitrification** | **Spherulites** | **Bit Rot / Drift** | If the file is ignored and not linked (no hydration), it "crystallizes" into noise (outdated info). |
-
-### 💡 The Insight
-**"Hydration is Validation."**
-A "Cold" file isn't dead. It is slowly absorbing "Links" (Water). A file with a thick "Link Rind" is valuable. A file with no rind is just waste glass.
+```mermaid
+graph LR
+    A((🔥 Magma/NATS)) -->|Flash Cool| B[⬛ Obsidian/Log]
+    style A fill:#ff4400,stroke:#333,stroke-width:2px
+    style B fill:#000000,stroke:#333,stroke-width:2px,color:#fff
+```
 
 ---
 
-## 🏆 Recommendation: The "Obsidian Cycle" (Unified)
+## 🌡️ Variation 2: The Annealing Oven (Buffered Cooling)
+*The "Write-Back" Pattern. Reduced Stress, Higher Stability.*
 
-Combine all three for the full **Thermodynamic Stigmergy** model:
+**Geology**: Lava cools slowly in a protected chamber. Internal stresses are relieved.
+**Architecture**: NATS messages accumulate in a "Warm" buffer (Redis/Memory) and are flushed in batches.
 
-1.  **Erupt (NATS)**: High-speed, fluid intent.
-2.  **Quench (Markdown)**: Rapid capture into amorphous text (Glass). Avoid rigid SQL (Crystals).
-3.  **Knap (Vector/Graph)**: Assimilators strike the Glass to create sharp Vectors (Flakes) for the DB.
-4.  **Hydrate (Backlinks)**: Over time, the Glass accumulates Links, proving its worth.
+*   **Mechanism**: `NATS -> Buffer (Warm) -> Batch Write -> File`
+*   **Thermodynamics**: Controlled cooling rate.
+*   **Pros**: Coherent files (Chapters instead of sentences). Less fragmentation.
+*   **Cons**: Risk of data loss if the "Oven" (Buffer) crashes before flushing.
+
+```mermaid
+graph LR
+    A((🔥 Magma/NATS)) -->|Flow| B{🌡️ Warm Buffer}
+    B -->|Slow Cool| C[⬛ Massive Obsidian Block]
+    style A fill:#ff4400,stroke:#333,stroke-width:2px
+    style B fill:#ffaa00,stroke:#333,stroke-width:2px
+    style C fill:#000000,stroke:#333,stroke-width:2px,color:#fff
+```
+
+---
+
+## 🌡️ Variation 3: Porphyritic Crystallization (Hybrid Storage)
+*The "Split-Brain" Pattern. Structured Metadata, Unstructured Body.*
+
+**Geology**: Large crystals (Phenocrysts) form in the magma *before* eruption, suspended in the glass matrix.
+**Architecture**: Extract structured metadata (IDs, Tags) into SQL (Crystals) while quenching the body into Markdown (Glass).
+
+*   **Mechanism**: `NATS -> Extractor -> (SQL + Markdown)`
+*   **Thermodynamics**: Two-phase cooling.
+*   **Pros**: Fast search (SQL) + Rich context (File).
+*   **Cons**: "Schema Drift" between the Crystal and the Glass.
 
 ```mermaid
 graph TD
-    subgraph HOT [Magmatic Phase]
-        A[User Intent] -->|Melting| B(Context Window)
-        B -->|Eruption| C{NATS JetStream}
-    end
-
-    subgraph TRANSITION [The Quench]
-        C -->|Rapid Cooling| D[Markdown File / Glass]
-        C -.->|Slow Cooling| E[Rigid SQL / Rhyolite]
-        style E stroke-dasharray: 5 5,fill:#999
-    end
-
-    subgraph COLD [Lithic Phase]
-        D -->|Knapping| F[Vector Embedding / Flake]
-        D -->|Hydration| G[Backlinks / Rind]
-        F -->|Assembly| H[Knowledge Graph / Tool]
-    end
+    A((🔥 Magma/NATS)) -->|Differentiation| B{💎 Crystal Separator}
+    B -->|Structure| C[🔹 SQL Metadata]
+    B -->|Matrix| D[⬛ Markdown Body]
+    style A fill:#ff4400,stroke:#333,stroke-width:2px
+    style C fill:#aaddff,stroke:#333,stroke-width:2px
+    style D fill:#000000,stroke:#333,stroke-width:2px,color:#fff
 ```
+
+---
+
+## 🌡️ Variation 4: Pyroclastic Welding (Iterative Refinement)
+*The "Compaction" Pattern. The HFO Preferred Model.*
+
+**Geology**: Hot ash and glass fragments (Tephra) land, stay hot, and *weld* themselves back together into a solid sheet (Ignimbrite).
+**Architecture**: Agents dump raw logs (Ash). A secondary "Assimilator" process re-heats them (Reads) and welds them into a cohesive Knowledge Graph.
+
+*   **Mechanism**: `NATS -> Raw Logs (Ash) -> Assimilator (Re-Heat) -> Knowledge Graph (Welded Tuff)`
+*   **Thermodynamics**: Cooling -> Re-heating -> Final Cooling.
+*   **Pros**: Allows for "Reflexion". We capture everything, then make sense of it later.
+*   **Cons**: High energy cost (requires active Assimilators).
+
+```mermaid
+graph TD
+    A((🔥 Magma/NATS)) -->|Explosion| B[💨 Ash / Raw Logs]
+    B -->|Deposition| C{🌋 Assimilator / Re-Heat}
+    C -->|Welding| D[⬛ Welded Tuff / Knowledge Graph]
+    style A fill:#ff4400,stroke:#333,stroke-width:2px
+    style B fill:#666666,stroke:#333,stroke-width:2px,color:#fff
+    style C fill:#ff8800,stroke:#333,stroke-width:2px
+    style D fill:#333333,stroke:#333,stroke-width:2px,color:#fff
+```
+
+---
+
+## 🏆 Recommendation: Variation 4 (Pyroclastic Welding)
+
+This maps perfectly to the **PREY -> Assimilator** loop.
+1.  **PREY Agents** erupt raw data (Ash/Logs) via NATS.
+2.  **Assimilator Agents** sweep over the Ash, re-heating it (LLM Processing).
+3.  **Result**: A "Welded" Knowledge Graph that is stronger than the sum of its parts.
