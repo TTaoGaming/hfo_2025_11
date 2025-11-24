@@ -6,19 +6,19 @@
 
 ## 🌡️ The Temperature Gradient ($T$)
 
-We map the lifecycle of information to the cooling of lava into obsidian tools.
+We map the lifecycle of information to the cooling of **Rhyolitic Lava** (High Silica) into Obsidian.
 
 | Temp ($T$) | State | Physics | HFO Component | Action |
 | :--- | :--- | :--- | :--- | :--- |
-| **1200°C** | **Plasma** | High Entropy, Fluid, Kinetic. | **NATS JetStream** | **Flow** (Real-time Communication) |
-| **800°C** | **Viscous** | Cooling, Sticky, slowing down. | **Redis / Buffers** | **Aggregate** (Batching) |
-| **20°C** | **Glass** | Solid, Amorphous, Brittle. | **Markdown Files** | **Capture** (Raw Storage) |
+| **900°C** | **Silicic Melt** | Molten, High Viscosity, Fluid. | **NATS JetStream** | **Flow** (Real-time Communication) |
+| **700°C** | **Glass Transition** | $T_g$. The point of no return. | **Redis / Buffers** | **Aggregate** (Batching) |
+| **20°C** | **Obsidian** | Solid, Amorphous, Brittle. | **Markdown Files** | **Capture** (Raw Storage) |
 | **0°C** | **Tool** | Shaped, Sharp, Useful. | **Knowledge Graph** | **Refine** (Knapping/Cold Work) |
 
 ---
 
 ## 📉 Variation 1: The Flash Quench (Maximum Capture)
-*The "Raw Data" Curve. Drop from 1200°C to 20°C instantly.*
+*The "Raw Data" Curve. Drop from 900°C to 20°C instantly.*
 
 **Physics**: Lava hits water. Heat is lost immediately. Atoms freeze in place. No crystals form.
 **HFO**: We dump NATS streams directly to disk.
@@ -30,7 +30,7 @@ We map the lifecycle of information to the cooling of lava into obsidian tools.
 
 ```mermaid
 graph LR
-    A((🔥 1200°C NATS)) -->|⚡ Flash Cool| B[⬛ 20°C Raw Log]
+    A((🔥 900°C NATS)) -->|⚡ Flash Cool| B[⬛ 20°C Raw Log]
     style A fill:#ff4400,stroke:#333,stroke-width:2px
     style B fill:#000000,stroke:#333,stroke-width:2px,color:#fff
 ```
@@ -38,7 +38,7 @@ graph LR
 ---
 
 ## 📉 Variation 2: Equilibrium Cooling (Maximum Structure)
-*The "Schema" Curve. Slow cooling from 1200°C to 20°C.*
+*The "Schema" Curve. Slow cooling from 900°C to 20°C.*
 
 **Physics**: Lava cools deep underground. Atoms have time to arrange into perfect lattices (Granite/Rhyolite).
 **HFO**: We parse NATS messages into a strict SQL Schema.
@@ -50,7 +50,7 @@ graph LR
 
 ```mermaid
 graph LR
-    A((🔥 1200°C NATS)) -->|⏳ Slow Cool| B{💎 20°C SQL DB}
+    A((🔥 900°C NATS)) -->|⏳ Slow Cool| B{💎 20°C SQL DB}
     style A fill:#ff4400,stroke:#333,stroke-width:2px
     style B fill:#aaddff,stroke:#333,stroke-width:2px
 ```
@@ -70,7 +70,7 @@ graph LR
 
 ```mermaid
 graph TD
-    A((🔥 1200°C NATS)) -->|Separation| B{🌡️ 800°C Filter}
+    A((🔥 900°C NATS)) -->|Separation| B{🌡️ 700°C Filter}
     B -->|Crystallize| C[💎 SQL Metadata]
     B -->|Quench| D[⬛ Markdown Body]
     style A fill:#ff4400,stroke:#333,stroke-width:2px
@@ -100,7 +100,7 @@ graph TD
 ```mermaid
 graph TD
     subgraph HOT [Capture Phase]
-        A((🔥 1200°C NATS)) -->|⚡ Quench| B[⬛ 20°C Obsidian Core]
+        A((🔥 900°C NATS)) -->|⚡ Quench| B[⬛ 20°C Obsidian Core]
     end
     subgraph COLD [Refinement Phase]
         B -->|🔨 Knapping| C[🗡️ Vector Embedding]
