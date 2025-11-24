@@ -244,6 +244,7 @@ We are executing **Generation 51 (Synapse APEX)**. This is the "Cognitive Symbio
 | 2025-11-24 | Swarmlord | **Design Consolidation**: Created `brain/design_obsidian_consolidation_options.md`. Selected **Variation 5 (Unified Semantic Stack)** to blend Roles, Organs, Structure, and Pillars. **Incident**: Markdown Preview memory freeze; resolved by reload. | 🟢 Active |
 | 2025-11-24 | Swarmlord | **Architecture Definition**: Created `brain/design_obsidian_unified_master.md`. Established the **Canonical Truth** for Gen 52 with JADC2 grounding and Thermodynamic Stigmergy. | 🟢 Active |
 | 2025-11-24 | Swarmlord | **Physics Definition**: Created `brain/design_obsidian_thermodynamics.md`. Defined the "Quench/Knap/Hydrate" cycle for Hot-to-Cold Stigmergy. | 🟢 Active |
+| 2025-11-24 | Swarmlord | **Standardization**: Formalized `brain/standards/standard_obsidian_stigmergy_cycle.md`. Moved Digests to `brain/digests/`. | 🟢 Active |
 
 ---
 
