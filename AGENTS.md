@@ -245,6 +245,7 @@ We are executing **Generation 51 (Synapse APEX)**. This is the "Cognitive Symbio
 | 2025-11-24 | Swarmlord | **Architecture Definition**: Created `brain/design_obsidian_unified_master.md`. Established the **Canonical Truth** for Gen 52 with JADC2 grounding and Thermodynamic Stigmergy. | 🟢 Active |
 | 2025-11-24 | Swarmlord | **Physics Definition**: Created `brain/design_obsidian_thermodynamics.md`. Defined the "Quench/Knap/Hydrate" cycle for Hot-to-Cold Stigmergy. | 🟢 Active |
 | 2025-11-24 | Swarmlord | **Standardization**: Formalized `brain/standards/standard_obsidian_stigmergy_cycle.md`. Moved Digests to `brain/digests/`. | 🟢 Active |
+| 2025-11-24 | Swarmlord | **Brain Reorganization**: Created `brain/standards/` and `brain/digests/`. Enforced "Law of the Brain" via Gherkin standards. | 🟢 Active |
 
 ---
 
@@ -284,6 +285,8 @@ We are executing **Generation 51 (Synapse APEX)**. This is the "Cognitive Symbio
 - [x] **Consolidate Launchers**: Archive deprecated scripts and validate canonical `research_swarm.py`.
 - [x] **Formalize Claim Check**: Define the pattern for decoupling Swarm stages via NATS.
 - [x] **Tooling**: Verify "Real Tool Calls" (Web Search, File I/O) are robust and error-handled.
+- [x] **Brain Reorganization**: Create `brain/standards/` and `brain/digests/` to separate Laws from Logs.
+- [x] **Formalize Obsidian Stigmergy**: Define the Melt/Glass/Knap cycle in `brain/standards/standard_obsidian_stigmergy_cycle.md`.
 - [ ] **Migrate Artifacts to Postgres**: Update `research_swarm.py` to write to DB instead of Disk (except for Digests).
 - [ ] **Upgrade Digest Format**: Implement "Cognitive Global Workspace" prompting for high-signal synthesis.
 - [ ] **Refactor L2 (ORCHESTRATION)**: Implement `body/hands/swarm_controller.py` using Temporal.
