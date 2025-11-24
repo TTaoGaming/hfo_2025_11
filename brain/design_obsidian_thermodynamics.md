@@ -1,109 +1,113 @@
-# 🌋 Design: Obsidian Thermodynamics (Stigmergy Phase Transitions)
+# 🌋 Design: Obsidian Thermodynamics (The Cooling Curve)
 
 > **Status**: Proposed (Gen 52)
-> **Focus**: Mapping the "Hot-to-Cold" information lifecycle to Obsidian formation physics.
-> **Constraint**: 4 Distinct Variations of the Thermodynamic Cycle.
+> **Focus**: Mapping Stigmergy to the **Temperature Gradient** of Information.
+> **Core Concept**: **Hot Chaos $\to$ Cold Order**.
 
-## 🧠 The Physics of Information
-In HFO, **Information is Energy**.
-*   **High Temperature (Plasma)**: Active Context, NATS Streams, RAM. High Entropy.
-*   **Low Temperature (Glass)**: Stored Files, Vector DBs, Disk. Low Entropy.
-*   **The Transition**: How we move from Hot to Cold determines the *quality* of the Obsidian (Data).
+## 🌡️ The Temperature Gradient ($T$)
+
+We map the lifecycle of information to the cooling of lava into obsidian tools.
+
+| Temp ($T$) | State | Physics | HFO Component | Action |
+| :--- | :--- | :--- | :--- | :--- |
+| **1200°C** | **Plasma** | High Entropy, Fluid, Kinetic. | **NATS JetStream** | **Flow** (Real-time Communication) |
+| **800°C** | **Viscous** | Cooling, Sticky, slowing down. | **Redis / Buffers** | **Aggregate** (Batching) |
+| **20°C** | **Glass** | Solid, Amorphous, Brittle. | **Markdown Files** | **Capture** (Raw Storage) |
+| **0°C** | **Tool** | Shaped, Sharp, Useful. | **Knowledge Graph** | **Refine** (Knapping/Cold Work) |
 
 ---
 
-## 🌡️ Variation 1: The Flash Quench (Direct Capture)
-*The "Black Box" Pattern. Maximum Fidelity, Zero Structure.*
+## 📉 Variation 1: The Flash Quench (Maximum Capture)
+*The "Raw Data" Curve. Drop from 1200°C to 20°C instantly.*
 
-**Geology**: Lava hits water and cools instantly. No crystals form. Pure glass.
-**Architecture**: Every NATS message is immediately appended to a Markdown file.
+**Physics**: Lava hits water. Heat is lost immediately. Atoms freeze in place. No crystals form.
+**HFO**: We dump NATS streams directly to disk.
+**Goal**: **Perfect Fidelity**. We capture the exact state of the swarm, including the noise.
 
-*   **Mechanism**: `NATS -> File Append`
-*   **Thermodynamics**: $\Delta T \approx \infty$ (Instant cooling).
-*   **Pros**: Zero data loss. Perfect historical record.
-*   **Cons**: High noise. "Shattered" data (thousands of tiny files).
+*   **Hot**: Swarm Chatter.
+*   **Cold**: Raw Logs (The "Obsidian Core").
+*   **Refinement**: None. It's just a block of glass.
 
 ```mermaid
 graph LR
-    A((🔥 Magma/NATS)) -->|Flash Cool| B[⬛ Obsidian/Log]
+    A((🔥 1200°C NATS)) -->|⚡ Flash Cool| B[⬛ 20°C Raw Log]
     style A fill:#ff4400,stroke:#333,stroke-width:2px
     style B fill:#000000,stroke:#333,stroke-width:2px,color:#fff
 ```
 
 ---
 
-## 🌡️ Variation 2: The Annealing Oven (Buffered Cooling)
-*The "Write-Back" Pattern. Reduced Stress, Higher Stability.*
+## 📉 Variation 2: Equilibrium Cooling (Maximum Structure)
+*The "Schema" Curve. Slow cooling from 1200°C to 20°C.*
 
-**Geology**: Lava cools slowly in a protected chamber. Internal stresses are relieved.
-**Architecture**: NATS messages accumulate in a "Warm" buffer (Redis/Memory) and are flushed in batches.
+**Physics**: Lava cools deep underground. Atoms have time to arrange into perfect lattices (Granite/Rhyolite).
+**HFO**: We parse NATS messages into a strict SQL Schema.
+**Goal**: **Perfect Structure**. We lose the "noise" (context) but gain query speed.
 
-*   **Mechanism**: `NATS -> Buffer (Warm) -> Batch Write -> File`
-*   **Thermodynamics**: Controlled cooling rate.
-*   **Pros**: Coherent files (Chapters instead of sentences). Less fragmentation.
-*   **Cons**: Risk of data loss if the "Oven" (Buffer) crashes before flushing.
+*   **Hot**: Swarm Chatter.
+*   **Cold**: SQL Rows (The "Crystal").
+*   **Refinement**: Intrinsic. The cooling process *is* the refinement.
 
 ```mermaid
 graph LR
-    A((🔥 Magma/NATS)) -->|Flow| B{🌡️ Warm Buffer}
-    B -->|Slow Cool| C[⬛ Massive Obsidian Block]
+    A((🔥 1200°C NATS)) -->|⏳ Slow Cool| B{💎 20°C SQL DB}
     style A fill:#ff4400,stroke:#333,stroke-width:2px
-    style B fill:#ffaa00,stroke:#333,stroke-width:2px
-    style C fill:#000000,stroke:#333,stroke-width:2px,color:#fff
+    style B fill:#aaddff,stroke:#333,stroke-width:2px
 ```
 
 ---
 
-## 🌡️ Variation 3: Porphyritic Crystallization (Hybrid Storage)
-*The "Split-Brain" Pattern. Structured Metadata, Unstructured Body.*
+## 📉 Variation 3: Fractional Crystallization (Hybrid)
+*The "Separation" Curve. Cooling different parts at different rates.*
 
-**Geology**: Large crystals (Phenocrysts) form in the magma *before* eruption, suspended in the glass matrix.
-**Architecture**: Extract structured metadata (IDs, Tags) into SQL (Crystals) while quenching the body into Markdown (Glass).
+**Physics**: High-melting-point minerals crystallize first (Phenocrysts), leaving the rest as liquid to quench later (Matrix).
+**HFO**: We extract **Metadata** (IDs, Tags) immediately into SQL, while the **Body** (Content) flows into Markdown.
+**Goal**: **Searchability + Context**.
 
-*   **Mechanism**: `NATS -> Extractor -> (SQL + Markdown)`
-*   **Thermodynamics**: Two-phase cooling.
-*   **Pros**: Fast search (SQL) + Rich context (File).
-*   **Cons**: "Schema Drift" between the Crystal and the Glass.
+*   **Hot**: Swarm Chatter.
+*   **Warm**: Metadata extraction.
+*   **Cold**: SQL Index + Markdown Blob.
 
 ```mermaid
 graph TD
-    A((🔥 Magma/NATS)) -->|Differentiation| B{💎 Crystal Separator}
-    B -->|Structure| C[🔹 SQL Metadata]
-    B -->|Matrix| D[⬛ Markdown Body]
+    A((🔥 1200°C NATS)) -->|Separation| B{🌡️ 800°C Filter}
+    B -->|Crystallize| C[💎 SQL Metadata]
+    B -->|Quench| D[⬛ Markdown Body]
     style A fill:#ff4400,stroke:#333,stroke-width:2px
+    style B fill:#ffaa00,stroke:#333,stroke-width:2px
     style C fill:#aaddff,stroke:#333,stroke-width:2px
     style D fill:#000000,stroke:#333,stroke-width:2px,color:#fff
 ```
 
 ---
 
-## 🌡️ Variation 4: Pyroclastic Welding (Iterative Refinement)
-*The "Compaction" Pattern. The HFO Preferred Model.*
+## 📉 Variation 4: The Knapping Protocol (Cold Work)
+*The "HFO Standard". Quench first, Refine later.*
 
-**Geology**: Hot ash and glass fragments (Tephra) land, stay hot, and *weld* themselves back together into a solid sheet (Ignimbrite).
-**Architecture**: Agents dump raw logs (Ash). A secondary "Assimilator" process re-heats them (Reads) and welds them into a cohesive Knowledge Graph.
+**Physics**:
+1.  **Quench**: Make the Obsidian (Capture the raw material).
+2.  **Knap**: Strike the cold stone to flake off sharp tools.
+**HFO**:
+1.  **Capture**: NATS -> Markdown (The "Core").
+2.  **Refine**: Assimilator reads the Markdown and updates the Graph/Vector DB.
+**Goal**: **Antifragility**. We secure the data first, then refine it safely.
 
-*   **Mechanism**: `NATS -> Raw Logs (Ash) -> Assimilator (Re-Heat) -> Knowledge Graph (Welded Tuff)`
-*   **Thermodynamics**: Cooling -> Re-heating -> Final Cooling.
-*   **Pros**: Allows for "Reflexion". We capture everything, then make sense of it later.
-*   **Cons**: High energy cost (requires active Assimilators).
+*   **Hot**: Swarm Chatter.
+*   **Cold**: Markdown File.
+*   **Work**: Assimilator (The "Knapper").
+*   **Result**: Knowledge Graph (The "Arrowhead").
 
 ```mermaid
 graph TD
-    A((🔥 Magma/NATS)) -->|Explosion| B[💨 Ash / Raw Logs]
-    B -->|Deposition| C{🌋 Assimilator / Re-Heat}
-    C -->|Welding| D[⬛ Welded Tuff / Knowledge Graph]
+    subgraph HOT [Capture Phase]
+        A((🔥 1200°C NATS)) -->|⚡ Quench| B[⬛ 20°C Obsidian Core]
+    end
+    subgraph COLD [Refinement Phase]
+        B -->|🔨 Knapping| C[🗡️ Vector Embedding]
+        B -->|🔨 Knapping| D[🕸️ Knowledge Graph]
+    end
     style A fill:#ff4400,stroke:#333,stroke-width:2px
-    style B fill:#666666,stroke:#333,stroke-width:2px,color:#fff
-    style C fill:#ff8800,stroke:#333,stroke-width:2px
-    style D fill:#333333,stroke:#333,stroke-width:2px,color:#fff
+    style B fill:#000000,stroke:#333,stroke-width:2px,color:#fff
+    style C fill:#555,stroke:#333,stroke-width:2px,color:#fff
+    style D fill:#555,stroke:#333,stroke-width:2px,color:#fff
 ```
-
----
-
-## 🏆 Recommendation: Variation 4 (Pyroclastic Welding)
-
-This maps perfectly to the **PREY -> Assimilator** loop.
-1.  **PREY Agents** erupt raw data (Ash/Logs) via NATS.
-2.  **Assimilator Agents** sweep over the Ash, re-heating it (LLM Processing).
-3.  **Result**: A "Welded" Knowledge Graph that is stronger than the sum of its parts.
