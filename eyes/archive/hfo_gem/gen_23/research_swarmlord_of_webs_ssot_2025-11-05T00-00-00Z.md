@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: research_swarmlord_of_webs_ssot_2025-11-05T00-00-00Z.md
 ---
+
 # Research — Swarmlord of Webs (Gen23 SSOT) — 2025‑11‑05T00:00:00Z
 
 BLUF

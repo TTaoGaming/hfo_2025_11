@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: research_architecture_diagram_2025-11-05T00:00:00Z.md
 ---
+
 # Hive Fleet Obsidian — Gen23 Architecture SSOT
 
 Date: 2025-11-05 (UTC)

@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: README.md
 ---
+
 # HFO Gen 30: V²C-SPIRAL-QUORUM SSOT Architecture
 
 **Created**: 2025-11-12

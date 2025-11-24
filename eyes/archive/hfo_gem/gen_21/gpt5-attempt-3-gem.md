@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: gpt5-attempt-3-gem.md
 ---
+
 ---
 
 ## Editorial Note (2025-10-29): Ordering and Guardrails

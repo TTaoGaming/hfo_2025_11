@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: HFO_evolution_gen1-25_and_missions_up_to_2025-11-07.md
 ---
+
 # Hive Fleet Obsidian Evolution (Generations 1–25) & Mission Intents (to 2025-11-07)
 
 BLUF

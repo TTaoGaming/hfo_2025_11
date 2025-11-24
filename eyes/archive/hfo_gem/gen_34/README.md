@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: README.md
 ---
+
 # Gen 34: Fractal Holonic Definition (SysML v2)
 
 **Created**: 2025-11-18

@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: HFO_SCATTER_GATHER_DIAGRAMS.md
 ---
+
 # HFO Scatter-Gather Visual Diagrams
 
 **Generation**: 31

@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: summary.md
 ---
+
 # Summary of Gen_2: Refining Foundations with Ritual and Archive
 
 ## Key Concepts

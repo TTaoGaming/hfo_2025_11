@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: SSOT_WORKFLOW.md
 ---
+
 # SSOT-Driven Workflow (Generation 28)
 
 **Philosophy**: Work upstream (vision/SSOT), let AI swarms generate downstream (code/docs/tests).

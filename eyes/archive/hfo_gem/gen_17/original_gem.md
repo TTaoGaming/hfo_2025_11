@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: original_gem.md
 ---
+
 # HFO PettingZoo Three-Prey Baseline Handoff
 
 This note captures the current state of the PettingZoo/MPE2 simple_tag verification harness (three prey baselines) so the next agent can pick up quickly.

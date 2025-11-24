@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: HFO_GEN_50_VISION.md
 ---
+
 # Hive Fleet Obsidian: Generation 50 Vision
 
 ## 1. What is HFO Gen 50?

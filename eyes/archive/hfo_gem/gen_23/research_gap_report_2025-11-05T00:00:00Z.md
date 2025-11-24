@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: research_gap_report_2025-11-05T00:00:00Z.md
 ---
+
 # Gen23 gaps — 2025-11-05
 
 BLUF

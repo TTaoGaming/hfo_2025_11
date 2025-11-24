@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: HIVE_GUARDS_SPEC.md
 ---
+
 # HFO Hive Guards - Immunizer Role Static Validators
 
 **Role**: Immunizer (OBSIDIAN Architecture)

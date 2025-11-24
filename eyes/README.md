@@ -19,6 +19,7 @@ hexagon:
 ---
 
 
+
 # 👁️ The Eyes (Observer)
 
 > **Role**: Observer / Sensor

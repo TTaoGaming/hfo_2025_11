@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: LINEAGE_AND_AUDIT.md
 ---
+
 # HFO Gen 35: Lineage Trace & Workflow Audit
 
 **Date**: 2025-11-17

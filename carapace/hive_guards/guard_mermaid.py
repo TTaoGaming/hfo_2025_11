@@ -48,6 +48,32 @@ VALID_DIAGRAM_TYPES = {
 
 def check_balanced_brackets(content: str) -> list[str]:
     """Checks for balanced brackets in the mermaid block."""
+    errors = []
+
+    # Check for unquoted subgraph titles with special characters
+    # Pattern: subgraph ID [Text with ( or ) or :]
+    # We want to enforce subgraph ID ["Text"]
+    subgraph_pattern = re.compile(r"subgraph\s+\w+\s+\[(.*?)\]")
+    for match in subgraph_pattern.finditer(content):
+        label = match.group(1).strip()
+        if not (label.startswith('"') and label.endswith('"')):
+            if any(c in label for c in "():"):
+                errors.append(
+                    f'Unquoted subgraph label with special characters: [{label}]. Use quotes: ["{label}"]'
+                )
+
+    # Check for unquoted node labels with special characters
+    # Pattern: NodeID[Text with ( or )] or NodeID(Text with [ or ])
+    # This is a heuristic, as Mermaid allows some unquoted text, but () inside [] usually breaks it without quotes.
+    node_pattern = re.compile(r"\w+\[(.*?)\]")
+    for match in node_pattern.finditer(content):
+        label = match.group(1).strip()
+        if not (label.startswith('"') and label.endswith('"')):
+            if any(c in label for c in "()"):
+                errors.append(
+                    f'Unquoted node label with parentheses: [{label}]. Use quotes: ["{label}"]'
+                )
+
     stack = []
     issues = []
     # Map of closing to opening brackets
@@ -171,6 +197,64 @@ def check_mermaid_blocks(file_path: Path) -> list[str]:
     return issues
 
 
+def check_diagram_diversity(md_files: list[Path]) -> list[str]:
+    """Checks the diversity of diagram types across all files."""
+    from collections import Counter
+
+    diagram_counts: Counter[str] = Counter()
+    total_diagrams = 0
+
+    for md_file in md_files:
+        try:
+            content = md_file.read_text(encoding="utf-8")
+        except Exception:
+            continue
+
+        # Find all mermaid blocks
+        # We use a simple regex to find the start of blocks
+        # ```mermaid
+        # type
+        matches = re.finditer(r"```mermaid\s*\n\s*([a-zA-Z0-9_\-]+)", content)
+        for match in matches:
+            dtype = match.group(1).strip()
+            # Normalize some types
+            if dtype.startswith("graph"):
+                dtype = "graph"
+            if dtype.startswith("flowchart"):
+                dtype = "graph"  # flowchart is alias for graph
+
+            if dtype in VALID_DIAGRAM_TYPES:
+                diagram_counts[dtype] += 1
+                total_diagrams += 1
+
+    if total_diagrams == 0:
+        return []
+
+    warnings = []
+
+    # Check for dominance
+    for dtype, count in diagram_counts.items():
+        percentage = (count / total_diagrams) * 100
+        if percentage > 75 and total_diagrams > 5:
+            warnings.append(
+                f"⚠️  Low Diversity: '{dtype}' makes up {percentage:.1f}% of all diagrams ({count}/{total_diagrams})."
+            )
+
+    # Check for variety
+    unique_types = len(diagram_counts)
+    if unique_types < 3 and total_diagrams > 5:
+        warnings.append(
+            f"⚠️  Low Variety: Only {unique_types} diagram types used across {total_diagrams} diagrams. Aim for at least 3."
+        )
+
+    if warnings:
+        warnings.append(
+            "💡 Hint: Try using 'sequenceDiagram', 'classDiagram', 'stateDiagram-v2', 'gantt', 'mindmap', or 'erDiagram'."
+        )
+
+    return warnings
+
+
 def main():
     print("🛡️  HIVE GUARD: Mermaid Syntax Check")
     print("====================================")
@@ -184,6 +268,16 @@ def main():
         if issues:
             for issue in issues:
                 all_issues.append(f"{md_file.name}: {issue}")
+
+    # Check diversity
+    diversity_warnings = check_diagram_diversity(md_files)
+    if diversity_warnings:
+        print("\n🎨 Diagram Diversity Report:")
+        for warning in diversity_warnings:
+            print(f"  {warning}")
+        # We don't fail the build for diversity, just warn
+        # Unless the user wants strict enforcement?
+        # "it should present data to the llm ai with hints" -> implies warning/info.
 
     if all_issues:
         print("\n❌ Mermaid Validation Errors:")

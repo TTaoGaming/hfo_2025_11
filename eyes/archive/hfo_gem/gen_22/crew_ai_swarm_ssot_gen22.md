@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: crew_ai_swarm_ssot_gen22.md
 ---
+
 # Gen22 SSOT — Crew AI + Swarm Orchestration (Single Source of Truth)
 
 BLUF

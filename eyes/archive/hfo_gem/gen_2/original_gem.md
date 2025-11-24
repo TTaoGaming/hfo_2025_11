@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: original_gem.md
 ---
+
 # Hive Fleet Obsidian — Gem 1 Summary (Pass 2 · Version 2025-10-17T02:00:00Z)
 
 > Version: 2025-10-17T02:00:00Z · Pass 2 introduces the daily C2 ritual template, gem archiving protocol, and swarmling output enforcement.

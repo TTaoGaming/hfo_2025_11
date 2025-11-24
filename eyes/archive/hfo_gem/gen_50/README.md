@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: README.md
 ---
+
 # Hive Fleet Obsidian: Generation 50 (The Evolutionary Forge)
 
 **Status**: Active

@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: research_architecture_consensus_delta_2025-11-05T00:00:00Z.md
 ---
+
 # Architecture consensus delta
 
 BLUF: Runtime behavior largely matches SSOT (PREY lanes, artifacts, parallelism). Minor delta: research flow did not emit a digest by default.

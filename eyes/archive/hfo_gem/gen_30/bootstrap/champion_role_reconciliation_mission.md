@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: champion_role_reconciliation_mission.md
 ---
+
 # V²C-SPIRAL-QUORUM Mission: Champion/Role Architecture Reconciliation
 
 **Mission ID**: GEN30-V2C-001

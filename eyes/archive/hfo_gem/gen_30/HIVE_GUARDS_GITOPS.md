@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: HIVE_GUARDS_GITOPS.md
 ---
+
 # HFO Hive Guards - GitOps Integration Guide
 
 **OBSIDIAN Immunizer Sub-Role**: Static validation guards protecting HFO integrity

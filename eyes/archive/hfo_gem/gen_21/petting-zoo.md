@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: petting-zoo.md
 ---
+
 # Gen21 MAS: PettingZoo simple_tag_v3 — Stabilized Baseline (Oct 29, 2025)
 
 This document captures the known-good baseline, run instructions, and expected 2×2 results for the PettingZoo MPE `simple_tag_v3` setup, so we can quickly detect and recover from regressions.

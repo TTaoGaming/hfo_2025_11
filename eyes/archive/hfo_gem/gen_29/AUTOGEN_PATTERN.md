@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: AUTOGEN_PATTERN.md
 ---
+
 # Generation 29: SSOT Autogeneration Pattern
 
 **Vision**: Define swarm orchestration patterns in SysML v2, auto-generate Python implementation

@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: gen_22_swarmlord_chat.md
 ---
+
 # Gen22 — Swarmlord Chat (Repo-as-Chat)
 
 BLUF: Use the repo itself as the chat surface. Author from phone via GitHub Mobile, write to a daily Markdown file with wake word “Obsidian ”, and let an always-on bridge on your machine run PREY lanes, append blackboard receipts, and mirror to DuckDB. This keeps safety, receipts, and model allowlist intact while giving you mobile control.

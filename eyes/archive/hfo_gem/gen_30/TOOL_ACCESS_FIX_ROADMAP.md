@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: TOOL_ACCESS_FIX_ROADMAP.md
 ---
+
 # Tool Access Fix Roadmap
 
 **Status**: CRITICAL BLOCKER

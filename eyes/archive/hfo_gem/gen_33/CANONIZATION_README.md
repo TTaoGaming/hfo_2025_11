@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: CANONIZATION_README.md
 ---
+
 # Gen 33: The Canonization (Formal MBSE)
 
 **Created**: 2025-11-18

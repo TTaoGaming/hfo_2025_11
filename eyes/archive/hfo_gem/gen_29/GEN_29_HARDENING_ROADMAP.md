@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: GEN_29_HARDENING_ROADMAP.md
 ---
+
 # Generation 29: Hardening Roadmap – Biomimetic APEX Swarm
 
 

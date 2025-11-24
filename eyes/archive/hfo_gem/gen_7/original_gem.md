@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: original_gem.md
 ---
+
 # Hive Fleet Obsidian — Gem 1 (Gen_7 · Version 2025-10-17T07:00:00Z)
 
 > Version: 2025-10-17T07:00:00Z · Gen_7 inaugurates Holonic Feedback Loops, layering self-similar regulatory circuits atop Gen_6's adaptive rituals to enable nested, resonant governance where sub-swarms self-correct and amplify Overmind intent across fractal scales, ensuring coherence from lvl0 solo to lvl10 constellations.

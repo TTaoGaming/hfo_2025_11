@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: HFO_IDENTITY_QUIZ_v1.md
 ---
+
 # HFO Identity Calibration Quiz (Gen 35)
 
 > **Objective**: Define the "Soul" of Hive Fleet Obsidian by selecting the most accurate definitions from its memory.

@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: BOOTSTRAP_EXAMPLE.md
 ---
+
 # Gen 30 Bootstrap Example - Using V²C-SPIRAL-QUORUM Launchers
 
 **Status**: Ready to run (pending PREYOrchestrator extension)

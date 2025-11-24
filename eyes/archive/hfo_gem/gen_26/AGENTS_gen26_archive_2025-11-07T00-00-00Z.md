@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: AGENTS_gen26_archive_2025-11-07T00-00-00Z.md
 ---
+
 # AGENTS.md Archive (Frozen Snapshot) — 2025-11-07T00-00-00Z
 
 This file is a verbatim archive of the root `AGENTS.md` on 2025-11-07. Treat as read-only reference for Gen26 evolution work. Do not edit; create new versions instead.

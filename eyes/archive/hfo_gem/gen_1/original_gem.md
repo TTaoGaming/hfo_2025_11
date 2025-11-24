@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: original_gem.md
 ---
+
 # Hive Fleet Obsidian — Gem 1 Summary (Version 2025-10-17T00:00:00Z)
 
 > Version: 2025-10-17T00:00:00Z · First faceted gem crystallizing Hive Fleet Obsidian doctrine.

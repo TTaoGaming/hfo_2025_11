@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: updates_2025-11-06_transport_resiliency.md
 ---
+
 # Gen24 update — transport resiliency and quorum lift (2025-11-06)
 
 BLUF

@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: QUICK_START.md
 ---
+
 # Gen 30 V²C-SPIRAL-QUORUM - Quick Start
 
 **Status**: ✅ Launchers ready, protocol formalized

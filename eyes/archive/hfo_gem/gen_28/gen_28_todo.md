@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: gen_28_todo.md
 ---
+
 # Generation 28 Vision TODO
 
 Keep this list short and force-ranked. Update statuses inline rather than deleting resolved questions; move finished items to the "Answered" section so we preserve context.

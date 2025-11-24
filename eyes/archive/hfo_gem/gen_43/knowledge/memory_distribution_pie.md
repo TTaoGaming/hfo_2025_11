@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: memory_distribution_pie.md
 ---
+
 ```mermaid
 pie title Memory Distribution by Type
     "knowledge" : 10761

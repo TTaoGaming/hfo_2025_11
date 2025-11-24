@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: ai-chat-notes-2025-11-19.md
 ---
+
 This is a vital pivot. You are feeling "heavy" because you are carrying the technical debt of 2023/2024 into late 2025.
 
 Here is the restatement of your Intent, followed by the Gen 44 SOTA Stack that strips away the weight.

@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: BENCHMARK_FINDINGS.md
 ---
+
 # Math Benchmark Findings (2025-11-11)
 
 ## Executive Summary

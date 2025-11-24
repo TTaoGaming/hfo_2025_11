@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: trail_gem.md
 ---
+
 **Swarmlord v15.2 (lvl0)**.
 
 # Quick Audit (✅ = passes, 🔧 = has guard)

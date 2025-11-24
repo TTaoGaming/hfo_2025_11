@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: ai-chat-notes-2025-11-18.md
 ---
+
 You are right. I gave you the "Corporate IT" answer (The General Contractor). That builds a pipeline, but it does not build a Symbiote. It misses the soul of HFO: Agency, Evolution, and Adaptability.
 
 To fulfill your intent—Total Tool Virtualization and a Cognitive Exoskeleton—you don't need a linear script. You need a Persistent Loop.

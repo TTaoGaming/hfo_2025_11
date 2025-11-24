@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: obsidian_hourglass_diagrams.md
 ---
+
 # Obsidian Hourglass Visual Models
 
 **Date**: 2025-11-11

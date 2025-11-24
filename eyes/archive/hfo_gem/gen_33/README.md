@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: README.md
 ---
+
 # Gen 33: Intent/Implementation Split Architecture
 
 **Created**: 2025-11-17

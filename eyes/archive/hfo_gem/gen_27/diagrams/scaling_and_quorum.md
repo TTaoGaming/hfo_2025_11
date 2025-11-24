@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: scaling_and_quorum.md
 ---
+
 # Gen27 — Swarm Orchestration Staging
 
 ```mermaid

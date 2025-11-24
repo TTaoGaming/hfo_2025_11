@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: vision_swarmlord_of_webs_2025-11-06.md
 ---
+
 # Gen25 — Swarm Lord of Webs (Vision)
 
 BLUF

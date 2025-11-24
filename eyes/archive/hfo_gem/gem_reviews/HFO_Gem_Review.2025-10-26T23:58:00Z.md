@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: HFO_Gem_Review.2025-10-26T23:58:00Z.md
 ---
+
 # HFO Gem Extraction Project: Final Review and Closure
 
 ## Executive Summary / BLUF

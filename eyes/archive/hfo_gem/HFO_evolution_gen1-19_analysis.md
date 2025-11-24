@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: HFO_evolution_gen1-19_analysis.md
 ---
+
 # Evolution Analysis: HFO GEM Generations 1-19
 
 ## BLUF: Executive Summary of Key Evolutions

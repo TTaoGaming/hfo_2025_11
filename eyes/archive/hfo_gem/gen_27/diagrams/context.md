@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: context.md
 ---
+
 # Gen27 — Context (actors)
 
 ```mermaid

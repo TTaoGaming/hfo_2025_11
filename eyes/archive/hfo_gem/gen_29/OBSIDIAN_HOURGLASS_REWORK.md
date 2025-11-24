@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: OBSIDIAN_HOURGLASS_REWORK.md
 ---
+
 # Obsidian Hourglass Rework – State-Action Space Web
 
 

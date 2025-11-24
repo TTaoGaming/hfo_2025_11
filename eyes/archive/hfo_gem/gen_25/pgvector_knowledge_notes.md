@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: pgvector_knowledge_notes.md
 ---
+
 # PGVector Knowledge Notes (Gen25)
 
 BLUF: Curated high-signal reference snippets for the Knowledge layer (PostgreSQL + pgvector) to speed agent retrieval and grounding. Each snippet is <= 30 lines, attribution included, and designed for hybrid vector + text search.

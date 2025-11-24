@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: VISUALIZATION_SOP.md
 ---
+
 # Visualization SOP: Viewing HFO Architecture
 
 ## Option 1: The Custom HTML Viewer (Recommended)

@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: summary.md
 ---
+
 # Summary of Gen_13: Ethical Swarm Governance in Hive Fleet Obsidian
 
 Gen_13 (2025-10-22T00:00:00Z) advances the Hive Fleet Obsidian (HFO) architecture by introducing ethical swarm governance as a foundational layer atop Gen_12's multi-scale holons. This evolution establishes principled oversight for distributed AI agents, ensuring alignment with human values while enabling scalable autonomy. Drawing from biomimetic precedents like ant colony consensus (Seeley 1995, *Honeybee Ecology*, ISBN:978-0691050842) and military ethical frameworks (e.g., Just War Theory in JP 1-04), Gen_13 integrates ethical holons—self-similar structures that embed moral reasoning at every scale, from individual PREY cycles to HIVE-level decisions.

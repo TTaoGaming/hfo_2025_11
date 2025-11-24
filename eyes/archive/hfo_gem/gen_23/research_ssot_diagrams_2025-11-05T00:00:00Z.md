@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: research_ssot_diagrams_2025-11-05T00:00:00Z.md
 ---
+
 # Hive Fleet Obsidian — Gen23 SSOT Diagrams (single source of truth)
 
 Date: 2025-11-05 (UTC)

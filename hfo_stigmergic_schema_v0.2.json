@@ -1,0 +1,151 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swarm.example/hfo-schema-v0.2",
+  "title": "HFO Octarchy Schema (Gen 52)",
+  "description": "HFO schema incorporating the 8-Fold Octarchy for swarm coordination.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique HFO identifier"
+    },
+    "version": {
+      "type": "string",
+      "description": "Schema/object version"
+    },
+    "data": {
+      "type": ["object", "array", "string"],
+      "description": "Core payload/data"
+    },
+    "stigmergic_metadata": {
+      "type": "object",
+      "description": "Stigmergic layer for indirect coordination (Octarchy Header)",
+      "properties": {
+        "octagon": {
+          "type": "object",
+          "description": "The 8-Fold Path of the Hive",
+          "properties": {
+            "ontos": {
+              "type": "object",
+              "description": "Ontology (Being) - Observer/Eyes",
+              "properties": {
+                "id": { "type": "string" },
+                "type": { "type": "string" },
+                "owner": { "type": "string" }
+              },
+              "required": ["id", "type", "owner"]
+            },
+            "logos": {
+              "type": "object",
+              "description": "Symbiosis (Connection) - Bridger/Nerves",
+              "properties": {
+                "protocol": { "type": "string" },
+                "format": { "type": "string" }
+              },
+              "required": ["protocol"]
+            },
+            "techne": {
+              "type": "object",
+              "description": "Praxeology (Craft) - Shaper/Hands",
+              "properties": {
+                "stack": { "type": "array", "items": { "type": "string" } },
+                "complexity": { "type": "string", "enum": ["low", "medium", "high"] }
+              },
+              "required": ["stack"]
+            },
+            "chronos": {
+              "type": "object",
+              "description": "Thermodynamics (Time) - Injector/Blood",
+              "properties": {
+                "status": { "type": "string" },
+                "urgency": { "type": "number" },
+                "decay": { "type": "number" },
+                "created": { "type": "string", "format": "date-time" }
+              },
+              "required": ["status", "urgency", "decay", "created"]
+            },
+            "pathos": {
+              "type": "object",
+              "description": "Epistemology (Conflict) - Disruptor/Venom",
+              "properties": {
+                "stress_level": { "type": "number" },
+                "validation": { "type": "string" }
+              },
+              "required": ["stress_level"]
+            },
+            "ethos": {
+              "type": "object",
+              "description": "Immunology (Trust) - Immunizer/Carapace",
+              "properties": {
+                "security_level": { "type": "string" },
+                "compliance": { "type": "array", "items": { "type": "string" } }
+              },
+              "required": ["security_level"]
+            },
+            "topos": {
+              "type": "object",
+              "description": "Evolution (Structure) - Assimilator/Digestion",
+              "properties": {
+                "address": { "type": "string" },
+                "links": { "type": "array", "items": { "type": "string" } }
+              },
+              "required": ["address", "links"]
+            },
+            "telos": {
+              "type": "object",
+              "description": "Teleology (Purpose) - Navigator/Brain",
+              "properties": {
+                "viral_factor": { "type": "number" },
+                "meme": { "type": "string" }
+              },
+              "required": ["viral_factor", "meme"]
+            }
+          },
+          "required": ["ontos", "logos", "techne", "chronos", "pathos", "ethos", "topos", "telos"]
+        },
+        "signals": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["priority", "claim", "task", "quality", "warning", "custom"],
+                "description": "Signal type (multi-pheromone analog)"
+              },
+              "strength": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1,
+                "description": "Intensity (0-1, deposition/amplification)"
+              },
+              "timestamp": { "type": "string", "format": "date-time" },
+              "emitter": { "type": "string", "description": "Agent ID provenance" },
+              "ttl": { "type": "number", "description": "Time-to-live seconds (decay)" },
+              "spatial_ref": {
+                "type": ["string", "array"],
+                "description": "Hierarchical/spatial position (path/coords)"
+              },
+              "payload": { "type": "object", "description": "Optional context data" }
+            }
+          },
+          "minItems": 1
+        },
+        "aggregates": {
+          "type": "object",
+          "properties": {
+            "avg_strength": { "type": "number" },
+            "max_strength": { "type": "number" },
+            "signal_count": { "type": "integer" }
+          },
+          "description": "Computed feedback summaries"
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Non-stigmergic metadata (timestamps, etc.)"
+    }
+  },
+  "required": ["id", "stigmergic_metadata"]
+}

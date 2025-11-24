@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: README.md
 ---
+
 # Gen25 — SSOT (single README) with direct MD → SysML v2
 
 BLUF

@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: vision_triad.md
 ---
+
 # Gen27 — Vision Triad
 
 ```mermaid

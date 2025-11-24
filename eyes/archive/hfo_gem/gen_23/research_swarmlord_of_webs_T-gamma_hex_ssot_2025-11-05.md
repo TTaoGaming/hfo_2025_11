@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: research_swarmlord_of_webs_T-gamma_hex_ssot_2025-11-05.md
 ---
+
 # Research — Swarmlord of Webs (Gen23 SSOT, T‑Gamma Hex) — 2025‑11‑05
 
 BLUF

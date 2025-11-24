@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: README.md
 ---
+
 # Hive Fleet Obsidian Gen 33.1: Vision & Pattern Matrix
 
 > **Status**: Active / Documentation Layer

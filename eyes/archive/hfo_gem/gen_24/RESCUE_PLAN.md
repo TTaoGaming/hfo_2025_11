@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: RESCUE_PLAN.md
 ---
+
 # Rescue Plan — Mission Intents and Gen Docs to Main (Gen24)
 
 BLUF

@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: vision_level_diagrams.md
 ---
+
 ### Generation 28 Vision Workspace
 
 This file is the handwritten staging area for Generation 28 vision material. Treat it like a notebook: append new dictations, do not overwrite prior intent, and feel free to leave rough notes that we can polish later.

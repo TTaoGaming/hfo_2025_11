@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: SWARM_RUN_VALIDATOR_GUIDE.md
 ---
+
 # Swarm Run Validator - Quick Reference
 
 ## Location

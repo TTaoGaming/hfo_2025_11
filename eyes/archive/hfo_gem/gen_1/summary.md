@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: summary.md
 ---
+
 # Summary of Gen_1: Original Gem Foundations
 
 ## Key Concepts

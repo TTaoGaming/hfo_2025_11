@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: IMPLEMENTATION_PLAN.md
 ---
+
 # Gen 29 → Production: Phased Implementation Plan
 
 **Date**: 2025-11-11

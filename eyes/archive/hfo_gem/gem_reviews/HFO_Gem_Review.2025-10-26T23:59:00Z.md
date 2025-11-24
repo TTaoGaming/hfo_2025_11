@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: HFO_Gem_Review.2025-10-26T23:59:00Z.md
 ---
+
 # HFO Gem Review - 2025-10-26T23:59:00Z
 
 ## BLUF/Executive Summary

@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: HFO_VIEWS.md
 ---
+
 # HFO Gen 42.1 Visual Topology
 
 View 1: The Mosaic (Hexagonal)

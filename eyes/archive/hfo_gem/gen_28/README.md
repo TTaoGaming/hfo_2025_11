@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: README.md
 ---
+
 # Generation 28 – Master Index
 **Active Generation**: 28
 **Branch**: `hfo-2025-11-quickstart-swarm`

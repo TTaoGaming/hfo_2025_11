@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: memory_sources_mindmap.md
 ---
+
 ```mermaid
 mindmap
   root((HFO Memory))

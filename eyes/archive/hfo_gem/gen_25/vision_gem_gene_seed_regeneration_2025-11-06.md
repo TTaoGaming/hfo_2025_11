@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: vision_gem_gene_seed_regeneration_2025-11-06.md
 ---
+
 # Gen25 — Gem Gene Seed Regeneration (Vision)
 
 BLUF

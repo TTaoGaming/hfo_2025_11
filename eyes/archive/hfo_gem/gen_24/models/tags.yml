@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: tags.yml
 ---
+
 # Tags (labels for grouping/queries)
 tags:
   swarmlord: [orchestrator, control]

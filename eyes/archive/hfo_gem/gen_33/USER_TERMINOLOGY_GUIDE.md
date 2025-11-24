@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: USER_TERMINOLOGY_GUIDE.md
 ---
+
 # User Terminology Guide - Exact Quotes & Nuances
 
 **Created**: 2025-11-17

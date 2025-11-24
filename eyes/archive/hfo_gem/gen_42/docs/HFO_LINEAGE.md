@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: HFO_LINEAGE.md
 ---
+
 # HFO Gen 42.1 Research Lineage
 
 A. The Philosophy (Why)

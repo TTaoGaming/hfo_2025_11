@@ -1,21 +1,3 @@
-hexagon:
-  ontos:
-    id: 305747f5-896f-44bb-add5-e2dc6911a425
-    type: yaml
-    owner: Swarmlord
-  chronos:
-    status: active
-    urgency: 0.5
-    decay: 0.5
-    created: '2025-11-23T11:06:38.145905Z'
-    generation: 51
-  topos:
-    address: .pre-commit-config.yaml
-    links: []
-  telos:
-    viral_factor: 0.0
-    meme: .pre-commit-config.yaml
-
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.5.0

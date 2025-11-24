@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: summary.md
 ---
+
 # Summary of Gen_4: Stabilization and Pointer Discipline
 
 ## Key Concepts

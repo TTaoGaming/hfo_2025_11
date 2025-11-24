@@ -19,6 +19,7 @@ hexagon:
 ---
 
 
+
 # 🦅 Swarmlord Digest: The Synapse APEX Architecture
 > **Date**: 2025-11-22
 > **Mission**: SOTA Stigmergy Primitives for Hive Fleet Obsidian

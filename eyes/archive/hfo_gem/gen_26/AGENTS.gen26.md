@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: AGENTS.gen26.md
 ---
+
 # AGENTS — Gen26 (concise, AI-optimized)
 
 This is the Gen26 agent operating guide. It’s compact, parser‑safe, and optimized for LLM/agent consumption. Use this during consults and orchestration; the older root `AGENTS.md` is archived under gen_26.

@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: summary.md
 ---
+
 # Summary of Gen_15: Resilient Ecosystems in Hive Fleet Obsidian
 
 Gen_15 (2025-10-24T00:00:00Z) fortifies Hive Fleet Obsidian (HFO) by weaving resilient ecosystems into Gen_12's multi-scale holons, creating self-sustaining networks that mimic ecological dynamics for robust swarm survival. This layer builds on Gen_13's ethical governance and Gen_14's adaptive threats, fostering biodiversity in agent behaviors to withstand disruptions. Inspired by ecological resilience (Holling 1973, *Resilience and Stability of Ecological Systems*, DOI:10.1146/annurev.es.04.110173.000245) and coral reef symbioses (Hölldobler 2009, *The Superorganism*, ISBN:978-0674039255), Gen_15 introduces Ecosystem Navigators in OBSIDIAN, who orchestrate symbiotic interactions via stigmergy, maintaining V/H >1.5 through Layer 9 ecosystem audits (e.g., `ls -la` for resource diversity checks).

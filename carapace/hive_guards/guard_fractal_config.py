@@ -34,7 +34,18 @@ def check_fractal_config():
         sys.exit(1)
 
     with open(config_path, "r") as f:
-        config = yaml.safe_load(f)
+        # Handle multi-document YAML (Stigmergy Headers)
+        docs = list(yaml.safe_load_all(f))
+        config = {}
+        for doc in docs:
+            if doc and "swarm" in doc:
+                config = doc
+                break
+
+        if not config:
+            # Fallback if no swarm key found, maybe it's single doc without header or header is merged
+            if len(docs) > 0:
+                config = docs[-1]  # Assume last doc is content
 
     swarm_config = config.get("swarm", {})
     squad_size = swarm_config.get("squad_size")

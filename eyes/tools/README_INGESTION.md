@@ -19,6 +19,7 @@ hexagon:
 ---
 
 
+
 # HFO Unified Ingestion System
 
 This system ingests the entire Hive Fleet Obsidian workspace into a PostgreSQL vector database (`pgvector`).

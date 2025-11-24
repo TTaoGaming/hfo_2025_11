@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: deep_dive.md
 ---
+
 # Deep Dive: Gen_10 Quantum-Resilient Swarm Evolution
 
 ## Introduction

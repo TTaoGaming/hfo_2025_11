@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: README.md
 ---
+
 # Gen24 - 100-Swarm Orchestration Guide + MBSE SSOT
 
 BLUF

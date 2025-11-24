@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: original_gem.md
 ---
+
 #  Hive Fleet Obsidian — Gem 1 Summary (Pass 5 · Version 2025-10-17T05:00:00Z)
 
 > Version: 2025-10-17T05:00:00Z · Pass 5 automates lvl0 stigmergy—virtual pheromone rails, blackboard replication, and daily ritual scaffolding now operate hands-free with linted guardrails.

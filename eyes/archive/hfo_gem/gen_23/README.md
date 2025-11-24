@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: README.md
 ---
+
 # Gen23 Research Index (foundational docs for GEM diagrams)
 
 Date: 2025-11-05 (UTC)

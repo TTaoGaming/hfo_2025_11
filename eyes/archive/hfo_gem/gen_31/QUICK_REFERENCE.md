@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: QUICK_REFERENCE.md
 ---
+
 # HFO Quick Reference - Generation 31
 
 **Last Updated**: 2025-11-14

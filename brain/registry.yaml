@@ -72,6 +72,14 @@ organs:
       - "persona_swarmlord_of_webs.md"
       - "intent_hexagonal_seeding.feature"
       - "design_hexagonal_header.md"
+      - "design_octree_fractal_holarchy.md"
+      - "hfo_mcp.feature"
+      - "design_hfo_mcp.md"
+      - "intent_obsidian_stigmergy_matrix.feature"
+      - "design_obsidian_stigmergy_matrix.md"
+      - "intent_stigmergy_thermodynamics.feature"
+      - "design_hfo_stigmergy_variants.md"
+      - "report_gen52_drift_analysis.md"
     old_path: "intent/"
 
   eyes:

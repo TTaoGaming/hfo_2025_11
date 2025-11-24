@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: original_gem.md
 ---
+
 #  Hive Fleet Obsidian — Gem 1 Summary (Pass 4 · Version 2025-10-17T04:00:00Z)
 
 > Version: 2025-10-17T04:00:00Z · Pass 4 recenters lvl0 bring-up, neutralizes AI slop drift, and binds daily rituals + guardrails to the active gem surface.

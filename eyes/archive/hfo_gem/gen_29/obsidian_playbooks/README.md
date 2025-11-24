@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: README.md
 ---
+
 # OBSIDIAN Playbooks – Role Documentation
 
 **Created**: 2025-11-11

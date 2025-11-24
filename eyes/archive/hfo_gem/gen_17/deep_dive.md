@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: deep_dive.md
 ---
+
 # Deep Dive: Predictive Analytics in Hive Fleet Obsidian (Gen_17)
 
 ## Introduction

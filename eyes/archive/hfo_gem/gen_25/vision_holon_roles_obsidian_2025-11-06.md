@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: vision_holon_roles_obsidian_2025-11-06.md
 ---
+
 # Gen25 — HOLON Roles (OBSIDIAN) Vision
 
 BLUF

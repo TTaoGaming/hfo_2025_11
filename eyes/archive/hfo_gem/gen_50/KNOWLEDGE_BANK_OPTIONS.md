@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: KNOWLEDGE_BANK_OPTIONS.md
 ---
+
 # Knowledge Transfer Bank: Options for Gen 50
 
 To accelerate the cold start of Generation 50, we need to transfer the "Wisdom" from Generations 1-44 without carrying over the "Weight" (technical debt).

@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: crew_ai_swarm_attempt_1.md
 ---
+
 # Crew AI Swarm Attempt 1 — Pilot Notes
 
 BLUF

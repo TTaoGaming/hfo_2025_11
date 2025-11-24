@@ -36,7 +36,15 @@ def load_registry() -> Dict:
         print(f"❌ Registry not found: {REGISTRY_FILE}")
         return {"concepts": []}
     with open(REGISTRY_FILE, "r") as f:
-        return yaml.safe_load(f)
+        # Handle multi-document YAML (Stigmergy Headers)
+        docs = list(yaml.safe_load_all(f))
+        for doc in docs:
+            if doc and "concepts" in doc:
+                return doc
+        # Fallback
+        if docs:
+            return docs[-1]
+        return {"concepts": []}
 
 
 def check_concept_integrity(concept: Dict) -> List[str]:

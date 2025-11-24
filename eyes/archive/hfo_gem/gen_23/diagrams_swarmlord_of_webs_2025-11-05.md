@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: diagrams_swarmlord_of_webs_2025-11-05.md
 ---
+
 # Diagrams — Swarmlord of Webs (Gen23, T‑Gamma) — 2025‑11‑05
 
 Note

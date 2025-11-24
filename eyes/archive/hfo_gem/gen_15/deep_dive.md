@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: deep_dive.md
 ---
+
 # Deep Dive: Resilient Ecosystems in Hive Fleet Obsidian (Gen_15)
 
 ## Introduction

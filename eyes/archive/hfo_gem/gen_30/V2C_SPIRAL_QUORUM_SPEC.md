@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: V2C_SPIRAL_QUORUM_SPEC.md
 ---
+
 # V²C-SPIRAL-QUORUM Protocol Specification
 
 **Version**: 1.0.0

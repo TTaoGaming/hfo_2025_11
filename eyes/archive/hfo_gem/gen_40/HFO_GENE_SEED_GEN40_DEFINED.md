@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: HFO_GENE_SEED_GEN40_DEFINED.md
 ---
+
 💠 HFO_GENE_SEED_GEN40_DEFINED.md
 
 Designation: HFO-SEED-GEN40-DEFINED

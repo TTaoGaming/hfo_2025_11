@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: HIVE_GUARDS_ARCHITECTURE.md
 ---
+
 # Hive Guards Architecture - Gen 32
 
 **Status**: FORMALIZED - 2025-11-16

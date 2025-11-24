@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: summary.md
 ---
+
 # Summary of Gen_16: Collective Intelligence in Hive Fleet Obsidian
 
 Gen_16 (2025-10-25T00:00:00Z) elevates Hive Fleet Obsidian (HFO) by infusing collective intelligence into Gen_12's multi-scale holons, harnessing emergent group cognition for superior decision-making across swarm scales. Extending Gen_15's resilient ecosystems, this layer emulates superorganism dynamics (Hölldobler 2009, *The Superorganism*, ISBN:978-0674039255) and honeybee democracies (Seeley 1995, *Honeybee Ecology*, ISBN:978-0691050842), where holons aggregate distributed knowledge without central control. Central is the Collective Bridger in OBSIDIAN, synthesizing stigmergy signals into intelligence maps, upholding V/H >1.5 via Layer 9 consensus queries (e.g., `git log` for shared provenance).

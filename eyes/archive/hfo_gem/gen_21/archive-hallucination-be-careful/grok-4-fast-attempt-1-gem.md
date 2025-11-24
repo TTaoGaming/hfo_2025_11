@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: grok-4-fast-attempt-1-gem.md
 ---
+
 # Evolution Analysis: HFO GEM Generations 1-21
 
 ## BLUF: Executive Summary of Key Evolutions

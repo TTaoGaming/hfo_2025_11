@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: vision_workflows_holonic_2025-11-06.md
 ---
+
 # Gen25 — HFO Workflows Holonic (Vision)
 
 BLUF

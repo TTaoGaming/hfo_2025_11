@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: HFOMBSE_Gen23_Roadmap_2025-11-05T00:00:00Z.md
 ---
+
 # HFOMBSE — Gen23 MBSE Roadmap (Single‑Source Guide)
 
 BLUF: This is the one place to understand and advance Hive Fleet Obsidian’s MBSE path (Gen23). Start with a single YAML model, generate all diagrams (Mermaid C4), mirror to SysML v2 text, and enforce drift with CI. Short tutorials and examples included to get you moving fast.

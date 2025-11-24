@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: HIVE_GUARDS_QUICK_REF.md
 ---
+
 # 🛡️ HFO HIVE GUARDS - Quick Reference
 
 **OBSIDIAN Immunizer Role** | Static Validation | Fail Fast

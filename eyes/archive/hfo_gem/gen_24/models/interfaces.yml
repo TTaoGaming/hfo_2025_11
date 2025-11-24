@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: interfaces.yml
 ---
+
 # Interfaces (from->to with relation)
 interfaces:
   - from: swarmlord

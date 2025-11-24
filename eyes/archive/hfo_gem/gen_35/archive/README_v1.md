@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: README_v1.md
 ---
+
 # HFO Gen 35: The Soul
 
 > **Status**: Active / Core Identity

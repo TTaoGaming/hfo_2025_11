@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: research_diagram_lineage_index_2025-11-05T00:00:00Z.md
 ---
+
 # HFO Diagram Lineage Index — Gen23 (attribution + adopted set)
 
 Date: 2025-11-05 (UTC)

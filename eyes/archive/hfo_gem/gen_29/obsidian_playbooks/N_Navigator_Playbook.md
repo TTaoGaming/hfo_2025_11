@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: N_Navigator_Playbook.md
 ---
+
 # Navigator Playbook (N) – Swarmlord of Webs
 
 **Role**: Strategic C2 / Campaign Design

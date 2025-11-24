@@ -19,6 +19,7 @@ hexagon:
 ---
 
 
+
 # HFO Conceptual Armory
 
 This document defines the core "powerful concepts" equipped for Hive Fleet Obsidian (HFO). These are the keywords and architectural patterns that define the system's intelligence and resilience.

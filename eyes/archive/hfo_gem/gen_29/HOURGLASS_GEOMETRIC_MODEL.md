@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: HOURGLASS_GEOMETRIC_MODEL.md
 ---
+
 # Obsidian Horizon Hourglass – Geometric Model
 
 **Date**: 2025-11-11

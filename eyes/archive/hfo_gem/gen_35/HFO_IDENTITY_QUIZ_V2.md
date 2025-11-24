@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: HFO_IDENTITY_QUIZ_V2.md
 ---
+
 # HFO Identity Quiz V2: Nuance & Depth
 > **Objective**: Capture the "battlefield-tested" nuance of Hive Fleet Obsidian's axioms.
 > **Instructions**: Review the "Proposed Answer" (AI Hypothesis). If it misses the mark, provide your "Refinement".

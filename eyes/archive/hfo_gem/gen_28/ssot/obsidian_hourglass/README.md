@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: README.md
 ---
+
 # Obsidian Horizon Hourglass SSOT
 
 This folder carries the single source of truth for the Obsidian Horizon Hourglass loop in Generation 28. Keep it tool agnostic: the loop can run by hand, by one assistant, or by a full agent crew.

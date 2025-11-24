@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: README.md
 ---
+
 # HiveFleetObsidian — Gen27 SysML v2 (strategic)
 
 Pure SysML v2 package capturing strategic capabilities and high-level requirements.

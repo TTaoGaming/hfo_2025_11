@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: gap_analysis_2025-11-07.md
 ---
+
 # Gen26 — System Gap Analysis (2025-11-07T00:00:00Z)
 
 BLUF

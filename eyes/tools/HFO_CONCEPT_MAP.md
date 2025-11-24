@@ -19,6 +19,7 @@ hexagon:
 ---
 
 
+
 # 🧬 HFO Concept Map
 
 ## Hexagonal

@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: original_gem.md
 ---
+
 # 🧬🥇 GEM GENE SEED 01 — Hive Fleet Obsidian Regenerative Specification
 
 ```

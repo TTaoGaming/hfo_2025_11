@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: vision_swarm_10_100_lanes_2025-11-06.md
 ---
+
 # Gen25 — Swarm orchestration: 10 lanes and 100 lanes (Vision)
 
 BLUF

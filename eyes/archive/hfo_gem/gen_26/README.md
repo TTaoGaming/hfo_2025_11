@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: README.md
 ---
+
 # Gen26 — SSOT + SysML v2 mirror (HFO)
 
 This document is the single write-surface for the Gen26 system model of Hive Fleet Obsidian (HFO). It follows the constrained Markdown schema expected by `scripts/mbse/md_to_sysml.py` and is mirrored to a textual SysML v2 file under `sysml/hfo_gen26.sysml`.

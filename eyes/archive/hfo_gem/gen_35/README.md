@@ -17,6 +17,7 @@ hexagon:
     viral_factor: 0.0
     meme: README.md
 ---
+
 # 🌐 Gen 35: The Soul of the Swarm (SSOT)
 > **Swarmlord of Webs Digest** | **Status**: Active | **Date**: 2025-11-18
 > **Mission**: Define the immutable "Soul" of Hive Fleet Obsidian—the axioms that survive every molt.
