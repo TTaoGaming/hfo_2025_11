@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "hive-fleet-obsidian": {
+      "command": "python",
+      "args": [
+        "/home/tommytai3/hive_fleet_obsidian_2025_11/body/hands/mcp_server.py"
+      ],
+      "env": {
+        "NATS_URL": "nats://localhost:4225",
+        "POSTGRES_DSN": "postgresql://hfo:hfo_password@localhost:5435/hfo_memory"
+      }
+    }
+  }
+}
