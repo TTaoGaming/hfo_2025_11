@@ -1,0 +1,229 @@
+hexagon:
+  ontos:
+    id: 72b9778f-f9e3-4dd8-bb75-912ddcf330c7
+    type: yaml
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.277233Z'
+    generation: 51
+  topos:
+    address: brain/concepts.yaml
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: concepts.yaml
+
+# 🧠 Hive Fleet Obsidian: Brain Concept Registry (Gen 51)
+# Purpose: Define the "Intent" concepts and their maturity status.
+# Rule: Every concept must have:
+#   1. A Gherkin file (`.feature`) for Behavior/Requirements.
+#   2. A Markdown file (`.md`) for Executive Summary & Visualization (Mermaid).
+
+concepts:
+  # --- Identity ---
+  - name: "identity_karmic_knife"
+    status: "Active"
+    feature: "identity_karmic_knife.feature" # Placeholder
+    summary: "identity_karmic_knife.md"
+
+  # --- Strategy ---
+  - name: "workflow_obsidian_hourglass"
+    status: "Active"
+    feature: "workflow_obsidian_hourglass.feature"
+    summary: "strategy_obsidian_hourglass.md"
+
+  - name: "workflow_karmic_web"
+    status: "Active"
+    feature: "workflow_karmic_web.feature"
+    summary: "workflow_karmic_web.md"
+
+  - name: "strategy_fractal_holarchy"
+    status: "Active"
+    feature: "strategy_fractal_holarchy.feature"
+    summary: "strategy_fractal_holarchy.md"
+
+  - name: "strategy_antifragile_hydra"
+    status: "Active"
+    feature: "strategy_antifragile_hydra.feature"
+    summary: "strategy_antifragile_hydra.md"
+
+  # --- Infrastructure ---
+  - name: "infrastructure_hydra"
+    status: "Active"
+    feature: "infrastructure_hydra.feature"
+    summary: "infrastructure_hydra.md"
+
+  - name: "infrastructure_stigmergy"
+    status: "Active"
+    feature: "infrastructure_stigmergy.feature"
+    summary: "infrastructure_stigmergy.md"
+
+  - name: "infrastructure_loops"
+    status: "Active"
+    feature: "infrastructure_loops.feature"
+    summary: "infrastructure_loops.md"
+
+  - name: "infrastructure_governance"
+    status: "Active"
+    feature: "infrastructure_governance.feature"
+    summary: "infrastructure_governance.md"
+
+  - name: "infrastructure_temporal"
+    status: "Active"
+    feature: "infrastructure_temporal.feature"
+    summary: "infrastructure_temporal.md"
+
+  - name: "infrastructure_trust"
+    status: "Active"
+    feature: "infrastructure_trust.feature"
+    summary: "infrastructure_trust.md"
+
+  - name: "infrastructure_gitops"
+    status: "Active"
+    feature: "infrastructure_gitops.feature"
+    summary: "infrastructure_gitops.md"
+
+  # --- Architecture ---
+  - name: "architecture_hybrid_memory"
+    status: "Active"
+    feature: "architecture_hybrid_memory.feature"
+    summary: "architecture_hybrid_memory.md"
+
+  - name: "architecture_organs_roles_champions"
+    status: "Active"
+    feature: "architecture_organs_roles_champions.feature"
+    summary: "architecture_organs_roles_champions.md"
+
+  - name: "architecture_core_declarative"
+    status: "Active"
+    feature: "architecture_core_declarative.feature"
+    summary: "architecture_core_declarative.md"
+
+  # --- Biology ---
+  - name: "biology_organ_registry"
+    status: "Active"
+    feature: "biology_organ_registry.feature"
+    summary: "biology_organ_registry.md"
+
+  - name: "biology_organ_loops"
+    status: "Active"
+    feature: "biology_organ_loops.feature"
+    summary: "biology_organ_loops.md"
+
+  - name: "biology_stigmergy"
+    status: "Active"
+    feature: "biology_stigmergy.feature"
+    summary: "biology_stigmergy.md"
+
+  # --- Patterns ---
+  - name: "pattern_async_swarm"
+    status: "Active"
+    feature: "pattern_async_swarm.feature"
+    summary: "pattern_async_swarm.md"
+
+  # --- Capabilities ---
+  - name: "capability_external_tools"
+    status: "Active"
+    feature: "capability_external_tools.feature"
+    summary: "capability_external_tools.md"
+
+  # --- Missions ---
+  - name: "mission_ingest_gems"
+    status: "Active"
+    feature: "mission_ingest_gems.feature"
+    summary: "mission_ingest_gems.md"
+
+  - name: "mission_audit_weave"
+    status: "Active"
+    feature: "mission_audit_weave.feature"
+    summary: "mission_audit_weave.md"
+
+  - name: "mission_gesture_game_forge"
+    status: "Draft"
+    feature: "mission_gesture_game_forge.feature"
+    summary: "mission_gesture_game_forge.md"
+
+  # --- Research ---
+  - name: "antifragile_architecture_options"
+    status: "Proposal"
+    feature: "antifragile_architecture_options.feature"
+    summary: "antifragile_architecture_options.md"
+
+  # --- Implementation ---
+  - name: "implementation_obsidian_horizon"
+    status: "Active"
+    feature: "implementation_obsidian_horizon.feature"
+    summary: "implementation_obsidian_horizon_langgraph.md"
+
+  - name: "architecture_three_webs"
+    status: "Active"
+    feature: "architecture_three_webs.feature"
+    summary: "architecture_three_webs.md"
+
+  # --- Biology ---
+  - name: "biology_pheromones_composability"
+    status: "Draft"
+    feature: "biology_pheromones_composability.feature"
+    summary: "biology_pheromones_composability.md"
+
+  # --- Design ---
+  - name: "design_mountain_web_stigmergy"
+    status: "Active"
+    feature: "design_mountain_web_stigmergy.feature"
+    summary: "design_mountain_web_stigmergy.md"
+
+  - name: "design_obsidian_facet_v2"
+    status: "Active"
+    feature: "design_mountain_web_stigmergy.feature" # Reusing the feature as it covers the same domain
+    summary: "design_obsidian_facet_v2.md"
+
+  - name: "guide_obsidian_facet_analogies"
+    status: "Active"
+    feature: "design_mountain_web_stigmergy.feature" # Reusing the feature
+    summary: "guide_obsidian_facet_analogies.md"
+
+  # --- Research ---
+  - name: "research_stigmergy_abstractions"
+    status: "Active"
+    feature: "research_stigmergy_abstractions.feature"
+    summary: "research_stigmergy_abstractions.md"
+
+  # --- Examples ---
+  - name: "examples_obsidian_facet_v2"
+    status: "Active"
+    feature: "design_mountain_web_stigmergy.feature"
+    summary: "examples_obsidian_facet_v2.md"
+
+  - name: "unified_obsidian_header"
+    status: "Active"
+    feature: "design_mountain_web_stigmergy.feature"
+    summary: "unified_obsidian_header.md"
+
+  - name: "unified_header_options"
+    status: "Active"
+    feature: "design_mountain_web_stigmergy.feature"
+    summary: "unified_header_options.md"
+
+  - name: "unified_dual_headers"
+    status: "Active"
+    feature: "design_mountain_web_stigmergy.feature"
+    summary: "unified_dual_headers.md"
+
+  - name: "analysis_unified_hfo_header"
+    status: "Active"
+    feature: "design_mountain_web_stigmergy.feature"
+    summary: "analysis_unified_hfo_header.md"
+
+  - name: "design_hexagonal_holon_header"
+    status: "Active"
+    feature: "design_mountain_web_stigmergy.feature"
+    summary: "design_hexagonal_holon_header.md"
+
+  # --- Design ---
+  - name: "design_evolution_paths_2025"
+    status: "Draft"
+    feature: "design_evolution_paths_2025.feature" # Placeholder
+    summary: "design_evolution_paths_2025.md"

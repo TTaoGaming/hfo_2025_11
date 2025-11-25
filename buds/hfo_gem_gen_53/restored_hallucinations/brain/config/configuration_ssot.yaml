@@ -1,0 +1,62 @@
+hexagon:
+  ontos:
+    id: 31ce0460-df11-4647-8232-c2cc5fdc3995
+    type: yaml
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.372349Z'
+    generation: 51
+  topos:
+    address: brain/configuration_ssot.yaml
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: configuration_ssot.yaml
+
+# 🦅 Hive Fleet Obsidian: Single Source of Truth (SSOT) Configuration
+# This file defines the canonical configuration for the "Hybrid Stability Protocol".
+# All code must reference these values or use os.getenv() with these as defaults.
+
+infrastructure:
+  network:
+    mode: "hybrid" # Docker Infra + Host Agents
+    localhost_alias: "localhost"
+
+  nats:
+    service_name: "nats"
+    internal_port: 4222
+    external_port: 4225 # Safe port for Host -> Docker communication
+    url_env_var: "NATS_URL"
+    default_url: "nats://localhost:4225"
+
+  postgres:
+    service_name: "postgres"
+    internal_port: 5432
+    external_port: 5435 # Safe port for Host -> Docker communication
+    dsn_env_var: "PG_DSN"
+    default_dsn: "postgresql://hfo_admin:phoenix_password@localhost:5435/hfo_unified_memory"
+
+  temporal:
+    service_name: "temporal"
+    internal_port: 7233
+    external_port: 7235 # Safe port for Host -> Docker communication
+    address_env_var: "TEMPORAL_ADDRESS"
+    default_address: "localhost:7235"
+
+swarm:
+  defaults:
+    model: "x-ai/grok-4.1-fast"
+    timeout: 600
+    artifact_dir: "memory/episodic"
+
+guards:
+  forbidden_patterns:
+    - pattern: "4222"
+      reason: "Hardcoded internal NATS port. Use 4225 or os.getenv('NATS_URL')."
+    - pattern: "5432"
+      reason: "Hardcoded internal Postgres port. Use 5435 or os.getenv('PG_DSN')."
+    - pattern: "7233"
+      reason: "Hardcoded internal Temporal port. Use 7235 or os.getenv('TEMPORAL_ADDRESS')."
