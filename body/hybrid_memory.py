@@ -23,6 +23,7 @@ hexagon:
 
 import json
 import logging
+import os
 import time
 import uuid
 from typing import Any, Dict, List, Optional
@@ -57,7 +58,15 @@ class HybridMemory:
     def __init__(self, openai_client: Optional[AsyncOpenAI] = None):
         self.dsn = Config.PG_DSN
         self.pool = None
-        self.client = openai_client or AsyncOpenAI()
+
+        # Configure Client with Fallback
+        if openai_client:
+            self.client = openai_client
+        else:
+            api_key = os.getenv("OPENAI_API_KEY") or os.getenv("OPENROUTER_API_KEY")
+            base_url = os.getenv("OPENAI_BASE_URL") or os.getenv("OPENROUTER_BASE_URL")
+            self.client = AsyncOpenAI(api_key=api_key, base_url=base_url)
+
         self.embedding_model = "text-embedding-3-small"  # Cost-effective
 
     async def initialize(self):
