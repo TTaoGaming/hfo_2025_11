@@ -50,6 +50,27 @@ test-langsmith:
 test-pgvector:
 	@$(PYTHON) venom/smoke/test_07_pgvector.py
 
+# --- 🧠 Memory & Ingestion ---
+ingest-unified:
+	@echo "📥 Running Unified Ingestion (Frameworks + Brain)..."
+	@PYTHONPATH=. $(PYTHON) scripts/unified_ingest.py
+
+ingest-horizon:
+	@echo "📥 Ingesting Obsidian Horizon..."
+	@PYTHONPATH=. $(PYTHON) scripts/ingest_obsidian_horizon.py
+
+memory-query:
+	@echo "🧠 Querying Swarmlord Memory..."
+	@read -p "Enter query: " query; \
+	PYTHONPATH=. $(PYTHON) -c "import asyncio; from body.hands.swarmlord import SwarmlordAgent; \
+	async def q(): \
+		a = SwarmlordAgent(); \
+		await a.initialize(); \
+		print(await a.chat('$$query')); \
+		await a.close(); \
+	asyncio.run(q())"
+
+
 test-dspy:
 	@$(PYTHON) venom/smoke/test_08_dspy.py
 
