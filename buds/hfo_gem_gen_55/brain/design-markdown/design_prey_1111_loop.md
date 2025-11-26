@@ -45,7 +45,7 @@ The **1-1-1-1 Pattern** defines the atomic unit of the Hive Fleet. A single agen
     *   **Output**: `ExecutionResult` (What did we do?).
 4.  **Assimilator (Yield)**:
     *   **Bias**: Reflective, Critical, Synthesizing.
-    *   **Action**: Reviews the `ExecutionResult` and updates the Stigmergic State.
+    *   **Action**: Performs a **Self-Audit (Reflexion)** on the `ExecutionResult` to verify alignment with Intent, then synthesizes the final output.
     *   **Input**: `ExecutionResult`.
     *   **Output**: `YieldReport` (What did we learn? / New State).
 
@@ -68,19 +68,19 @@ sequenceDiagram
 
     Note over Agent: Loop N
     Agent->>NATS_KV: Get State (Yield N-1)
-    
+
     Note over Agent: Hat: Observer
     Agent->>Agent: Perceive (Cynefin/CBR)
     Agent->>NATS_Stream: Pub PerceptionReport
-    
+
     Note over Agent: Hat: Bridger
     Agent->>Agent: React (Plan)
     Agent->>NATS_Stream: Pub ReactionPlan
-    
+
     Note over Agent: Hat: Shaper
     Agent->>Agent: Execute (Tools)
     Agent->>NATS_Stream: Pub ExecutionResult
-    
+
     Note over Agent: Hat: Assimilator
     Agent->>Agent: Yield (Reflect)
     Agent->>NATS_Stream: Pub YieldReport

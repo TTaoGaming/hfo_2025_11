@@ -22,8 +22,8 @@ Feature: Cleanroom Genesis of 1-1-1-1 PREY Loop (Atomic Unit)
     And transition to the "Yield" phase
 
     When the agent enters the "Yield" phase
-    Then it must synthesize the "ExecutionResult"
-    And produce a "YieldArtifact"
+    Then it must perform a "Self-Audit" (Reflexion) on the "ExecutionResult"
+    And synthesize the findings into a "YieldArtifact"
     And publish it to "NATS JetStream"
 
   Scenario: Iterative Context Accumulation (The 3-Loop Test)

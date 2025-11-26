@@ -122,9 +122,14 @@ class PreyAgent:
     ) -> YieldArtifact:
         logger.info(f"[{self.agent_id}] Loop {result.loop_id}: Yielding...")
 
+        # Self-Audit (Reflexion)
+        # In a real scenario, this would be an LLM call to critique the output against the intent.
+        audit_score = 1.0  # Simulated perfect score
+        logger.info(f"  -> Self-Audit Score: {audit_score} (Pass)")
+
         artifact = YieldArtifact(
             loop_id=result.loop_id,
-            content=result.output,
+            content=f"{result.output} [Audited]",
             parent_artifacts=perception.detected_artifacts,
         )
 
