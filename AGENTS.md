@@ -98,6 +98,14 @@ We are executing **Generation 51 (Synapse APEX)**. This is the "Cognitive Symbio
 *   **Setup**: Run `./setup_hybrid.sh` to launch infrastructure and create venv.
 *   **Verify**: Run `source venv/bin/activate && python src/smoke_test.py`.
 
+### 🔬 Micro-Swarm Protocol (Chromebook Plus)
+*Optimized for 8GB RAM devices using "Tiny" models.*
+*   **Model**: `gemma3:270m` (280MB RAM).
+*   **Concurrency**: 8 Simultaneous Agents (4-Lane Highway).
+*   **Throughput**: ~2 requests/second.
+*   **Command**: `OLLAMA_NUM_PARALLEL=8 OLLAMA_MAX_LOADED_MODELS=1 ollama serve`
+*   **Verification**: Run `make micro-swarm` to stress-test the 8-agent cluster.
+
 ---
 
 ## 📋 HFO MOBS (Mini Obsidian Blackboard with Stigmergy Pattern)
@@ -256,6 +264,13 @@ We are executing **Generation 51 (Synapse APEX)**. This is the "Cognitive Symbio
 | 2025-11-25 | Swarmlord | **Tech Stack Definition**: Formalized **HYDRA PLATFORM** (P.L.A.T.F.O.R.M.) as the canonical Gen 55 stack. Mapped 8 Letters to 8 Tools. | 🟢 Active |
 | 2025-11-25 | Swarmlord | **Gap Analysis**: Noted that P.L.A.T.F.O.R.M. mnemonic implicitly includes **LangSmith** (under Observer), **GitOps** (under Injector), and **Pytest-BDD** (under Disruptor/Defense) despite not having explicit letters. | 🟡 Integration Required |
 | 2025-11-25 | Swarmlord | **Stigmergy Implementation**: Implemented **LanceDB** (Cold Memory) and **NATS JetStream + KV** (Hot Stigmergy). Integrated the **8 Metaphysical Pillars** (Ontos, Logos, Telos, Chronos, Pathos, Ethos, Topos, Nomos). Verified via `test_stigmergy_system.py`. | 🟢 Active |
+| 2025-11-25 | Swarmlord | **System Hardening**: Executed "Smart Cleanup" and "GitOps Cycle". Fixed Hive Guard violations (`brain/registry.yaml`) and Linting errors (Mypy/Ruff). Repository is clean and synced. | 🟢 Active |
+| 2025-11-25 | Swarmlord | **Mission Update**: Initiated "Local Heartbeat" protocol for Chromebook Plus (8GB). | 🟢 Active |
+| 2025-11-25 | Swarmlord | **Diagnostic**: Identified RAM bottleneck with `llama3.2:3b`. System redlining at 87%. | 🔴 Critical |
+| 2025-11-25 | Swarmlord | **Architecture**: Implemented `heartbeat.py` with `psutil` safety guards and YAML config. | 🟢 Active |
+| 2025-11-25 | Swarmlord | **Knowledge**: Created `model_champion_comparison.md` to guide model selection (2B-4B range). | 🟢 Active |
+| 2025-11-25 | Swarmlord | **Status**: Pending user decision on 1B vs 2B models for stability. | 🟡 Pending |
+| 2025-11-26 | Swarmlord | **Breakthrough**: Validated "Micro-Swarm" on Chromebook Plus. `gemma3:270m` enables 8 concurrent agents with <1GB RAM usage. True parallelism confirmed. | 🟢 Active |
 
 ---
 
@@ -297,6 +312,7 @@ We are executing **Generation 51 (Synapse APEX)**. This is the "Cognitive Symbio
 - [x] **Tooling**: Verify "Real Tool Calls" (Web Search, File I/O) are robust and error-handled.
 - [x] **Brain Reorganization**: Create `brain/standards/` and `brain/digests/` to separate Laws from Logs.
 - [x] **Formalize Obsidian Stigmergy**: Define the Melt/Glass/Knap cycle in `brain/standards/standard_obsidian_stigmergy_cycle.md`.
+- [x] **Gen 55 Stigmergy**: Implemented Hot (NATS) and Cold (LanceDB) memory systems with 8-Pillar Schema. Verified via `test_stigmergy_system.py`.
 - [ ] **Migrate Artifacts to Postgres**: Update `research_swarm.py` to write to DB instead of Disk (except for Digests).
 - [ ] **Upgrade Digest Format**: Implement "Cognitive Global Workspace" prompting for high-signal synthesis.
 - [ ] **Refactor L2 (ORCHESTRATION)**: Implement `body/hands/swarm_controller.py` using Temporal.

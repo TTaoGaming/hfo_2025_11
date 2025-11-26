@@ -29,6 +29,10 @@ test-all: guards
 	@$(PYTHON) venom/test_fractal_quorum.py
 	@echo "✨ All Smoke Tests Passed!"
 
+micro-swarm:
+	@echo "🔬 Testing Micro-Swarm Concurrency (8 Agents)..."
+	@$(PYTHON) venom/test_swarm_concurrency.py
+
 test-ray:
 	@$(PYTHON) venom/smoke/test_01_ray.py
 
