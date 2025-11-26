@@ -63,6 +63,10 @@ ingest-horizon:
 	@echo "📥 Ingesting Obsidian Horizon..."
 	@PYTHONPATH=. $(PYTHON) scripts/ingest_obsidian_horizon.py
 
+ingest-prey:
+	@echo "📥 Ingesting 1-1-1-1 PREY Loop Intent..."
+	@KMP_DUPLICATE_LIB_OK=TRUE OMP_NUM_THREADS=1 PYTHONPATH=. $(PYTHON) buds/hfo_gem_gen_55/scripts/ingest_prey_loop.py
+
 memory-query:
 	@echo "🧠 Querying Swarmlord Memory..."
 	@read -p "Enter query: " query; \
