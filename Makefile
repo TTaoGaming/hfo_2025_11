@@ -85,6 +85,16 @@ test-dspy:
 test-gitops:
 	@$(PYTHON) venom/smoke/test_09_gitops.py
 
+# --- 🧬 Gen 55 Workflows ---
+
+test-prey-1111:
+	@echo "🧪 Testing PREY 1-1-1-1 (Atomic Loop)..."
+	@PYTHONPATH=. $(PYTHON) buds/hfo_gem_gen_55/body/hands/cleanroom_prey_1111.py
+
+test-prey-8888:
+	@echo "🧪 Testing PREY 8-8-8-8 (Fractal Squad)..."
+	@PYTHONPATH=. $(PYTHON) buds/hfo_gem_gen_55/body/hands/cleanroom_prey_8888.py
+
 # --- 🧬 Stem Cell Factory (Regeneration) ---
 
 regenerate-agent:
