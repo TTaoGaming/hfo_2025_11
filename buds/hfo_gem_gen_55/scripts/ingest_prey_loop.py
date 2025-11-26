@@ -1,8 +1,14 @@
 import os
 
-# Fix for OMP Error
+# Fix for OMP Error: Must be set before importing libraries that use OpenMP
 os.environ['KMP_DUPLICATE_LIB_OK'] = 'True'
 os.environ['OMP_NUM_THREADS'] = '1'
+
+# CRITICAL: Import torch before lancedb to prevent OMP Error #13
+try:
+    import torch
+except ImportError:
+    pass
 
 import sys
 
@@ -15,11 +21,12 @@ def ingest_prey_loop():
     print("🦅 Ingesting 1-1-1-1 PREY Loop Intent into Lvl 0 Stigmergy...")
 
     # Initialize Memory
-    # Note: Adjust db_path if necessary. The previous script used "memory/lancedb" relative to the root?
-    # The previous script was in buds/hfo_gem_gen_55/scripts/ and used "memory/lancedb".
-    # But HFOStigmergyMemory likely expects a path relative to where the script is run or absolute.
-    # Let's assume running from repo root.
-    memory = HFOStigmergyMemory(db_path="memory/lancedb")
+    # Use absolute path to root memory/lancedb to ensure we write to the correct DB
+    root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../.."))
+    db_path = os.path.join(root_dir, "memory/lancedb")
+    print(f"Using LanceDB at: {db_path}")
+    
+    memory = HFOStigmergyMemory(db_path=db_path)
 
     base_path = "buds/hfo_gem_gen_55"
     
@@ -59,12 +66,12 @@ def ingest_prey_loop():
 
     for artifact in artifacts:
         print(f"  -> Storing {artifact['payload']['title']}...")
-        memory.store_artifact(
+        memory.store(
             section=artifact["section"],
             payload=artifact["payload"]
         )
-
-    print("✅ Ingestion Complete.")
+    
+    print("✅ Ingestion Complete!")
 
 if __name__ == "__main__":
     ingest_prey_loop()
