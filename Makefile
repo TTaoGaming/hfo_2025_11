@@ -98,7 +98,20 @@ garden:
 	@$(PYTHON) body/digestion/graph_gardener.py
 
 heal: weave garden audit
-	@echo "✨ Hive Healed."
+
+# --- ⚡ Stigmergy System (Gen 55) ---
+
+stigmergy-setup:
+	@echo "⚡ Setting up Stigmergy Infrastructure (NATS + LanceDB)..."
+	@PYTHONPATH=. $(PYTHON) buds/hfo_gem_gen_55/scripts/setup_stigmergy.py
+
+stigmergy-assimilator:
+	@echo "⚡ Starting Stigmergy Assimilator (Hot -> Cold)..."
+	@PYTHONPATH=. $(PYTHON) buds/hfo_gem_gen_55/scripts/run_assimilator.py
+
+stigmergy-test:
+	@echo "⚡ Testing Stigmergy System (8 Pillars)..."
+	@PYTHONPATH=. $(PYTHON) buds/hfo_gem_gen_55/venom/tests/test_stigmergy_system.py
 
 # --- 🛡️ GitOps ---
 

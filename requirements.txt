@@ -9,6 +9,7 @@ pydantic-settings>=2.0.0 # Settings Management
 
 # --- The Nervous System (Messaging & Memory) ---
 nats-py>=2.6.0          # NATS JetStream Client
+lancedb>=0.5.0          # Vector Database (Cold Stigmergy)
 asyncpg>=0.29.0         # Async Postgres Driver
 psycopg2-binary>=2.9.9  # Sync Postgres Driver (for tools)
 pgvector>=0.2.4         # PGVector Python Client

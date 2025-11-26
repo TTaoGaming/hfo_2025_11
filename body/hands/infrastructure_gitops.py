@@ -232,14 +232,15 @@ class GitOpsAgent:
 
         # 7. Push with Resilience
         logger.info("☁️  Pushing to cloud...")
+        current_branch = self.run_command("git rev-parse --abbrev-ref HEAD")
         try:
-            self.run_command("git push origin main")
+            self.run_command(f"git push origin {current_branch}")
             logger.info("✅ Push Successful.")
         except subprocess.CalledProcessError:
             logger.warning("⚠️  Push failed. Attempting Pull --rebase...")
             try:
-                self.run_command("git pull --rebase origin main")
-                self.run_command("git push origin main")
+                self.run_command(f"git pull --rebase origin {current_branch}")
+                self.run_command(f"git push origin {current_branch}")
                 logger.info("✅ Push Successful after Rebase.")
             except subprocess.CalledProcessError:
                 logger.error("❌ GitOps Failed. Manual intervention required.")
