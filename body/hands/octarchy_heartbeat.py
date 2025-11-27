@@ -74,8 +74,10 @@ class OctarchyAgent:
         self.start_delay = int(agent_id.split("_")[-1]) * 0.5
 
         # Sensory Memory (The "Ear")
-        self.sensory_memory = deque(maxlen=24)  # Remember last ~3 cycles of the swarm
-        self.known_peers = set()
+        self.sensory_memory: deque = deque(
+            maxlen=24
+        )  # Remember last ~3 cycles of the swarm
+        self.known_peers: set = set()
 
     def get_mountain_time(self) -> str:
         # Mountain Time (US) is UTC-7
@@ -175,18 +177,23 @@ class OctarchyAgent:
 
             # Convergence Check: Are we all chanting the same Mantra?
             consensus_count = 0
+            disagreeing_peers = []
             for s in peer_yields:
                 if MANTRA_HASH in s.get("content", ""):
                     consensus_count += 1
+                else:
+                    disagreeing_peers.append(s.get("agent_id"))
 
             quorum_status = (
                 "QUORUM_REACHED" if len(active_peers) >= 5 else "SEEKING_PEERS"
             )
-            perception_msg = f"Perceived {len(peer_yields)} peer artifacts from {len(active_peers)} unique peers. Consensus: {consensus_count}"
+            perception_msg = f"Perceived {len(peer_yields)} peer artifacts from {len(active_peers)} unique peers. Consensus: {consensus_count}/{len(active_peers)}. Disagreements: {disagreeing_peers}"
 
             # DEBUG LOG
             if len(active_peers) > 0:
-                logger.info(f"[{self.agent_id}] Active Peers: {active_peers}")
+                logger.info(
+                    f"[{self.agent_id}] Active Peers: {active_peers} | Consensus: {consensus_count}"
+                )
 
             await self.emit_heartbeat(
                 "Perceive", perception_msg, quorum_status, connected_peers=active_peers
@@ -198,6 +205,13 @@ class OctarchyAgent:
             # Explicitly mention peers to show interaction
             peer_list_str = ", ".join(sorted(active_peers)) if active_peers else "None"
             plan = f"Aligning with {len(active_peers)} peers ({peer_list_str}). Reinforcing HFO Identity."
+
+            # Log the conversation
+            if len(active_peers) > 0:
+                logger.info(
+                    f"[{self.agent_id}] Talking to swarm: 'I see you {peer_list_str}. I am aligning.'"
+                )
+
             await self.emit_heartbeat(
                 "React", f"Plan: {plan}", quorum_status, connected_peers=active_peers
             )
@@ -242,16 +256,32 @@ async def main():
         nc = await nats.connect(NATS_URL)
         js = nc.jetstream()
 
-        # Ensure Stream Exists
-        await js.add_stream(
-            name="HIVE_MIND",
-            subjects=["hfo.mission.>", "hfo.heartbeat.>"],
-            config=StreamConfig(
-                retention=RetentionPolicy.LIMITS,
-                max_age=3600 * 24,  # 24 Hour TTL
-                storage="file",
-            ),
-        )
+        # Ensure Stream Exists (Idempotent)
+        try:
+            await js.add_stream(
+                name="HIVE_MIND",
+                subjects=["hfo.mission.>", "hfo.heartbeat.>"],
+                config=StreamConfig(
+                    retention=RetentionPolicy.LIMITS,
+                    max_age=3600 * 24,  # 24 Hour TTL
+                    storage="file",
+                ),
+            )
+        except Exception:
+            # If stream exists, try to update it, or just ignore if it matches
+            try:
+                await js.update_stream(
+                    name="HIVE_MIND",
+                    subjects=["hfo.mission.>", "hfo.heartbeat.>"],
+                    config=StreamConfig(
+                        retention=RetentionPolicy.LIMITS,
+                        max_age=3600 * 24,
+                        storage="file",
+                    ),
+                )
+            except Exception:
+                pass  # Assume it's fine
+
         logger.info("✅ Connected to NATS JetStream (Hot Stigmergy).")
     except Exception as e:
         logger.error(f"❌ NATS Connection Failed: {e}")
