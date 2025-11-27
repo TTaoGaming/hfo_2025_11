@@ -173,3 +173,19 @@ research:
 karmic-hunt:
 	@echo "🕸️ Initiating Karmic Hunt for: $(intent)"
 	@. .env && PYTHONPATH=. $(PYTHON) body/hands/obsidian_research_swarm.py --mission "KARMIC HUNT: $(intent). Use Cynefin to categorize the domain. Search for 'Exemplars' (Biomimicry, Open Source, Industry Standards). Synthesize a report with specific precedents."
+
+heartbeat:
+	@echo "💓 Starting Octarchy Heartbeat (8 Agents)..."
+	@PYTHONPATH=. $(PYTHON) body/hands/octarchy_heartbeat.py
+
+heartbeat-dashboard:
+	@echo "📊 Starting Heartbeat Dashboard..."
+	@PYTHONPATH=. $(PYTHON) body/hands/swarm_dashboard_server.py
+
+heartbeat-summary:
+	@echo "📈 Generating Heartbeat Summary..."
+	@PYTHONPATH=. $(PYTHON) body/hands/heartbeat_summary.py --minutes $(or $(MINUTES), 5)
+
+guard-heartbeat:
+	@echo "🛡️ Launching Heartbeat Guard..."
+	@$(PYTHON) body/hands/guard_heartbeat.py

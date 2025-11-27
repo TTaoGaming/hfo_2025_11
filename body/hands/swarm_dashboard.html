@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HFO Octarchy Swarm Monitor</title>
+    <style>
+        :root {
+            --bg-color: #0f0f12;
+            --card-bg: #1a1a1f;
+            --text-color: #e0e0e0;
+            --accent-color: #00ff9d;
+            --pulse-color: #00ff9d;
+            --dim-color: #444;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--dim-color);
+            padding-bottom: 10px;
+        }
+        h1 { margin: 0; font-size: 1.5rem; color: var(--accent-color); }
+        .status { font-size: 0.8rem; color: #888; }
+
+        /* Main Layout */
+        .container {
+            display: flex;
+            flex: 1;
+            gap: 20px;
+            height: calc(100% - 60px);
+        }
+
+        /* Left & Right Columns for Chat Logs */
+        .column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            overflow-y: auto;
+        }
+
+        /* Center Column for Visualization */
+        .center-stage {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        #quorum-indicator {
+            position: absolute;
+            top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background: #111;
+            border: 1px solid #333;
+            transition: all 0.5s ease;
+        }
+        .quorum-seeking { color: #ffaa00; border-color: #ffaa00; box-shadow: 0 0 5px #ffaa00; }
+        .quorum-reached { color: #aaffaa; border-color: #aaffaa; box-shadow: 0 0 15px #aaffaa; }
+
+        /* Chat Box Styles */
+        .agent-log {
+            background-color: var(--card-bg);
+            border: 1px solid var(--dim-color);
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 0.75rem;
+            height: 25%; /* 4 agents per column */
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .agent-header {
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .log-content {
+            flex: 1;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .log-entry { margin-bottom: 4px; border-bottom: 1px solid #222; padding-bottom: 2px; }
+        .phase-perceive { color: #aaddff; }
+        .phase-react { color: #ffffaa; }
+        .phase-execute { color: #ffaaaa; }
+        .phase-yield { color: #aaffaa; }
+
+        /* SVG Visualization */
+        svg {
+            width: 100%;
+            height: 100%;
+            max-height: 600px;
+        }
+        .node {
+            fill: #222;
+            stroke: #444;
+            stroke-width: 2px;
+            transition: all 0.2s ease;
+        }
+        .node.active {
+            fill: #444;
+            stroke: #fff;
+            stroke-width: 4px;
+            filter: drop-shadow(0 0 8px rgba(255,255,255,0.5));
+        }
+        .link {
+            stroke: #333;
+            stroke-width: 1px;
+            opacity: 0.3;
+            transition: all 0.2s ease;
+        }
+        .link.active {
+            stroke: #00ffff;
+            stroke-width: 3px;
+            opacity: 1.0;
+            filter: drop-shadow(0 0 5px #00ffff);
+        }
+        text {
+            fill: #888;
+            font-size: 12px;
+            text-anchor: middle;
+            dominant-baseline: middle;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🦅 HFO OCTARCHY SWARM MONITOR 🕸⛰</h1>
+        <div class="status">Initializing...</div>
+        <div id="debug-info" style="font-size: 0.8em; color: #666; margin-top: 5px;"></div>
+    </header>
+
+    <div class="container">
+        <!-- Left Column: Agents 0-3 -->
+        <div class="column" id="col-left">
+            <div class="agent-log" id="log-agent_0"><div class="agent-header"><span>AGENT 0</span><span class="state">OFFLINE</span></div><div class="log-content"></div></div>
+            <div class="agent-log" id="log-agent_1"><div class="agent-header"><span>AGENT 1</span><span class="state">OFFLINE</span></div><div class="log-content"></div></div>
+            <div class="agent-log" id="log-agent_2"><div class="agent-header"><span>AGENT 2</span><span class="state">OFFLINE</span></div><div class="log-content"></div></div>
+            <div class="agent-log" id="log-agent_3"><div class="agent-header"><span>AGENT 3</span><span class="state">OFFLINE</span></div><div class="log-content"></div></div>
+        </div>
+
+        <!-- Center Stage: Visualization -->
+        <div class="center-stage">
+            <div id="quorum-indicator">QUORUM: SEEKING</div>
+            <svg id="swarm-viz" viewBox="-200 -200 400 400"></svg>
+        </div>
+
+        <!-- Right Column: Agents 4-7 -->
+        <div class="column" id="col-right">
+            <div class="agent-log" id="log-agent_4"><div class="agent-header"><span>AGENT 4</span><span class="state">OFFLINE</span></div><div class="log-content"></div></div>
+            <div class="agent-log" id="log-agent_5"><div class="agent-header"><span>AGENT 5</span><span class="state">OFFLINE</span></div><div class="log-content"></div></div>
+            <div class="agent-log" id="log-agent_6"><div class="agent-header"><span>AGENT 6</span><span class="state">OFFLINE</span></div><div class="log-content"></div></div>
+            <div class="agent-log" id="log-agent_7"><div class="agent-header"><span>AGENT 7</span><span class="state">OFFLINE</span></div><div class="log-content"></div></div>
+        </div>
+    </div>
+
+    <script>
+        const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+        const wsUrl = `${protocol}//${window.location.host}/ws`;
+        const debugDiv = document.getElementById('debug-info');
+        const statusDiv = document.querySelector('.status');
+        
+        debugDiv.textContent = `Target: ${wsUrl}`;
+
+        let ws;
+        
+        function connect() {
+            statusDiv.textContent = "Connecting...";
+            statusDiv.style.color = "#ffffaa";
+            
+            ws = new WebSocket(wsUrl);
+
+            ws.onopen = () => {
+                statusDiv.textContent = "🟢 Connected to Hive Mind | Gen 55 Synapse APEX";
+                statusDiv.style.color = "#aaffaa";
+                debugDiv.textContent += " | Open";
+            };
+
+            ws.onclose = (event) => {
+                statusDiv.textContent = "🔴 Disconnected (Retrying in 5s...)";
+                statusDiv.style.color = "#ffaaaa";
+                debugDiv.textContent += ` | Closed (${event.code})`;
+                setTimeout(connect, 5000);
+            };
+
+            ws.onerror = (error) => {
+                console.error("WebSocket Error:", error);
+                statusDiv.textContent = "⚠️ Connection Error";
+                statusDiv.style.color = "#ffaa00";
+            };
+
+            ws.onmessage = handleMessage;
+        }
+
+        const svg = document.getElementById('swarm-viz');
+        const quorumDiv = document.getElementById('quorum-indicator');
+        const agents = 8;
+        const radius = 150;
+        const nodes = [];
+
+        // Initialize SVG Ring
+        function initViz() {
+            // Create Links (Mesh)
+            for (let i = 0; i < agents; i++) {
+                for (let j = i + 1; j < agents; j++) {
+                    const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+                    line.setAttribute("id", `link-agent_${i}-agent_${j}`);
+                    line.setAttribute("class", "link");
+                    svg.appendChild(line);
+                }
+            }
+
+            // Create Nodes
+            for (let i = 0; i < agents; i++) {
+                const angle = (i / agents) * 2 * Math.PI - Math.PI / 2; // Start at top
+                const x = Math.cos(angle) * radius;
+                const y = Math.sin(angle) * radius;
+                
+                const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+                
+                const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+                circle.setAttribute("cx", x);
+                circle.setAttribute("cy", y);
+                circle.setAttribute("r", 20);
+                circle.setAttribute("class", "node");
+                circle.setAttribute("id", `node-agent_${i}`);
+                
+                const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+                text.setAttribute("x", x);
+                text.setAttribute("y", y);
+                text.textContent = i;
+
+                g.appendChild(circle);
+                g.appendChild(text);
+                svg.appendChild(g);
+
+                nodes.push({x, y, id: `agent_${i}`});
+            }
+
+            // Position Links
+            for (let i = 0; i < agents; i++) {
+                for (let j = i + 1; j < agents; j++) {
+                    const line = document.getElementById(`link-agent_${i}-agent_${j}`);
+                    line.setAttribute("x1", nodes[i].x);
+                    line.setAttribute("y1", nodes[i].y);
+                    line.setAttribute("x2", nodes[j].x);
+                    line.setAttribute("y2", nodes[j].y);
+                }
+            }
+        }
+
+        initViz();
+        connect();
+
+        // Handle WebSocket Messages
+        function handleMessage(event) {
+            const data = JSON.parse(event.data);
+            const agentId = data.agent_id;
+            const phase = data.phase;
+            const content = data.content;
+            const peers = data.connected_peers || [];
+            const quorumStatus = data.quorum_status || "UNKNOWN";
+            const timestamp = new Date().toLocaleTimeString();
+
+            // Update Quorum Indicator
+            if (quorumStatus === "QUORUM_REACHED") {
+                quorumDiv.textContent = "QUORUM: REACHED";
+                quorumDiv.className = "quorum-reached";
+            } else {
+                quorumDiv.textContent = "QUORUM: SEEKING";
+                quorumDiv.className = "quorum-seeking";
+            }
+
+            // Update Log
+            const logDiv = document.getElementById(`log-${agentId}`);
+            if (logDiv) {
+                const contentDiv = logDiv.querySelector('.log-content');
+                const stateSpan = logDiv.querySelector('.state');
+                
+                stateSpan.textContent = phase.toUpperCase();
+                stateSpan.style.color = getPhaseColor(phase);
+
+                const entry = document.createElement('div');
+                entry.className = 'log-entry';
+                entry.innerHTML = `<span style="color:#888">[${timestamp}]</span> <span class="phase-${phase.toLowerCase()}">${phase}</span>: ${content}`;
+                contentDiv.appendChild(entry);
+                contentDiv.scrollTop = contentDiv.scrollHeight;
+
+                // Trim logs
+                if (contentDiv.children.length > 50) {
+                    contentDiv.removeChild(contentDiv.firstChild);
+                }
+
+                // Pulse Node
+                pulseNode(agentId, phase);
+                
+                // Pulse Links based on connected peers
+                peers.forEach(peerId => {
+                    pulseLink(agentId, peerId);
+                });
+            }
+        };
+
+        function getPhaseColor(phase) {
+            switch(phase) {
+                case 'Perceive': return '#aaddff';
+                case 'React': return '#ffffaa';
+                case 'Execute': return '#ffaaaa';
+                case 'Yield': return '#aaffaa';
+                default: return '#fff';
+            }
+        }
+
+        function pulseNode(agentId, phase) {
+            const node = document.getElementById(`node-${agentId}`);
+            if (node) {
+                node.classList.add('active');
+                node.style.stroke = getPhaseColor(phase);
+                setTimeout(() => {
+                    node.classList.remove('active');
+                    node.style.stroke = '#444';
+                }, 300);
+            }
+        }
+
+        function pulseLink(id1, id2) {
+            // Ensure consistent ordering for link ID
+            const [a, b] = [id1, id2].sort();
+            const link = document.getElementById(`link-${a}-${b}`);
+            if (link) {
+                link.classList.add('active');
+                setTimeout(() => link.classList.remove('active'), 300);
+            }
+        }
+    </script>
+</body>
+</html>
