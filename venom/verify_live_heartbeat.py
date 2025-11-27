@@ -25,9 +25,10 @@ logger = logging.getLogger("VenomLiveVerify")
 import uuid
 from nats.js.api import ConsumerConfig, DeliverPolicy
 
+
 async def verify_live_stream():
     logger.info("🐍 Venom: Connecting to LIVE Stigmergy Layer...")
-    
+
     client = StigmergyClient()
     try:
         await client.connect()
@@ -37,20 +38,18 @@ async def verify_live_stream():
 
     subject = "hfo.heartbeat.>"
     logger.info(f"🔍 Fetching history for subject: {subject}")
-    
+
     # Manually create a consumer to ensure we get ALL history
     js = client.js
     unique_consumer = f"venom_verifier_{uuid.uuid4().hex[:8]}"
-    
+
     try:
         sub = await js.pull_subscribe(
-            subject, 
+            subject,
             durable=unique_consumer,
-            config=ConsumerConfig(
-                deliver_policy=DeliverPolicy.ALL
-            )
+            config=ConsumerConfig(deliver_policy=DeliverPolicy.ALL),
         )
-        
+
         msgs = []
         try:
             fetched = await sub.fetch(10, timeout=2)
@@ -58,10 +57,10 @@ async def verify_live_stream():
                 msgs.append(json.loads(msg.data.decode()))
                 await msg.ack()
         except Exception:
-            pass # Timeout
+            pass  # Timeout
 
         history = msgs
-        
+
         if not history:
             logger.warning("⚠️ No heartbeats found in the stream yet.")
         else:
@@ -73,7 +72,7 @@ async def verify_live_stream():
                     phase = msg.get("phase", "Unknown")
                     delta = msg.get("delta_seconds", -1.0)
                     mantra_hash = msg.get("mantra_hash", "Missing")
-                    
+
                     logger.info(f"\n--- Signal {i+1} ---")
                     logger.info(f"   Phase: {phase}")
                     logger.info(f"   Delta: {delta:.4f}s")
@@ -81,11 +80,12 @@ async def verify_live_stream():
                     logger.info(f"   Content: {content[:60]}...")
                 except Exception as e:
                     logger.error(f"Error parsing message: {e}")
-                    
+
     except Exception as e:
         logger.error(f"Subscription error: {e}")
 
     await client.close()
+
 
 if __name__ == "__main__":
     asyncio.run(verify_live_stream())

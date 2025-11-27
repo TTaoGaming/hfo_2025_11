@@ -1,12 +1,10 @@
 import asyncio
 import json
 import os
-import sys
 import logging
 import hashlib
-from datetime import datetime
-from typing import Dict, Any, Optional, Literal
-from pydantic import BaseModel, Field
+from typing import Dict, Any, Optional
+from pydantic import BaseModel
 from nats.aio.client import Client as NATS
 
 # Setup Logging
@@ -26,6 +24,7 @@ A Prescient Path in State-Action Space,
 One Mind, One Swarm, in time and place."""
 EXPECTED_HASH = hashlib.sha256(MANTRA.encode("utf-8")).hexdigest()
 
+
 # --- Models (Mirrored from cleanroom_prey_1111.py) ---
 class StigmergyPillars(BaseModel):
     ontos: Dict[str, Any]
@@ -37,6 +36,7 @@ class StigmergyPillars(BaseModel):
     ethos: Dict[str, Any]
     techne: Dict[str, Any]
 
+
 class HeartbeatSignal(BaseModel):
     id: str
     timestamp: str
@@ -47,7 +47,9 @@ class HeartbeatSignal(BaseModel):
     previous_signal_id: Optional[str] = None
     delta_seconds: float = 0.0
 
+
 # --- Guard Logic ---
+
 
 class HeartbeatGuard:
     def __init__(self):
@@ -57,7 +59,7 @@ class HeartbeatGuard:
 
     def check_signal(self, signal: HeartbeatSignal):
         status_flags = []
-        
+
         # 1. Check Mantra Hash
         if signal.mantra_hash != EXPECTED_HASH:
             status_flags.append("❌ BAD_HASH")
@@ -70,9 +72,11 @@ class HeartbeatGuard:
                 status_flags.append("🔗 CHAIN_OK")
                 self.chain_length += 1
             else:
-                status_flags.append(f"💔 CHAIN_BROKEN (Exp: {self.last_signal.id[:8]}..., Got: {str(signal.previous_signal_id)[:8]}...)")
+                status_flags.append(
+                    f"💔 CHAIN_BROKEN (Exp: {self.last_signal.id[:8]}..., Got: {str(signal.previous_signal_id)[:8]}...)"
+                )
                 self.broken_links += 1
-                self.chain_length = 0 # Reset chain count
+                self.chain_length = 0  # Reset chain count
         else:
             status_flags.append("🆕 CHAIN_START")
             self.chain_length = 1
@@ -80,15 +84,15 @@ class HeartbeatGuard:
         # 3. Check Timing vs Cynefin State
         cynefin = signal.pillars.techne.get("complexity", "Unknown")
         delta = signal.delta_seconds
-        
+
         # Define expected ranges (allowing for some jitter/execution time)
         # Chaotic: ~5s
         # Others: ~60s
         timing_status = "❓ UNKNOWN_STATE"
-        
+
         if cynefin == "Chaotic":
             # Allow 4s to 10s (execution time might add up)
-            if 4.0 <= delta <= 15.0: 
+            if 4.0 <= delta <= 15.0:
                 timing_status = "✅ TIMING_OK (Chaotic)"
             elif delta < 4.0:
                 timing_status = "⚠️ TOO_FAST (Chaotic)"
@@ -102,7 +106,7 @@ class HeartbeatGuard:
                 timing_status = f"⚠️ TOO_FAST ({cynefin})"
             else:
                 timing_status = f"⚠️ TOO_SLOW ({cynefin}, {delta:.2f}s)"
-        
+
         # Special case for first signal or very long gaps (start of loop)
         if "CHAIN_START" in status_flags or delta == 0.0:
             timing_status = "ℹ️ FIRST_PULSE"
@@ -118,10 +122,11 @@ class HeartbeatGuard:
 
         self.last_signal = signal
 
+
 async def main():
     nats_url = os.getenv("NATS_URL", "nats://localhost:4225")
     nc = NATS()
-    
+
     try:
         await nc.connect(servers=[nats_url])
         logger.info(f"🛡️ Hive Guard Connected to NATS at {nats_url}")
@@ -146,6 +151,7 @@ async def main():
     # Keep running
     while True:
         await asyncio.sleep(1)
+
 
 if __name__ == "__main__":
     try:

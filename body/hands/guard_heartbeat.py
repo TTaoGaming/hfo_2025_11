@@ -5,7 +5,6 @@ import os
 import hashlib
 from datetime import datetime
 import nats
-from nats.errors import ConnectionClosedError, TimeoutError, NoRespondersError
 
 # --- Configuration ---
 NATS_URL = os.getenv("NATS_URL", "nats://localhost:4225")
@@ -18,15 +17,25 @@ Obsidian Hourglass, the Engine of Fate.
 A Prescient Path in State-Action Space,
 One Mind, One Swarm, in time and place."""
 EXPECTED_HASH = hashlib.sha256(MANTRA.encode("utf-8")).hexdigest()
-REQUIRED_PILLARS = {"ontos", "chronos", "topos", "telos", "logos", "pathos", "ethos", "techne"}
+REQUIRED_PILLARS = {
+    "ontos",
+    "chronos",
+    "topos",
+    "telos",
+    "logos",
+    "pathos",
+    "ethos",
+    "techne",
+}
 
 # Setup Logging
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s",
-    datefmt="%H:%M:%S"
+    datefmt="%H:%M:%S",
 )
 logger = logging.getLogger("HiveGuard")
+
 
 class HeartbeatGuard:
     def __init__(self):
@@ -37,7 +46,7 @@ class HeartbeatGuard:
             data = json.loads(msg.data.decode())
             subject = msg.subject
             agent_id = data.get("agent_id", "unknown")
-            
+
             # 1. Check Mantra Hash
             if data.get("mantra_hash") != EXPECTED_HASH:
                 logger.warning(f"⚠️ [Integrity] Invalid Mantra Hash from {agent_id}!")
@@ -47,7 +56,9 @@ class HeartbeatGuard:
             pillars = data.get("pillars", {})
             missing_pillars = REQUIRED_PILLARS - pillars.keys()
             if missing_pillars:
-                logger.warning(f"⚠️ [Structure] Missing Pillars from {agent_id}: {missing_pillars}")
+                logger.warning(
+                    f"⚠️ [Structure] Missing Pillars from {agent_id}: {missing_pillars}"
+                )
                 return
 
             # 3. Check Time Regression
@@ -56,10 +67,12 @@ class HeartbeatGuard:
                 # Handle ISO format with potential timezone info
                 current_ts = datetime.fromisoformat(timestamp_str)
                 last_ts = self.agent_timestamps.get(agent_id)
-                
+
                 if last_ts and current_ts < last_ts:
-                     logger.error(f"🚨 [Chronos] Time Regression detected for {agent_id}! {current_ts} < {last_ts}")
-                
+                    logger.error(
+                        f"🚨 [Chronos] Time Regression detected for {agent_id}! {current_ts} < {last_ts}"
+                    )
+
                 self.agent_timestamps[agent_id] = current_ts
             except Exception as e:
                 logger.warning(f"⚠️ [Chronos] Time parse error for {agent_id}: {e}")
@@ -72,9 +85,10 @@ class HeartbeatGuard:
         except Exception as e:
             logger.error(f"❌ [Unknown] Validation Error: {e}")
 
+
 async def main():
     logger.info("🛡️ Hive Guard: Initializing Heartbeat Monitor...")
-    
+
     try:
         nc = await nats.connect(NATS_URL)
         logger.info(f"✅ Connected to NATS at {NATS_URL}")
@@ -95,6 +109,7 @@ async def main():
     # Keep alive
     while True:
         await asyncio.sleep(1)
+
 
 if __name__ == "__main__":
     try:

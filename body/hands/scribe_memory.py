@@ -1,9 +1,6 @@
 import asyncio
 import logging
-import os
-import json
 import time
-from datetime import datetime
 import lancedb
 from lancedb.pydantic import LanceModel, Vector
 from pydantic import Field
@@ -16,14 +13,18 @@ TABLE_NAME = "hfo_memory"
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("MemoryScribe")
 
+
 # --- LanceDB Schema ---
 class MemoryGem(LanceModel):
     id: str = Field(..., description="Unique ID (UUID)")
     content: str = Field(..., description="The text content of the memory")
-    vector: Vector(270) = Field(..., description="Embedding Vector (Mock 270 dim for gemma3:270m)")
+    vector: Vector(270) = Field(  # type: ignore
+        ..., description="Embedding Vector (Mock 270 dim for gemma3:270m)"
+    )
     agent_id: str = Field(..., description="Who created this memory")
     timestamp: float = Field(..., description="Unix timestamp")
     tags: str = Field(..., description="Comma-separated tags")
+
 
 class MemoryScribe:
     def __init__(self):
@@ -41,17 +42,17 @@ class MemoryScribe:
         """Ingests a summary into the Long-Term Memory."""
         # Mock Embedding (In real life, use ollama.embeddings)
         # We use 270 dimensions to match the 'gemma3:270m' theme, though real embeddings are usually 768 or 1024
-        mock_vector = [0.1] * 270 
-        
+        mock_vector = [0.1] * 270
+
         gem = MemoryGem(
             id=f"mem_{int(time.time())}",
             content=summary,
             vector=mock_vector,
             agent_id=agent_id,
             timestamp=time.time(),
-            tags="summary,context,hfo"
+            tags="summary,context,hfo",
         )
-        
+
         self.table.add([gem])
         logger.info(f"💎 Ingested Memory: {summary[:50]}...")
 
@@ -62,9 +63,10 @@ class MemoryScribe:
         results = self.table.search().limit(limit).to_pandas()
         return results
 
+
 async def main():
     scribe = MemoryScribe()
-    
+
     summary = """
     PROJECT SUMMARY (Nov 26, 2025):
     We are building the 'Fractal Heartbeat' of Hive Fleet Obsidian.
@@ -75,9 +77,10 @@ async def main():
     Goal: A 24/7 living system where 8 agents chant the HFO Mantra and maintain identity.
     Constraint: 8GB RAM 'Blast Shield'. Using 'gemma3:270m' or Python Logic.
     """
-    
+
     scribe.ingest_summary(summary)
     logger.info("✅ Context Saved to LanceDB.")
+
 
 if __name__ == "__main__":
     asyncio.run(main())

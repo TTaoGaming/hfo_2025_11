@@ -48,6 +48,9 @@ memory/episodic/
 !memory/episodic/README.md
 !memory/episodic/.gitkeep
 
+# LanceDB Data
+memory/lancedb/
+
 # Memory Missions
 memory/missions/
 !memory/missions/README.md

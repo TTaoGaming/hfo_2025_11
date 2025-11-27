@@ -179,15 +179,15 @@
         const wsUrl = `${protocol}//${window.location.host}/ws`;
         const debugDiv = document.getElementById('debug-info');
         const statusDiv = document.querySelector('.status');
-        
+
         debugDiv.textContent = `Target: ${wsUrl}`;
 
         let ws;
-        
+
         function connect() {
             statusDiv.textContent = "Connecting...";
             statusDiv.style.color = "#ffffaa";
-            
+
             ws = new WebSocket(wsUrl);
 
             ws.onopen = () => {
@@ -235,16 +235,16 @@
                 const angle = (i / agents) * 2 * Math.PI - Math.PI / 2; // Start at top
                 const x = Math.cos(angle) * radius;
                 const y = Math.sin(angle) * radius;
-                
+
                 const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
-                
+
                 const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
                 circle.setAttribute("cx", x);
                 circle.setAttribute("cy", y);
                 circle.setAttribute("r", 20);
                 circle.setAttribute("class", "node");
                 circle.setAttribute("id", `node-agent_${i}`);
-                
+
                 const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
                 text.setAttribute("x", x);
                 text.setAttribute("y", y);
@@ -296,7 +296,7 @@
             if (logDiv) {
                 const contentDiv = logDiv.querySelector('.log-content');
                 const stateSpan = logDiv.querySelector('.state');
-                
+
                 stateSpan.textContent = phase.toUpperCase();
                 stateSpan.style.color = getPhaseColor(phase);
 
@@ -313,7 +313,7 @@
 
                 // Pulse Node
                 pulseNode(agentId, phase);
-                
+
                 // Pulse Links based on connected peers
                 peers.forEach(peerId => {
                     pulseLink(agentId, peerId);
