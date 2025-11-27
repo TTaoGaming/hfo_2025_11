@@ -39,3 +39,10 @@ repos:
         language: system
         pass_filenames: false
         always_run: true
+
+    -   id: guard-heartbeat
+        name: 💓 Heartbeat Continuity Guard
+        entry: python venom/guard_heartbeat_continuity.py
+        language: system
+        pass_filenames: false
+        always_run: true
