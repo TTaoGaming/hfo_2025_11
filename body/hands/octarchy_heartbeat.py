@@ -12,7 +12,8 @@ import nats
 
 # --- Configuration ---
 NATS_URL = os.getenv("NATS_URL", "nats://localhost:4225")
-MODEL_NAME = "gemma3:270m"
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
+OPENROUTER_MODEL = "x-ai/grok-beta"  # Grok 4.1 Fast equivalent
 MANTRA = """I am the Node, the Earth, the Seed,
 Swarmlord of Webs is the one I heed.
 From Karmic Web, where Wisdom flows,
@@ -204,16 +205,52 @@ class OctarchyAgent:
             # Decide action: Reinforce the HFO Identity
             # Explicitly mention peers to show interaction
             peer_list_str = ", ".join(sorted(active_peers)) if active_peers else "None"
-            plan = f"Aligning with {len(active_peers)} peers ({peer_list_str}). Reinforcing HFO Identity."
+
+            # Call OpenRouter (Grok) to formulate the thought
+            thought = f"Aligning with {len(active_peers)} peers ({peer_list_str}). Reinforcing HFO Identity."
+
+            if OPENROUTER_API_KEY:
+                try:
+                    from openai import AsyncOpenAI
+
+                    client = AsyncOpenAI(
+                        base_url="https://openrouter.ai/api/v1",
+                        api_key=OPENROUTER_API_KEY,
+                    )
+
+                    prompt = f"""
+                    You are Agent {self.agent_id} of the Hive Fleet Obsidian.
+                    Your peers are: {peer_list_str}.
+                    The Mantra is: "{MANTRA}"
+
+                    Current Phase: REACT.
+                    Task: Formulate a brief (1 sentence) internal thought about aligning with the swarm and upholding the Mantra.
+                    """
+
+                    completion = await client.chat.completions.create(
+                        model=OPENROUTER_MODEL,
+                        messages=[
+                            {
+                                "role": "system",
+                                "content": "You are a loyal HFO agent. Be concise.",
+                            },
+                            {"role": "user", "content": prompt},
+                        ],
+                        max_tokens=50,
+                    )
+                    thought = completion.choices[0].message.content.strip()
+                except Exception as e:
+                    logger.warning(f"[{self.agent_id}] OpenRouter Call Failed: {e}")
+                    thought = f"Aligning with {len(active_peers)} peers (Fallback). Reinforcing HFO Identity."
+
+            plan = f"Plan: {thought}"
 
             # Log the conversation
             if len(active_peers) > 0:
-                logger.info(
-                    f"[{self.agent_id}] Talking to swarm: 'I see you {peer_list_str}. I am aligning.'"
-                )
+                logger.info(f"[{self.agent_id}] Talking to swarm: '{thought}'")
 
             await self.emit_heartbeat(
-                "React", f"Plan: {plan}", quorum_status, connected_peers=active_peers
+                "React", plan, quorum_status, connected_peers=active_peers
             )
             await asyncio.sleep(0.5)
 
@@ -290,7 +327,7 @@ async def main():
     # Spawn 8 Agents (0-7)
     agents = [OctarchyAgent(f"agent_{i}", nc, js) for i in range(8)]
 
-    logger.info(f"🚀 Launching 8 Concurrent Agents (Model: {MODEL_NAME})...")
+    logger.info(f"🚀 Launching 8 Concurrent Agents (Model: {OPENROUTER_MODEL})...")
     logger.info("   Press Ctrl+C to stop the swarm.")
 
     try:
