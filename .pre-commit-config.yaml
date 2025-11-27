@@ -3,33 +3,33 @@ repos:
     rev: v4.5.0
     hooks:
     -   id: trailing-whitespace
-        exclude: ^eyes/archive/|^memory/episodic/gen_50_archive/|^body/hands/archive/
+        exclude: ^eyes/archive/|^memory/episodic/gen_50_archive/|^body/hands/archive/|^buds/
     -   id: end-of-file-fixer
-        exclude: ^eyes/archive/|^memory/episodic/gen_50_archive/|^body/hands/archive/
+        exclude: ^eyes/archive/|^memory/episodic/gen_50_archive/|^body/hands/archive/|^buds/
     -   id: check-yaml
-        exclude: ^eyes/archive/|^memory/episodic/gen_50_archive/|^body/hands/archive/
+        exclude: ^eyes/archive/|^memory/episodic/gen_50_archive/|^body/hands/archive/|^buds/
     -   id: check-added-large-files
-        exclude: ^eyes/archive/|^memory/episodic/gen_50_archive/|^body/hands/archive/
+        exclude: ^eyes/archive/|^memory/episodic/gen_50_archive/|^body/hands/archive/|^buds/
 
 -   repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.1.6
     hooks:
     -   id: ruff
         args: [ --fix ]
-        exclude: ^eyes/archive/|^memory/episodic/gen_50_archive/|^body/hands/archive/
+        exclude: ^eyes/archive/|^memory/episodic/gen_50_archive/|^body/hands/archive/|^buds/
 
 -   repo: https://github.com/psf/black
     rev: 23.11.0
     hooks:
     -   id: black
-        exclude: ^eyes/archive/|^memory/episodic/gen_50_archive/|^body/hands/archive/
+        exclude: ^eyes/archive/|^memory/episodic/gen_50_archive/|^body/hands/archive/|^buds/
 
 -   repo: https://github.com/pre-commit/mirrors-mypy
     rev: v1.7.1
     hooks:
     -   id: mypy
         additional_dependencies: [types-PyYAML, types-tabulate]
-        exclude: ^tests/|^eyes/archive/|^memory/episodic/gen_50_archive/|^body/hands/archive/
+        exclude: ^tests/|^eyes/archive/|^memory/episodic/gen_50_archive/|^body/hands/archive/|^buds/
 
 -   repo: local
     hooks:

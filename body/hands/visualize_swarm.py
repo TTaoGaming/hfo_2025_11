@@ -1,3 +1,26 @@
+"""
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 550e8400-e29b-41d4-a716-446655440016
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-26T12:00:00.000000Z'
+    generation: 51
+  topos:
+    address: body/hands/visualize_swarm.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: visualize_swarm.py
+"""
+
 import asyncio
 import os
 import json
@@ -43,7 +66,7 @@ async def main(stdscr):
             )
             if len(logs) > 10:
                 logs.pop(0)
-        except:
+        except Exception:
             pass
 
     await nc.subscribe("hfo.heartbeat.>", cb=handler)

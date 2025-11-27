@@ -1,9 +1,31 @@
+"""
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 550e8400-e29b-41d4-a716-446655440022
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-26T12:00:00.000000Z'
+    generation: 51
+  topos:
+    address: body/hands/test_model_coliseum.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: test_model_coliseum.py
 # ==================================================================
 # MODEL COLISEUM: The Stigmergy Gauntlet
 # ==================================================================
 # Goal: Benchmark Local Models for Swarm Intelligence vs. Efficiency
 # Constraint: 8GB RAM Total (Target < 6GB Usage)
 # ==================================================================
+"""
 
 import asyncio
 import time
@@ -70,7 +92,7 @@ class GladiatorAgent:
         }
 
         try:
-            resp = await self.client.chat.completions.create(
+            _ = await self.client.chat.completions.create(
                 model=self.model,
                 response_model=StigmergySignal,
                 messages=[{"role": "user", "content": prompt}],

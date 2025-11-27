@@ -95,6 +95,10 @@ test-prey-8888:
 	@echo "🧪 Testing PREY 8-8-8-8 (Fractal Squad)..."
 	@PYTHONPATH=. $(PYTHON) buds/hfo_gem_gen_55/body/hands/cleanroom_prey_8888.py
 
+heartbeat-247:
+	@echo "💓 Starting 24/7 Heartbeat (Gen 55)..."
+	@PYTHONPATH=. $(PYTHON) buds/hfo_gem_gen_55/body/hands/cleanroom_prey_1111.py --heartbeat-only
+
 # --- 🧬 Stem Cell Factory (Regeneration) ---
 
 regenerate-agent:

@@ -1,3 +1,26 @@
+"""
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 550e8400-e29b-41d4-a716-446655440021
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-26T12:00:00.000000Z'
+    generation: 51
+  topos:
+    address: body/hands/heartbeat_summary.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: heartbeat_summary.py
+"""
+
 import asyncio
 import argparse
 import json
@@ -56,7 +79,7 @@ async def main():
     try:
         # Fetch messages until we catch up or timeout
         # Since we don't know exactly how many, we'll fetch for a short duration or until no new msgs
-        start_fetch = datetime.now()
+        # start_fetch = datetime.now() <-- Removed unused variable
         while True:
             try:
                 msg = await sub.next_msg(timeout=1.0)
@@ -117,7 +140,7 @@ async def main():
 
     # Quorum Analysis
     reached_count = quorum_statuses.count("QUORUM_REACHED")
-    seeking_count = quorum_statuses.count("SEEKING_PEERS")
+    # seeking_count = quorum_statuses.count("SEEKING_PEERS") <-- Removed unused variable
     total_q = len(quorum_statuses)
     if total_q > 0:
         consensus_rate = (reached_count / total_q) * 100

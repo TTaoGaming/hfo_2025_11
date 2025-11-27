@@ -115,7 +115,7 @@ class PreyAgent:
         # Initialize LLM Client (Instructor)
         base_url = os.getenv("LLM_BASE_URL", "https://openrouter.ai/api/v1")
         api_key = os.getenv("LLM_API_KEY", os.getenv("OPENROUTER_API_KEY"))
-        
+
         self.client = instructor.from_openai(
             AsyncOpenAI(
                 base_url=base_url,

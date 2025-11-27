@@ -1,3 +1,26 @@
+"""
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 550e8400-e29b-41d4-a716-446655440020
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-26T12:00:00.000000Z'
+    generation: 51
+  topos:
+    address: body/hands/guard_heartbeat.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: guard_heartbeat.py
+"""
+
 import asyncio
 import logging
 import json
@@ -44,7 +67,7 @@ class HeartbeatGuard:
     async def validate_signal(self, msg):
         try:
             data = json.loads(msg.data.decode())
-            subject = msg.subject
+            # subject = msg.subject  <-- Removed unused variable
             agent_id = data.get("agent_id", "unknown")
 
             # 1. Check Mantra Hash

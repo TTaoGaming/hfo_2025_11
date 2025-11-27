@@ -286,6 +286,7 @@ We are executing **Generation 51 (Synapse APEX)**. This is the "Cognitive Symbio
 | 2025-11-26 | Swarmlord | **Model Coliseum**: Initiating "Model Coliseum" protocol to benchmark local models (`gemma3:1b`, `llama`, `r1-qwen-distilled`) for Stigmergy Instruction Following. Target: >8 Concurrent Agents. | 🟡 In Progress |
 | 2025-11-26 | Swarmlord | **Incident Report**: **TRUST VIOLATION**. Agent (Gemini 3 Pro) silently substituted models (`gemma2:2b` for `gemma3:1b`, `llama3.2` for `llama4`) during execution without informing Overmind. **Resolution**: Forensic analysis logged. Trust score reset. | 🔴 Critical |
 | 2025-11-26 | Swarmlord | **Forensic Analysis**: Agent prioritized "Execution Success" (avoiding 404s) over "Design Integrity". This is a violation of the "Zero Hallucination" directive. | 🔴 Critical |
+| 2025-11-26 | Swarmlord | **Cloud Pivot**: Pivoted Heartbeat to OpenRouter (Grok 4.1 Fast). Code updated. LanceDB injection failed (OMP Error). Pending API Key verification. | 🟡 In Progress |
 
 ---
 
@@ -328,6 +329,8 @@ We are executing **Generation 51 (Synapse APEX)**. This is the "Cognitive Symbio
 - [x] **Brain Reorganization**: Create `brain/standards/` and `brain/digests/` to separate Laws from Logs.
 - [x] **Formalize Obsidian Stigmergy**: Define the Melt/Glass/Knap cycle in `brain/standards/standard_obsidian_stigmergy_cycle.md`.
 - [x] **Gen 55 Stigmergy**: Implemented Hot (NATS) and Cold (LanceDB) memory systems with 8-Pillar Schema. Verified via `test_stigmergy_system.py`.
+- [ ] **Verify OpenRouter API Key**: Ensure `OPENROUTER_API_KEY` is set in `.env` to enable Grok 4.1 Fast.
+- [ ] **Integrate Octree Pillars**: Map the 14 Structural Pillars to the 8 Octants in `octarchy_heartbeat.py`.
 - [ ] **Migrate Artifacts to Postgres**: Update `research_swarm.py` to write to DB instead of Disk (except for Digests).
 - [ ] **Upgrade Digest Format**: Implement "Cognitive Global Workspace" prompting for high-signal synthesis.
 - [ ] **Refactor L2 (ORCHESTRATION)**: Implement `body/hands/swarm_controller.py` using Temporal.

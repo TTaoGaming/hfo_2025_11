@@ -46,7 +46,7 @@ logger = logging.getLogger("SquadTest")
 async def run_agent(agent_id: str, task: str):
     """Runs a single agent with the given task."""
     logger.info(f"🚀 Agent {agent_id} starting...")
-    
+
     # Initialize Agent
     agent = PreyAgent(
         agent_id=agent_id,
@@ -54,7 +54,7 @@ async def run_agent(agent_id: str, task: str):
         model_name="gemma3:270m",
         nats_url="nats://localhost:4225" # Corrected Port
     )
-    
+
     # Run the Agent
     try:
         result = await agent.run(task)
@@ -69,20 +69,20 @@ async def run_agent(agent_id: str, task: str):
 async def main():
     """Runs the 8-Agent Squad Test."""
     logger.info("🦅 Starting 8-Agent Squad Test (Local Model: gemma3:270m)")
-    
+
     task = "What is the primary function of a 'Fractal Entropy Funnel' in a cognitive architecture? Explain in 1 sentence."
-    
+
     # Create 8 Agents
     agents = [f"Agent-{i+1}" for i in range(8)]
-    
+
     # Run Concurrently
     tasks = [run_agent(agent_id, task) for agent_id in agents]
     results = await asyncio.gather(*tasks)
-    
+
     # Analyze Results
     successful = [r for r in results if r is not None]
     logger.info(f"🏁 Squad Test Complete. {len(successful)}/8 Agents succeeded.")
-    
+
     # Simple Consensus (Concatenation for now)
     logger.info("--- SQUAD CONSENSUS ---")
     for i, res in enumerate(successful):

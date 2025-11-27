@@ -81,6 +81,9 @@ organs:
       - "intent_stigmergy_thermodynamics.feature"
       - "design_hfo_stigmergy_variants.md"
       - "report_gen52_drift_analysis.md"
+      - "design_obsidian_heart.md"
+      - "design_model_coliseum.md"
+      - "living_essence_hfo.md"
     old_path: "intent/"
 
   eyes:
