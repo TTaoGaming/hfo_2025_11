@@ -1,10 +1,6 @@
-# Hive Fleet Obsidian: Generation 58 (FROZEN)
+# Hive Fleet Obsidian: Generation 59 (Evolution)
 
-**STATUS: FROZEN & STABLE (2025-11-28)**
-**DO NOT EDIT THIS GENERATION.**
-**Active Development has moved to Generation 59.**
-
-This generation is a clean slate recovery following a Sybil attack on the previous memory structures.
+This generation builds upon the stable "Holographic Quorum" of Generation 58.
 
 ## Structure
 This generation maintains the 8-fold Octree structure derived from Generation 57:
