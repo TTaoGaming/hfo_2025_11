@@ -35,9 +35,16 @@ class IronLedger:
                 generation INTEGER NOT NULL,
                 category TEXT NOT NULL,
                 tags TEXT,  -- JSON list
+                vectorized BOOLEAN DEFAULT 0,
                 timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
             )
         """)
+
+        # Migration: Add vectorized column if it doesn't exist
+        try:
+            cursor.execute("ALTER TABLE memory_items ADD COLUMN vectorized BOOLEAN DEFAULT 0")
+        except sqlite3.OperationalError:
+            pass # Column likely exists
 
         # The Level 0 Artifacts (8 PREY Agents)
         cursor.execute("""
@@ -204,6 +211,31 @@ class IronLedger:
         rows = cursor.fetchall()
         conn.close()
         return rows
+
+    def get_unvectorized_items(self, limit: int = 100) -> List[tuple]:
+        """
+        Get items that haven't been vectorized yet.
+        Returns list of (id, content, source_path, category).
+        """
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        cursor.execute("""
+            SELECT id, content, source_path, category 
+            FROM memory_items 
+            WHERE vectorized = 0 
+            LIMIT ?
+        """, (limit,))
+        rows = cursor.fetchall()
+        conn.close()
+        return rows
+
+    def mark_vectorized(self, memory_id: int):
+        """Mark an item as vectorized."""
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        cursor.execute("UPDATE memory_items SET vectorized = 1 WHERE id = ?", (memory_id,))
+        conn.commit()
+        conn.close()
 
     def get_stats(self) -> dict:
         conn = sqlite3.connect(self.db_path)
