@@ -244,3 +244,12 @@ class IronLedger:
         stats = dict(cursor.fetchall())
         conn.close()
         return stats
+
+    def is_processed(self, content_hash: str) -> bool:
+        """Check if a content hash already exists in the ledger."""
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        cursor.execute("SELECT 1 FROM memory_items WHERE content_hash = ?", (content_hash,))
+        exists = cursor.fetchone() is not None
+        conn.close()
+        return exists

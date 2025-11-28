@@ -2,6 +2,7 @@
   "timestamp": "2025-11-28",
   "source": "OpenRouter Weekly Champions",
   "synthesizer_model": "x-ai/grok-4.1-fast:free",
+  "embedding_model": "openai/text-embedding-3-large",
   "quorum_models": [
     "x-ai/grok-4.1-fast:free",
     "x-ai/grok-4.1-fast:free",
