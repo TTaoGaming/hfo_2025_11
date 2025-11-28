@@ -16,3 +16,9 @@ This generation maintains the 8-fold Octree structure derived from Generation 57
 
 ## Intent
 To rebuild and stabilize the system free from "AI slop" and corruption.
+
+## Philosophy: The Law of Canalization
+> "The fundamental error is that AI agents follow the path of least resistance. Without enough guardrails and CANALIZATION, the AI will always default to AI slop."
+
+See [brain/design_canalization.md](brain/design_canalization.md) for the full protocol.
+
