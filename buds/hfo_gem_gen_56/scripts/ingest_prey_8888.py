@@ -1,0 +1,77 @@
+import os
+
+# Fix for OMP Error: Must be set before importing libraries that use OpenMP
+os.environ['KMP_DUPLICATE_LIB_OK'] = 'True'
+os.environ['OMP_NUM_THREADS'] = '1'
+
+# CRITICAL: Import torch before lancedb to prevent OMP Error #13
+try:
+    import torch
+except ImportError:
+    pass
+
+import sys
+
+# Add parent directory to path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
+from memory.lancedb_store import HFOStigmergyMemory
+
+def ingest_prey_8888_loop():
+    print("🦅 Ingesting 8-8-8-8 PREY Loop Intent into Lvl 0 Stigmergy...")
+
+    # Initialize Memory
+    # Use absolute path to root memory/lancedb to ensure we write to the correct DB
+    root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../.."))
+    db_path = os.path.join(root_dir, "memory/lancedb")
+    print(f"Using LanceDB at: {db_path}")
+    
+    memory = HFOStigmergyMemory(db_path=db_path)
+
+    base_path = "buds/hfo_gem_gen_56"
+    
+    # 1. Read the Design Document
+    design_path = os.path.join(base_path, "brain/design-markdown/design_prey_8888_loop.md")
+    with open(design_path, "r") as f:
+        design_content = f.read()
+
+    # 2. Read the Feature File
+    feature_path = os.path.join(base_path, "brain/intent-literate-gherkin/prey_8888_loop.feature")
+    with open(feature_path, "r") as f:
+        feature_content = f.read()
+
+    # 3. Store in LanceDB (Lvl 0)
+    artifacts = [
+        {
+            "section": "ontos", # Design/Knowledge
+            "payload": {
+                "id": "design_prey_8888_loop",
+                "type": "markdown_design",
+                "title": "Design: The 8-8-8-8 PREY Loop",
+                "content": design_content,
+                "status": "draft",
+            },
+        },
+        {
+            "section": "telos", # Intent/Goal
+            "payload": {
+                "id": "intent_prey_8888_loop",
+                "type": "gherkin_feature",
+                "title": "The 8-8-8-8 PREY Loop Protocol",
+                "content": feature_content,
+                "status": "draft",
+            },
+        },
+    ]
+
+    for artifact in artifacts:
+        print(f"  -> Storing {artifact['payload']['title']}...")
+        memory.store(
+            section=artifact["section"],
+            payload=artifact["payload"]
+        )
+    
+    print("✅ Ingestion Complete!")
+
+if __name__ == "__main__":
+    ingest_prey_8888_loop()
