@@ -50,7 +50,7 @@ class Assimilator:
     The Synapse Link.
     Syncs IronLedger (SQLite) to VectorMirror (LanceDB).
     """
-    def __init__(self, db_path: str = "memory/hfo_memory.db", lancedb_path: str = "memory/lancedb"):
+    def __init__(self, db_path: str = "buds/hfo_gem_gen_59/memory/hfo_gen_59_memory.db", lancedb_path: str = "buds/hfo_gem_gen_59/memory/hfo_gen_59_lancedb"):
         self.ledger = IronLedger(db_path=db_path)
         self.mirror = VectorMirror(db_path=lancedb_path)
         self.motor = EmbeddingMotor(model_name="nomic-embed-text")

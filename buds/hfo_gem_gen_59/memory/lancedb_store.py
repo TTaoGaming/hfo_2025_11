@@ -13,7 +13,7 @@ class VectorMirror:
     The Vector Mirror (LanceDB).
     Stores semantic embeddings of the Iron Ledger.
     """
-    def __init__(self, db_path: str = "memory/lancedb"):
+    def __init__(self, db_path: str = "buds/hfo_gem_gen_59/memory/hfo_gen_59_lancedb"):
         self.db_path = Path(db_path)
         self.db_path.parent.mkdir(parents=True, exist_ok=True)
         self.db = lancedb.connect(self.db_path)

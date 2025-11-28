@@ -15,7 +15,7 @@ class IronLedger:
     A portable, single-file, ACID-compliant database.
     It stores the 'Truth' of the repository.
     """
-    def __init__(self, db_path: str = "memory/hfo_memory.db"):
+    def __init__(self, db_path: str = "buds/hfo_gem_gen_59/memory/hfo_gen_59_memory.db"):
         self.db_path = Path(db_path)
         self.db_path.parent.mkdir(parents=True, exist_ok=True)
         self._init_db()

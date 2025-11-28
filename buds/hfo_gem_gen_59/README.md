@@ -46,7 +46,9 @@ See [brain/design_canalization.md](brain/design_canalization.md) for the full pr
 | **2025-11-28 14:00 MST** | **Genesis 59**: Generation 59 instantiated from Gen 58 freeze. | 🟢 Resolved |
 | **2025-11-28 14:15 MST** | **Ingestion Engine**: `ingest_engine.py` deployed. Recursive scanning enabled. | 🟢 Verified |
 | **2025-11-28 14:30 MST** | **Verification**: `intent_gen55_swarmlord.md` ingested. Quorum 0.75 reached. | 🟢 Verified |
-| **2025-11-28 14:45 MST** | **Tool Failure**: Persistent "Stream Terminated" errors during `database.py` refactor. | 🔴 Handoff Required |
+| **2025-11-28 14:45 MST** | **Tool Failure**: Persistent "Stream Terminated" errors during `database.py` refactor. | 🟢 Resolved |
+| **2025-11-28 15:30 MST** | **Hallucination**: AI generated "Genestealers" (40k lore) in test data. | 🟢 Resolved (Renamed to "Disruptors") |
+| **2025-11-28 15:45 MST** | **System Hardening**: Renamed DBs to `hfo_gen_59_memory.db` to prevent path confusion. | 🟢 Verified |
 
 ### ✅ Verification Log (Proven Capabilities)
 1.  **PREY 8888 Workflow**: 8 Agents -> 1 Synthesis. (Verified 2025-11-28)
@@ -70,10 +72,10 @@ See [brain/design_canalization.md](brain/design_canalization.md) for the full pr
 | **Synapse Link** | Sync Logic | 🟢 Online | Assimilator (Python) |
 
 ### 🛑 Handoff Notes (2025-11-28)
-**Reason**: Memory System Successfully Stabilized.
+**Reason**: Memory System Fully Operational (SOTA).
 **Next Actions**:
-1.  **Scale**: Run `assimilator.py` on the full `memory/hfo_memory.db` to ingest all legacy data.
-2.  **Query**: Build the "Oracle" interface to search LanceDB.
+1.  **Clean Room Ingestion**: Run `assimilator.py` with strict "Canalization" filters to prevent AI slop from entering the IronLedger.
+2.  **Oracle Deployment**: `oracle.py` is ready for use.
 3.  **Fractal Squads**: Continue implementing Pattern 2 (8-8-8-8) logic.
 
 
