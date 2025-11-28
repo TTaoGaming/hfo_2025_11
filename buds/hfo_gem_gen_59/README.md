@@ -50,6 +50,8 @@ See [brain/design_canalization.md](brain/design_canalization.md) for the full pr
 | **2025-11-28 15:30 MST** | **Hallucination**: AI generated "Genestealers" (40k lore) in test data. | 🟢 Resolved (Renamed to "Disruptors") |
 | **2025-11-28 15:45 MST** | **System Hardening**: Renamed DBs to `hfo_gen_59_memory.db` to prevent path confusion. | 🟢 Verified |
 | **2025-11-28 16:00 MST** | **Role Correction**: Renamed "Oracle" to "Bridger Oracle" (Subrole). | 🟢 Verified |
+| **2025-11-28 16:30 MST** | **Memory Reality Check**: Verified IronLedger (SQLite) and VectorMirror (LanceDB) are REAL and functional. | 🟢 Verified |
+| **2025-11-28 16:30 MST** | **Hallucination Flag**: Flagged "Memory is Theater" hallucination. Proven false via `test_memory_reality.py`. | 🚩 Flagged & Debunked |
 
 ### ✅ Verification Log (Proven Capabilities)
 1.  **PREY 8888 Workflow**: 8 Agents -> 1 Synthesis. (Verified 2025-11-28)
