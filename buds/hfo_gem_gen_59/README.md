@@ -49,6 +49,7 @@ See [brain/design_canalization.md](brain/design_canalization.md) for the full pr
 | **2025-11-28 14:45 MST** | **Tool Failure**: Persistent "Stream Terminated" errors during `database.py` refactor. | 🟢 Resolved |
 | **2025-11-28 15:30 MST** | **Hallucination**: AI generated "Genestealers" (40k lore) in test data. | 🟢 Resolved (Renamed to "Disruptors") |
 | **2025-11-28 15:45 MST** | **System Hardening**: Renamed DBs to `hfo_gen_59_memory.db` to prevent path confusion. | 🟢 Verified |
+| **2025-11-28 16:00 MST** | **Role Correction**: Renamed "Oracle" to "Bridger Oracle" (Subrole). | 🟢 Verified |
 
 ### ✅ Verification Log (Proven Capabilities)
 1.  **PREY 8888 Workflow**: 8 Agents -> 1 Synthesis. (Verified 2025-11-28)
@@ -57,10 +58,10 @@ See [brain/design_canalization.md](brain/design_canalization.md) for the full pr
 4.  **Ingestion Engine**: Recursive file scanning and deduplication. (Verified 2025-11-28)
 5.  **IronLedger**: SQLite ACID compliance for Memory Items and Artifacts. (Verified 2025-11-28)
 6.  **Memory Pipeline**: SQLite -> Ollama -> LanceDB synced via Assimilator. (Verified 2025-11-28)
+7.  **Bridger Oracle**: Query Interface implemented as a subrole of the Bridger. (Verified 2025-11-28)
 
 ### 🚧 Active Work (In Progress)
 *   **Bulk Ingestion**: Ingesting legacy intents from Gen 55.
-*   **Query Interface**: Building the "Oracle" to query the IronLedger.
 *   **Fractal Squads**: Implementing Pattern 2 (8-8-8-8) logic.
 
 ### 🧠 Memory System Status (The Gap)
@@ -75,7 +76,7 @@ See [brain/design_canalization.md](brain/design_canalization.md) for the full pr
 **Reason**: Memory System Fully Operational (SOTA).
 **Next Actions**:
 1.  **Clean Room Ingestion**: Run `assimilator.py` with strict "Canalization" filters to prevent AI slop from entering the IronLedger.
-2.  **Oracle Deployment**: `oracle.py` is ready for use.
+2.  **Bridger Oracle Deployment**: `bridger_oracle.py` is ready for use.
 3.  **Fractal Squads**: Continue implementing Pattern 2 (8-8-8-8) logic.
 
 
