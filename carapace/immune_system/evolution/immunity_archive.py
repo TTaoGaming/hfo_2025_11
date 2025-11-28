@@ -1,3 +1,26 @@
+"""
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 19061e5f-0b68-4f9d-8382-1263a4bfaae8
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.556093+00:00'
+    generation: 51
+  topos:
+    address: carapace/immune_system/evolution/immunity_archive.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: immunity_archive.py
+"""
+
 import numpy as np
 from ribs.archives import GridArchive
 from ribs.emitters import GaussianEmitter

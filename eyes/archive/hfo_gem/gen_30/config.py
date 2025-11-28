@@ -1,5 +1,27 @@
 #!/usr/bin/env python3
 """
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: d50a6b4e-5f02-4929-b007-a8f7f2e27362
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.710007Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_30/config.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: config.py
+"""
+"""
 Gen 30 Configuration (DEPRECATED - Import from hfo_sdk instead)
 ================================================================
 

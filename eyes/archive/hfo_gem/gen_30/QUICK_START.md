@@ -1,3 +1,23 @@
+---
+hexagon:
+  ontos:
+    id: 8679f00f-4f0d-43d4-9c51-e985d65dc3aa
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.693930Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_30/QUICK_START.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: QUICK_START.md
+---
+
 # Gen 30 V²C-SPIRAL-QUORUM - Quick Start
 
 **Status**: ✅ Launchers ready, protocol formalized

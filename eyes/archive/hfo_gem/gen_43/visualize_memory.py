@@ -1,3 +1,26 @@
+"""
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 5a4620bd-e915-4328-91cb-898ffb7e1109
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.754635Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_43/visualize_memory.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: visualize_memory.py
+"""
+
 import json
 import sys
 import numpy as np

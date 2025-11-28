@@ -1,3 +1,26 @@
+"""
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: eea380bd-1fc3-4ab6-bd5c-a7ee3b0debb1
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.280575+00:00'
+    generation: 51
+  topos:
+    address: venom/inoculate_tests.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: inoculate_tests.py
+"""
+
 from pathlib import Path
 
 # 💉 The Inoculator

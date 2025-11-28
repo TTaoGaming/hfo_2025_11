@@ -1,3 +1,23 @@
+---
+hexagon:
+  ontos:
+    id: edee480a-3e9b-4b92-9e45-3b56711445d0
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:36.026115Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_31/user_dictation/2025-11-14_scatter_gather_vision.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: 2025-11-14_scatter_gather_vision.md
+---
+
 # User Dictation – Scatter-Gather & Fractal Scaling Vision
 
 **Session**: 2025-11-14 21:20 MST

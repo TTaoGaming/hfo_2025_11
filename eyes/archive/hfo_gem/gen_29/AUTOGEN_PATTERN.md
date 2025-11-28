@@ -1,3 +1,23 @@
+---
+hexagon:
+  ontos:
+    id: abf6238a-8221-4dfa-8117-bbdf7f01025d
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.979672Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_29/AUTOGEN_PATTERN.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: AUTOGEN_PATTERN.md
+---
+
 # Generation 29: SSOT Autogeneration Pattern
 
 **Vision**: Define swarm orchestration patterns in SysML v2, auto-generate Python implementation

@@ -1,3 +1,24 @@
+---
+hexagon:
+  ontos:
+    id: 306ccd89-4c9f-4123-930c-934a95de804e
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:11.895508+00:00'
+    generation: 51
+  topos:
+    address: memory/missions/20251121_040700_6c587438/squads/Sq-2/agents/Sq-2-Ag2/round_1.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: round_1.md
+---
+
+
 # Agent Sq-2-Ag2 - Round 1
 **Role**: Futurist
 **Style**: Speculative, trend-focused, visionary

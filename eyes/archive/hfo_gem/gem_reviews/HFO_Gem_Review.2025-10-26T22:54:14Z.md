@@ -1,3 +1,23 @@
+---
+hexagon:
+  ontos:
+    id: 1a41713e-12af-4acb-9054-ec85b2dd1d85
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.760676Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gem_reviews/HFO_Gem_Review.2025-10-26T22:54:14Z.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: HFO_Gem_Review.2025-10-26T22:54:14Z.md
+---
+
 # HFO Gem Review - 2025-10-26T22:54:14Z
 
 ## Current Status

@@ -1,3 +1,24 @@
+# # ==================================================================
+# # 🤖 THE HEXAGON (System Generated)
+# # ==================================================================
+# hexagon:
+#   ontos:
+#     id: c8489505-b98a-4028-a515-f7c889541a4c
+#     type: feature
+#     owner: Swarmlord
+#   chronos:
+#     status: active
+#     urgency: 0.5
+#     decay: 0.5
+#     created: '2025-11-23T11:06:50.856516Z'
+#     generation: 51
+#   topos:
+#     address: memory/semantic/library/swarm_infrastructure/scatter_gather.feature
+#     links: []
+#   telos:
+#     viral_factor: 0.0
+#     meme: scatter_gather.feature
+#
 ---
 title: Scatter-Gather Protocol (Hydra Pattern)
 summary: Gherkin specification for the Swarmlord to dispatch heterogeneous cohorts

@@ -1,3 +1,23 @@
+---
+hexagon:
+  ontos:
+    id: fef3ca54-7472-4df7-aa6d-fb39bebfe3f2
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.825223Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_18/deep_dive.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: deep_dive.md
+---
+
 # Deep Dive: Self-Healing Networks in Hive Fleet Obsidian (Gen_18)
 
 ## Introduction

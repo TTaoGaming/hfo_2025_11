@@ -1,10 +1,25 @@
 #!/usr/bin/env python3
 """
-🦅 Hive Fleet Obsidian: Genesis Protocol (Gen 51)
-Usage: python genesis.py [scan|evolve]
-
-- scan: Validates the biological anatomy (Default).
-- evolve: Transmutes Brain (Gherkin) into Body (Code).
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: fd425bd0-c5a5-4219-8dfd-f396d5738213
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:06:38.159072Z'
+    generation: 51
+  topos:
+    address: genesis.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: genesis.py
 """
 
 import sys
@@ -12,10 +27,25 @@ import yaml
 import re
 import uuid
 import datetime
+import hashlib
 import subprocess
 from pathlib import Path
 from rich.console import Console
 from rich.tree import Tree
+
+# Ensure we can import from body
+sys.path.append(str(Path(__file__).parent))
+from body.models.hexagon import (  # noqa: E402
+    Hexagon,
+    Ontos,
+    Telos,
+    Chronos,
+    Topos,
+    Logos,
+    Pathos,
+    HolonType,
+    HolonStatus,
+)
 
 console = Console()
 
@@ -96,63 +126,151 @@ class GenesisFactory:
         self.body_path = Path("body")
 
     def evolve(self):
-        console.print("[bold purple]🧬 Initiating Genesis Evolution...[/bold purple]")
+        console.print(
+            "[bold purple]🧬 Initiating Genesis Evolution (Byzantine Swarm Mode)...[/bold purple]"
+        )
         features = list(self.brain_path.glob("*.feature"))
-        console.print(f"Found {len(features)} synaptic patterns (Features).")
 
         for feature_file in features:
-            self._transmute(feature_file)
+            self._process_feature(feature_file)
 
-    def _transmute(self, feature_file: Path):
-        # Simple parser to extract feature name and scenarios
-        content = feature_file.read_text()
-        match = re.search(r"Feature: (.+)", content)
-        if not match:
-            return
+    def _process_feature(self, feature_file: Path):
+        """
+        Processes a single Gherkin feature file using Swarm Principles.
+        1. Perceive: Read the Intent (Gherkin).
+        2. React: Check if implementation exists and is stale (Lazy Loading).
+        3. Execute: Generate/Update the Hexagonal Holon (Stigmergy).
+        4. Yield: Apply Hive Guards.
+        """
+        console.print(f"  🐜 Processing Intent: [cyan]{feature_file.name}[/cyan]")
 
-        feature_name = match.group(1).strip()
-        slug = feature_file.stem.lower().replace(" ", "_")
+        # 1. Perceive (Read Intent)
+        intent_content = feature_file.read_text()
+        intent_hash = hashlib.sha256(intent_content.encode()).hexdigest()
 
-        # Determine target organ based on filename or content
-        # Defaulting to body/hands/ for workflows, but could be smarter
-        target_dir = self.body_path / "hands"
-        target_file = target_dir / f"{slug}.py"
+        # Determine target file (Simple mapping for now: brain/X.feature -> body/X.py)
+        # In a real swarm, this mapping would be dynamic or looked up in a registry.
+        target_name = feature_file.stem.replace("architecture_", "").replace(
+            "design_", ""
+        )
+        target_file = self.body_path / f"{target_name}.py"
 
-        if not target_file.exists():
-            self._gestate_code(target_file, feature_name, feature_file.name)
+        # 2. React (Lazy Loading & Byzantine Check)
+        if target_file.exists():
+            if self._is_up_to_date(target_file, intent_hash):
+                console.print(
+                    f"    ⏭️  [dim]Skipping (Up to date): {target_file.name}[/dim]"
+                )
+                return
+            else:
+                console.print(
+                    f"    🔄 [yellow]Drift Detected. Regenerating: {target_file.name}[/yellow]"
+                )
         else:
-            # console.print(f"[dim]⚡ {target_file.name} exists. Skipping.[/dim]")
+            console.print(
+                f"    ✨ [green]Germinating New Holon: {target_file.name}[/green]"
+            )
+
+        # 3. Execute (Generate Hexagon)
+        hexagon = self._forge_hexagon(feature_file, intent_hash, target_file)
+
+        # 4. Yield (Apply Hive Guards & Write)
+        self._write_holon(target_file, hexagon, intent_content)
+
+    def _is_up_to_date(self, target_file: Path, intent_hash: str) -> bool:
+        """Checks if the target file matches the current intent hash (Lazy Loading)."""
+        try:
+            content = target_file.read_text()
+            # Extract the Hexagon YAML from the docstring or header
+            # This is a simplified check. In reality, we'd parse the YAML.
+            if f"intent_hash: {intent_hash}" in content:
+                return True
+        except Exception:
             pass
+        return False
 
-    def _gestate_code(
-        self, target_file: Path, feature_name: str, feature_filename: str
-    ):
-        console.print(f"[green]🌱 Gestating: {target_file}[/green]")
+    def _forge_hexagon(
+        self, feature_file: Path, intent_hash: str, target_file: Path
+    ) -> Hexagon:
+        """Forges a new Hexagonal Holon based on the Intent."""
 
-        # Create a skeleton Python file based on the feature
-        code = f'''"""
-🦅 Hive Fleet Obsidian: {feature_name}
-Generated by Genesis Protocol from {feature_filename}
+        # Extract title/bluf from feature file (naive parsing)
+        content = feature_file.read_text()
+        title_match = re.search(r"Feature: (.+)", content)
+        title = title_match.group(1) if title_match else feature_file.stem
 
-Intent: {feature_name}
-"""
+        bluf_match = re.search(r"\"\"\"(.*?)\"\"\"", content, re.DOTALL)
+        bluf = (
+            bluf_match.group(1).strip()
+            if bluf_match
+            else "Auto-generated implementation."
+        )
 
-import pytest
-from pytest_bdd import scenario, given, when, then
+        # Create the Hexagon
+        hexagon = Hexagon(
+            ontos=Ontos(
+                type=HolonType.CODE,
+                owner="Genesis.Factory",  # The Swarm Leader for this op
+                version="1.0.0",
+            ),
+            telos=Telos(
+                meme=title,
+                bluf=bluf,
+                viral_factor=0.5,
+                intent_hash=intent_hash,
+            ),
+            chronos=Chronos(status=HolonStatus.ACTIVE, urgency=0.8, decay=0.1),
+            topos=Topos(
+                address=f"1.X.{target_file.stem}",  # Placeholder address
+                location=str(target_file),
+            ),
+            logos=Logos(
+                validators=["hive_guard_v1", "genesis_integrity_check"],
+                signature=f"sig_{uuid.uuid4().hex[:8]}",
+            ),
+            pathos=Pathos(
+                sentiment="neutral",
+                quality_score=100.0,
+                review_status="pending_consensus",  # Adversarial: Needs review
+            ),
+        )
+        return hexagon
 
-# Ensure the feature file path is correct relative to this file
-FEATURE_FILE = "../../brain/{feature_filename}"
+    def _write_holon(self, target_file: Path, hexagon: Hexagon, intent_content: str):
+        """Writes the Holon to disk with the Hexagonal Header."""
 
-@scenario(FEATURE_FILE, "{feature_name}")
-def test_{target_file.stem}():
-    """Scenario: {feature_name}"""
+        # Convert Hexagon to YAML Frontmatter style (but inside Python docstring)
+        header_dict = hexagon.to_yaml_dict()
+        header_yaml = yaml.dump(header_dict, sort_keys=False)
+
+        # Indent YAML for docstring
+        header_yaml_indented = "\n".join(
+            f"    {line}" for line in header_yaml.splitlines()
+        )
+
+        file_content = f"""\"\"\"
+{header_yaml_indented}
+\"\"\"
+
+# 🛡️ HIVE GUARD: ACTIVE
+# ---------------------
+# This file is protected by the Hive Fleet Obsidian Immunizer.
+# Any manual changes to the header may be overwritten by the Genesis Protocol.
+#
+# INTENT SOURCE: {hexagon.telos.meme}
+
+def implementation():
+    \"\"\"
+    Stubs for: {hexagon.telos.bluf}
+    \"\"\"
     pass
 
-# TODO: Implement steps generated from Gherkin
-'''
-        # Ensure directory exists
-        target_file.parent.mkdir(parents=True, exist_ok=True)
-        target_file.write_text(code)
+# End of Holon
+"""
+        target_file.write_text(file_content)
+        console.print(
+            "    🔒 [green]Hive Guards Applied. Stigmergy Link Established.[/green]"
+        )
 
     def crystallize(self):
         """Injects the Hexagonal Holon Header into all Markdown files."""

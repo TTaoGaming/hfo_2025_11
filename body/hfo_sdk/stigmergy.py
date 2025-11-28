@@ -1,3 +1,26 @@
+"""
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: c908a368-059e-42af-90fe-dcab8f582ed4
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.427596+00:00'
+    generation: 51
+  topos:
+    address: body/hfo_sdk/stigmergy.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: stigmergy.py
+"""
+
 import json
 import logging
 import nats
@@ -45,15 +68,27 @@ class StigmergyClient:
             try:
                 await self.js.add_stream(
                     name=self.stream_name,
-                    subjects=["hfo.mission.>"],
+                    subjects=["hfo.mission.>", "hfo.heartbeat.>"],
                     config=StreamConfig(
                         retention=RetentionPolicy.LIMITS,
-                        max_age=3600,  # 1 Hour TTL (Evaporating Blackboard)
+                        max_age=3600 * 24,  # 24 Hour TTL for Heartbeats
                         storage="file",
                     ),
                 )
             except Exception:
-                pass  # Stream likely exists
+                # Update existing stream config if needed
+                try:
+                    await self.js.update_stream(
+                        name=self.stream_name,
+                        subjects=["hfo.mission.>", "hfo.heartbeat.>"],
+                        config=StreamConfig(
+                            retention=RetentionPolicy.LIMITS,
+                            max_age=3600 * 24,
+                            storage="file",
+                        ),
+                    )
+                except Exception as e:
+                    logger.warning(f"Stream update failed (might be unchanged): {e}")
 
             logger.info(f"✅ Connected to Stigmergy Layer at {self.nats_url}")
         except Exception as e:

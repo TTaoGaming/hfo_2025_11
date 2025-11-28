@@ -1,3 +1,24 @@
+# # ==================================================================
+# # 🤖 THE HEXAGON (System Generated)
+# # ==================================================================
+# hexagon:
+#   ontos:
+#     id: 91c2a6c3-fbb8-4ab5-906f-92df01368d94
+#     type: feature
+#     owner: Swarmlord
+#   chronos:
+#     status: active
+#     urgency: 0.5
+#     decay: 0.5
+#     created: '2025-11-23T11:06:41.155541Z'
+#     generation: 51
+#   topos:
+#     address: memory/episodic/gen_50_archive/scatter_gather.feature
+#     links: []
+#   telos:
+#     viral_factor: 0.0
+#     meme: scatter_gather.feature
+#
 Feature: Scatter-Gather Protocol (The Hydra Pattern)
     As the Swarmlord (Navigator)
     I want to dispatch a cohort of agents with specific genetic compositions

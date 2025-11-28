@@ -1,3 +1,26 @@
+"""
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: c9ed7ce7-f851-4a97-8552-6f6d53c65063
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.436761+00:00'
+    generation: 51
+  topos:
+    address: body/digestion/weaver_ant.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: weaver_ant.py
+"""
+
 import json
 import re
 import yaml
@@ -6,11 +29,35 @@ from pathlib import Path
 from typing import Dict, List, Any
 from datetime import datetime
 
+
+class DateTimeEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, datetime):
+            return obj.isoformat()
+        return super().default(obj)
+
+
 # 🐜 THE WEAVER ANT
 # Role: Assimilator / Graph Builder
 # Mission: Weave individual crystals into a cohesive Knowledge Graph.
 
 LIBRARY_PATH = Path("memory/semantic/library")
+SEARCH_PATHS = [
+    Path("brain"),
+    Path("memory"),
+    Path("eyes"),
+    Path("body"),
+    Path("."),  # Root for AGENTS.md, README.md
+]
+EXCLUDE_DIRS = {
+    "venv",
+    ".git",
+    "__pycache__",
+    "node_modules",
+    "site-packages",
+    ".pytest_cache",
+}
+
 OUTPUT_GRAPH = Path("memory/semantic/knowledge_graph.json")
 AUDIT_REPORT = Path("venom/audit_report.md")
 
@@ -44,8 +91,25 @@ def weave():
     G = nx.DiGraph()
 
     # 1. Scan & Build Nodes
-    files = list(LIBRARY_PATH.rglob("*.md"))
-    print(f"🕷️  Scanning {len(files)} crystals...")
+    files = []
+    for root_path in SEARCH_PATHS:
+        if root_path == Path("."):
+            # Just pick specific root files
+            for f in [Path("AGENTS.md"), Path("README.md")]:
+                if f.exists():
+                    files.append(f)
+            continue
+
+        if not root_path.exists():
+            continue
+
+        for path in root_path.rglob("*.md"):
+            # Check exclusions
+            if any(part in EXCLUDE_DIRS for part in path.parts):
+                continue
+            files.append(path)
+
+    print(f"🕷️  Scanning {len(files)} crystals across the Hive...")
 
     node_map = {}  # Filename -> Path
 
@@ -62,6 +126,14 @@ def weave():
                 frontmatter["related_files"], list
             ):
                 links.extend([str(f) for f in frontmatter["related_files"]])
+
+            # Heuristic: Extract "Cognitive Symbiote" definition
+            if "cognitive symbiote" in content.lower():
+                if "concepts" not in frontmatter:
+                    frontmatter["concepts"] = []
+                if isinstance(frontmatter["concepts"], list):
+                    if "Cognitive Symbiote" not in frontmatter["concepts"]:
+                        frontmatter["concepts"].append("Cognitive Symbiote")
 
             # Use filename (without extension) as ID
             node_id = file_path.stem
@@ -116,7 +188,7 @@ def weave():
 
     # 4. Save Graph
     data = nx.node_link_data(G)
-    OUTPUT_GRAPH.write_text(json.dumps(data, indent=2))
+    OUTPUT_GRAPH.write_text(json.dumps(data, indent=2, cls=DateTimeEncoder))
     print(f"💾 Graph saved to {OUTPUT_GRAPH}")
 
     # 5. Generate Audit Report

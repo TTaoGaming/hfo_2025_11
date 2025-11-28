@@ -1,3 +1,26 @@
+"""
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 2e456cf7-c397-41b7-a137-c94515239437
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.559126+00:00'
+    generation: 51
+  topos:
+    address: carapace/hive_guards/guard_brain.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: guard_brain.py
+"""
+
 #!/usr/bin/env python3
 import yaml
 from pathlib import Path
@@ -13,7 +36,15 @@ def load_registry() -> Dict:
         print(f"❌ Registry not found: {REGISTRY_FILE}")
         return {"concepts": []}
     with open(REGISTRY_FILE, "r") as f:
-        return yaml.safe_load(f)
+        # Handle multi-document YAML (Stigmergy Headers)
+        docs = list(yaml.safe_load_all(f))
+        for doc in docs:
+            if doc and "concepts" in doc:
+                return doc
+        # Fallback
+        if docs:
+            return docs[-1]
+        return {"concepts": []}
 
 
 def check_concept_integrity(concept: Dict) -> List[str]:

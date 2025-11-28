@@ -1,3 +1,24 @@
+---
+hexagon:
+  ontos:
+    id: 7183c26d-5ece-4314-9df3-55923397ab03
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:06.988905+00:00'
+    generation: 51
+  topos:
+    address: memory/episodic/gen_50_archive/hfo_anatomy.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: hfo_anatomy.md
+---
+
+
 # 🧬 HFO Anatomy: The Biological Swarm
 
 > **Status**: Active Intent

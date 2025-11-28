@@ -1,3 +1,24 @@
+# # ==================================================================
+# # 🤖 THE HEXAGON (System Generated)
+# # ==================================================================
+# hexagon:
+#   ontos:
+#     id: f37a0f71-508a-41db-9152-096c311d5a0a
+#     type: feature
+#     owner: Swarmlord
+#   chronos:
+#     status: active
+#     urgency: 0.5
+#     decay: 0.5
+#     created: '2025-11-23T11:06:41.095070Z'
+#     generation: 51
+#   topos:
+#     address: memory/episodic/gen_50_archive/cognitive_architecture.feature
+#     links: []
+#   telos:
+#     viral_factor: 0.0
+#     meme: cognitive_architecture.feature
+#
 Feature: Cognitive Architecture (Reasoning & Learning)
   As the Swarm Architect
   I want to enforce High Reasoning and Reinforcement Learning in all agents

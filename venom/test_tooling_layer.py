@@ -1,3 +1,26 @@
+"""
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: f848ffc5-8d28-49db-ac9c-e3be5e518be1
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.264236+00:00'
+    generation: 51
+  topos:
+    address: venom/test_tooling_layer.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: test_tooling_layer.py
+"""
+
 import os
 from body.hands.hydra_swarm import PreyAgent, SubTask
 

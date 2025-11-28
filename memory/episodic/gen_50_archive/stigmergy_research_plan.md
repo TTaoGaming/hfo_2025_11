@@ -1,3 +1,24 @@
+---
+hexagon:
+  ontos:
+    id: 1e402c6e-f1de-4a14-ad6d-04682ebf9b17
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:07.018132+00:00'
+    generation: 51
+  topos:
+    address: memory/episodic/gen_50_archive/stigmergy_research_plan.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: stigmergy_research_plan.md
+---
+
+
 # 🧪 Research Intent: Evolutionary Stigmergy Patterns
 
 > **Status**: Active Research

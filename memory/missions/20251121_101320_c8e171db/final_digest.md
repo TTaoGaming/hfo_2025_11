@@ -1,3 +1,24 @@
+---
+hexagon:
+  ontos:
+    id: 09c60752-143f-4964-8b72-03891d1ee0ee
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:12.324341+00:00'
+    generation: 51
+  topos:
+    address: memory/missions/20251121_101320_c8e171db/final_digest.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: final_digest.md
+---
+
+
 # Mission Digest: 20251121_101320_c8e171db
 **Overall Confidence**: 0.99
 **Recommendation**: See detailed Holon reports for granular data.

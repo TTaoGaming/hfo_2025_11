@@ -1,4 +1,24 @@
-Feature: Universal Knowledge Ingestion
+# # ==================================================================
+# # 🤖 THE HEXAGON (System Generated)
+# # ==================================================================
+# hexagon:
+#   ontos:
+#     id: e3efdd3b-406b-4d39-9ecb-489b99e01059
+#     type: feature
+#     owner: Swarmlord
+#   chronos:
+#     status: active
+#     urgency: 0.5
+#     decay: 0.5
+#     created: '2025-11-24T14:30:07.185390Z'
+#     generation: 51
+#   topos:
+#     address: eyes/tools/INGESTION_SPEC.feature
+#     links: []
+#   telos:
+#     viral_factor: 0.0
+#     meme: INGESTION_SPEC.feature
+#Feature: Universal Knowledge Ingestion
   As a Hive Fleet Obsidian Orchestrator
   I want to ingest the entire workspace history into a centralized vector database
   So that I can retrieve past knowledge with strict confidence and hierarchy controls

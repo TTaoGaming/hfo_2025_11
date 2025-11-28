@@ -1,3 +1,23 @@
+---
+hexagon:
+  ontos:
+    id: ac90c7e7-b557-488c-875d-3737284d898e
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.967008Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_28/gen_28_todo.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: gen_28_todo.md
+---
+
 # Generation 28 Vision TODO
 
 Keep this list short and force-ranked. Update statuses inline rather than deleting resolved questions; move finished items to the "Answered" section so we preserve context.

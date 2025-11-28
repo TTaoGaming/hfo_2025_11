@@ -1,3 +1,24 @@
+# # ==================================================================
+# # 🤖 THE HEXAGON (System Generated)
+# # ==================================================================
+# hexagon:
+#   ontos:
+#     id: 899d4164-7329-4f67-b203-90149e41f895
+#     type: feature
+#     owner: Swarmlord
+#   chronos:
+#     status: active
+#     urgency: 0.5
+#     decay: 0.5
+#     created: '2025-11-23T11:06:50.550749Z'
+#     generation: 51
+#   topos:
+#     address: memory/semantic/library/strategy/antifragile_strategy.feature
+#     links: []
+#   telos:
+#     viral_factor: 0.0
+#     meme: antifragile_strategy.feature
+#
 ---
 title: Antifragile Defense Strategy (Fractal Hydra Protocol)
 summary: Defines a fractal, holonic defense mechanism for Hive antifragility through

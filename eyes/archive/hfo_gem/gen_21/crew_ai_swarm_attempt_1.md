@@ -1,3 +1,23 @@
+---
+hexagon:
+  ontos:
+    id: 570f6009-ea80-4d00-8185-e1f2614f69cb
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.848011Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_21/crew_ai_swarm_attempt_1.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: crew_ai_swarm_attempt_1.md
+---
+
 # Crew AI Swarm Attempt 1 — Pilot Notes
 
 BLUF

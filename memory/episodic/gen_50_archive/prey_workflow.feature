@@ -1,3 +1,24 @@
+# # ==================================================================
+# # 🤖 THE HEXAGON (System Generated)
+# # ==================================================================
+# hexagon:
+#   ontos:
+#     id: c6a05cd7-b3cd-4af0-b8f2-9a3539344d85
+#     type: feature
+#     owner: Swarmlord
+#   chronos:
+#     status: active
+#     urgency: 0.5
+#     decay: 0.5
+#     created: '2025-11-23T11:06:41.144510Z'
+#     generation: 51
+#   topos:
+#     address: memory/episodic/gen_50_archive/prey_workflow.feature
+#     links: []
+#   telos:
+#     viral_factor: 0.0
+#     meme: prey_workflow.feature
+#
 Feature: The PREY Loop (Atomic Holon)
   As the Swarm Architect
   I want to define the atomic unit of cognition (The PREY Loop)

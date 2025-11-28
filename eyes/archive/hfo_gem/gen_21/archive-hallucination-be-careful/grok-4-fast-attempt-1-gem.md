@@ -1,3 +1,23 @@
+---
+hexagon:
+  ontos:
+    id: df1f1487-bd2e-4c5e-ae9d-65ae2113144b
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.865739Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_21/archive-hallucination-be-careful/grok-4-fast-attempt-1-gem.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: grok-4-fast-attempt-1-gem.md
+---
+
 # Evolution Analysis: HFO GEM Generations 1-21
 
 ## BLUF: Executive Summary of Key Evolutions

@@ -1,3 +1,23 @@
+---
+hexagon:
+  ontos:
+    id: 4f72fc90-68fb-481a-a845-0cd2d000e9a6
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.873748Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_22/gen_22_swarmlord_chat.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: gen_22_swarmlord_chat.md
+---
+
 # Gen22 — Swarmlord Chat (Repo-as-Chat)
 
 BLUF: Use the repo itself as the chat surface. Author from phone via GitHub Mobile, write to a daily Markdown file with wake word “Obsidian ”, and let an always-on bridge on your machine run PREY lanes, append blackboard receipts, and mirror to DuckDB. This keeps safety, receipts, and model allowlist intact while giving you mobile control.

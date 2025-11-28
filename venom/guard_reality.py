@@ -1,12 +1,25 @@
 #!/usr/bin/env python3
 """
-🦅 Hive Fleet Obsidian: Brutal Truth Test (Venom)
-Usage: python venom/test_brutal_truth.py
-
-This script verifies the "Realness" of the system by testing:
-1.  Concurrency (AsyncIO) - Is it actually parallel?
-2.  Stigmergy (NATS) - Can we actually pass messages?
-3.  Tooling (Web) - Can we actually hit the internet?
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 28030a6e-268f-4a54-a4ef-5c3af61eed4b
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:34.753054Z'
+    generation: 51
+  topos:
+    address: venom/guard_reality.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: guard_reality.py
 """
 
 import asyncio
@@ -49,50 +62,45 @@ async def test_concurrency():
         results = await asyncio.gather(worker(1, 2.0), worker(2, 2.0), worker(3, 2.0))
         progress.update(task, completed=3)
 
-    end_time = time.time()
-    duration = end_time - start_time
-
     console.print(f"Results: {results}")
-    console.print(f"Total Time: [bold]{duration:.2f}s[/bold]")
+    duration = time.time() - start_time
+    console.print(f"Total Time: {duration:.2f}s")
 
     if duration < 2.5:
         console.print("✅ [green]PASS: System is Concurrent.[/green]")
     else:
-        console.print("❌ [red]FAIL: System is Serial (Theater).[/red]")
+        console.print("❌ [red]FAIL: System is Serial (Too Slow).[/red]")
 
 
 async def test_stigmergy():
-    """Verifies NATS messaging."""
+    """Verifies that NATS is reachable."""
     console.print("\n[bold blue]🧪 Test 2: Stigmergy (The Bus)[/bold blue]")
 
     try:
         nc = await nats.connect(NATS_URL)
         js = nc.jetstream()
 
-        # Create a stream if it doesn't exist
+        # Create a stream if not exists
         try:
             await js.add_stream(name="VENOM_TEST", subjects=["venom.*"])
         except Exception:
             pass  # Stream might exist
 
-        received = asyncio.Future()
-
-        async def handler(msg):
-            data = json.loads(msg.data.decode())
-            console.print(f"📥 Received: {data}")
-            received.set_result(True)
-
-        # Subscribe
-        await nc.subscribe("venom.test", cb=handler)
-
         # Publish
         payload = {"message": "Truth is not theater", "timestamp": time.time()}
+        await js.publish("venom.truth", json.dumps(payload).encode())
         console.print(f"📤 Publishing: {payload}")
-        await nc.publish("venom.test", json.dumps(payload).encode())
 
-        # Wait for receipt
-        await asyncio.wait_for(received, timeout=2.0)
-        console.print("✅ [green]PASS: Stigmergy is Active.[/green]")
+        # Subscribe
+        sub = await js.subscribe("venom.truth")
+        msg = await sub.next_msg(timeout=2)
+        data = json.loads(msg.data.decode())
+        console.print(f"📥 Received: {data}")
+
+        if data["message"] == "Truth is not theater":
+            console.print("✅ [green]PASS: Stigmergy is Active.[/green]")
+        else:
+            console.print("❌ [red]FAIL: Stigmergy Data Corruption.[/red]")
 
         await nc.close()
 

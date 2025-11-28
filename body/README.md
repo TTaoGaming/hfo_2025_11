@@ -1,3 +1,24 @@
+---
+hexagon:
+  ontos:
+    id: 6ae24316-9e3c-45a0-8d24-352fa65a8376
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.334703+00:00'
+    generation: 51
+  topos:
+    address: body/README.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: README.md
+---
+
+
 # 🦾 The Body (The Swarm)
 
 > **Role**: The Swarm / Executor

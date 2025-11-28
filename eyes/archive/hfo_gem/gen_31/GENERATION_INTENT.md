@@ -1,3 +1,23 @@
+---
+hexagon:
+  ontos:
+    id: 624da759-f08a-4cfe-b6bd-d08e38c02576
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:36.019026Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_31/GENERATION_INTENT.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: GENERATION_INTENT.md
+---
+
 # Generation 31 Intent – Scatter-Gather Formalization
 
 **Created**: 2025-11-14

@@ -1,5 +1,27 @@
 #!/usr/bin/env python3
 """
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: b51ac343-5242-40b2-a08f-32306fa1e435
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.725793Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_30/hive_guards/swarm_run_validator.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: swarm_run_validator.py
+"""
+"""
 Gen 30 Swarm Run Validator - SSOT for Artifact Validation
 
 RED TEST for TDD: Define expected artifact structure FIRST, then validate.

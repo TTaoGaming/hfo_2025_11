@@ -1,6 +1,24 @@
 """
-Research Swarm Implementation
-Intent: Execute complex research missions using a Fractal Holarchy of agents.
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 3c9c130b-2fb8-4887-835c-56921acfb4ce
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.050856Z'
+    generation: 51
+  topos:
+    address: body/hands/research_swarm.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: research_swarm.py
 """
 import os
 import uuid

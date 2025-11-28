@@ -1,3 +1,26 @@
+"""
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 93e59b64-daf5-4ce2-b1a8-91341893c810
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.662160Z'
+    generation: 51
+  topos:
+    address: eyes/archive/process_gems_to_jsonl.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: process_gems_to_jsonl.py
+"""
+
 import os
 import json
 import re

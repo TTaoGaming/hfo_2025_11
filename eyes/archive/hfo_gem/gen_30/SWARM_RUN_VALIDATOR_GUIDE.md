@@ -1,3 +1,23 @@
+---
+hexagon:
+  ontos:
+    id: 3745d905-6d03-47f9-96d9-39a6ca62f06a
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.699785Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_30/SWARM_RUN_VALIDATOR_GUIDE.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: SWARM_RUN_VALIDATOR_GUIDE.md
+---
+
 # Swarm Run Validator - Quick Reference
 
 ## Location

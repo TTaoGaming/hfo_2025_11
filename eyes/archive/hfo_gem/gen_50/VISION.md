@@ -1,3 +1,23 @@
+---
+hexagon:
+  ontos:
+    id: cf885a75-2b5e-422e-b938-205e306b47e3
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:36.098789Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_50/VISION.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: VISION.md
+---
+
 # Hive Fleet Obsidian: Generation 50 Vision
 
 ## 1. What is HFO Gen 50?

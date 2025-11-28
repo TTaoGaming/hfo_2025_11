@@ -1,3 +1,23 @@
+---
+hexagon:
+  ontos:
+    id: 00ca7be5-ffe8-408a-8e01-e4cd4b29868b
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:36.068149Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_4/summary.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: summary.md
+---
+
 # Summary of Gen_4: Stabilization and Pointer Discipline
 
 ## Key Concepts

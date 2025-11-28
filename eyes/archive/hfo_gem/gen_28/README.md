@@ -1,3 +1,23 @@
+---
+hexagon:
+  ontos:
+    id: 29916185-4ccb-4f99-aee1-ca3ab1f1dbab
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.952888Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_28/README.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: README.md
+---
+
 # Generation 28 – Master Index
 **Active Generation**: 28
 **Branch**: `hfo-2025-11-quickstart-swarm`

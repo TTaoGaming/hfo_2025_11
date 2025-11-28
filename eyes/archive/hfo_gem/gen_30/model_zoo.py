@@ -1,5 +1,27 @@
 #!/usr/bin/env python3
 """
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 2acd1119-9496-4fcb-8ae5-0710d939bdcc
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.712413Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_30/model_zoo.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: model_zoo.py
+"""
+"""
 Gen 30 Model Zoo
 ================
 

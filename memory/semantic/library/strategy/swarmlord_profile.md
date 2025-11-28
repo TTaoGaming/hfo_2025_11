@@ -16,7 +16,25 @@ related_files: []
 type: crystallized_memory
 status: active
 last_verified: '2025-11-21'
+hexagon:
+  ontos:
+    id: c588f193-cb77-4bec-bbcc-a1f2195586ab
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:10.287536+00:00'
+    generation: 51
+  topos:
+    address: memory/semantic/library/strategy/swarmlord_profile.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: swarmlord_profile.md
 ---
+
 
 # 🦅 Swarmlord of Webs: The Ship in State-Action Space
 

@@ -1,3 +1,24 @@
+---
+hexagon:
+  ontos:
+    id: bf4cc41e-c646-4f79-945a-83fd1e6ff72f
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:07.024221+00:00'
+    generation: 51
+  topos:
+    address: memory/episodic/gen_50_archive/trust_architecture.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: trust_architecture.md
+---
+
+
 # 🛡️ HFO Trust Engine: The Cognitive Exoskeleton
 
 > **Vision**: A System 2 thinking engine built from unreliable System 1 components.

@@ -1,11 +1,24 @@
 """
-⏳ Temporal Orchestration Implementation
-Corresponding to: brain/infrastructure_temporal.feature
-Intent: Implement the Temporal Workflow wrapper for the Research Swarm.
-
-This module implements the Temporal Workflow wrapper for the Research Swarm.
-Actual logic is in body/temporal/swarm_workflow.py, but this file serves as the
-Intent-to-Code bridge required by the Hive Guards.
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: d96ea645-c3bb-4eb9-b915-fac1c70eff31
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.060986Z'
+    generation: 51
+  topos:
+    address: body/hands/infrastructure_temporal.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: infrastructure_temporal.py
 """
 
 import sys

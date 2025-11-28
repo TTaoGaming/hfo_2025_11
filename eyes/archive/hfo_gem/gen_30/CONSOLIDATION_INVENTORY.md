@@ -1,3 +1,23 @@
+---
+hexagon:
+  ontos:
+    id: dbbf6ae1-4e0d-4062-96b5-cdd1a15bbf71
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.677238Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_30/CONSOLIDATION_INVENTORY.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: CONSOLIDATION_INVENTORY.md
+---
+
 # HFO Gen 30 Consolidation Inventory
 **Date**: 2025-11-13
 **Goal**: Stable L0/L1/L2 execution with zero config sprawl

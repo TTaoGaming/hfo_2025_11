@@ -1,7 +1,25 @@
 #!/usr/bin/env python3
 """
-🛡️ Hive Guard: Gherkin-Code Parity
-Ensures that every Intent (.feature) has a corresponding Verification (.py).
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 25c82d4b-fe9e-43eb-bdc4-6117857870bc
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.637113Z'
+    generation: 51
+  topos:
+    address: carapace/hive_guards/guard_gherkin_parity.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: guard_gherkin_parity.py
 """
 
 import sys
@@ -9,7 +27,7 @@ from pathlib import Path
 
 
 def check_parity():
-    print("🛡️  Scanning Brain for Intent (Gherkin)...")
+    print("��️  Scanning Brain for Intent (Gherkin)...")
 
     root_dir = Path(__file__).parent.parent.parent
     brain_dir = root_dir / "brain"

@@ -1,3 +1,26 @@
+"""
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 81e78820-0035-472d-85b1-8f03baa47c2d
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.283801+00:00'
+    generation: 51
+  topos:
+    address: venom/test_architecture_core_declarative.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: test_architecture_core_declarative.py
+"""
+
 import pytest
 
 # 🛡️ Placeholder Test for architecture_core_declarative

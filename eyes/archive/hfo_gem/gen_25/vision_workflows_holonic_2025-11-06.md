@@ -1,3 +1,23 @@
+---
+hexagon:
+  ontos:
+    id: a948c725-f02a-4609-90e1-6f98f6d145dc
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.927499Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_25/vision_workflows_holonic_2025-11-06.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: vision_workflows_holonic_2025-11-06.md
+---
+
 # Gen25 — HFO Workflows Holonic (Vision)
 
 BLUF

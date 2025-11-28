@@ -19,7 +19,25 @@ related_files:
 type: crystallized_memory
 status: active
 last_verified: '2025-11-21'
+hexagon:
+  ontos:
+    id: bcfb684b-d919-4bad-886a-bb0bdb2ded54
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:10.320919+00:00'
+    generation: 51
+  topos:
+    address: memory/semantic/library/memory/memory_tri_brain_draft.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: memory_tri_brain_draft.md
 ---
+
 
 # 🧠 HFO Tri-Brain Memory Architecture (Draft)
 

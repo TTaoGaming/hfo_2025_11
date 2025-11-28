@@ -1,3 +1,26 @@
+"""
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 35ad10c2-3c61-45e0-88ed-5d15dff8a4a9
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.430585+00:00'
+    generation: 51
+  topos:
+    address: body/digestion/consensus_council.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: consensus_council.py
+"""
+
 import os
 import json
 import asyncio

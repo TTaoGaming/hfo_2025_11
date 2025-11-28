@@ -1,3 +1,26 @@
+"""
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 1eab0d1f-845f-4f89-b9a1-292156ad541c
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.657223Z'
+    generation: 51
+  topos:
+    address: eyes/archive/copy_reference_tools.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: copy_reference_tools.py
+"""
+
 import shutil
 from pathlib import Path
 

@@ -1,3 +1,23 @@
+---
+hexagon:
+  ontos:
+    id: b99dce52-be0e-4b34-91cc-37a8b6d3c826
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.679305Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_30/CURRENT_STATUS.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: CURRENT_STATUS.md
+---
+
 # Gen 30 Current Status
 
 **Last Updated**: 2025-11-12

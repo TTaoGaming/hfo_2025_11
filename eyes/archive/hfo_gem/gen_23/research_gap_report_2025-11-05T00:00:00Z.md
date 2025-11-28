@@ -1,3 +1,23 @@
+---
+hexagon:
+  ontos:
+    id: bda6227c-bde4-436e-88fb-f3734ed74b33
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.885111Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_23/research_gap_report_2025-11-05T00:00:00Z.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: research_gap_report_2025-11-05T00:00:00Z.md
+---
+
 # Gen23 gaps — 2025-11-05
 
 BLUF

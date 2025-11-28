@@ -1,3 +1,23 @@
+---
+hexagon:
+  ontos:
+    id: f6d372b4-ae66-45ee-927e-57d0fb7600a7
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.856148Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_21/archive-hallucination-be-careful/cold_start_gem.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: cold_start_gem.md
+---
+
 # 🕸⛰💎🧬🥇 GEM GENE SEED 21 — Project-Agnostic Cold-Start (Swarmlord L0, Kilo-Code Orchestrator)
 
 ```

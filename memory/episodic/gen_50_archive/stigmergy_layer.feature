@@ -1,3 +1,24 @@
+# # ==================================================================
+# # 🤖 THE HEXAGON (System Generated)
+# # ==================================================================
+# hexagon:
+#   ontos:
+#     id: 0d7ac1d3-425a-4264-abd9-61cbc9c2f2c0
+#     type: feature
+#     owner: Swarmlord
+#   chronos:
+#     status: active
+#     urgency: 0.5
+#     decay: 0.5
+#     created: '2025-11-23T11:06:41.162856Z'
+#     generation: 51
+#   topos:
+#     address: memory/episodic/gen_50_archive/stigmergy_layer.feature
+#     links: []
+#   telos:
+#     viral_factor: 0.0
+#     meme: stigmergy_layer.feature
+#
 Feature: Virtual Stigmergy Layer (NATS JetStream)
     As the Swarmlord
     I want a persistent, asynchronous "Blackboard" (Stigmergy)

@@ -1,3 +1,26 @@
+"""
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: f78be71b-5583-4a8d-b517-e31d69d950ad
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.565485+00:00'
+    generation: 51
+  topos:
+    address: carapace/hive_guards/guard_fractal_config.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: guard_fractal_config.py
+"""
+
 #!/usr/bin/env python3
 import yaml
 import sys
@@ -11,7 +34,18 @@ def check_fractal_config():
         sys.exit(1)
 
     with open(config_path, "r") as f:
-        config = yaml.safe_load(f)
+        # Handle multi-document YAML (Stigmergy Headers)
+        docs = list(yaml.safe_load_all(f))
+        config = {}
+        for doc in docs:
+            if doc and "swarm" in doc:
+                config = doc
+                break
+
+        if not config:
+            # Fallback if no swarm key found, maybe it's single doc without header or header is merged
+            if len(docs) > 0:
+                config = docs[-1]  # Assume last doc is content
 
     swarm_config = config.get("swarm", {})
     squad_size = swarm_config.get("squad_size")

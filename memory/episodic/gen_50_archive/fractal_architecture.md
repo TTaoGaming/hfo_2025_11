@@ -1,3 +1,24 @@
+---
+hexagon:
+  ontos:
+    id: d374a76d-d1eb-423c-ba9f-18c0dac5c5f1
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:06.980612+00:00'
+    generation: 51
+  topos:
+    address: memory/episodic/gen_50_archive/fractal_architecture.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: fractal_architecture.md
+---
+
+
 # 🔢 HFO Fractal Scaling: The Holonic Hierarchy
 
 > **Vision**: Infinite scaling via Recursive Map-Reduce.

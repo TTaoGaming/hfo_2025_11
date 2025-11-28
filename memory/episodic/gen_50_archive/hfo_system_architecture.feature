@@ -1,3 +1,24 @@
+# # ==================================================================
+# # 🤖 THE HEXAGON (System Generated)
+# # ==================================================================
+# hexagon:
+#   ontos:
+#     id: 9d95bb99-0ad3-4ce6-b3a8-43317b4f4b90
+#     type: feature
+#     owner: Swarmlord
+#   chronos:
+#     status: active
+#     urgency: 0.5
+#     decay: 0.5
+#     created: '2025-11-23T11:06:41.114640Z'
+#     generation: 51
+#   topos:
+#     address: memory/episodic/gen_50_archive/hfo_system_architecture.feature
+#     links: []
+#   telos:
+#     viral_factor: 0.0
+#     meme: hfo_system_architecture.feature
+#
 Feature: HFO System Architecture (Organs, Roles, Champions)
     As the Swarmlord
     I want a composable architecture where Champions inhabit Roles to operate Organs

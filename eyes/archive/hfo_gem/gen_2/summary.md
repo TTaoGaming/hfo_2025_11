@@ -1,3 +1,23 @@
+---
+hexagon:
+  ontos:
+    id: 2f9330b6-c4e2-4b6c-a1b9-35e6ecaadd02
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.844221Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_2/summary.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: summary.md
+---
+
 # Summary of Gen_2: Refining Foundations with Ritual and Archive
 
 ## Key Concepts

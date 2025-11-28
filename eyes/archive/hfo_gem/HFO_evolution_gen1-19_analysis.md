@@ -1,3 +1,23 @@
+---
+hexagon:
+  ontos:
+    id: 9752e34b-56d9-49ee-99b5-feebb8e69085
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.665682Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/HFO_evolution_gen1-19_analysis.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: HFO_evolution_gen1-19_analysis.md
+---
+
 # Evolution Analysis: HFO GEM Generations 1-19
 
 ## BLUF: Executive Summary of Key Evolutions

@@ -1,3 +1,24 @@
+---
+hexagon:
+  ontos:
+    id: 9a46d836-c569-4553-8920-df179613af1b
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.551398+00:00'
+    generation: 51
+  topos:
+    address: carapace/FINOPS_STRATEGY.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: FINOPS_STRATEGY.md
+---
+
+
 # 🦅 Hive Fleet Obsidian: FinOps & Model Strategy
 **Status**: Active
 **Policy**: "High-Low Split" (Navigator vs. Swarm)

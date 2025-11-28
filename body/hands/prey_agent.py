@@ -1,3 +1,26 @@
+"""
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: f1f21da2-647f-42fb-a2d4-da3db890dcd2
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.376408+00:00'
+    generation: 51
+  topos:
+    address: body/hands/prey_agent.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: prey_agent.py
+"""
+
 import os
 import logging
 import json
@@ -90,10 +113,13 @@ class PreyAgent:
         self.model_name = model_name or DEFAULT_MODEL
 
         # Initialize LLM Client (Instructor)
+        base_url = os.getenv("LLM_BASE_URL", "https://openrouter.ai/api/v1")
+        api_key = os.getenv("LLM_API_KEY", os.getenv("OPENROUTER_API_KEY"))
+
         self.client = instructor.from_openai(
             AsyncOpenAI(
-                base_url="https://openrouter.ai/api/v1",
-                api_key=os.getenv("OPENROUTER_API_KEY"),
+                base_url=base_url,
+                api_key=api_key,
             ),
             mode=instructor.Mode.JSON,
         )

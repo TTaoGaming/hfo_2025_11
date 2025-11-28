@@ -1,3 +1,23 @@
+---
+hexagon:
+  ontos:
+    id: 3786b147-3a43-4bae-b4a8-822c81b5699e
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:36.080512Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_44/README.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: README.md
+---
+
 # Hive Fleet Obsidian - Generation 44
 
 **Status**: Active

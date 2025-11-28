@@ -1,3 +1,23 @@
+---
+hexagon:
+  ontos:
+    id: fb143785-6923-4a58-a685-f2d36d455ee4
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.883174Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_23/research_diagram_lineage_index_2025-11-05T00:00:00Z.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: research_diagram_lineage_index_2025-11-05T00:00:00Z.md
+---
+
 # HFO Diagram Lineage Index — Gen23 (attribution + adopted set)
 
 Date: 2025-11-05 (UTC)

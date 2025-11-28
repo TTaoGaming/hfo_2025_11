@@ -1,3 +1,23 @@
+---
+hexagon:
+  ontos:
+    id: 1f75d545-981a-47d3-9565-bd29af7ee86b
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.806588Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_14/summary.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: summary.md
+---
+
 # Summary of Gen_14: Adaptive Threat Landscapes in Hive Fleet Obsidian
 
 Gen_14 (2025-10-23T00:00:00Z) propels Hive Fleet Obsidian (HFO) forward by layering adaptive threat landscapes over Gen_12's multi-scale holons, enabling dynamic risk mapping and response in volatile environments. This iteration models threats as evolving terrains—biomimetic of predator-prey ecosystems (Bonabeau 1999, *Swarm Intelligence*, DOI:10.1201/9781420040410)—where holons self-adjust to adversarial pressures, maintaining ethical governance from Gen_13 while scaling resilience. Core advancement: Threat Observer within OBSIDIAN, fusing ISR data via stigmergy to generate adaptive maps, ensuring V/H >1.5 with Layer 9 validations (e.g., `ps aux` for real-time threat detection).

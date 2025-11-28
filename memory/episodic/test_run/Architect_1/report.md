@@ -1,3 +1,24 @@
+---
+hexagon:
+  ontos:
+    id: 12aff03e-8d5c-4b95-9112-485b81e21bc9
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:06.966746+00:00'
+    generation: 51
+  topos:
+    address: memory/episodic/test_run/Architect_1/report.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: report.md
+---
+
+
 # Stigmergy Layer Connectivity Verification
 
 ## Mission Intent

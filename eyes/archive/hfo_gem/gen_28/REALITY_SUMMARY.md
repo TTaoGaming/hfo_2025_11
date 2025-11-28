@@ -1,3 +1,23 @@
+---
+hexagon:
+  ontos:
+    id: e50e7274-b916-4e6f-965c-a23361de3cf8
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.954641Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_28/REALITY_SUMMARY.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: REALITY_SUMMARY.md
+---
+
 # Gen 28 SSOT Reality Check Summary
 **Date**: 2025-11-11
 **Investigator**: Copilot (independent verification)

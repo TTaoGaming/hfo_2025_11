@@ -1,8 +1,24 @@
 """
-🦅 Hive Fleet Obsidian: NATS Scatter-Gather Demo
-Intent: Demonstrate NATS Scatter-Gather pattern.
-Intent: Demonstrates the Async Swarm Pattern using NATS.
-Linked to: brain/pattern_async_swarm.feature
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: c54c11ea-1d18-4005-a36c-50f130e8f733
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.369324+00:00'
+    generation: 51
+  topos:
+    address: body/hands/demo_nats_scatter_gather.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: demo_nats_scatter_gather.py
 """
 import asyncio
 import json

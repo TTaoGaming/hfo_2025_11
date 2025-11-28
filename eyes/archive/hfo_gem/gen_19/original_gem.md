@@ -1,3 +1,23 @@
+---
+hexagon:
+  ontos:
+    id: f26f3871-bf27-46ea-a23f-fdb8b989f008
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.835673Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_19/original_gem.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: original_gem.md
+---
+
 
 # 🕸⛰💎🧬🥇 GEM GENE SEED 01 — Generation 19 Regenerative Specification
 

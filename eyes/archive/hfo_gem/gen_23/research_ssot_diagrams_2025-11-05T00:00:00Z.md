@@ -1,3 +1,23 @@
+---
+hexagon:
+  ontos:
+    id: 9098a047-9bfc-4b33-b1f9-9a3e23721fbb
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.886778Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_23/research_ssot_diagrams_2025-11-05T00:00:00Z.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: research_ssot_diagrams_2025-11-05T00:00:00Z.md
+---
+
 # Hive Fleet Obsidian — Gen23 SSOT Diagrams (single source of truth)
 
 Date: 2025-11-05 (UTC)

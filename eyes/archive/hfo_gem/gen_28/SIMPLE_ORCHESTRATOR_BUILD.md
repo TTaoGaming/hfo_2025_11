@@ -1,3 +1,23 @@
+---
+hexagon:
+  ontos:
+    id: f28560c0-e17d-4a8f-8671-adb3973adfdb
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.956377Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_28/SIMPLE_ORCHESTRATOR_BUILD.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: SIMPLE_ORCHESTRATOR_BUILD.md
+---
+
 # Simple Orchestrator - Build Complete ✅
 
 **Date**: 2025-11-11

@@ -1,3 +1,24 @@
+---
+hexagon:
+  ontos:
+    id: 0d28b1eb-892a-4930-97b2-425918743a71
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:06.973969+00:00'
+    generation: 51
+  topos:
+    address: memory/episodic/gen_50_archive/architecture_stigmergic_graphrag.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: architecture_stigmergic_graphrag.md
+---
+
+
 # Stigmergic GraphRAG Architecture
 
 This diagram formalizes the **Hybrid Memory Architecture** for Hive Fleet Obsidian (Gen 50).

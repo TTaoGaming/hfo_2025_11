@@ -1,3 +1,24 @@
+---
+hexagon:
+  ontos:
+    id: 560a0997-63a8-4aba-91f3-3774d856d90f
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:11.854343+00:00'
+    generation: 51
+  topos:
+    address: memory/missions/20251122_162324_compare_godot,_unity,_babylon._REPORT.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: 20251122_162324_compare_godot,_unity,_babylon._REPORT.md
+---
+
+
 # 🦅 Hive Fleet Obsidian: Mission Report
 **Mission**: Compare Godot, Unity, Babylon.js, Three.js, and MelonJS (Clumsy Bird) for the 'Gesture Game Forge'. Which is the best base for a 1-interaction game that is robust, easy to fork, and suitable for AI-driven mutation? Produce a final recommendation.
 **Date**: 20251122_162324

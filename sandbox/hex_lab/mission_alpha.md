@@ -6,10 +6,6 @@ tags:
 - sandbox
 - test
 - hexagon
-
-# ==================================================================
-# 🤖 THE HEXAGON (System Generated)
-# ==================================================================
 hexagon:
   ontos:
     id: a0056b31-d67b-4964-9e21-0d4bf299faef
@@ -20,13 +16,15 @@ hexagon:
     urgency: 0.1
     decay: 0.5
     created: '2025-11-23T06:05:23.724194Z'
+    generation: 51
   topos:
-    address: 9.1.0
+    address: sandbox/hex_lab/mission_alpha.md
     links: []
   telos:
     viral_factor: 0.56
     meme: 'Operation Sandbox: Hexagon Trial'
 ---
+
 
 
 # Operation Sandbox

@@ -1,7 +1,25 @@
 #!/usr/bin/env python3
 """
-🛡️ Hive Guard: Tool Integrity
-Verifies that the Agent ToolSet is responsive and not freezing.
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: bd6643b5-99e7-4d4c-84cc-65bc0dfd2df9
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.640367Z'
+    generation: 51
+  topos:
+    address: carapace/hive_guards/guard_tools.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: guard_tools.py
 """
 
 import sys

@@ -1,3 +1,26 @@
+"""
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 2bd399a5-685f-4661-ad89-6546c9c37cff
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.585922+00:00'
+    generation: 51
+  topos:
+    address: eyes/tools/setup_ingestion_queue.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: setup_ingestion_queue.py
+"""
+
 import os
 import sys
 import psycopg2

@@ -1,3 +1,26 @@
+"""
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: 9c7e6e22-81d4-4400-876f-bbb3a7623a8e
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.370875+00:00'
+    generation: 51
+  topos:
+    address: body/hands/test_real_llm_swarm.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: test_real_llm_swarm.py
+"""
+
 import asyncio
 import os
 import json

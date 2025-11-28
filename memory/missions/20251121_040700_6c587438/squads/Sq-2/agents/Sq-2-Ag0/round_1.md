@@ -1,3 +1,24 @@
+---
+hexagon:
+  ontos:
+    id: 1532d505-c0c4-4c9e-879b-f0247bb7bc84
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:11.890042+00:00'
+    generation: 51
+  topos:
+    address: memory/missions/20251121_040700_6c587438/squads/Sq-2/agents/Sq-2-Ag0/round_1.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: round_1.md
+---
+
+
 # Agent Sq-2-Ag0 - Round 1
 **Role**: Investigative Journalist
 **Style**: Narrative, connecting dots, skeptical

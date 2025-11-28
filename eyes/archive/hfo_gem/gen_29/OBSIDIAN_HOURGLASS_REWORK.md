@@ -1,3 +1,23 @@
+---
+hexagon:
+  ontos:
+    id: eb6c999e-08d6-480c-a60a-4338e5cfba15
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.994365Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_29/OBSIDIAN_HOURGLASS_REWORK.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: OBSIDIAN_HOURGLASS_REWORK.md
+---
+
 # Obsidian Hourglass Rework – State-Action Space Web
 
 

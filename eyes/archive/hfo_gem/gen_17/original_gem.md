@@ -1,3 +1,23 @@
+---
+hexagon:
+  ontos:
+    id: 791ea278-f3a0-4b2e-91e3-eeaa183d6f17
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.822090Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_17/original_gem.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: original_gem.md
+---
+
 # HFO PettingZoo Three-Prey Baseline Handoff
 
 This note captures the current state of the PettingZoo/MPE2 simple_tag verification harness (three prey baselines) so the next agent can pick up quickly.

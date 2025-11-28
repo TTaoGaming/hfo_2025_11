@@ -29,6 +29,10 @@ test-all: guards
 	@$(PYTHON) venom/test_fractal_quorum.py
 	@echo "✨ All Smoke Tests Passed!"
 
+micro-swarm:
+	@echo "🔬 Testing Micro-Swarm Concurrency (8 Agents)..."
+	@$(PYTHON) venom/test_swarm_concurrency.py
+
 test-ray:
 	@$(PYTHON) venom/smoke/test_01_ray.py
 
@@ -50,11 +54,50 @@ test-langsmith:
 test-pgvector:
 	@$(PYTHON) venom/smoke/test_07_pgvector.py
 
+# --- 🧠 Memory & Ingestion ---
+ingest-unified:
+	@echo "📥 Running Unified Ingestion (Frameworks + Brain)..."
+	@PYTHONPATH=. $(PYTHON) scripts/unified_ingest.py
+
+ingest-horizon:
+	@echo "📥 Ingesting Obsidian Horizon..."
+	@PYTHONPATH=. $(PYTHON) scripts/ingest_obsidian_horizon.py
+
+ingest-prey:
+	@echo "📥 Ingesting 1-1-1-1 PREY Loop Intent..."
+	@KMP_DUPLICATE_LIB_OK=TRUE OMP_NUM_THREADS=1 PYTHONPATH=. $(PYTHON) buds/hfo_gem_gen_55/scripts/ingest_prey_loop.py
+
+memory-query:
+	@echo "🧠 Querying Swarmlord Memory..."
+	@read -p "Enter query: " query; \
+	PYTHONPATH=. $(PYTHON) -c "import asyncio; from body.hands.swarmlord import SwarmlordAgent; \
+	async def q(): \
+		a = SwarmlordAgent(); \
+		await a.initialize(); \
+		print(await a.chat('$$query')); \
+		await a.close(); \
+	asyncio.run(q())"
+
+
 test-dspy:
 	@$(PYTHON) venom/smoke/test_08_dspy.py
 
 test-gitops:
 	@$(PYTHON) venom/smoke/test_09_gitops.py
+
+# --- 🧬 Gen 55 Workflows ---
+
+test-prey-1111:
+	@echo "🧪 Testing PREY 1-1-1-1 (Atomic Loop)..."
+	@PYTHONPATH=. $(PYTHON) buds/hfo_gem_gen_55/body/hands/cleanroom_prey_1111.py
+
+test-prey-8888:
+	@echo "🧪 Testing PREY 8-8-8-8 (Fractal Squad)..."
+	@PYTHONPATH=. $(PYTHON) buds/hfo_gem_gen_55/body/hands/cleanroom_prey_8888.py
+
+heartbeat-247:
+	@echo "💓 Starting 24/7 Heartbeat (Gen 55)..."
+	@PYTHONPATH=. $(PYTHON) buds/hfo_gem_gen_55/body/hands/cleanroom_prey_1111.py --heartbeat-only
 
 # --- 🧬 Stem Cell Factory (Regeneration) ---
 
@@ -77,7 +120,20 @@ garden:
 	@$(PYTHON) body/digestion/graph_gardener.py
 
 heal: weave garden audit
-	@echo "✨ Hive Healed."
+
+# --- ⚡ Stigmergy System (Gen 55) ---
+
+stigmergy-setup:
+	@echo "⚡ Setting up Stigmergy Infrastructure (NATS + LanceDB)..."
+	@PYTHONPATH=. $(PYTHON) buds/hfo_gem_gen_55/scripts/setup_stigmergy.py
+
+stigmergy-assimilator:
+	@echo "⚡ Starting Stigmergy Assimilator (Hot -> Cold)..."
+	@PYTHONPATH=. $(PYTHON) buds/hfo_gem_gen_55/scripts/run_assimilator.py
+
+stigmergy-test:
+	@echo "⚡ Testing Stigmergy System (8 Pillars)..."
+	@PYTHONPATH=. $(PYTHON) buds/hfo_gem_gen_55/venom/tests/test_stigmergy_system.py
 
 # --- 🛡️ GitOps ---
 
@@ -121,3 +177,19 @@ research:
 karmic-hunt:
 	@echo "🕸️ Initiating Karmic Hunt for: $(intent)"
 	@. .env && PYTHONPATH=. $(PYTHON) body/hands/obsidian_research_swarm.py --mission "KARMIC HUNT: $(intent). Use Cynefin to categorize the domain. Search for 'Exemplars' (Biomimicry, Open Source, Industry Standards). Synthesize a report with specific precedents."
+
+heartbeat:
+	@echo "💓 Starting Octarchy Heartbeat (8 Agents)..."
+	@PYTHONPATH=. $(PYTHON) body/hands/octarchy_heartbeat.py
+
+heartbeat-dashboard:
+	@echo "📊 Starting Heartbeat Dashboard..."
+	@PYTHONPATH=. $(PYTHON) body/hands/swarm_dashboard_server.py
+
+heartbeat-summary:
+	@echo "📈 Generating Heartbeat Summary..."
+	@PYTHONPATH=. $(PYTHON) body/hands/heartbeat_summary.py --minutes $(or $(MINUTES), 5)
+
+guard-heartbeat:
+	@echo "🛡️ Launching Heartbeat Guard..."
+	@$(PYTHON) body/hands/guard_heartbeat.py

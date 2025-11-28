@@ -1,3 +1,23 @@
+---
+hexagon:
+  ontos:
+    id: b6247bc0-5bdb-42a2-8e19-6eb430aa7760
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.914015Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_25/vision_holon_roles_obsidian_2025-11-06.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: vision_holon_roles_obsidian_2025-11-06.md
+---
+
 # Gen25 — HOLON Roles (OBSIDIAN) Vision
 
 BLUF

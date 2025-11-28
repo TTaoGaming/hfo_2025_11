@@ -1,3 +1,23 @@
+---
+hexagon:
+  ontos:
+    id: b4106811-029a-4833-bd02-4cd9ba0b8663
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.892588Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_24/README.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: README.md
+---
+
 # Gen24 - 100-Swarm Orchestration Guide + MBSE SSOT
 
 BLUF

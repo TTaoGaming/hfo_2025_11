@@ -1,3 +1,23 @@
+---
+hexagon:
+  ontos:
+    id: f5c3818b-5ab4-4d93-9ffe-251a9027c27b
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:36.027915Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_32/FORMALIZATION.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: FORMALIZATION.md
+---
+
 # Byzantine Scatter-Gather Formalization
 
 **Gen 32 Technical Specification**

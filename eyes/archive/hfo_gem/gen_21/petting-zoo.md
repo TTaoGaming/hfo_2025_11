@@ -1,3 +1,23 @@
+---
+hexagon:
+  ontos:
+    id: de0d9bc6-1271-4f48-8c7a-f21d9499d118
+    type: md
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T11:07:35.854336Z'
+    generation: 51
+  topos:
+    address: eyes/archive/hfo_gem/gen_21/petting-zoo.md
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: petting-zoo.md
+---
+
 # Gen21 MAS: PettingZoo simple_tag_v3 — Stabilized Baseline (Oct 29, 2025)
 
 This document captures the known-good baseline, run instructions, and expected 2×2 results for the PettingZoo MPE `simple_tag_v3` setup, so we can quickly detect and recover from regressions.

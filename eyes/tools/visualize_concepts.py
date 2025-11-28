@@ -1,3 +1,26 @@
+"""
+# ==================================================================
+# 🤖 THE HEXAGON (System Generated)
+# ==================================================================
+hexagon:
+  ontos:
+    id: f2b60506-deb8-49f2-9fef-2ca58e72ee08
+    type: py
+    owner: Swarmlord
+  chronos:
+    status: active
+    urgency: 0.5
+    decay: 0.5
+    created: '2025-11-23T10:21:31.594293+00:00'
+    generation: 51
+  topos:
+    address: eyes/tools/visualize_concepts.py
+    links: []
+  telos:
+    viral_factor: 0.0
+    meme: visualize_concepts.py
+"""
+
 import matplotlib.pyplot as plt
 import networkx as nx
 
