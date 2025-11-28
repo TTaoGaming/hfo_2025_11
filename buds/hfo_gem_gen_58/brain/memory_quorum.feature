@@ -10,8 +10,9 @@ Feature: PREY 8888 Workflow (Holographic Quorum)
     Given a single raw file is secured in the "Iron Vault"
 
     # 2. Perceive (8 Agents)
-    When the 8 distinct Agents (Grok, Gemini, GPT, Mistral, Qwen, DeepSeek, Minimax, GLM) are summoned
-    Then they ALL Perceive the same input file
+    When the 8 distinct Agents are summoned
+    Then the "Family Cap" rule MUST be enforced: No single Model Family (e.g., OpenAI, Google) can hold more than 2 seats
+    And they ALL Perceive the same input file
 
     # 3. React (8 Agents)
     And they React by analyzing the content through ALL 8 Metaphysical Pillars:

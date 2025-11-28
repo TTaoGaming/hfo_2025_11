@@ -59,13 +59,34 @@ class LibrarianCouncil:
         """Load the Weekly Champions configuration."""
         try:
             with open("buds/hfo_gem_gen_58/memory/weekly_champions.json", "r") as f:
-                return json.load(f)
+                config = json.load(f)
+                self._validate_family_cap(config.get("quorum_models", []))
+                return config
         except FileNotFoundError:
             logger.error("❌ weekly_champions.json not found! Using fallback.")
             return {
                 "synthesizer_model": "x-ai/grok-4.1-fast:free",
                 "quorum_models": ["google/gemini-2.0-flash-001"] * 8 # Fallback to single model
             }
+
+    def _validate_family_cap(self, models: List[str]):
+        """
+        Enforce the 'Family Cap': No single provider can have > 2 seats.
+        This prevents 'Monoculture Collapse' where one provider's bias dominates the quorum.
+        """
+        families = {}
+        for m in models:
+            # Extract family (e.g., 'openai' from 'openai/gpt-4')
+            family = m.split("/")[0] if "/" in m else m
+            families[family] = families.get(family, 0) + 1
+        
+        for family, count in families.items():
+            if count > 2:
+                logger.error(f"🚨 CANALIZATION VIOLATION: Family '{family}' has {count} seats! Max is 2.")
+                logger.error("The Quorum is compromised by lack of diversity.")
+                # We don't stop execution, but we flag it heavily.
+            else:
+                logger.info(f"✅ Family '{family}': {count}/2 seats.")
 
     async def process_item(self, item: MemoryItem):
         """
