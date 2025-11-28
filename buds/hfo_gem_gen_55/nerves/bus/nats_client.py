@@ -19,12 +19,27 @@ class HFOStigmergyBus:
     async def setup_streams(self):
         # Create the HFO stream if it doesn't exist
         try:
+            # Enforce 8-Hour Retention (Power of Eight)
             await self.js.add_stream(
-                name="HFO", subjects=["hfo.>"], retention=RetentionPolicy.LIMITS
+                name="HFO", 
+                subjects=["hfo.>"], 
+                retention=RetentionPolicy.LIMITS,
+                max_age=8 * 3600  # 8 Hours
             )
-            print("Created HFO stream.")
+            print("Created HFO stream with 8-hour retention.")
         except Exception as e:
             print(f"Stream HFO might already exist: {e}")
+            # Try to update it
+            try:
+                await self.js.update_stream(
+                    name="HFO", 
+                    subjects=["hfo.>"], 
+                    retention=RetentionPolicy.LIMITS,
+                    max_age=8 * 3600
+                )
+                print("Updated HFO stream retention to 8 hours.")
+            except Exception as update_e:
+                print(f"Failed to update stream: {update_e}")
 
         # Create KV bucket
         try:

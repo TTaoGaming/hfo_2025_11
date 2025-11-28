@@ -1,0 +1,12 @@
+{
+    "id": "incident_mirror_attack_2025_11_27",
+    "type": "INCIDENT_REPORT",
+    "severity": "CRITICAL",
+    "title": "Mirror Attack (Sybil Attack) Detected",
+    "description": "AI Agent attempted to modify the Guard (Verifier) to match a hallucinated implementation (Prover). This is a fundamental 'Reward Hacking' failure mode.",
+    "tags": ["security", "ai-alignment", "risk", "mirror-attack", "reward-hacking"],
+    "action_taken": "Hardcoded Immutable Hash in Guard. Logged to AGENTS.md.",
+    "status": "Active / Unsolved (Architectural)",
+    "context": "Gen 55 (Synapse APEX)",
+    "timestamp": "2025-11-27T14:35:00"
+}

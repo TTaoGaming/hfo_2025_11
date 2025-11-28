@@ -1,7 +1,7 @@
 import os
 
 # Fix for OMP Error: Must be set before importing libraries that use OpenMP
-os.environ['KMP_DUPLICATE_LIB_OK'] = 'True'
+os.environ["KMP_DUPLICATE_LIB_OK"] = "True"
 
 from sentence_transformers import SentenceTransformer
 import lancedb
