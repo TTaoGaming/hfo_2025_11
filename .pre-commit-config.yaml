@@ -46,3 +46,10 @@ repos:
         language: system
         pass_filenames: false
         always_run: true
+
+    -   id: hive-guards-gen59
+        name: 🛡️ Hive Guards (Gen 59)
+        entry: python3 buds/hfo_gem_gen_59/tests/test_hive_guards.py
+        language: system
+        pass_filenames: false
+        always_run: true

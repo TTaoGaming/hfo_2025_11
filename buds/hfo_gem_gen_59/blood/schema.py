@@ -37,6 +37,15 @@ class PillarAnalysis(BaseModel):
     key_findings: List[str] = Field(..., description="Specific findings")
     confidence: float = Field(..., ge=0.0, le=1.0)
 
+class PreySequence(BaseModel):
+    """
+    The PREY Loop Evidence.
+    """
+    perceive: str = Field(..., description="What was observed")
+    react: str = Field(..., description="The plan formed")
+    execute: str = Field(..., description="The action taken")
+    yield_: str = Field(..., alias="yield", description="The result produced")
+
 class Level0Artifact(BaseModel):
     """
     Level 0: A single PREY Agent's COMPREHENSIVE perspective.
@@ -45,6 +54,9 @@ class Level0Artifact(BaseModel):
     source_hash: str = Field(..., description="Link to the Raw MemoryItem")
     agent_id: int = Field(..., ge=1, le=8, description="ID of the Agent (1-8)")
     model_used: str = Field(..., description="The LLM model used")
+    
+    # The PREY Loop
+    prey: PreySequence = Field(..., description="Evidence of the PREY loop")
     
     # The 8 Pillars (Strict Canalization)
     ontos: PillarAnalysis = Field(..., description="Being/Existence")
@@ -64,6 +76,7 @@ class Level1Artifact(BaseModel):
     Condensed from 8 Level 0 Artifacts.
     """
     source_hash: str = Field(..., description="Link to the Raw MemoryItem")
+    constituent_hashes: List[str] = Field(..., min_length=8, max_length=8, description="Hashes of the 8 Level 0 Artifacts")
     consensus_score: float = Field(..., ge=0.0, le=1.0, description="Percentage of agents in agreement")
     
     # The Synthesis
