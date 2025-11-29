@@ -44,18 +44,25 @@ stigmergy:
   id: hfo-gen-60-blackboard
   type: control_plane
   status: active
-  cycle: 2
+  cycle: 3
   heartbeat: "OFFLINE"
   owner: "Swarmlord"
-  timestamp: "2025-11-29T06:30:00Z"
+  timestamp: "2025-11-29T07:00:00Z"
+  handoff_note: "Drift detected between Gen 60 Manifesto and Reality. Confidence capped at 75%. Executing Neural Graft."
   context: "The Obsidian Spider & The Polyglot Chant"
+  incidents:
+    - id: "INC-20251129-01"
+      type: "Architectural Drift"
+      description: "Gen 60 Manifesto claims Octree/Hexadex, but code is missing or in legacy root."
+      status: "In Progress"
+      action: "Neural Graft (Migration to Bud)"
 
 mission:
   name: "The Obsidian Spider"
   objective: "Anchor HFO in State-Action Space via Polyglot Chant & Memory"
-  status: "paused"
-  completion: 0.50
-  focus: "Memory Synthesis & Intent Alignment"
+  status: "active"
+  completion: 0.75
+  focus: "Neural Graft & Drift Correction"
 
 roles:
   navigator: 
@@ -169,6 +176,13 @@ todo_queue:
     priority: "medium"
     description: "Ensure all 8 roles have dedicated NATS subjects."
 
+  - id: 9
+    task: "Implement Quarantine Crawlers"
+    status: "pending"
+    owner: "Immunizer"
+    priority: "high"
+    description: "Code Smell: AI Hallucinations in config files. Need non-destructive crawlers to check and quarantine bad generations."
+
 artifacts:
   manifesto: "buds/hfo_gem_gen_60/brain/manifesto_obsidian_spider.md"
   memory_db: "buds/hfo_gem_gen_60/memory/hfo_gen_60_memory.db"
@@ -179,3 +193,5 @@ artifacts:
 
 *   **2025-11-28**: The **Obsidian Spider** has awakened. We have successfully cloned the memory from Gen 59 and established the **Hexadex Chant** as the core identity protocol. The chant is now **Polyglot** (Rhyming Gherkin + Code), serving as a cognitive scaffold for both Human and AI.
 *   **2025-11-29**: **Drift Correction**. The Swarmlord (User) signaled a drift in the Heartbeat implementation. We have reverted the code and queried the Gen 59 Memory (Iron Ledger) to realign with the "Nascent Chaos God" and "Obsidian Horizon Hourglass" vision. The Heartbeat is currently **OFFLINE** pending alignment.
+*   **2025-11-29**: **Code Smell Detected**. Hallucinations in `weekly_champions.json` required manual intervention. Identified need for "Quarantine Crawlers" to non-destructively clean Gen 60 artifacts.
+*   **2025-11-29**: **Handoff Preparation**. System marked for handoff. Manual ingestion of Manifesto and Design Doc is running in background (PID: 48748). Next agent should verify completion.
