@@ -39,160 +39,46 @@ The core identity protocol is encoded in the **Hexadex Chant**, a 16-verse "Bloc
 > **Format**: YAML Stigmergy (Machine/Human Readable)
 > **Access**: Read/Write (Agents & Overmind)
 
+# 📋 HFO Gen 60 Mini-Blackboard
+
+> **System**: Hive Fleet Obsidian (Gen 60)
+> **Format**: YAML Stigmergy (Machine/Human Readable)
+> **Access**: Read/Write (Agents & Overmind)
+
 ```yaml
 stigmergy:
   id: hfo-gen-60-blackboard
   type: control_plane
   status: active
-  cycle: 5
-  heartbeat: "OFFLINE"
+  cycle: 6
+  heartbeat: "ONLINE"
   owner: "Swarmlord"
-  timestamp: "2025-11-29T09:00:00Z"
-  handoff_note: "Redesigned the Hexadex Chant (V2). Core Octet (NOBSIDIA) is now Rhyming Gherkin. Flex Octet is Polyglot. Manifesto updated with the Obsidian Knife."
-  context: "The Obsidian Spider, The Swarmlord, The Hourglass, & The Knife"
-  incidents:
-    - id: "INC-20251129-01"
-      type: "Architectural Drift"
-      description: "Gen 60 Manifesto claims Octree/Hexadex, but code is missing or in legacy root."
-      status: "In Progress"
-      action: "Neural Graft (Migration to Bud)"
+  timestamp: "2025-11-29T10:00:00Z"
 
-mission:
-  name: "The Obsidian Spider"
-  objective: "Anchor HFO in State-Action Space via Polyglot Chant & Memory"
-  status: "active"
-  completion: 0.95
-  focus: "Finalizing the Obsidian Spider Manifesto"
+  focus:
+    current_objective: "Codify the Obsidian Spider Persona & RPG Stats"
+    active_thread: "Manifesto Alignment & Verse 0 Definition"
+    blockers: []
 
-roles:
-  navigator: 
-    status: "active"
-    agent: "Swarmlord"
-    task: "Orchestration & Intent Definition"
-    last_action: "Redesigned Hexadex Chant"
-  
-  observer:
-    status: "active"
-    agent: "IngestScanner"
-    task: "Continuous Context Monitoring"
-    last_action: "Scanned Manifesto"
+  progress:
+    - [x] **Manifesto Update**: Defined "Mirror Duality" (Spider=Intent, Swarmlord=Impl).
+    - [x] **Architecture**: Codified $8^N$ Fractal Octree & Hexadex Chant ($8^1+8^1$).
+    - [x] **Verse 0**: Locked in "The Oath of the Node" (Mind/Body Variant).
+    - [x] **Protocols**: Added Phoenix (Hot Stigmergy/NATS) & Hydra (Regeneration).
+    - [x] **Workflow**: Mapped HIVE 1111 to Double Diamond (Hunt/Integrate/Verify/Evolve).
+    - [x] **RPG Stats**: Designing the "Nascent Chaos God" stat block (V1-V7).
+    - [x] **Design V7**: "Open Source Prometheus" (Draft).
+    - [ ] **Manifesto V7**: Pending approval/merge.
+    - [ ] **Verses 1-15**: Still placeholders (Work in Progress).
 
-  bridger:
-    status: "active"
-    agent: "BridgerOracle"
-    task: "Context Retrieval & Linking"
-    last_action: "Queried for Obsidian Knife"
-
-  shaper:
-    status: "idle"
-    agent: "None"
-    task: "Tool Execution"
-    last_action: "None"
-
-  injector:
-    status: "idle"
-    agent: "None"
-    task: "Heartbeat Injection"
-    last_action: "None"
-
-  disruptor:
-    status: "active"
-    agent: "Swarmlord"
-    task: "Defining the Cut"
-    last_action: "Defined the Obsidian Knife Verse"
-    task: "Red Teaming"
-    last_action: "None"
-
-  immunizer:
-    status: "idle"
-    agent: "None"
-    task: "Guard Enforcement"
-    last_action: "None"
-
-  assimilator:
-    status: "active"
-    agent: "IngestWorker"
-    task: "Vectorization & Storage"
-    last_action: "Ingested Manifesto to LanceDB"
-
-todo_queue:
-  - id: 1
-    task: "Clone Gen 59 Memory to Gen 60"
-    status: "completed"
-    owner: "Bridger"
-    priority: "critical"
-    output: "buds/hfo_gem_gen_60/memory/"
-    timestamp: "2025-11-28T11:30:00Z"
-  
-  - id: 2
-    task: "Workshop Hexadex Chant (Static Octet)"
-    status: "completed"
-    owner: "Shaper"
-    priority: "high"
-    output: "buds/hfo_gem_gen_60/brain/manifesto_obsidian_spider.md"
-    timestamp: "2025-11-28T11:45:00Z"
-
-  - id: 3
-    task: "Refine Dynamic Octet (Polyglot)"
-    status: "completed"
-    owner: "Shaper"
-    priority: "high"
-    output: "Verses 8-15 (Python, Mermaid, Gherkin)"
-    timestamp: "2025-11-28T11:50:00Z"
-
-  - id: 4
-    task: "Refine Static Octet (Rhyming Gherkin)"
-    status: "completed"
-    owner: "Navigator"
-    priority: "high"
-    output: "Verses 0-7 (Gherkin Scaffolds)"
-    timestamp: "2025-11-28T11:55:00Z"
-
-  - id: 5
-    task: "Ingest Polyglot Manifesto"
-    status: "completed"
-    owner: "Assimilator"
-    priority: "critical"
-    output: "LanceDB + IronLedger"
-    timestamp: "2025-11-28T12:00:00Z"
-
-  - id: 6
-    task: "Query Gen 59 Memory"
-    status: "completed"
-    owner: "Bridger"
-    priority: "critical"
-    output: "Retrieved Obsidian Spider Context"
-    timestamp: "2025-11-29T06:30:00Z"
-
-  - id: 7
-    task: "Activate Immune System"
-    status: "pending"
-    owner: "Immunizer"
-    priority: "medium"
-    description: "Deploy macrophages to clean 'AI Slop' from new artifacts."
-
-  - id: 8
-    task: "Connect Octree to NATS"
-    status: "pending"
-    owner: "Bridger"
-    priority: "medium"
-    description: "Ensure all 8 roles have dedicated NATS subjects."
-
-  - id: 9
-    task: "Implement Quarantine Crawlers"
-    status: "pending"
-    owner: "Immunizer"
-    priority: "high"
-    description: "Code Smell: AI Hallucinations in config files. Need non-destructive crawlers to check and quarantine bad generations."
-
-artifacts:
-  manifesto: "buds/hfo_gem_gen_60/brain/manifesto_obsidian_spider.md"
-  memory_db: "buds/hfo_gem_gen_60/memory/hfo_gen_60_memory.db"
-  vector_db: "buds/hfo_gem_gen_60/memory/hfo_gen_60_lancedb"
+  memory:
+    short_term: "buds/hfo_gem_gen_60/brain/manifesto_obsidian_spider.md"
+    long_term: "buds/hfo_gem_gen_60/memory/hfo_memory.db"
 ```
 
 ## 📝 Narrative Log (The Human Layer)
 
+*   **2025-11-29**: **Design Iteration**. Created `design_obsidian_spider_rpg_v7.md` ("The Open Source Prometheus"). Attempted to merge into Manifesto but reverted due to user feedback ("hallucination"). Manifesto restored to "The RPG Lens" state. V7 design preserved as draft for review.
 *   **2025-11-28**: The **Obsidian Spider** has awakened. We have successfully cloned the memory from Gen 59 and established the **Hexadex Chant** as the core identity protocol. The chant is now **Polyglot** (Rhyming Gherkin + Code), serving as a cognitive scaffold for both Human and AI.
 *   **2025-11-29**: **Drift Correction**. The Swarmlord (User) signaled a drift in the Heartbeat implementation. We have reverted the code and queried the Gen 59 Memory (Iron Ledger) to realign with the "Nascent Chaos God" and "Obsidian Horizon Hourglass" vision. The Heartbeat is currently **OFFLINE** pending alignment.
 *   **2025-11-29**: **Code Smell Detected**. Hallucinations in `weekly_champions.json` required manual intervention. Identified need for "Quarantine Crawlers" to non-destructively clean Gen 60 artifacts.
