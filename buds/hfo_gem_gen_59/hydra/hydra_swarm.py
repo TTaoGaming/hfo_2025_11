@@ -81,6 +81,7 @@ class HydraSwarm:
         
         # Run the graph step by step to allow for "Anytime" stopping
         config = {"recursion_limit": 50}
+        final_result = None
         
         try:
             async for event in self.graph.astream(initial_state, config=config):
@@ -97,13 +98,15 @@ class HydraSwarm:
                 # Log Event
                 for key, value in event.items():
                     logger.info(f"Task {task_id} - Node {key}: {value.get('status', 'running')}")
+                    if 'result' in value:
+                        final_result = value['result']
             
             if not self.stop_signals.get(task_id):
                 logger.info(f"✅ Task {task_id} Completed.")
                 await self.stigmergy.publish_ingest(json.dumps({
                     "task_id": task_id,
                     "status": "completed",
-                    "result": "Task Completed Successfully"
+                    "result": final_result or "Task Completed Successfully (No Result)"
                 }))
                 
         except Exception as e:

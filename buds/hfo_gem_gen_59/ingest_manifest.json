@@ -17540,5 +17540,16 @@
   "buds/hfo_gem_gen_59/memory/hfo_gen_59_lancedb/hfo_vectors.lance/data/0100100111110010010110111a77704ad588a2171032cab7e4.lance": "error_encoding",
   "buds/hfo_gem_gen_59/memory/hfo_gen_59_lancedb/hfo_vectors.lance/data/100111011010011001100101f3122f47e1bc38172e4632fea4.lance": "error_encoding",
   "buds/hfo_gem_gen_59/memory/hfo_gen_59_lancedb/hfo_vectors.lance/data/111101000000000111010111db301b4d208ef98bc5207814f9.lance": "error_encoding",
-  "buds/hfo_gem_gen_59/memory/hfo_gen_59_lancedb/hfo_vectors.lance/data/1111101110100100111000004db1494923a8e81b4ecab7fb0e.lance": "error_encoding"
+  "buds/hfo_gem_gen_59/memory/hfo_gen_59_lancedb/hfo_vectors.lance/data/1111101110100100111000004db1494923a8e81b4ecab7fb0e.lance": "error_encoding",
+  "buds/hfo_gem_gen_59/hydra/agent_graph.py": "skipped",
+  "buds/hfo_gem_gen_59/hydra/hydra_swarm.py": "skipped",
+  "buds/hfo_gem_gen_59/hydra/test_grok_chant.py": "skipped",
+  "buds/hfo_gem_gen_59/memory/hfo_gen_59_lancedb/hfo_vectors.lance/_transactions/19-e4807aa1-156e-4caf-a588-bf44c9460e5a.txn": "error_encoding",
+  "buds/hfo_gem_gen_59/memory/hfo_gen_59_lancedb/hfo_vectors.lance/_versions/20.manifest": "error_encoding",
+  "buds/hfo_gem_gen_59/memory/hfo_gen_59_lancedb/hfo_vectors.lance/_transactions/20-bcead3cb-a151-4fe7-a7ff-8ec1c93aeb8a.txn": "error_encoding",
+  "buds/hfo_gem_gen_59/memory/hfo_gen_59_lancedb/hfo_vectors.lance/_transactions/21-59f39fb6-f818-4108-8c5c-d83d00fd7e34.txn": "error_encoding",
+  "buds/hfo_gem_gen_59/memory/hfo_gen_59_lancedb/hfo_vectors.lance/_versions/21.manifest": "error_encoding",
+  "buds/hfo_gem_gen_59/memory/hfo_gen_59_lancedb/hfo_vectors.lance/_versions/22.manifest": "error_encoding",
+  "buds/hfo_gem_gen_59/memory/hfo_gen_59_lancedb/hfo_vectors.lance/_transactions/22-d64297ab-1500-4b0b-b37e-cee0a19a5ff9.txn": "error_encoding",
+  "buds/hfo_gem_gen_59/memory/hfo_gen_59_lancedb/hfo_vectors.lance/_versions/23.manifest": "error_encoding"
 }
