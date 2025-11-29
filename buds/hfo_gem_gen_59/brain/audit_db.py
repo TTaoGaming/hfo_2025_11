@@ -3,7 +3,7 @@ import json
 import sys
 from pathlib import Path
 
-DB_PATH = "buds/hfo_gem_gen_59/memory/hfo_memory.db"
+DB_PATH = "buds/hfo_gem_gen_59/memory/hfo_gen_59_memory.db"
 
 def audit_db():
     if not Path(DB_PATH).exists():

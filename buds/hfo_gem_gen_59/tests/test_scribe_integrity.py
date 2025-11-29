@@ -43,7 +43,7 @@ def test_ingestion_integrity():
         return
 
     # 4. Verify from DB (The Quiz)
-    db_path = "buds/hfo_gem_gen_59/memory/hfo_memory.db"
+    db_path = "buds/hfo_gem_gen_59/memory/hfo_gen_59_memory.db"
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
     

@@ -85,3 +85,14 @@ class Level1Artifact(BaseModel):
     
     model_used: str = Field(..., description="The synthesizer model (Grok)")
     timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+
+class Level2Artifact(BaseModel):
+    """
+    Level 2: Recursive Synthesis (Fractal Holarchy).
+    Synthesized from multiple Level 1 Artifacts (e.g. Chunks or Topics).
+    """
+    source_hash: str = Field(..., description="Link to the Raw MemoryItem (Parent)")
+    constituent_hashes: List[str] = Field(..., description="Hashes of the Level 1 Artifacts")
+    synthesis: str = Field(..., description="The higher-order truth")
+    model_used: str = Field(..., description="The synthesizer model")
+    timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))

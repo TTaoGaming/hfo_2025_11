@@ -12,7 +12,7 @@ from typing import List, Dict
 sys.path.append(os.getcwd())
 
 from buds.hfo_gem_gen_59.blood.schema import MemoryItem
-from buds.hfo_gem_gen_59.brain.librarians import LibrarianCouncil
+from buds.hfo_gem_gen_59.brain.prey_swarm import PreySwarm
 from buds.hfo_gem_gen_59.memory.database import IronLedger
 
 # Setup Logging
@@ -48,8 +48,8 @@ class CanalizationFilter:
 
 class IngestEngine:
     def __init__(self):
-        self.council = LibrarianCouncil()
-        self.ledger = self.council.ledger # Use the same ledger instance
+        self.swarm = PreySwarm()
+        self.ledger = self.swarm.ledger # Use the same ledger instance
         self.manifest_path = "buds/hfo_gem_gen_59/ingest_manifest.json"
         self.filter = CanalizationFilter()
 
@@ -144,7 +144,7 @@ class IngestEngine:
                 self.ledger.insert(item)
                 
                 # Run Council (8 Agents + Synthesis)
-                await self.council.process_item(item)
+                await self.swarm.process_item(item)
                 
                 manifest[file_path] = "success"
                 self.save_manifest(manifest)

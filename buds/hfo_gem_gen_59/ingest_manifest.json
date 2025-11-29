@@ -63,5 +63,8 @@
   "buds/hfo_gem_gen_55/brain/intent/hydra_antifragile.feature": "error: 'IronLedger' object has no attribute 'is_processed'",
   "buds/hfo_gem_gen_55/brain/protocol_immutable_guards.md": "error: 'IronLedger' object has no attribute 'is_processed'",
   "buds/hfo_gem_gen_55/brain/risk_mirror_attack.md": "error: 'IronLedger' object has no attribute 'is_processed'",
-  "buds/hfo_gem_gen_55/brain/transcript_creator_dialogue_2025_11_27.md": "error: 'IronLedger' object has no attribute 'is_processed'"
+  "buds/hfo_gem_gen_55/brain/transcript_creator_dialogue_2025_11_27.md": "error: 'IronLedger' object has no attribute 'is_processed'",
+  "AGENTS.md": "success",
+  "test_large_doc.md": "success",
+  "buds/hfo_gem_gen_55/memory/archives/history_of_evolution_full.md": "success"
 }

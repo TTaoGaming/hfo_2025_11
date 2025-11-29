@@ -203,6 +203,51 @@ class IronLedger:
         finally:
             conn.close()
 
+    def insert_level2(self, artifact: Level2Artifact) -> int:
+        """
+        Insert a Level 2 Artifact (Recursive Reduction).
+        """
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        
+        try:
+            # Ensure table exists (Migration on the fly)
+            cursor.execute("""
+                CREATE TABLE IF NOT EXISTS level2_artifacts (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    source_hash TEXT NOT NULL,
+                    synthesis TEXT NOT NULL,
+                    constituent_hashes TEXT NOT NULL, -- JSON list
+                    model_used TEXT NOT NULL,
+                    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+                    FOREIGN KEY(source_hash) REFERENCES memory_items(content_hash)
+                )
+            """)
+
+            cursor.execute("""
+                INSERT INTO level2_artifacts 
+                (source_hash, synthesis, constituent_hashes, model_used, timestamp)
+                VALUES (?, ?, ?, ?, ?)
+            """, (
+                artifact.source_hash,
+                artifact.synthesis,
+                json.dumps(artifact.constituent_hashes),
+                artifact.model_used,
+                artifact.timestamp.isoformat()
+            ))
+            
+            row_id = cursor.lastrowid
+            conn.commit()
+            logger.info(f"🪐 Fractal Synthesis! Level 2 Artifact minted.")
+            return row_id
+            
+        except Exception as e:
+            logger.error(f"❌ Level 2 Insert Failed: {e}")
+            conn.rollback()
+            raise
+        finally:
+            conn.close()
+
     def get_level0_artifacts(self, source_hash: str) -> List[tuple]:
         """Retrieve all Level 0 artifacts for a given source hash."""
         conn = sqlite3.connect(self.db_path)
@@ -236,6 +281,21 @@ class IronLedger:
         cursor.execute("UPDATE memory_items SET vectorized = 1 WHERE id = ?", (memory_id,))
         conn.commit()
         conn.close()
+
+    def reset_vectorized_flags(self):
+        """
+        PHOENIX PROTOCOL: Reset all vectorized flags to 0.
+        This forces the Assimilator to re-process everything.
+        Used when the VectorDB is wiped or corrupted.
+        """
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        cursor.execute("UPDATE memory_items SET vectorized = 0")
+        rows = cursor.rowcount
+        conn.commit()
+        conn.close()
+        logger.warning(f"🔥 PHOENIX PROTOCOL: Reset {rows} items to unvectorized state.")
+        return rows
 
     def get_stats(self) -> dict:
         conn = sqlite3.connect(self.db_path)

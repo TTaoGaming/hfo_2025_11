@@ -13,7 +13,7 @@ Feature: HYDRA Memory System (SQLite + LanceDB)
   So that the system is Anti-Fragile, Self-Healing, and capable of total regeneration from a single file.
 
   Background:
-    Given the "IronLedger" is a local SQLite database at "memory/hfo_memory.db"
+    Given the "IronLedger" is a local SQLite database at "memory/hfo_gen_59_memory.db"
     And the "VectorMirror" is a serverless LanceDB dataset at "memory/lancedb"
     And the "EmbeddingMotor" is configured to use SOTA model "openai/text-embedding-3-large"
     And the "SyncProtocol" is set to "Eventual Consistency" (The Assimilator Loop)

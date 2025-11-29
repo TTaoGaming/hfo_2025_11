@@ -20,7 +20,7 @@ class Scribe:
     It accepts raw data, validates it against the Schema, and commits it.
     """
     def __init__(self):
-        self.ledger = IronLedger(db_path="buds/hfo_gem_gen_59/memory/hfo_memory.db")
+        self.ledger = IronLedger(db_path="buds/hfo_gem_gen_59/memory/hfo_gen_59_memory.db")
 
     def ingest(self, raw_data: Dict[str, Any]):
         """

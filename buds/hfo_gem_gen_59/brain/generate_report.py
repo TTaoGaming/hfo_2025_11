@@ -2,7 +2,7 @@ import sqlite3
 import json
 import os
 
-DB_PATH = "buds/hfo_gem_gen_59/memory/hfo_memory.db"
+DB_PATH = "buds/hfo_gem_gen_59/memory/hfo_gen_59_memory.db"
 REPORT_PATH = "buds/hfo_gem_gen_59/reports/Holographic_Quorum_Report.md"
 
 def generate_report():
