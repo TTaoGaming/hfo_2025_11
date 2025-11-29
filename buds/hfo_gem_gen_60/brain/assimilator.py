@@ -7,11 +7,11 @@ import os
 import asyncio
 import argparse
 from typing import List
-from buds.hfo_gem_gen_60.nerves.stigmergy_client import StigmergyClient
 
 # Add root to path
 sys.path.append(os.getcwd())
 
+from buds.hfo_gem_gen_60.nerves.stigmergy_client import StigmergyClient
 from buds.hfo_gem_gen_60.memory.database import IronLedger
 from buds.hfo_gem_gen_60.memory.lancedb_store import VectorMirror
 
