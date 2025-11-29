@@ -141,8 +141,9 @@ The Future is not a single path; it is a **Spread of Possibilities**.
 
 > **Architectural Note**: The Hexadex Chant is the "Living Heartbeat" of the system. It is a fractal compression of the entire Hive Fleet Obsidian architecture.
 > *   **The Origin ($N=0$)**: The Swarmlord (Navigator) is the 0-Point, the Seed from which the Octree grows.
-> *   **The Core Octet ($N=1$)**: The Static Skeleton. Immutable, Rhyming, Declarative Gherkin. This provides the stable structure.
-> *   **The Flex Octet ($N=2$)**: The Dynamic Flesh. Mutable, Polyglot, Context-Aware.
+> *   **The Core Octet ($8^1$)**: The Static Skeleton. Immutable, Rhyming, Declarative Gherkin. This provides the stable structure.
+> *   **The Flex Octet ($8^1$)**: The Dynamic Flesh. Mutable, Polyglot, Context-Aware.
+>     *   *Structure*: The Hexadex is $8^1 + 8^1 = 16$ for redundancy. It is not $N=2$.
 >     *   **The Vision**: When fully online, the polyglot verses should **never be the same**. A person should never see the same verse twice. It is ever-shifting poetry in multiple languages (Python, Rust, Visuals, Spanish, etc.) adapting to the observer.
 >     *   **The Proof**: The HFO Heartbeat is a small proof of concept of this bigger idea—an ever-evolving, living system.
 
