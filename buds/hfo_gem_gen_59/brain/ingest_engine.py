@@ -68,12 +68,14 @@ class IngestEngine:
             files_to_process.append(str(path))
         elif path.is_dir():
             for root, dirs, files in os.walk(path):
-                # Ignore hidden dirs and pycache
-                dirs[:] = [d for d in dirs if not d.startswith('.') and d != '__pycache__']
+                # Ignore hidden dirs, pycache, venv, and audit_trail
+                dirs[:] = [d for d in dirs if not d.startswith('.') and d not in ['__pycache__', 'venv', 'audit_trail', 'node_modules']]
                 
                 for file in files:
                     if file.startswith('.'): continue
                     if file.endswith('.pyc'): continue
+                    if file.endswith('.db'): continue # Skip databases
+                    if file.endswith('.bak'): continue # Skip backups
                     
                     full_path = os.path.join(root, file)
                     files_to_process.append(full_path)
