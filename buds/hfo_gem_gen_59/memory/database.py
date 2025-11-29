@@ -3,7 +3,7 @@ import json
 import logging
 from pathlib import Path
 from typing import Optional, List
-from ..blood.schema import MemoryItem, Level0Artifact, Level1Artifact
+from ..blood.schema import MemoryItem, Level0Artifact, Level1Artifact, Level2Artifact
 
 # Setup Logging
 logging.basicConfig(level=logging.INFO)

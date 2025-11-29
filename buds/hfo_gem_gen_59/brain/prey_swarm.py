@@ -5,7 +5,7 @@ import logging
 import json
 import instructor
 from openai import AsyncOpenAI
-from typing import List, Dict
+from typing import List, Dict, Optional
 from dotenv import load_dotenv
 
 # Add root to path

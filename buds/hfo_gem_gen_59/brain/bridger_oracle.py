@@ -1,8 +1,14 @@
 import logging
 import pandas as pd
+import sys
+import os
 from typing import List, Dict, Any
-from ..memory.lancedb_store import VectorMirror
-from ..brain.assimilator import EmbeddingMotor
+
+# Add root to path
+sys.path.append(os.getcwd())
+
+from buds.hfo_gem_gen_59.memory.lancedb_store import VectorMirror
+from buds.hfo_gem_gen_59.brain.assimilator import EmbeddingMotor
 
 # Setup Logging
 logging.basicConfig(level=logging.INFO)
