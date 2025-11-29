@@ -79,3 +79,8 @@ brain/*.feature.draft
 memory/episodic/**
 memory/semantic/gen43_vector_store.ndjson
 *.db
+
+# Gen 59 Memory
+buds/hfo_gem_gen_59/memory/hfo_gen_59_lancedb/
+buds/hfo_gem_gen_59/memory/hfo_memory.db
+buds/hfo_gem_gen_59/memory/hfo_memory.db.bak

@@ -121,6 +121,13 @@ class Heartbeat:
                 }
                 try:
                     await self.nc.publish("hfo.heartbeat.pulse", json.dumps(payload).encode())
+                    
+                    # 🌊 The 1-Minute Stigmergic Trigger (Ingest/Assimilate)
+                    # Fires every 60 seconds of Red Sand time
+                    if self.red_sand_consumed > 0 and self.red_sand_consumed % 60 == 0:
+                        logger.info("🌊 Emitting 1-Minute Pulse (hfo.pulse.1min)")
+                        await self.nc.publish("hfo.pulse.1min", json.dumps(payload).encode())
+                        
                 except Exception as e:
                     logger.error(f"⚠️ Failed to publish heartbeat: {e}")
                     # Try to reconnect

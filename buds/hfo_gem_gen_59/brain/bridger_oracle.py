@@ -60,13 +60,28 @@ class BridgerOracle:
 
 if __name__ == "__main__":
     # Simple CLI test
+    import sys
     oracle = BridgerOracle()
-    while True:
-        q = input("\n🔮 Ask the Bridger Oracle (or 'exit'): ")
-        if q.lower() == 'exit':
-            break
+    
+    if len(sys.argv) > 1:
+        q = sys.argv[1]
         results = oracle.ask(q)
         for i, res in enumerate(results):
             print(f"\n--- Result {i+1} (Score: {res['score']:.4f}) ---")
+            print(f"Source: {res['source']}")
+            print(f"Content: {res['text'][:500]}...")
+    else:
+        while True:
+            try:
+                q = input("\n🔮 Ask the Bridger Oracle (or 'exit'): ")
+                if q.lower() == 'exit':
+                    break
+                results = oracle.ask(q)
+                for i, res in enumerate(results):
+                    print(f"\n--- Result {i+1} (Score: {res['score']:.4f}) ---")
+                    print(f"Source: {res['source']}")
+                    print(f"Content: {res['text'][:500]}...")
+            except KeyboardInterrupt:
+                break
             print(f"Source: {res['source']}")
             print(f"Text: {res['text'][:200]}...")

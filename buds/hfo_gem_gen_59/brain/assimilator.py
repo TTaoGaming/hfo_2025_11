@@ -4,7 +4,10 @@ import requests
 import json
 import sys
 import os
+import asyncio
+import argparse
 from typing import List
+from buds.hfo_gem_gen_59.nerves.stigmergy_client import StigmergyClient
 
 # Add root to path
 sys.path.append(os.getcwd())
@@ -13,7 +16,7 @@ from buds.hfo_gem_gen_59.memory.database import IronLedger
 from buds.hfo_gem_gen_59.memory.lancedb_store import VectorMirror
 
 # Setup Logging
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 logger = logging.getLogger("Assimilator")
 
 class EmbeddingMotor:
@@ -141,13 +144,48 @@ class Assimilator:
 
         logger.info(f"Successfully assimilated {len(items)} items into {len(all_texts)} vectors.")
 
+    async def listen_to_heartbeat(self):
+        """
+        Listens for the 1-Minute Pulse to trigger assimilation.
+        """
+        self.stigmergy = StigmergyClient()
+        await self.stigmergy.connect()
+        
+        async def callback(msg):
+            try:
+                data = json.loads(msg.data.decode())
+                logger.info(f"💓 Pulse Received: {data.get('chant_line', 'Unknown')}")
+                # Run sync cycle in a thread to not block the async loop
+                loop = asyncio.get_running_loop()
+                await loop.run_in_executor(None, self.run_sync_cycle, 10)
+            except Exception as e:
+                logger.error(f"Error processing pulse: {e}")
+
+        await self.stigmergy.subscribe("hfo.pulse.1min", callback)
+        logger.info("👂 Listening for hfo.pulse.1min...")
+        
+        # Keep alive
+        while True:
+            await asyncio.sleep(1)
+
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="HFO Assimilator")
+    parser.add_argument("--daemon", action="store_true", help="Run in daemon mode listening to heartbeat")
+    parser.add_argument("--batch-size", type=int, default=10, help="Batch size for assimilation")
+    args = parser.parse_args()
+
     assimilator = Assimilator()
-    # Run a few cycles to catch up
-    while True:
-        assimilator.run_sync_cycle()
-        time.sleep(1) # Small pause between batches
-        # Break if no more items? For now, let's just run it once or loop until empty.
-        if not assimilator.ledger.get_unvectorized_items(limit=1):
-            break
-    logger.info("Assimilation Complete.")
+    
+    if args.daemon:
+        try:
+            asyncio.run(assimilator.listen_to_heartbeat())
+        except KeyboardInterrupt:
+            logger.info("Assimilator Stopped.")
+    else:
+        # Run a few cycles to catch up
+        while True:
+            assimilator.run_sync_cycle(batch_size=args.batch_size)
+            time.sleep(1) # Small pause between batches
+            if not assimilator.ledger.get_unvectorized_items(limit=1):
+                break
+        logger.info("Assimilation Complete.")
