@@ -16,6 +16,34 @@
 | **INC-61-006** | 2025-11-29 | **Line 4 Selection** | Selected "And Ignitions flow to Pulsate". Captures "Lava like blood" imagery. |
 | **INC-61-007** | 2025-11-29 | **Line 5 Selection** | Selected "And Deadly Venoms Concentrate". The **APEX** choice. Captures Venom + Density + Evolutionary Stress. |
 | **INC-61-008** | 2025-11-29 | **Line 6 Selection** | Selected "And Instincts rise to Isolate". Captures the deep biological/swarm instinct to protect. |
+| **INC-61-009** | 2025-11-30 | **Memory Migration** | Migrated Gen 60 Memory/Oracle to Gen 61. Gen 60 is now Read-Only. |
+| **INC-61-010** | 2025-11-30 | **Brain Dump Ingestion** | Ingested 128 chunks of raw notes into Gen 61 Memory. Fixed schema mismatch (chunk_id). |
+| **INC-61-011** | 2025-11-30 | **Strategic Pivot** | Selected **"Architect-Shaper"** Strategy. We will build the **Heartbeat 1181** engine to structure the notes automatically. |
+
+## 🚧 Active Work (The Forge)
+
+### 1. The Architect (Intent)
+*   [ ] **Draft Gherkin**: `brain/heartbeat_1181.feature`.
+    *   Define the 1-1-8-1 Rhythm (Perceive -> Orchestrate -> Chant -> Reflexion).
+    *   Define the "Scribe" and "Assimilator" roles within the swarm.
+
+### 2. The Shaper (Implementation)
+*   [ ] **Scaffold Workflow**: Create `HeartbeatWorkflow` in Temporal.
+*   [ ] **Implement Agents**: Build the `Orchestrator` and `Chanter` agents using Instructor/Pydantic.
+*   [ ] **Ignite**: Run the workflow on `brain-dump-google-keep-2025-11-30.md`.
+
+### 3. The Knowledge (Artifacts)
+*   [x] **Obsidian Spider Notes**: `brain/obsidian_spider_notes.md` (Core Concepts).
+*   [x] **OODA Superaccelerator**: `brain/intent_ooda_superaccelerator.md` (Decision Protocol).
+*   [x] **Tech Stack**: `brain/tech_stack_gen61.md` (Ray, Temporal, Pydantic).
+*   [x] **Hexadex Chant V5**: `brain/design_hexadex_chant_v5.md` (NOBSIDIA Acrostic).
+
+## 🧠 Notes & Insights
+*   **The Trinity**: User (Intent) + Swarmlord (Navigator) + Obsidian Spider (Emergent Result).
+*   **The Goal**: Total Tool Virtualization via the **Obsidian Swarmlord Hourglass**.
+*   **The Method**: "Decision to Decision" (OODA Superaccelerator).
+*   **The Insight**: $8^0 = 1$. The Swarm is One.
+
 
 
 
