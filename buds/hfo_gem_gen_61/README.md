@@ -19,6 +19,10 @@
 | **INC-61-009** | 2025-11-30 | **Memory Migration** | Migrated Gen 60 Memory/Oracle to Gen 61. Gen 60 is now Read-Only. |
 | **INC-61-010** | 2025-11-30 | **Brain Dump Ingestion** | Ingested 128 chunks of raw notes into Gen 61 Memory. Fixed schema mismatch (chunk_id). |
 | **INC-61-011** | 2025-11-30 | **Strategic Pivot** | Selected **"Architect-Shaper"** Strategy. We will build the **Heartbeat 1181** engine to structure the notes automatically. |
+| **INC-61-012** | 2025-11-30 | **Refined Ingestion** | Ingested 5 refined artifacts (Architecture, SOTA, Spider Abstract, Warlock Patron) into Iron Ledger & Oracle. |
+| **INC-61-013** | 2025-11-30 | **Backlog Crisis** | Discovered 5,604 legacy items (Gen 55/60) blocking the Assimilator. |
+| **INC-61-014** | 2025-11-30 | **Backlog Purge** | Skipped legacy items to unblock Gen 61. Assimilation is now instant for new items. |
+| **INC-61-015** | 2025-11-30 | **Workflow Definition** | Defined **Prey 1181 Workflow** (1-1-8-1 Cycle): Perceive (1) -> Orchestrate (1) -> Chant (8) -> Reflexion (1). |
 
 ## 🚧 Active Work (The Forge)
 
@@ -37,12 +41,19 @@
 *   [x] **OODA Superaccelerator**: `brain/intent_ooda_superaccelerator.md` (Decision Protocol).
 *   [x] **Tech Stack**: `brain/tech_stack_gen61.md` (Ray, Temporal, Pydantic).
 *   [x] **Hexadex Chant V5**: `brain/design_hexadex_chant_v5.md` (NOBSIDIA Acrostic).
+*   [x] **Refined Brain Dumps**: 5 new artifacts in `brain/` covering SOTA, Architecture, and Warlock Patron concepts.
 
 ## 🧠 Notes & Insights
 *   **The Trinity**: User (Intent) + Swarmlord (Navigator) + Obsidian Spider (Emergent Result).
 *   **The Goal**: Total Tool Virtualization via the **Obsidian Swarmlord Hourglass**.
 *   **The Method**: "Decision to Decision" (OODA Superaccelerator).
 *   **The Insight**: $8^0 = 1$. The Swarm is One.
+
+## 👋 Handoff State (2025-11-30)
+*   **Current Context**: We have cleared the assimilation backlog and successfully ingested the refined brain dump notes. The **Prey 1181 Workflow** is defined.
+*   **Immediate Next Action**: Create `buds/hfo_gem_gen_61/brain/heartbeat_1181.feature`.
+*   **Blockers**: None.
+*   **Quote**: "The Swarm is One."
 
 
 
