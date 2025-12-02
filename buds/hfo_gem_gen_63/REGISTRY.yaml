@@ -1,44 +1,73 @@
-# HFO Gen 63 Organ Registry
-# Enforces the Fractal Octree Architecture
-# Intent: buds/hfo_gem_gen_63/brain/feature_structure_registry.feature
+---
+registry:
+  version: "1.1"
+  updated: "2025-12-01"
+  context: "Gen 63 Weekly Champions (2025 Era)"
+
+champions:
+  reasoning:
+    primary: "x-ai/grok-4.1-fast:free" # Free Tier (2M Context)
+    secondary: "deepseek/deepseek-v3.2" # High Efficiency Reasoning ($0.28/M)
+    fallback: "google/gemini-2.5-flash-preview-09-2025" # Science/Math Specialist
+    experimental: "anthropic/claude-4-opus"
+  
+  coding:
+    primary: "openai/gpt-5.1-codex-mini" # Fast Code ($0.25/M)
+    secondary: "google/gemini-2.5-flash-preview-09-2025" # Science/Math/Code ($0.30/M)
+    fallback: "qwen/qwen3-next-80b-a3b-instruct" # FinOps Backup ($0.10/M)
+  
+  embedding:
+    primary: "openai/text-embedding-4-large"
+    local: "nomic-embed-text-v2"
+
+  fast:
+    primary: "qwen/qwen3-next-80b-a3b-instruct" # FinOps King ($0.10/M)
+    secondary: "google/gemini-3-flash"
+    fallback: "meta-llama/llama-4-70b-instruct"
+
+roles:
+  navigator: "champions.reasoning.primary" # Grok 4.1
+  bridger: "champions.reasoning.secondary" # DeepSeek V3.2
+  shaper: "champions.coding.primary" # GPT-5.1 Codex Mini
+  observer: "champions.fast.primary" # Qwen3
 
 organs:
-  brain:
-    path: brain/
-    description: "Navigator: Intent, Strategy, Gherkin, Manifestos"
-    allowed_extensions: [".md", ".feature", ".json"]
+  navigator:
+    path: 07_navigator_brain/
+    description: "Navigator (Brain/Telos): Intent, Strategy, Gherkin, Manifestos"
+    allowed_extensions: [".md", ".feature", ".json", ".py"]
     
-  eyes:
-    path: eyes/
-    description: "Observer: Sensors, NATS Listeners, API Clients"
+  observer:
+    path: 00_observer_eyes/
+    description: "Observer (Eyes/Ontos): Sensors, NATS Listeners, API Clients"
     allowed_extensions: [".py", ".yaml"]
 
-  memory:
-    path: memory/
-    description: "Bridger: Knowledge Graph, LanceDB, SQLite, Docs"
-    allowed_extensions: [".md", ".json", ".lance", ".db", ".py"]
+  bridger:
+    path: 01_bridger_nerves/
+    description: "Bridger (Nerves/Logos): Network, Bus, Communication"
+    allowed_extensions: [".py", ".json"]
 
-  forge:
-    path: forge/
-    description: "Shaper: MCP Servers, CLI Tools, Automation Scripts"
+  shaper:
+    path: 02_shaper_hands/
+    description: "Shaper (Hands/Techne): MCP Servers, CLI Tools, Automation Scripts"
     allowed_extensions: [".py", ".sh", ".js", ".ts"]
 
-  pulse:
-    path: pulse/
-    description: "Injector: Heartbeat, Main Loop, Schedulers"
+  injector:
+    path: 03_injector_heart/
+    description: "Injector (Heart/Chronos): Heartbeat, Main Loop, Schedulers"
     allowed_extensions: [".py"]
 
-  venom:
-    path: venom/
-    description: "Disruptor: Unit Tests, Red Team, Chaos Monkey"
+  disruptor:
+    path: 04_disruptor_venom/
+    description: "Disruptor (Venom/Pathos): Unit Tests, Red Team, Chaos Monkey"
     allowed_extensions: [".py", ".sh"]
 
-  carapace:
-    path: carapace/
-    description: "Immunizer: Config, Pydantic Models, Security Policies"
+  immunizer:
+    path: 05_immunizer_carapace/
+    description: "Immunizer (Carapace/Ethos): Config, Pydantic Models, Security Policies"
     allowed_extensions: [".py", ".yaml", ".env"]
 
-  digest:
-    path: digest/
-    description: "Assimilator: Ingestion Scripts, ETL Pipelines"
-    allowed_extensions: [".py"]
+  assimilator:
+    path: 06_assimilator_memory/
+    description: "Assimilator (Memory/Topos): LanceDB, SQLite, Knowledge Graph"
+    allowed_extensions: [".md", ".json", ".lance", ".db", ".py"]

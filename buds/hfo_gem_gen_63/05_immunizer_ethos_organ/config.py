@@ -32,8 +32,8 @@ class Settings(BaseSettings):
     MODEL_EMBEDDING: str = registry_data.get("champions", {}).get("embedding", {}).get("primary", "openai/text-embedding-3-small")
     
     # Memory
-    LANCEDB_PATH: str = "buds/hfo_gem_gen_63/06_assimilator_memory/lancedb"
-    SQLITE_PATH: str = "buds/hfo_gem_gen_63/06_assimilator_memory/hfo.db"
+    LANCEDB_PATH: str = "buds/hfo_gem_gen_63/06_assimilator_topos_organ/lancedb"
+    SQLITE_PATH: str = "buds/hfo_gem_gen_63/06_assimilator_topos_organ/hfo.db"
     
     # NATS
     NATS_URL: str = "nats://localhost:4225"

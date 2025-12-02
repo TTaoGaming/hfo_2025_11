@@ -108,7 +108,7 @@ class PreyAgent:
         if self.client:
             try:
                 orders = await self.client.chat.completions.create(
-                    model=settings.OPENROUTER_MODEL,
+                    model=settings.MODEL_REASONING,
                     messages=[
                         {"role": "system", "content": "You are the Orchestrator of the Obsidian Swarm. Decompose the intent into 8 distinct tasks, one for each Pillar (Ontos, Logos, Telos, Chronos, Pathos, Ethos, Topos, Nomos)."},
                         {"role": "user", "content": f"Intent: {context.content}"}
@@ -147,7 +147,7 @@ class PreyAgent:
                     content: str = Field(..., description="The result of the task execution.")
 
                 response = await self.client.chat.completions.create(
-                    model=settings.OPENROUTER_MODEL,
+                    model=settings.MODEL_REASONING,
                     messages=[
                         {"role": "system", "content": f"You are the {pillar} Agent. Execute the task and report back concisely."},
                         {"role": "user", "content": f"Task: {task}"}
@@ -185,7 +185,7 @@ class PreyAgent:
                     is_successful: bool
                 
                 audit = await self.client.chat.completions.create(
-                    model=settings.OPENROUTER_MODEL,
+                    model=settings.MODEL_REASONING,
                     messages=[
                         {"role": "system", "content": "You are the Auditor. Review the 8 Verses against the Intent. Summarize the outcome and decide if it was successful."},
                         {"role": "user", "content": f"Intent: {mission.intent}\n\nVerses:\n{verses_text}"}

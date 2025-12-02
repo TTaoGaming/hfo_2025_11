@@ -44,10 +44,11 @@ octagon:
 
 > **Context**: Gen 63 (The MCP Era)
 > **Philosophy**: "The Spider weaves the Web, but the Web holds the Spider."
+> **Core Framework**: **JADC2** (Joint All-Domain Command and Control). The OBSIDIAN Stack is the *implementation* of the JADC2 architecture.
 > **Objective**: To formalize the **O.B.S.I.D.I.A.N.** stack as the canonical implementation of the HFO Octree, integrating the **Model Context Protocol (MCP)** as a first-class citizen.
 
 ## ⚡ BLUF (Bottom Line Up Front)
-The **OBSIDIAN Stack** is the unified Tech Stack for Gen 63. It evolves the Gen 55 "PLATFORM" by explicitly adopting **MCP** (Model Context Protocol) to standardize the interface between the Brain (LLM) and the Body (Tools). It maps the 8 letters of "OBSIDIAN" to the 8 Pillars of the Fractal Octree.
+The **OBSIDIAN Stack** is the unified Tech Stack for Gen 63. It evolves the Gen 55 "PLATFORM" by explicitly adopting **MCP** (Model Context Protocol) to standardize the interface between the Brain (LLM) and the Body (Tools). It maps the 8 letters of "OBSIDIAN" to the 8 Pillars of the Fractal Octree, which in turn implement the **JADC2** core functions (Sense, Make Sense, Act, etc.).
 
 ## 🏛️ The O.B.S.I.D.I.A.N. Matrix
 

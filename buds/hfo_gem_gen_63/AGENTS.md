@@ -68,6 +68,31 @@ The system must be **Self-Regenerating**.
 
 ---
 
+## 🧠 Knowledge Architecture (HFO Second Brain)
+**"PARA + Semantic Lake + Diataxis"**
+
+To optimize for **AI Swarm Traversal** and **Human Readability**, we use a hybrid structure in `brain/`.
+
+### 1. The Container: P.A.R.A. (Lifecycle)
+*   **1_projects/**: **[HOT]** Active Goals (e.g., `Gen 63`). Flat "Semantic Lake".
+*   **2_areas/**: **[WARM]** Ongoing Standards (e.g., `Architecture`, `Security`).
+*   **3_resources/**: **[COLD]** The Library. Structured by **Diataxis**.
+*   **4_archives/**: **[FROZEN]** Deprecated/Completed work.
+
+### 2. The Medium: Semantic Lake (Stigmergy)
+*   **Rule**: Inside `1_projects`, files are **FLAT**. No deep nesting.
+*   **Linking**: We rely on **YAML Headers** (Stigmergy) for connections.
+*   **Benefit**: AI Agents can ingest the entire "Active Context" without traversing complex trees.
+
+### 3. The Library: Diataxis (Refraction)
+Inside `3_resources/`, we crystallize knowledge for RAG:
+*   **Tutorials**: Learning.
+*   **Guides**: Doing.
+*   **Reference**: Specs/Facts.
+*   **Explanation**: Context/Why.
+
+---
+
 ## 🤖 AI Developer Guide (Read Before Acting)
 
 ### 1. Memory Strategy: Inheritance over Ingestion
@@ -78,11 +103,13 @@ The system must be **Self-Regenerating**.
 *   **DELTA**: Only ingest *new* files created in the current generation.
 
 ### 2. The Architecture: Fractal Octree
+*   **The Core**: **JADC2 (Joint All-Domain Command and Control)** is the heart of HFO.
+*   **The Loop**: We execute the **PREY Loop** (Perceive, Reflect, Execute, Yield), which maps to **Sense -> Make Sense -> Act -> Reflection** with structured output.
 *   **The Pattern**: Every component must respect the **1-1-8-1** rhythm.
-    *   **1 Perceive**: Single point of entry (ContextFrame).
-    *   **1 Orchestrate**: Single decision maker (MissionOrders).
-    *   **8 Chant**: Parallel execution by the Council of 8 (ChantVerse).
-    *   **1 Reflexion**: Single point of audit/commit (CycleArtifact).
+    *   **1 Perceive (Sense)**: Single point of entry (ContextFrame).
+    *   **1 Orchestrate (Make Sense)**: Single decision maker (MissionOrders).
+    *   **8 Chant (Act)**: Parallel execution by the Council of 8 (ChantVerse).
+    *   **1 Reflexion (Yield/Reflect)**: Single point of audit/commit (CycleArtifact).
 *   **The Swarm**: We use `PreyAgent` instances. They are identical code but assume different *Roles* based on the phase of the cycle.
 
 ### 3. Stigmergy (Communication)
@@ -165,11 +192,26 @@ The system must be **Self-Regenerating**.
 > **Philosophy**: 0 Invention. Pure Composition.
 > **Goal**: Transform Tacit Memory (Vectors) -> Explicit Knowledge (Diataxis Files).
 
+- [x] **[DESIGN]** Design the Knowledge Architecture (HFO Second Brain). (✅ Done)
+    - *Artifact*: `buds/hfo_gem_gen_63/brain/design_knowledge_architecture_v3.md`
+- [x] **[DESIGN]** Design Bridger V2 (SSO + MCP). (✅ Done)
+    - *Artifact*: `buds/hfo_gem_gen_63/brain/design_bridger_upgrade_v2.md`
+- [x] **[DESIGN]** Design Search MCP (Web Crawler). (✅ Done)
+    - *Artifact*: `buds/hfo_gem_gen_63/brain/design_search_mcp.md`
+- [x] **[BUILD]** Implement Search MCP Server. (✅ Done)
+    - *Artifact*: `buds/hfo_gem_gen_63/src/servers/search_mcp.py`
+- [x] **[REFRACT]** Create Map Elites Model Registry (2025 Era). (✅ Done)
+    - *Artifact*: `buds/hfo_gem_gen_63/memory/library_diataxis/reference/map_elites_model_registry.md`
 - [x] **[REFRACT]** Implement `refractor.py` to crystallize memory into `memory/library_diataxis/`. (✅ Initiated)
     - **Best Practice 1 (Provenance)**: Trace every file back to its Vector ID.
     - **Best Practice 2 (Atomicity)**: One concept per file (KCS Principle).
     - **Best Practice 3 (Structure)**: Strict Diataxis (Tutorial, Guide, Reference, Explanation).
     - **Best Practice 4 (Stigmergy)**: Valid YAML Headers linking to the Graph.
+- [x] **[SCAFFOLD]** Implement "Evo-Devo Protocol" (CbC + AFF + Canalization). (✅ Done)
+    - *Artifact*: `buds/hfo_gem_gen_63/forge/genesis.py` (The CbC Tool / Morphogenesis).
+    - *Artifact*: `buds/hfo_gem_gen_63/carapace/guard_knowledge_structure.py` (The AFF / Fitness Function).
+    - *Artifact*: `buds/hfo_gem_gen_63/venom/check_fitness.py` (The Automated Loop).
+    - *Capability*: **Digital Twin Integrity** (Code is strictly linked to Intent).
 - [ ] **[RECURSE]** Execute full recursive refraction of Gen 63 active memory.
 
 ### 🟢 Phase 4: Readiness (The Ascension)
@@ -184,13 +226,31 @@ The system must be **Self-Regenerating**.
 > **Cycle**: Recursive Refraction (Source -> Architect -> Scribe -> Library).
 > **Directive**: **Hexagonal Architecture**. No Vendor Lock-in. Endlessly Adaptable.
 
+### 🚨 GAP ANALYSIS REPORT [2025-12-01]
+> **Status**: **CRITICAL DRIFT DETECTED**
+> **Finding**: The "OBSIDIAN" Stack is currently a "Mock" implementation.
+> **Action**: Pivot immediately from "Scripts" to "Platform Components".
+
+| Component | Intent (The Plan) | Reality (The Code) | Gap |
+| :--- | :--- | :--- | :--- |
+| **O**rchestrator | **Temporal** | `swarm.py` (Asyncio loop) | 🔴 **Missing Engine** |
+| **B**us | **NATS JetStream** | `verify_nats.py` (Script) | 🟡 **Not Integrated** |
+| **I**ntelligence | **LangGraph** | `swarm.py` (Custom Class) | 🔴 **Missing Framework** |
+| **I**nterface | **MCP** | `bridger.py` (Direct Calls) | 🔴 **Missing Protocol** |
+
+### 🛠️ Immediate Tactical Plan (The Fix)
+1.  **Upgrade Bridger**: Move from `nomic-embed-text` (Cosine) to **OpenAI + Social Spider Optimization (SSO)**.
+2.  **Implement MCP**: Wrap the new Bridger in an MCP Server (`src/servers/bridger_mcp.py`).
+3.  **GitOps Baseline**: Snapshot the current state before refactoring.
+
 | Role | Status | Current Task | Memory State | KCS Status |
 | :--- | :--- | :--- | :--- | :--- |
 | **Navigator** | 🟢 Active | Orchestrating Gen 63 Setup. | N/A | N/A |
-| **Bridger** | 🟢 Active | Holding Memory (LanceDB). | **Unified** (2,836 Vecs) | **Validated** |
+| **Bridger** | 🔴 **Drift** | **UPGRADE REQUIRED (SSO + LLM)** | **Unified** (2,836 Vecs) | **Validated** |
 | **Shaper** | 🟢 Active | 1181 Pulse Verified. | N/A | N/A |
 | **Assimilator** | 🟢 Active | Delta Ingestion Complete. | **Head-Heavy** (95% Core) | **Captured** |
-| **Refractor** | 🟡 Working | **Refracting Memory to Library** | **Crystallizing** | **In Progress** |
+| **Refractor** | 🟡 Building | **Refracting Memory to Library** | **Crystallizing** | **In Progress** |
+| **Immunizer** | 🟢 Active | **Organ Structure Mutated (Biological)** | **Guarding** | **Active** |
 
 ### 📝 SOTA Synthesis Notes (High Signal)
 *   **Body Plan**: JADC2 Mapping (Sense -> Make Sense -> Act).
@@ -198,6 +258,7 @@ The system must be **Self-Regenerating**.
 *   **Brain**: Evolution (GGGP) > Learning. MAP-Elites for Diversity.
 *   **Immune System**: 3f+1 Byzantine Consensus (2 Traitors allowed).
 *   **Traversal**: Indra's Net (State-Action Manifold).
+*   **Scaffolding**: "Iron Garden" (Genesis + Guard) for Architecture Enforcement.
 
 ### 🚨 Incident Log (Gen 63)
 | ID | Date | Type | Description | Resolution |
@@ -206,6 +267,30 @@ The system must be **Self-Regenerating**.
 | **INC-63-002** | 2025-12-01 | **Discovery** | "HYDRA" acronym was missing. Found "P.L.A.T.F.O.R.M." in Gen 55 memory. | **Formalized**. Created `intent_techstack_obsidian.md` (O.B.S.I.D.I.A.N.). |
 | **INC-63-003** | 2025-12-01 | **Architecture** | Shifted from "Custom Tools" to **MCP (Model Context Protocol)**. | **Standardized**. Updated `requirements.txt` and Intent. |
 | **INC-63-004** | 2025-12-01 | **Synthesis** | Ingested "SOTA Architecture" notes. | **Captured**. Added to Mini Blackboard & Design. |
+| **INC-63-005** | 2025-12-01 | **Organization** | Brain directory was a "Jumble" of mixed intents/specs/chats. | **Redesigned**. Adopted "HFO Second Brain" (PARA + Lake + Diataxis). |
+| **INC-63-006** | 2025-12-01 | **Drift** | AI Agents ignoring Fractal Octree architecture. | **Canalized**. Implemented "Evo-Devo Protocol" (CbC + AFF). |
+| **INC-63-007** | 2025-12-01 | **Naming Violation** | Agent renamed organs without numeric prefixes, causing context loss. | **Enforced**. Renamed to `00_observer_organ` ... `07_navigator_organ`. |
+| **INC-63-008** | 2025-12-01 | **Metaphor Mismatch** | Agent used Greek names (`ontos`) instead of Biological names (`eyes`) for directories. | **Mutated**. Renamed to `00_observer_eyes`, `07_navigator_brain`, etc. |
+
+---
+
+## 🛡️ Hive Guards (Architecture Enforcement)
+> **Directive**: The AI must respect the **Hexagonal/Octree Structure**.
+> **Guard**: If you see a file or folder that does not match the `00-07` pattern, **STOP** and correct it.
+
+### The 8 Pillars (Octree Mapping)
+We use a **0-Indexed Numeric Prefix** + **Biological Organ Name** to ensure deterministic ordering and context retention.
+
+| ID | Name | Organ | Role | Function |
+| :--- | :--- | :--- | :--- | :--- |
+| **00** | **Observer** | **Eyes** | **SENSE** | `00_observer_eyes/`: Sensors, NATS Listeners, API Clients (Input). |
+| **01** | **Bridger** | **Nerves** | **CONNECT** | `01_bridger_nerves/`: Network Bus, MCP Interfaces, Translation. |
+| **02** | **Shaper** | **Hands** | **ACT** | `02_shaper_hands/`: Tools, CLI, Automation Scripts (Execution). |
+| **03** | **Injector** | **Heart** | **PULSE** | `03_injector_heart/`: Heartbeat, Main Loop, Schedulers. |
+| **04** | **Disruptor** | **Venom** | **TEST** | `04_disruptor_venom/`: Red Team, Chaos Monkey, Unit Tests. |
+| **05** | **Immunizer** | **Carapace** | **DEFEND** | `05_immunizer_carapace/`: Security, Config, Pydantic Models. |
+| **06** | **Assimilator** | **Memory** | **MEMORY** | `06_assimilator_memory/`: LanceDB, SQLite, Knowledge Graph. |
+| **07** | **Navigator** | **Brain** | **DECIDE** | `07_navigator_brain/`: Strategy, Intent, Gherkin, Manifestos (Root). |
 
 ---
 
@@ -240,6 +325,7 @@ We have mapped the 8 Pillars to JADC2 functions.
 1.  **Implement MCP Servers**: Create `src/servers/` and build the `sqlite-mcp` and `fetch-mcp` servers.
 2.  **Update Registry**: Modify `REGISTRY.yaml` to enforce the new JADC2 directory structure.
 3.  **Deploy Phoenix**: Implement the `burn_and_regenerate()` function in the Assimilator.
+4.  **Expand Iron Garden**: Add `genesis.py` support for creating MCP Servers and Tests.
 
 ---
 
@@ -252,5 +338,39 @@ We have mapped the 8 Pillars to JADC2 functions.
 *   **Infuser (Chronos)**: **SUSTAIN**. Manages resources (Tokens/Compute).
 *   **Analyzer (Topos)**: **MAKE SENSE**. Fuses data into Knowledge Graphs.
 *   **Navigator (Telos)**: **DECIDE**. The Swarmlord/User Intent.
+
+---
+
+## 📝 Field Notes (Stigmergic Log)
+
+### [STIGMERGY-LOG: 2025-12-01T12:00:00Z] Evo-Devo Protocol & Digital Twin Implementation
+
+**Author**: Swarmlord / GitHub Copilot (Gemini 3 Pro)
+**Status**: **STABILIZED**
+
+#### 1. Architectural Pivot: "Iron Garden" -> "Evo-Devo Protocol"
+We have formally renamed the "Iron Garden" strategy to the **Evo-Devo Protocol** (Evolutionary Developmental Biology). This aligns with our biological metaphor and emphasizes:
+*   **Development (Devo)**: Correctness by Construction (CbC) via `genesis.py`.
+*   **Evolution (Evo)**: Architectural Fitness Functions (AFF) via `guard_knowledge_structure.py`.
+*   **Stigmergic Canalization**: Guiding the swarm's growth through environmental constraints (directory structures, headers).
+
+#### 2. Digital Twin Implementation (Genotype vs. Phenotype)
+We have enforced a strict separation between **Intent** and **Implementation**:
+*   **Genotype (Intent)**: Markdown/Gherkin files in `brain/`. These define the "Why" and "What".
+*   **Phenotype (Implementation)**: Python files in `src/`. These define the "How".
+*   **The Link**: Every Python file must possess a `holon` header with an `intent_id` pointing to its parent Intent.
+*   **The Guard**: `guard_knowledge_structure.py` now runs a `check_digital_twin_integrity` scan to ensure no "Orphaned Code" exists.
+
+#### 3. Tooling & Validation
+*   **Genesis (`genesis.py`)**: Updated to support `create_implementation`, automatically linking new code to existing intents.
+*   **Venom (`check_fitness.py`)**: A new CI/CD script that runs the Guard. It is currently **PASSING**.
+*   **Documentation**: A new Executive Digest (`digest/swarmlord_digest_evo_devo.md`) was created to visualize this architecture.
+    *   *Fix*: A Mermaid syntax error in the digest was identified and patched.
+    *   *Upgrade*: The Guard now checks for unclosed Markdown code blocks to prevent future visualization errors.
+
+#### 4. Next Steps: Legacy Migration
+With the **Evo-Devo** machinery in place, we are ready to ingest the 100GB of legacy data.
+*   **Strategy**: Use `genesis.py` to create "Intent Shells" for legacy modules, then migrate the code into the new `src/` structure, linking them to the intents.
+*   **Goal**: Achieve 100% "Digital Twin" coverage for the legacy codebase.
 
 ```
