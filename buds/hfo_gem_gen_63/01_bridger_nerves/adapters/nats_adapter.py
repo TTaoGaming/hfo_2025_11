@@ -1,3 +1,12 @@
+"""
+---
+holon:
+  id: hfo-6053aab2
+  type: unknown
+  file: nats_adapter.py
+  status: active
+---
+"""
 import nats
 import json
 import logging

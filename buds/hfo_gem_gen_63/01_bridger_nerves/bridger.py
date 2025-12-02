@@ -1,3 +1,12 @@
+"""
+---
+holon:
+  id: hfo-858f6979
+  type: unknown
+  file: bridger.py
+  status: active
+---
+"""
 import logging
 import requests
 import lancedb

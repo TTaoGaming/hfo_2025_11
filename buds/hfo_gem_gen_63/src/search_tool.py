@@ -1,3 +1,12 @@
+"""
+---
+holon:
+  id: hfo-a5b53dc0
+  type: implementation
+  file: search_tool.py
+  status: active
+---
+"""
 import sys
 import os
 import importlib.util

@@ -1,3 +1,12 @@
+"""
+---
+holon:
+  id: hfo-1840e713
+  type: implementation
+  file: verify_llm.py
+  status: active
+---
+"""
 import os
 import sys
 from openai import OpenAI

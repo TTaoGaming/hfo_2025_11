@@ -1,3 +1,12 @@
+"""
+---
+holon:
+  id: hfo-00f9f64c
+  type: server
+  file: search_mcp.py
+  status: active
+---
+"""
 import asyncio
 import logging
 import json

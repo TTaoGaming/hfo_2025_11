@@ -1,3 +1,12 @@
+"""
+---
+holon:
+  id: hfo-7f054e58
+  type: server
+  file: gate_1_query.py
+  status: active
+---
+"""
 import sys
 import os
 import json

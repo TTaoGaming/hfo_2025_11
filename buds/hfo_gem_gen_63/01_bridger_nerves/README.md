@@ -1,3 +1,11 @@
+---
+holon:
+  id: hfo-d04cded2
+  type: unknown
+  file: README.md
+  status: active
+---
+
 # 01 Bridger (Nerves) Organ
 **Role**: CONNECT
 **Biological**: Nerves (Ganglia)

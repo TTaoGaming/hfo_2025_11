@@ -1,3 +1,11 @@
+---
+holon:
+  id: hfo-50c0404f
+  type: intent
+  file: README.md
+  status: active
+---
+
 # 07 Navigator (Brain) Organ
 **Role**: DECIDE
 **Biological**: Brain (Cortex)

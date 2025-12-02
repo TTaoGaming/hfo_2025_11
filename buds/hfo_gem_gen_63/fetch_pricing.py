@@ -1,3 +1,12 @@
+"""
+---
+holon:
+  id: hfo-bf141b37
+  type: unknown
+  file: fetch_pricing.py
+  status: active
+---
+"""
 from duckduckgo_search import DDGS
 import json
 

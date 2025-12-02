@@ -1,3 +1,12 @@
+"""
+---
+holon:
+  id: hfo-60d28d8f
+  type: unknown
+  file: audit_gen63.py
+  status: active
+---
+"""
 import asyncio
 import logging
 import sys

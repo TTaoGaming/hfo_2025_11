@@ -1,3 +1,12 @@
+"""
+---
+holon:
+  id: hfo-ed172e1d
+  type: unknown
+  file: fs_adapter.py
+  status: active
+---
+"""
 import aiofiles
 import os
 import logging

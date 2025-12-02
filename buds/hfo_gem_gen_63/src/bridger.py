@@ -1,3 +1,12 @@
+"""
+---
+holon:
+  id: hfo-c41371e4
+  type: implementation
+  file: bridger.py
+  status: active
+---
+"""
 import sys
 import os
 import importlib.util

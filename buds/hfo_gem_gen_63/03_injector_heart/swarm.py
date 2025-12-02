@@ -1,3 +1,12 @@
+"""
+---
+holon:
+  id: hfo-145f9bbc
+  type: unknown
+  file: swarm.py
+  status: active
+---
+"""
 import asyncio
 import logging
 import os

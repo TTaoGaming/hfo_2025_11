@@ -1,3 +1,12 @@
+"""
+---
+holon:
+  id: hfo-09be58b6
+  type: unknown
+  file: assimilator.py
+  status: active
+---
+"""
 import os
 import logging
 import sys

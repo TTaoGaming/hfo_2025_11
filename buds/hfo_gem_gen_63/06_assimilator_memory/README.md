@@ -1,3 +1,11 @@
+---
+holon:
+  id: hfo-1deea160
+  type: unknown
+  file: README.md
+  status: active
+---
+
 # 06 Assimilator (Memory) Organ
 **Role**: MEMORY
 **Biological**: Memory (Mycelium)

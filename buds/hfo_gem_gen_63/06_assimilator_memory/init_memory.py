@@ -1,3 +1,12 @@
+"""
+---
+holon:
+  id: hfo-42ee0955
+  type: unknown
+  file: init_memory.py
+  status: active
+---
+"""
 import sqlite3
 import lancedb
 import os

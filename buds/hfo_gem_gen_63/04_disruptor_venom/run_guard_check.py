@@ -1,3 +1,12 @@
+"""
+---
+holon:
+  id: hfo-0b116de0
+  type: unknown
+  file: run_guard_check.py
+  status: active
+---
+"""
 import sys
 import os
 from buds.hfo_gem_gen_63.carapace.guard_knowledge_structure import KnowledgeStructureGuard

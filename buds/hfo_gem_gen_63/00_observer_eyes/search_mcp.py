@@ -1,3 +1,12 @@
+"""
+---
+holon:
+  id: hfo-15312ce5
+  type: server
+  file: search_mcp.py
+  status: active
+---
+"""
 try:
     from mcp.server.fastmcp import FastMCP
 except ImportError:

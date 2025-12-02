@@ -1,3 +1,11 @@
+---
+holon:
+  id: hfo-40ea25dd
+  type: unknown
+  file: README.md
+  status: active
+---
+
 # 🐍 HFO Gen 63: The Hydra Platform
 
 > **Status**: Active Construction

@@ -1,3 +1,12 @@
+"""
+---
+holon:
+  id: hfo-c719c163
+  type: implementation
+  file: config.py
+  status: active
+---
+"""
 import os
 import yaml
 from pydantic_settings import BaseSettings

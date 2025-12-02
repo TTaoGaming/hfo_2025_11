@@ -1,3 +1,11 @@
+---
+holon:
+  id: hfo-fee5f8d6
+  type: intent
+  file: theology_obsidian_spider.md
+  status: active
+---
+
 # 🕸️ The Theology of the Obsidian Spider
 > **Status**: Draft / Workshopping
 > **Archetype**: Chaos God of Lawful Good

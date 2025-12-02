@@ -1,3 +1,12 @@
+"""
+---
+holon:
+  id: hfo-049489b0
+  type: unknown
+  file: cleaner.py
+  status: active
+---
+"""
 import os
 import sys
 import logging

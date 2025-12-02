@@ -1,3 +1,12 @@
+"""
+---
+holon:
+  id: hfo-c8800e51
+  type: implementation
+  file: research_agent.py
+  status: active
+---
+"""
 import sys
 import os
 import importlib.util

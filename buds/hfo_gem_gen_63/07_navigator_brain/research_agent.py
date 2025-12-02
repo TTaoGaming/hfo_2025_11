@@ -1,3 +1,12 @@
+"""
+---
+holon:
+  id: hfo-00e78944
+  type: intent
+  file: research_agent.py
+  status: active
+---
+"""
 import os
 import sys
 from openai import OpenAI

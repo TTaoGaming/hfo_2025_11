@@ -1,12 +1,22 @@
+"""
+---
+holon:
+  id: hfo-91b45699
+  type: unknown
+  file: check_fitness.py
+  status: active
+---
+"""
 import sys
 import os
 from buds.hfo_gem_gen_63.carapace.guard_knowledge_structure import KnowledgeStructureGuard
 
 def main():
-    brain_path = os.path.abspath("buds/hfo_gem_gen_63/brain")
-    print(f"🛡️  Running Evo-Devo Fitness Function on: {brain_path}")
+    # Point to the Bud Root (hfo_gem_gen_63)
+    bud_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+    print(f"🛡️  Running Evo-Devo Fitness Function on: {bud_root}")
     
-    guard = KnowledgeStructureGuard(brain_path)
+    guard = KnowledgeStructureGuard(bud_root)
     errors = guard.validate()
     
     if errors:

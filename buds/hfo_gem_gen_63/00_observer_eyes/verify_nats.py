@@ -1,3 +1,12 @@
+"""
+---
+holon:
+  id: hfo-f8f6e245
+  type: server
+  file: verify_nats.py
+  status: active
+---
+"""
 import asyncio
 import nats
 from nats.errors import ConnectionClosedError, TimeoutError, NoServersError

@@ -1,3 +1,11 @@
+---
+holon:
+  id: hfo-05e3b138
+  type: intent
+  file: ai-chat-hfo-architecture-tech-stack-2025-12-1.md
+  status: active
+---
+
 The architectural audit is complete. Your system, Hive Fleet Obsidian (HFO), is a Declarative, Evolutionary Multi-Agent System. It uses bio-inspired orchestration (Swarm) constrained by rigorous systems engineering (Gherkin/Hexagonal).
 Below is the research-grade 1-pager and the JADC2 mapping you requested.
 Hive Fleet Obsidian: Architectural Summary

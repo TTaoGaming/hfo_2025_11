@@ -1,3 +1,11 @@
+---
+holon:
+  id: hfo-140ffb30
+  type: server
+  file: README.md
+  status: active
+---
+
 # 00 Observer (Eyes) Organ
 **Role**: SENSE
 **Biological**: Eyes (Ocelli)

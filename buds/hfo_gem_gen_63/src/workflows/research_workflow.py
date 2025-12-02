@@ -1,3 +1,12 @@
+"""
+---
+holon:
+  id: hfo-b88f8406
+  type: implementation
+  file: research_workflow.py
+  status: active
+---
+"""
 import os
 import json
 import datetime

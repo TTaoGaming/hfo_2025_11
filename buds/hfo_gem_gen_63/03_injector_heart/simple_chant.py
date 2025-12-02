@@ -1,3 +1,12 @@
+"""
+---
+holon:
+  id: hfo-f4943333
+  type: unknown
+  file: simple_chant.py
+  status: active
+---
+"""
 #!/usr/bin/env python3
 """
 Simple Hexadex Chant (Simplified Version)

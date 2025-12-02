@@ -1,3 +1,11 @@
+---
+holon:
+  id: hfo-d26b26e2
+  type: unknown
+  file: README.md
+  status: active
+---
+
 # 05 Immunizer (Carapace) Organ
 **Role**: DEFEND
 **Biological**: Carapace (Exoskeleton)

@@ -1,3 +1,11 @@
+---
+holon:
+  id: hfo-cf88e5c6
+  type: unknown
+  file: README.md
+  status: active
+---
+
 # 04 Disruptor (Venom) Organ
 **Role**: TEST
 **Biological**: Venom (Lysosomes)

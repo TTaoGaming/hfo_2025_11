@@ -1,3 +1,12 @@
+"""
+---
+holon:
+  id: hfo-c29a352b
+  type: unknown
+  file: stigmergy_loop.py
+  status: active
+---
+"""
 import asyncio
 import logging
 import sys
