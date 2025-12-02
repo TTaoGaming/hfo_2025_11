@@ -1,0 +1,44 @@
+# HFO Gen 63 Organ Registry
+# Enforces the Fractal Octree Architecture
+# Intent: buds/hfo_gem_gen_63/brain/feature_structure_registry.feature
+
+organs:
+  brain:
+    path: brain/
+    description: "Navigator: Intent, Strategy, Gherkin, Manifestos"
+    allowed_extensions: [".md", ".feature", ".json"]
+    
+  eyes:
+    path: eyes/
+    description: "Observer: Sensors, NATS Listeners, API Clients"
+    allowed_extensions: [".py", ".yaml"]
+
+  memory:
+    path: memory/
+    description: "Bridger: Knowledge Graph, LanceDB, SQLite, Docs"
+    allowed_extensions: [".md", ".json", ".lance", ".db", ".py"]
+
+  forge:
+    path: forge/
+    description: "Shaper: MCP Servers, CLI Tools, Automation Scripts"
+    allowed_extensions: [".py", ".sh", ".js", ".ts"]
+
+  pulse:
+    path: pulse/
+    description: "Injector: Heartbeat, Main Loop, Schedulers"
+    allowed_extensions: [".py"]
+
+  venom:
+    path: venom/
+    description: "Disruptor: Unit Tests, Red Team, Chaos Monkey"
+    allowed_extensions: [".py", ".sh"]
+
+  carapace:
+    path: carapace/
+    description: "Immunizer: Config, Pydantic Models, Security Policies"
+    allowed_extensions: [".py", ".yaml", ".env"]
+
+  digest:
+    path: digest/
+    description: "Assimilator: Ingestion Scripts, ETL Pipelines"
+    allowed_extensions: [".py"]

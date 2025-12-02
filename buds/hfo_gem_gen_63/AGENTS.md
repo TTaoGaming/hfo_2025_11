@@ -182,6 +182,7 @@ The system must be **Self-Regenerating**.
 ## 🧠 Mini Blackboard (Active Context)
 > **Current Focus**: Protocol Refraction & Audit Readiness.
 > **Cycle**: Recursive Refraction (Source -> Architect -> Scribe -> Library).
+> **Directive**: **Hexagonal Architecture**. No Vendor Lock-in. Endlessly Adaptable.
 
 | Role | Status | Current Task | Memory State | KCS Status |
 | :--- | :--- | :--- | :--- | :--- |
@@ -191,11 +192,65 @@ The system must be **Self-Regenerating**.
 | **Assimilator** | 🟢 Active | Delta Ingestion Complete. | **Head-Heavy** (95% Core) | **Captured** |
 | **Refractor** | 🟡 Working | **Refracting Memory to Library** | **Crystallizing** | **In Progress** |
 
+### 📝 SOTA Synthesis Notes (High Signal)
+*   **Body Plan**: JADC2 Mapping (Sense -> Make Sense -> Act).
+*   **Nervous System**: Phoenix Protocol (Crash-Only CQRS). SQLite = Truth.
+*   **Brain**: Evolution (GGGP) > Learning. MAP-Elites for Diversity.
+*   **Immune System**: 3f+1 Byzantine Consensus (2 Traitors allowed).
+*   **Traversal**: Indra's Net (State-Action Manifold).
+
+### 🚨 Incident Log (Gen 63)
+| ID | Date | Type | Description | Resolution |
+| :--- | :--- | :--- | :--- | :--- |
+| **INC-63-001** | 2025-12-01 | **Process Violation** | Agent attempted to implement `ingest_brain.py` and modify `bridger.py` before Design was stabilized. | **Reverted**. Enforced "Intent First" protocol. |
+| **INC-63-002** | 2025-12-01 | **Discovery** | "HYDRA" acronym was missing. Found "P.L.A.T.F.O.R.M." in Gen 55 memory. | **Formalized**. Created `intent_techstack_obsidian.md` (O.B.S.I.D.I.A.N.). |
+| **INC-63-003** | 2025-12-01 | **Architecture** | Shifted from "Custom Tools" to **MCP (Model Context Protocol)**. | **Standardized**. Updated `requirements.txt` and Intent. |
+| **INC-63-004** | 2025-12-01 | **Synthesis** | Ingested "SOTA Architecture" notes. | **Captured**. Added to Mini Blackboard & Design. |
 
 ---
 
-## 🎭 Agent Roles
-*   **Navigator (0)**: The Swarmlord (User). Sets Intent.
-*   **Bridger (2)**: The Interface. Connects Hot (NATS) and Cold (DB).
-*   **Shaper (3)**: The Worker. Executes tools (Ray/Python).
-*   **Assimilator (7)**: The Memory. Digests Hot signals into Cold wisdom.
+## 📦 Handoff Notes (Gen 63 -> Gen 64)
+> **Status**: Ready for Handoff.
+> **Context**: The "Cleanroom Consolidation" is complete. We have defined the Architecture, Stack, and Roles.
+
+### 1. The O.B.S.I.D.I.A.N. Stack (The Tech)
+We have formalized the stack in `buds/hfo_gem_gen_63/brain/intent_techstack_obsidian.md`.
+*   **O**rchestrator: **Temporal** (Durable Execution).
+*   **B**us: **NATS JetStream** (Async Messaging).
+*   **S**chema: **Pydantic** (Validation).
+*   **I**ntelligence: **LangGraph** (Cognitive Loops).
+*   **D**atabase: **LanceDB** (Vector Memory).
+*   **I**nterface: **MCP** (Model Context Protocol).
+*   **A**nalytics: **OpenTelemetry** (Observability).
+*   **N**odes: **Ray** (Distributed Compute).
+
+### 2. The JADC2 Roles (The Agents)
+We have mapped the 8 Pillars to JADC2 functions.
+*   **Observer** (Sense) -> **Bridger** (Connect) -> **Analyzer** (Make Sense) -> **Navigator** (Decide) -> **Shaper** (Act) -> **Immunizer** (Defend) -> **Disruptor** (Test) -> **Infuser** (Sustain).
+
+### 3. The Phoenix Protocol (The Data)
+*   **Crash-Only CQRS**: SQLite is the Source of Truth. LanceDB is a disposable View.
+*   **Regeneration**: If Memory is corrupted, we burn the Vector DB and replay the SQLite logs.
+
+### 4. The MCP Shift (The Interface)
+*   **Standardization**: All Tools (Sensors/Effectors) must be exposed as **MCP Servers**.
+*   **No Vendor Lock-in**: The Brain (LLM) connects to the Body (MCP) via standard JSON-RPC.
+
+### 5. Next Actions (For the Next Session)
+1.  **Implement MCP Servers**: Create `src/servers/` and build the `sqlite-mcp` and `fetch-mcp` servers.
+2.  **Update Registry**: Modify `REGISTRY.yaml` to enforce the new JADC2 directory structure.
+3.  **Deploy Phoenix**: Implement the `burn_and_regenerate()` function in the Assimilator.
+
+---
+
+## 🎭 Agent Roles (JADC2 Mapping)
+*   **Observer (Ontos)**: **SENSE**. Monitors telemetry and inputs.
+*   **Bridger (Logos)**: **CONNECT**. Manages the NATS Bus and MCP Interfaces.
+*   **Shaper (Techne)**: **ACT**. Executes tools and modifies the environment.
+*   **Immunizer (Ethos)**: **DEFEND**. Validates inputs/outputs via Pydantic.
+*   **Disruptor (Pathos)**: **RED TEAM**. Intentionally injects faults to test resilience.
+*   **Infuser (Chronos)**: **SUSTAIN**. Manages resources (Tokens/Compute).
+*   **Analyzer (Topos)**: **MAKE SENSE**. Fuses data into Knowledge Graphs.
+*   **Navigator (Telos)**: **DECIDE**. The Swarmlord/User Intent.
+
+```
