@@ -45,8 +45,10 @@ async def check_heartbeat():
             last_beat = datetime.fromisoformat(timestamp_str)
 
             # Get current time in the same timezone (or UTC for comparison)
-            # Since last_beat has offset info, we can compare with now(utc)
-            now = datetime.now(timezone.utc)
+            if last_beat.tzinfo is None:
+                now = datetime.now()
+            else:
+                now = datetime.now(timezone.utc)
 
             # Calculate difference
             diff = now - last_beat

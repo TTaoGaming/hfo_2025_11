@@ -1,44 +1,52 @@
-# 🦅 Hive Fleet Obsidian: Gen 50 Stack (Phoenix Protocol)
+# 🦅 Hive Fleet Obsidian: Gen 63 Stack (O.B.S.I.D.I.A.N.)
 
-# --- The Brain (Agent Logic) ---
+# --- O: Orchestrator (Navigator) ---
+temporalio>=1.4.0       # Durable Execution (The Manager)
+
+# --- B: Bus (Bridger) ---
+nats-py>=2.6.0          # NATS JetStream Client
+
+# --- S: Schema (Immunizer) ---
+pydantic>=2.5.0         # The "Intent" Layer (SSOT)
+pydantic-settings>=2.0.0 # Settings Management
+instructor>=1.0.0       # Structured Output (Pydantic <-> LLM)
+
+# --- I: Intelligence (Shaper) ---
 langgraph>=0.0.10       # SOTA State Machines (PREY Loop)
 langchain>=0.1.0        # Main LangChain Package
 langchain-openai>=0.0.5 # OpenRouter/OpenAI Integration
-pydantic>=2.5.0         # The "Intent" Layer (SSOT)
-pydantic-settings>=2.0.0 # Settings Management
+dspy-ai>=2.5.0          # DSPy for Prompt Optimization
 
-# --- The Nervous System (Messaging & Memory) ---
-nats-py>=2.6.0          # NATS JetStream Client
+# --- D: Database (Assimilator) ---
 lancedb>=0.5.0          # Vector Database (Cold Stigmergy)
 asyncpg>=0.29.0         # Async Postgres Driver
 psycopg2-binary>=2.9.9  # Sync Postgres Driver (for tools)
 pgvector>=0.2.4         # PGVector Python Client
 sqlalchemy>=2.0.0       # ORM (Optional but recommended)
 
-# --- The Factory (Orchestration & Scale) ---
-temporalio>=1.4.0       # Durable Execution (The Manager)
-ray>=2.9.0              # Distributed Compute (The Swarm)
+# --- I: Interface (Sensors/Effectors) ---
+mcp>=0.1.0              # Model Context Protocol (Core)
 
-# --- The Eyes (Observability) ---
+# --- A: Analytics (Observer) ---
+opentelemetry-api>=1.20.0
+opentelemetry-sdk>=1.20.0
+opentelemetry-exporter-otlp>=1.20.0
 langsmith>=0.1.0        # Tracing & Debugging (Essential)
 
-# --- The Forge (Evolution) ---
+# --- N: Nodes (Injector) ---
+ray>=2.9.0              # Distributed Compute (The Swarm)
+
+# --- The Forge (Evolution & Utils) ---
 ribs>=0.5.0             # MAP-Elites (Quality-Diversity)
 numpy>=1.26.0           # Math for evolution
-
-# --- Utilities ---
 python-dotenv>=1.0.0    # Config
 pytest>=8.0.0           # Testing
 pytest-bdd>=7.0.0       # Behavior Driven Development (Gherkin)
 pytest-asyncio>=0.23.0  # Async testing
-dspy-ai>=2.0.0          # DSPy for Prompt Optimization
 tiktoken>=0.5.0         # Token counting
 PyYAML>=6.0.0           # Configuration
-dspy-ai>=2.5.0
 pre-commit>=3.5.0
-instructor>=1.0.0       # Structured Output (Pydantic <-> LLM)
 openai>=1.0.0           # Direct OpenAI Client
-mcp>=0.1.0              # Model Context Protocol
 duckduckgo-search>=5.0.0  # Real Web Search
 numexpr>=2.8.0          # Safe Calculation
 rich>=13.0.0            # Terminal UI

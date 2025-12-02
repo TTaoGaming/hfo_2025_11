@@ -3,20 +3,20 @@ holon:
   id: hfo-root-pointer
   type: pointer
   status: active
-  target: buds/hfo_gem_gen_61
-  generation: 61
+  target: buds/hfo_gem_gen_63
+  generation: 63
   author: Swarmlord
 ---
 
-# 🕷️ Hive Fleet Obsidian: The Obsidian Triad (Gen 61)
+# 🕷️ Hive Fleet Obsidian: The Obsidian Triad (Gen 63)
 
 > **⚠️ SYSTEM NOTICE**: The Root has moved. The Active System is growing in the **Bud**.
-> **Active Location**: [`buds/hfo_gem_gen_61/`](buds/hfo_gem_gen_61/)
-> **Manifesto**: [`buds/hfo_gem_gen_61/brain/manifesto_gen_61.md`](buds/hfo_gem_gen_61/brain/manifesto_gen_61.md)
+> **Active Location**: [`buds/hfo_gem_gen_63/`](buds/hfo_gem_gen_63/)
+> **Manifesto**: [`buds/hfo_gem_gen_63/AGENTS.md`](buds/hfo_gem_gen_63/AGENTS.md)
 
 ## 💉 The Inoculation (System Context)
 
-You are interacting with **Hive Fleet Obsidian (HFO)**, specifically **Generation 61**.
+You are interacting with **Hive Fleet Obsidian (HFO)**, specifically **Generation 63**.
 We are currently executing the **Gemmation Protocol** (Budding).
 
 ### 1. What is HFO?
@@ -46,15 +46,15 @@ The system is composed of **Holons** arranged in a **Fractal Octree**.
 *   **🌱 Gemmation Protocol**: New features grow in the `buds/` directory. The Old Body supports the Bud until it is viable.
 *   **🧼 Cleanroom Genesis**: **Intent First**. Write Gherkin (`.feature`) -> Run Genesis -> Write Code. Never write code without Intent.
 *   **🔥 Phoenix Protocol**: **Burn & Regenerate**. If a component drifts, destroy it and regenerate it from the Intent.
-*   **⚡ OODA Superaccelerator**: **Decision to Decision**. The Swarmlord presents 4 Validated Options. The User Selects. The Web Grows. (See `buds/hfo_gem_gen_61/brain/intent_ooda_superaccelerator.md`)
+*   **⚡ Hydra Platform**: **Clean. Consolidate. Test.** We are building the minimal robust engine for Gen 64. (See `buds/hfo_gem_gen_63/brain/intent_techstack_obsidian.md`)
 
 ---
 
 ## 🚀 Agent Instructions
 
-1.  **Go to the Bud**: All active development happens in `buds/hfo_gem_gen_60/`.
+1.  **Go to the Bud**: All active development happens in `buds/hfo_gem_gen_63/`.
 2.  **Read the Manifesto**: Understand the "Obsidian Spider" persona.
 3.  **Respect the Architecture**: Do not violate the Octree or Hexagonal structure.
-4.  **Query the Oracle**: If lost, use `buds/hfo_gem_gen_60/brain/bridger_oracle.py` to query the Memory.
+4.  **Query the Oracle**: If lost, use `buds/hfo_gem_gen_63/src/query_memory.py` to query the Memory.
 
 > *The Spider weaves the web, but the Web holds the Spider.*

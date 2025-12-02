@@ -33,9 +33,16 @@ class IngestWorker:
         
         # Create a Pull Subscription
         # Durable consumer ensures we don't lose work if we crash
+        # Try to delete existing consumer to clear 'filtered consumer not unique' error
+        try:
+            await self.stigmergy.js.delete_consumer("HFO_INGEST", "ingest_worker_1")
+            logger.info("🗑️ Deleted existing consumer 'ingest_worker_1'")
+        except Exception:
+            pass
+
         psub = await self.stigmergy.js.pull_subscribe("hfo.ingest.raw", durable="ingest_worker_1")
         
-        logger.info("👂 Listening for Ingest Tasks...")
+        logger.info("👂 Listening for Ingest Tasks (Consumer: ingest_worker_1)...")
         
         while self.running:
             try:

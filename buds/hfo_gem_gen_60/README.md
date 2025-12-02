@@ -37,17 +37,24 @@ The core identity protocol is encoded in the **Hexadex Chant**, a 16-verse "Bloc
 
 > **System**: Hive Fleet Obsidian (Gen 60)
 > **Format**: YAML Stigmergy (Machine/Human Readable)
-> **Access**: Read/Write (Agents & Overmind)
-
-# 📋 HFO Gen 60 Mini-Blackboard
-
-> **System**: Hive Fleet Obsidian (Gen 60)
-> **Format**: YAML Stigmergy (Machine/Human Readable)
-> **Access**: Read/Write (Agents & Overmind)
+> **Rule**: **APPEND ONLY**. Do not delete history.
 
 ```yaml
 stigmergy:
   id: hfo-gen-60-blackboard
+  logs:
+    - timestamp: "2025-11-29T19:10:20Z"
+      type: "INCIDENT_LOG"
+      actor: "Swarmlord"
+      event: "HEARTBEAT_ACTIVATION"
+      details: "HFO Gen 60 Heartbeat (PREY 1181) successfully activated in Anti-Fragile Mode. Cycle confirmed: 1 Perceive -> 1 React -> 8 Execute -> 1 Yield."
+      status: "ACTIVE"
+    - timestamp: "2025-11-29T19:25:00Z"
+      type: "INCIDENT_LOG"
+      actor: "Swarmlord"
+      event: "MEMORY_INGESTION_FIX"
+      details: "Resolved NATS consumer conflict ('filtered consumer not unique') in Ingest Worker. Successfully ingested Gen 60 artifacts (README, Heartbeat Code) into Iron Ledger."
+      status: "RESOLVED"
   type: control_plane
   status: active
   cycle: 6
