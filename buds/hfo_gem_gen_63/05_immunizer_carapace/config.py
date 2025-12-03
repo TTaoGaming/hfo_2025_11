@@ -2,9 +2,10 @@
 ---
 holon:
   id: hfo-588595b7
-  type: unknown
+  type: implementation
   file: config.py
   status: active
+  intent: buds/hfo_gem_gen_63/brain/intent_immunizer_config.md
 ---
 """
 import os
@@ -38,7 +39,8 @@ class Settings(BaseSettings):
     # Defaults to Registry, falls back to safe defaults if registry missing
     MODEL_REASONING: str = registry_data.get("champions", {}).get("reasoning", {}).get("primary", "openai/gpt-4o")
     MODEL_CODING: str = registry_data.get("champions", {}).get("coding", {}).get("primary", "anthropic/claude-3-5-sonnet")
-    MODEL_EMBEDDING: str = registry_data.get("champions", {}).get("embedding", {}).get("primary", "openai/text-embedding-3-small")
+    # FIX: Default to Local Nomic Embedding for Gen 63 Compatibility
+    MODEL_EMBEDDING: str = registry_data.get("champions", {}).get("embedding", {}).get("local", "nomic-embed-text")
     
     # Memory
     LANCEDB_PATH: str = "buds/hfo_gem_gen_63/06_assimilator_memory/lancedb"
@@ -53,6 +55,10 @@ class Settings(BaseSettings):
         extra = "ignore"
 
 settings = Settings()
+
+if __name__ == "__main__":
+    print(f"Loaded Settings for HFO Gen {settings.GENERATION} in {settings.ENV} mode.")
+    print(f"Champion (Reasoning): {settings.MODEL_REASONING}")
 
 if __name__ == "__main__":
     print(f"Loaded Settings for HFO Gen {settings.GENERATION} in {settings.ENV} mode.")

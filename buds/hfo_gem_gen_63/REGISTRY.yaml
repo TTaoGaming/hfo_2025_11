@@ -18,7 +18,7 @@ champions:
   
   embedding:
     primary: "openai/text-embedding-4-large"
-    local: "nomic-embed-text-v2"
+    local: "nomic-embed-text"
 
   fast:
     primary: "qwen/qwen3-next-80b-a3b-instruct" # FinOps King ($0.10/M)

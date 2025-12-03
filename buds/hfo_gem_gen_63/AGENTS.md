@@ -26,6 +26,51 @@ holon:
 
 ---
 
+## 🚨 Incident Log (Mini Blackboard)
+
+### 👁️ Perception Snapshot (Gen 63 Memory Diagnosis)
+**Date**: 2025-12-02
+**Observer**: GitHub Copilot (Gemini 3 Pro)
+**Status**: 🟢 **REALITY RESTORED**
+
+**The Fixes**:
+1.  **Theater Exorcised**: `activities.py` no longer returns hardcoded strings. It calls `memory_client.py`.
+2.  **Model Alignment**: `memory_mcp.py` and `memory_client.py` now use **Ollama (Local)** with `nomic-embed-text`. The OpenAI dependency has been removed from the execution path.
+3.  **Registry Corrected**: `REGISTRY.yaml` updated to point to `nomic-embed-text` (removed invalid `v2` tag).
+4.  **Verification**: `test_memory_client.py` successfully retrieved 5 records from LanceDB.
+
+**The Phoenix Protocol**:
+*   **Anchor**: `hfo.db` (SQLite) is present (488MB) and safe.
+*   **Memory**: LanceDB is active and queryable via the local model.
+
+### 🟢 Incident: The Freeze (Temporal/Rich Deadlock)
+**Date**: 2025-12-02
+**Status**: **RESOLVED**
+**Resolution**: Removed `rich` logging from `worker.py`, `activities.py`, and `workflows.py`. The worker now starts successfully and listens to the queue.
+**Lesson**: UI libraries (Observer/Shaper) must not leak into Execution Logic (Injector/Brain).
+
+### 🔴 Incident: Core Dump (OMP Error)
+**Date**: 2025-12-02
+**Status**: **Critical**
+**Symptoms**:
+*   Worker crashes immediately upon receiving a task.
+*   Log: `OMP: Error #13: Assertion failure at kmp_affinity.cpp(642)`.
+**Root Cause**: Threading conflict between OpenMP (used by LanceDB/PyTorch) and Temporal's async loop.
+**Fix**: Set `KMP_DUPLICATE_LIB_OK=TRUE` or disable affinity in `worker.py` before imports.
+
+### 📊 Matrix: Real vs Theater (Gen 63)
+| Component | Status | Implementation | Notes |
+| :--- | :--- | :--- | :--- |
+| **Navigator (Brain)** | 🟢 **Real** | `intelligence.py` (LangGraph + OpenAI) | Logic is real, currently blocked by runtime crash. |
+| **Observer (Eyes)** | 🟢 **Real** | `search_mcp.py` (DuckDuckGo) | Fully functional. |
+| **Bridger (Nerves)** | 🟢 **Real** | `bridger.py` + `nats_adapter.py` | Connects to real NATS server (Port 4225). |
+| **Assimilator (Memory)** | 🟡 **Mixed** | `memory_mcp.py` (LanceDB) | Code is real, but causing the OMP Core Dump. |
+| **Injector (Heart)** | 🟢 **Real** | `worker.py` (Temporal) | Connects to real Temporal server. |
+| **Memory Search** | 🎭 **Theater** | `activities.py` | Hardcoded string: `"[MEMORY] No prior records found..."`. |
+| **Memory Ingest** | 🎭 **Theater** | N/A | No active ingestion pipeline in this Bud yet. |
+
+---
+
 ## 🎯 The Mission
 **"Clean. Consolidate. Test."**
 
@@ -291,6 +336,15 @@ Inside `3_resources/`, we crystallize knowledge for RAG:
 | **I**ntelligence | **LangGraph** | `swarm.py` (Custom Class) | 🔴 **Missing Framework** |
 | **I**nterface | **MCP** | `bridger.py` (Direct Calls) | 🔴 **Missing Protocol** |
 
+### 🚨 INCIDENT REPORT [2025-12-02 18:55]
+> **Status**: **SYSTEM FREEZE / STACK FAILURE**
+> **Finding**: The Tech Stack (Temporal + NATS + Worker) failed to initialize correctly, causing the Client to hang indefinitely.
+> **Root Cause**:
+> 1.  **Temporal**: Container failed to start due to missing `POSTGRES_SEEDS` env var and DB driver mismatch (`postgresql` vs `postgres12`).
+> 2.  **Worker**: Python `ImportError` (relative imports) when running inside Temporal Sandbox.
+> 3.  **Client**: Hung waiting for a result from a dead worker.
+> **Action**: **STOP ALL**. Kill switch activated. Manual review required.
+
 ### 🚨 GAP ANALYSIS REPORT [2025-12-02]
 > **Status**: **THEATER DETECTED**
 > **Finding**: The AI is bypassing the OBSIDIAN architecture (Temporal, NATS, LangGraph) and writing "Flat Scripts" in disguise.
@@ -306,8 +360,14 @@ Inside `3_resources/`, we crystallize knowledge for RAG:
 
 ### 🛠️ Immediate Tactical Plan (The Fix)
 1.  **Kill `src/config.py`**: Move to `05_immunizer_carapace/config.py`.
+    *   *Status*: ✅ Complete
 2.  **Implement NATS**: Rewrite `01_bridger_nerves/bridger.py` to actually use `nats-py`.
+    *   *Status*: ✅ Complete
 3.  **Implement Temporal**: Rewrite `07_navigator_brain/research_agent.py` as a Workflow.
+    *   *Status*: ✅ Complete
+4.  **Implement MCP Servers**: Canalize access via `bridger_mcp.py` and `memory_mcp.py`.
+    *   *Status*: ✅ Complete
+    *   *Action*: Created Intent `intent_mcp_servers.md`. Implemented `bridger_mcp.py` and `memory_mcp.py`. Added `guard_mcp.py` to enforce usage.
 
 ### 🛠️ Immediate Tactical Plan (The Fix)
 1.  **Upgrade Bridger**: Move from `nomic-embed-text` (Cosine) to **OpenAI + Social Spider Optimization (SSO)**.
@@ -333,6 +393,32 @@ Inside `3_resources/`, we crystallize knowledge for RAG:
 
 ### 🚨 Incident Log (Gen 63)
 | ID | Date | Type | Description | Resolution |
+| :--- | :--- | :--- | :--- | :--- |
+| **INC-63-001** | 2025-12-02 | **Stack Failure** | Temporal/NATS/Worker freeze due to config/import errors. | **Kill Switch**. Cynefin Analysis initiated. |
+
+## 🧠 Cynefin Analysis: The "Freeze" Incident
+
+We have broken down the situation into three domains to guide the resolution.
+
+### 1. Clear (Simple) - "Best Practice"
+*   **Problem**: Docker Configuration Errors.
+*   **Context**: `docker-compose.yml` had mismatched DB drivers (`postgresql` vs `postgres12`) and missing seeds.
+*   **Solution**: Use the standard `temporalio/auto-setup` configuration.
+*   **Action**: Validate `docker-compose.yml` against official docs.
+
+### 2. Complicated (Expert) - "Good Practice"
+*   **Problem**: Python Import Hell (`ImportError`).
+*   **Context**: The `buds/hfo_gem_gen_63` deep nesting combined with `src/` proxies and Temporal's pickle-based serialization caused the Worker to fail when importing activities.
+*   **Solution**: Re-package the agent code as a proper Python module or flatten the import structure for the Worker.
+*   **Action**: Create a `setup.py` or adjust `PYTHONPATH` robustly.
+
+### 3. Complex (Emergent) - "Probe-Sense-Respond"
+*   **Problem**: "The Freeze" (Deadlock).
+*   **Context**: The Client hung indefinitely because the Worker died silently in the background, and the Temporal Server was in a restart loop. The system provided no feedback.
+*   **Solution**: **Observability First**. Run components in foreground terminals. Implement timeouts in the Client.
+*   **Action**: Do not use `&` (background) for the Worker until it is stable.
+
+---
 | :--- | :--- | :--- | :--- | :--- |
 | **INC-63-001** | 2025-12-01 | **Process Violation** | Agent attempted to implement `ingest_brain.py` and modify `bridger.py` before Design was stabilized. | **Reverted**. Enforced "Intent First" protocol. |
 | **INC-63-002** | 2025-12-01 | **Discovery** | "HYDRA" acronym was missing. Found "P.L.A.T.F.O.R.M." in Gen 55 memory. | **Formalized**. Created `intent_techstack_obsidian.md` (O.B.S.I.D.I.A.N.). |
