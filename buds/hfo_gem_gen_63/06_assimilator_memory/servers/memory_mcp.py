@@ -38,12 +38,6 @@ class MemoryItem(LanceModel):
     category: str
     timestamp: str
 
-class MemoryItem(LanceModel):
-    text: str = embedding_func.SourceField()
-    vector: Vector(embedding_func.ndims()) = embedding_func.VectorField()
-    category: str
-    timestamp: str
-
 # Connect to DB
 db = lancedb.connect(settings.LANCEDB_PATH)
 TABLE_NAME = "memories" # Correct table name for Gen 63

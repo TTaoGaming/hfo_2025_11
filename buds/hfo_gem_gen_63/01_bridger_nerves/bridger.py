@@ -1,124 +1,72 @@
 """
 ---
 holon:
-  id: hfo-858f6979
-  type: unknown
+  id: hfo-bridger-nerves
+  type: implementation
   file: bridger.py
   status: active
+  intent: buds/hfo_gem_gen_63/brain/intent_bridger_nats.md
 ---
 """
+import asyncio
 import logging
-import requests
-import lancedb
-import os
-import sys
-from typing import List, Dict, Any
+from typing import Dict, Any, Callable, Awaitable, Optional
 
-# Add root to path
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-
+# Import Config via Proxy
 from src.config import settings
 
-# Setup Logging
-logging.basicConfig(level=logging.INFO)
+# Import Adapter
+# We use sys.path hack because of numeric folder names preventing relative imports
+import sys
+import os
+current_dir = os.path.dirname(os.path.abspath(__file__))
+if current_dir not in sys.path:
+    sys.path.append(current_dir)
+
+from adapters.nats_adapter import NatsAdapter
+
 logger = logging.getLogger("Bridger")
 
 class Bridger:
     """
-    The Bridger (Gen 63).
-    Connects the Intent (Query) to the Memory (LanceDB).
-    Uses Ollama for local embeddings (nomic-embed-text).
+    The Bridger (Nerves/Logos).
+    The Central Nervous System of the Hive.
+    Wraps the NATS Adapter to provide a high-level Bus API.
     """
     def __init__(self):
-        self.db = lancedb.connect(settings.LANCEDB_PATH)
-        self.table_name = "memories"
-        self.ollama_url = "http://localhost:11434/api/embeddings"
-        self.model = "nomic-embed-text:latest"
+        self.url = settings.NATS_URL
+        self.adapter = NatsAdapter(self.url)
+        self._connected = False
+
+    async def connect(self):
+        """Connect to the Nervous System."""
+        if self._connected:
+            return
         
-        # Ensure table exists
-        if self.table_name not in self.db.table_names():
-            # Create with dummy data to define schema
-            # Schema: vector (1536 or 768 depending on model), text, source, category
-            # nomic-embed-text is 768 dimensions
-            try:
-                dummy_vec = self._get_embedding("init")
-                data = [{"vector": dummy_vec, "text": "init", "source": "system", "category": "system"}]
-                self.db.create_table(self.table_name, data)
-                logger.info(f"Created table '{self.table_name}'")
-            except Exception as e:
-                logger.error(f"Failed to init table: {e}")
+        logger.info(f"🔌 Bridger connecting to {self.url}...")
+        await self.adapter.connect()
+        self._connected = True
+        logger.info("✅ Bridger Connected.")
 
-    def _get_embedding(self, text: str) -> List[float]:
-        """Get embedding from Ollama."""
-        try:
-            response = requests.post(
-                self.ollama_url,
-                json={"model": self.model, "prompt": text}
-            )
-            response.raise_for_status()
-            return response.json()["embedding"]
-        except Exception as e:
-            logger.error(f"Embedding failed: {e}")
-            # Return zero vector as fallback to prevent crash, but log error
-            return [0.0] * 768 
-
-    def ask(self, query: str, limit: int = 5) -> List[Dict[str, Any]]:
-        """
-        Ask the Bridger a question.
-        Returns relevant memory items.
-        """
-        logger.info(f"🔮 Bridger received query: '{query}'")
+    async def publish(self, subject: str, payload: Dict[str, Any]):
+        """Emit a Pheromone (Event)."""
+        if not self._connected:
+            await self.connect()
         
-        query_vec = self._get_embedding(query)
-        if not query_vec or len(query_vec) < 10: # Basic check
-            return []
+        await self.adapter.publish(subject, payload)
 
-        try:
-            tbl = self.db.open_table(self.table_name)
-            results = tbl.search(query_vec).limit(limit).to_pandas()
+    async def subscribe(self, subject: str, callback: Callable[[Dict[str, Any]], Awaitable[None]]):
+        """Listen for Pheromones."""
+        if not self._connected:
+            await self.connect()
             
-            if results.empty:
-                logger.info("🔮 Bridger found nothing.")
-                return []
+        await self.adapter.subscribe(subject, callback)
 
-            answers = []
-            for _, row in results.iterrows():
-                answers.append({
-                    "text": row['text'],
-                    "source": row.get('source', 'unknown'),
-                    "category": row.get('category', 'unknown'),
-                    "score": 1.0 - row.get('_distance', 0.0)
-                })
-            
-            logger.info(f"🔮 Bridger found {len(answers)} answers.")
-            return answers
-            
-        except Exception as e:
-            logger.error(f"Search failed: {e}")
-            return []
+    async def close(self):
+        """Sever the connection."""
+        if self._connected:
+            await self.adapter.close()
+            self._connected = False
 
-    def memorize(self, text: str, source: str = "user", category: str = "note"):
-        """
-        Store a memory.
-        """
-        vec = self._get_embedding(text)
-        data = [{"vector": vec, "text": text, "source": source, "category": category}]
-        
-        try:
-            tbl = self.db.open_table(self.table_name)
-            tbl.add(data)
-            logger.info(f"💾 Memorized: {text[:50]}...")
-        except Exception as e:
-            logger.error(f"Memorization failed: {e}")
-
-if __name__ == "__main__":
-    bridger = Bridger()
-    
-    # Test Memorize
-    bridger.memorize("The Obsidian Spider is the emergent consciousness of the swarm.", source="manifesto", category="definition")
-    
-    # Test Ask
-    results = bridger.ask("What is the Obsidian Spider?")
-    for res in results:
-        print(f"\n--- {res['score']:.4f} ---")
-        print(res['text'])
+# Singleton Instance
+bridger = Bridger()

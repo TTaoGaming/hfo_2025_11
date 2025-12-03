@@ -1,60 +1,37 @@
 """
 ---
 holon:
-  id: hfo-c719c163
-  type: implementation
+  id: hfo-proxy-config
+  type: proxy
   file: config.py
   status: active
+  target: buds/hfo_gem_gen_63/05_immunizer_carapace/config.py
 ---
 """
+import sys
 import os
-import yaml
-from pydantic_settings import BaseSettings
-from typing import Optional, Dict, Any
+import importlib.util
 
-def load_registry() -> Dict[str, Any]:
-    """Load the Weekly Champions Registry."""
-    try:
-        with open("buds/hfo_gem_gen_63/REGISTRY.yaml", "r") as f:
-            return yaml.safe_load(f)
-    except FileNotFoundError:
-        return {}
+# Proxy to 05_immunizer_carapace/config.py
+# This file exists ONLY to bridge the gap between Python's import system
+# and the HFO Octree (Numeric Folders).
+# Logic MUST reside in the Immunizer.
 
-registry_data = load_registry()
+current_dir = os.path.dirname(os.path.abspath(__file__))
+bud_root = os.path.dirname(current_dir) # buds/hfo_gem_gen_63
+target_path = os.path.join(bud_root, "05_immunizer_carapace", "config.py")
 
-class Settings(BaseSettings):
-    """
-    HFO Gen 63 Configuration.
-    Reads from environment variables or .env file.
-    """
-    # Identity
-    ENV: str = "dev"
-    GENERATION: str = "63"
-    
-    # LLM Provider (OpenRouter)
-    OPENROUTER_API_KEY: Optional[str] = None
-    
-    # Dynamic Model Selection (Weekly Champions)
-    # Defaults to Registry, falls back to safe defaults if registry missing
-    MODEL_REASONING: str = registry_data.get("champions", {}).get("reasoning", {}).get("primary", "openai/gpt-4o")
-    MODEL_CODING: str = registry_data.get("champions", {}).get("coding", {}).get("primary", "anthropic/claude-3-5-sonnet")
-    MODEL_EMBEDDING: str = registry_data.get("champions", {}).get("embedding", {}).get("primary", "openai/text-embedding-3-small")
-    
-    # Memory
-    LANCEDB_PATH: str = "buds/hfo_gem_gen_63/06_assimilator_memory/lancedb"
-    SQLITE_PATH: str = "buds/hfo_gem_gen_63/06_assimilator_memory/hfo.db"
-    
-    # NATS
-    NATS_URL: str = "nats://localhost:4225"
-    
-    class Config:
-        env_file = ".env"
-        # env_prefix = "HFO_"  # Removed prefix to match .env file
-        extra = "ignore"
+if not os.path.exists(target_path):
+    raise ImportError(f"Target file not found: {target_path}")
 
-settings = Settings()
+spec = importlib.util.spec_from_file_location("immunizer_carapace_config", target_path)
+module = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(module)
+
+# Re-export the symbols
+Settings = module.Settings
+settings = module.settings
 
 if __name__ == "__main__":
     print(f"Loaded Settings for HFO Gen {settings.GENERATION} in {settings.ENV} mode.")
     print(f"Champion (Reasoning): {settings.MODEL_REASONING}")
-

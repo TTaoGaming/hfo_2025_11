@@ -5,99 +5,99 @@ holon:
   type: intent
   file: research_agent.py
   status: active
+  intent: buds/hfo_gem_gen_63/brain/intent_navigator_temporal.md
 ---
 """
-import os
-import sys
-from openai import OpenAI
-from typing import List, Dict
+import asyncio
+import logging
+from temporalio.client import Client
+from temporalio.worker import Worker
 
-# Add root to path
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-
+# Import Config via Proxy
 from src.config import settings
-from src.bridger import Bridger
-from src.search_tool import search_web
+
+# Import Workflow & Activities
+# Handle numeric folder import issue
+try:
+    from .workflows import ResearchWorkflow
+    from .activities import search_memory, search_web_activity, synthesize_report
+except ImportError:
+    # Fallback for when running with sys.path hack
+    from workflows import ResearchWorkflow
+    from activities import search_memory, search_web_activity, synthesize_report
+
+logger = logging.getLogger("ResearchAgent")
 
 class ResearchAgent:
     """
-    The Research Agent (Gen 63).
-    Combines Internal Memory (Bridger) with External Intelligence (LLM)
-    to answer complex questions and propose upgrades.
+    The Research Agent (Navigator Client).
+    Submits workflows to the Temporal Cluster.
     """
     def __init__(self):
-        self.bridger = Bridger()
-        
-        api_key = settings.OPENROUTER_API_KEY or os.environ.get("OPENROUTER_API_KEY")
-        if not api_key:
-            raise ValueError("OPENROUTER_API_KEY not found.")
-            
-        self.client = OpenAI(
-            base_url="https://openrouter.ai/api/v1",
-            api_key=api_key,
-        )
-        self.model = settings.MODEL_REASONING
+        self.client = None
 
-    def research(self, query: str) -> str:
-        """
-        Conducts research on a query.
-        1. Search Internal Memory.
-        2. Search External Web (MCP).
-        3. Synthesize with LLM.
-        """
-        print(f"🕵️ Researching: {query}")
-        
-        # 1. Recall from Memory
-        memories = self.bridger.ask(query, limit=5)
-        memory_str = "\n\n".join([f"--- Source: {m['source']} ---\n{m['text']}" for m in memories])
-        
-        # 2. Search Web (The Scout)
-        print(f"🕷️ Scouting External Web for: {query}")
-        web_results = search_web(query, max_results=3)
-        
-        context_str = f"""
-        INTERNAL MEMORY:
-        {memory_str if memory_str else "No internal memory found."}
-        
-        EXTERNAL WEB (2025):
-        {web_results}
-        """
+    async def connect(self):
+        """Connect to Temporal Server."""
+        # Default to localhost:7233
+        self.client = await Client.connect("localhost:7233")
+        logger.info("🔌 Connected to Temporal.")
+
+    async def run_worker(self):
+        """Run a local worker (for development/POC)."""
+        if not self.client:
+            await self.connect()
             
-        # 3. Synthesize with LLM
-        prompt = f"""
-        You are the Obsidian Spider (Gen 63), an advanced AI system.
-        
-        USER QUERY: {query}
-        
-        CONTEXT:
-        {context_str}
-        
-        INSTRUCTIONS:
-        Synthesize the answer using both internal memory and external web results.
-        Cite your sources.
-        1. Analyze the user's query.
-        2. Use the internal memory to ground your answer in the current system architecture (Gen 63).
-        3. If the user asks for upgrades or new features, propose a plan that fits the "Hydra Platform" philosophy (Clean, Consolidated, Stigmergic).
-        4. Be specific about technical implementation (Python, NATS, Ray, etc.).
+        worker = Worker(
+            self.client,
+            task_queue="hfo-research-queue",
+            workflows=[ResearchWorkflow],
+            activities=[search_memory, search_web_activity, synthesize_report],
+        )
+        logger.info("👷 Starting Temporal Worker...")
+        await worker.run()
+
+    async def research(self, query: str) -> str:
         """
+        Submit a Research Workflow.
+        """
+        if not self.client:
+            await self.connect()
+            
+        logger.info(f"🚀 Submitting Workflow: {query}")
         
-        try:
-            completion = self.client.chat.completions.create(
-                model=self.model,
-                messages=[
-                    {"role": "system", "content": "You are the Obsidian Spider. You are helpful, technical, and precise."},
-                    {"role": "user", "content": prompt}
-                ]
-            )
-            return completion.choices[0].message.content
-        except Exception as e:
-            return f"❌ Research Failed: {e}"
+        result = await self.client.execute_workflow(
+            ResearchWorkflow.run,
+            query,
+            id=f"research-{query.replace(' ', '-').lower()[:30]}",
+            task_queue="hfo-research-queue",
+        )
+        
+        return result
 
 if __name__ == "__main__":
+    # Simple CLI for testing
     agent = ResearchAgent()
     
-    # Test with the user's specific request
-    query = "I want to build a hypercasual local multiplayer game with evolutionary tuning using OpenCV/MediaPipe. How can HFO Gen 63 support this?"
-    response = agent.research(query)
-    print("\n🕷️ OBSIDIAN SPIDER REPORT:\n")
-    print(response)
+    async def main():
+        # Start worker in background
+        worker_task = asyncio.create_task(agent.run_worker())
+        
+        # Wait a bit for worker to spin up
+        await asyncio.sleep(2)
+        
+        # Run query
+        try:
+            result = await agent.research("What is the Model Context Protocol?")
+            print("\n\n=== 🕷️ RESEARCH REPORT ===\n")
+            print(result)
+            print("\n==========================\n")
+        finally:
+            # Cancel worker
+            worker_task.cancel()
+            try:
+                await worker_task
+            except asyncio.CancelledError:
+                pass
+
+    logging.basicConfig(level=logging.INFO)
+    asyncio.run(main())

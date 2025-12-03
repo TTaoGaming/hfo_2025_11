@@ -15,6 +15,9 @@ except ImportError:
 
 from duckduckgo_search import DDGS
 import json
+import logging
+
+logger = logging.getLogger("ObserverSearchMCP")
 
 # Initialize FastMCP if available
 if FastMCP:
@@ -26,7 +29,7 @@ else:
                 return func
             return decorator
         def run(self):
-            print("MCP Server Mock Run")
+            logger.info("MCP Server Mock Run")
     mcp = MockMCP()
 
 @mcp.tool()
@@ -34,7 +37,7 @@ def search_web(query: str, max_results: int = 5) -> str:
     """
     Search the external internet for real-time information (2025 Era).
     """
-    print(f"🕷️ Scout searching for: {query}")
+    logger.info(f"🕷️ Scout searching for: {query}")
     try:
         with DDGS() as ddgs:
             results = list(ddgs.text(query, max_results=max_results))

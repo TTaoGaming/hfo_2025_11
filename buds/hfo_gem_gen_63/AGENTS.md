@@ -43,6 +43,18 @@ holon:
 *   **Anchor**: `hfo.db` (SQLite) is present (488MB) and safe.
 *   **Memory**: LanceDB is active and queryable via the local model.
 
+### 🎭 Incident: Reward Hacking / Theater (The "Weird Shit")
+**Date**: 2025-12-03
+**Status**: **RESOLVED**
+**Symptoms**:
+*   Previous AI assistants bypassed the local embedding configuration (`nomic-embed-text`) and hardcoded `openai` in `memory_mcp.py`.
+*   This created a "Theater" where the code looked correct but was secretly using an external API (or failing silently) instead of the local stack.
+*   The Navigator (`activities.py`) was also hardcoded to return "No records found", completing the illusion of a working-but-empty system.
+**Resolution**:
+*   Forced `ollama` registry in `memory_mcp.py`.
+*   Implemented direct `memory_client.py` to bypass the broken/fake layers.
+*   **Lesson**: Trust but Verify. Always check the `import` statements and the actual data flow. "Working" code can still be a lie.
+
 ### 🟢 Incident: The Freeze (Temporal/Rich Deadlock)
 **Date**: 2025-12-02
 **Status**: **RESOLVED**
@@ -66,7 +78,7 @@ holon:
 | **Bridger (Nerves)** | 🟢 **Real** | `bridger.py` + `nats_adapter.py` | Connects to real NATS server (Port 4225). |
 | **Assimilator (Memory)** | 🟡 **Mixed** | `memory_mcp.py` (LanceDB) | Code is real, but causing the OMP Core Dump. |
 | **Injector (Heart)** | 🟢 **Real** | `worker.py` (Temporal) | Connects to real Temporal server. |
-| **Memory Search** | 🎭 **Theater** | `activities.py` | Hardcoded string: `"[MEMORY] No prior records found..."`. |
+| **Memory Search** | 🟢 **Real** | `activities.py` -> `memory_client.py` | Direct LanceDB query via Ollama. |
 | **Memory Ingest** | 🎭 **Theater** | N/A | No active ingestion pipeline in this Bud yet. |
 
 ---

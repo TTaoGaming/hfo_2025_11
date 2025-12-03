@@ -11,7 +11,13 @@ import nats
 import json
 import logging
 from typing import Any, Dict, Callable, Awaitable
-from ..core.ports import EventBusPort
+
+# Handle numeric folder import issue
+try:
+    from ..core.ports import EventBusPort
+except ImportError:
+    # Fallback for when running with sys.path hack
+    from core.ports import EventBusPort
 
 logger = logging.getLogger("NatsAdapter")
 

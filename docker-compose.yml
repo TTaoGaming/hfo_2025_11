@@ -1,20 +1,20 @@
-hexagon:
-  ontos:
-    id: a92b4153-8df4-4785-aca7-145bc2173dbc
-    type: yml
-    owner: Swarmlord
-  chronos:
-    status: active
-    urgency: 0.5
-    decay: 0.5
-    created: '2025-11-23T11:06:38.160961Z'
-    generation: 51
-  topos:
-    address: docker-compose.yml
-    links: []
-  telos:
-    viral_factor: 0.0
-    meme: docker-compose.yml
+# hexagon:
+#   ontos:
+#     id: a92b4153-8df4-4785-aca7-145bc2173dbc
+#     type: yml
+#     owner: Swarmlord
+#   chronos:
+#     status: active
+#     urgency: 0.5
+#     decay: 0.5
+#     created: '2025-11-23T11:06:38.160961Z'
+#     generation: 51
+#   topos:
+#     address: docker-compose.yml
+#     links: []
+#   telos:
+#     viral_factor: 0.0
+#     meme: docker-compose.yml
 
 version: '3.8'
 
@@ -29,33 +29,35 @@ services:
     volumes:
       - nats_data:/data
 
-  # --- The Memory (Database) ---
-  postgres:
-    image: ankane/pgvector:latest
-    ports:
-      - "5435:5432"  # Mapped to safe port 5435
-    environment:
-      POSTGRES_USER: hfo
-      POSTGRES_PASSWORD: hfo_password
-      POSTGRES_DB: hfo_memory
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-
   # --- The Factory (Orchestration) ---
   temporal:
     image: temporalio/auto-setup:latest
     ports:
-      - "7235:7233"  # Mapped to safe port 7235
+      - "7233:7233"  # Default gRPC port
       - "8233:8233"  # UI
     environment:
-      - DB=postgresql
+      - DB=postgres12
       - DB_PORT=5432
-      - POSTGRES_USER=hfo
-      - POSTGRES_PWD=hfo_password
-      - POSTGRES_SEEDS=postgres
+      - POSTGRES_USER=temporal
+      - POSTGRES_PWD=temporal
+      - POSTGRES_SEEDS=postgres-temporal
+      - POSTGRES_DB=temporal
     depends_on:
-      - postgres
+      - postgres-temporal
 
+  postgres-temporal:
+    image: postgres:13
+    environment:
+      - POSTGRES_USER=temporal
+      - POSTGRES_PASSWORD=temporal
+      - POSTGRES_DB=temporal
+    volumes:
+      - postgres_temporal_data:/var/lib/postgresql/data
+
+  # --- The Memory (Vector DB) ---
+  # Note: LanceDB is embedded (file-based), so no service needed.
+  # But we can run a Postgres for relational data if needed.
+  
 volumes:
   nats_data:
-  postgres_data:
+  postgres_temporal_data:

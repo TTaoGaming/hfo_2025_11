@@ -9,6 +9,13 @@
         "NATS_URL": "nats://localhost:4225",
         "POSTGRES_DSN": "postgresql://hfo:hfo_password@localhost:5435/hfo_memory"
       }
+    },
+    "obsidian-memory": {
+      "command": "/home/tommytai3/hive_fleet_obsidian_2025_11/buds/hfo_gem_gen_63/start_memory_mcp.sh",
+      "args": [],
+      "env": {
+        "PYTHONPATH": "/home/tommytai3/hive_fleet_obsidian_2025_11:/home/tommytai3/hive_fleet_obsidian_2025_11/buds/hfo_gem_gen_63"
+      }
     }
   }
 }
